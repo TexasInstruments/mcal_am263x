@@ -1,0 +1,2741 @@
+## ETH Module
+
+### Acronyms and Definitions
+
+|Abbreviation/Term|Explanation|
+|------|------|
+|AUTOSAR|Automotive Open System Architecture|
+|BSW|Basic Software|
+|MCAL|Micro Controller Abstraction Layer|
+|DET|Default Error Tracer|
+|EC |Ethernet controller|
+|Eth |Ethernet Controller Driver (AUTOSAR BSW module)|
+|EthIf|Ethernet Interface (AUTOSAR BSW module)|
+|EthTrcv|Ethernet Transceiver Driver (AUTOSAR BSW module)|
+|ISR|Interrupt Service Routine|
+|OS|Operating System|
+|MCG|Module Configuration Generator|
+|MII|Media Independent Interface (standardized Interface provided by Ethernet controllers to access Ethernet transceivers)|
+|TCP|Transmission Control Protocol|
+|UDP|User Datagram Protocol|
+
+### Introduction
+
+This document describes the functionality and configuration of the AUTOSAR BSW module Ethernet. The Ethernet driver is a hardware abstraction layer with a standardized interface to the Ethernet Interface layer.
+
+|Supported AUTOSAR Release|**4.3.1**|
+|------|-------------|
+|**Supported Configuration Variants**  | **Pre-Compile time, Link-time, post-build time**|
+|**Vendor ID**                         | **ETH_VENDOR_ID (44)**|
+|**Module ID**                         | **ETH_MODULE_ID (88)**|
+|**Supported Platform**                | **AM263x**|
+
+### Functional Overview
+
+The Ethernet module initializes and controls the Ethernet CPSW subsystem. It provides services to configure all transmit / receive resources of Ethernet controller to enable transfer of Ethernet frames. It supports polling and the interrupt modes. It provides
+configurations for
+
+- Initialization of Ethernet controller.
+- Configure receive/transmit and error interrupts.
+- Enable 10/100/1000 Mbps transfer.
+- Configuration of PHYs through MDIO functions.
+
+#### Driver Architecture
+
+The following figure shows where the ETHERNET is located in the AUTOSAR architecture.
+
+```{figure} Assets/images/eth/eth_image2.png
+:alt: Ethernet in AUTOSAR architecture
+:align: center
+Ethernet in AUTOSAR architecture
+```
+
+Below figure shows Ethernet driver in Ethernet stack module.
+
+```{figure} Assets/images/eth/eth_image3.png
+:alt: Ethernet stack module overview
+:align: center
+Ethernet stack module overview
+```
+
+#### Initialization
+
+Eth_Init() has to be called to initialize the Ethernet driver.
+
+#### States and Modes
+
+The states and modes of the Ethernet driver define whether the Ethernet driver is operational or not. There are two states in which the Ethernet hardware/driver can be in.
+
+1. **ETH_STATE_UNINIT**: This is the state when the Driver is not yet configured.
+2. **ETH_STATE_INIT**: This is the state when the Driver is configured and initialization was successful.
+
+There are 2 modes in which the Ethernet driver can be in.
+
+1. **ETH_MODE_DOWN**: This is the mode when the driver/controller is disabled.
+2. **ETH_MODE_ACTIVE**: This is the mode when the driver/controller is enabled.
+
+The states and modes coexist. Whenever the ETH_STATE_INIT is reached by the driver then the mode of the driver also changes to ETH_MODE_ACTIVE. The modes of the driver can be changed by the API Eth_SetControllerMode.
+
+#### Assumptions
+
+1. The Ethernet BSW stack is intended to be used wherever high data rates are required but no hard real-time is required. Of course, it can also be used for less demanding use cases, i.e. for low data rates.
+
+2. For using DMA feature, driver assumes that cache initialization is done in application only and not done by the driver.
+
+#### Limitations
+
+1. The Ethernet Driver module is only able to handle a single thread of execution. The execution must not be pre-empted by itself.
+
+2. It is not possible to transmit data which exceeds the available buffer size of the used controller. Longer data has to be transmitted using the Internet Protocol (IP) or Transmission Control Protocol (TCP).
+
+#### Design overview
+
+Will be updated in next release
+
+### Hardware Features
+
+#### IP Supported Features
+
+* Two Ethernet ports (Port 1/Port 2) with selectable MII, RMII, and RGMII interfaces and a single internal Communications Port Programming Interface (CPPI) port (Port 0).
+* Management Data Input/Output (MDIO) module for PHY Management with Clause 45 support.
+* Support for IEEE 1588 Clock Synchronization (2008 Annex D, Annex E and Annex F).
+* 512 ALE table entries with configurable number of addresses plus VLANs
+* VLAN support
+* Synchronous 10/100/1000 Mbit operation with Flexible logical FIFO-based packet buffer structure
+    1. Full duplex mode supported in 10/100/1000 Mbps modes
+    2. Half-duplex mode supported in 10/100 Mbps modes only
+
+#### AUTOSAR Supported Features
+
+* The below Autosar Api’s supported
+    1. Eth_Init
+    2. Eth_SetControllerMode
+    3. Eth_GetControllerMode
+    4. Eth_WriteMii
+    5. Eth_ReadMii
+    6. Eth_GetPhysAddr
+    7. Eth_ProvideTxBuffer : Priority option not supported.
+    8. Eth_Transmit
+    9. Eth_Receive : Priority option not supported.
+    10. Eth_TxConfirmation
+    11. Eth_GetVersionInfo
+    12. Eth_UpdatePhysAddrFilter
+    13. Eth_SetPhysAddr
+    14. Eth_GetCounterValues
+    15. Eth_GetRxStats
+    16. Eth_GetCurrentTime
+    17. Eth_EnableEgressTimeStamp
+    18. Eth_GetEgressTimeStamp
+    19. Eth_GetIngressTimeStamp
+    20. Eth_GetTxStats
+    21. Eth_GetTxErrorCounterValues
+    22. Eth_MainFunction
+    23. Eth_ProvideTxBuffer
+    24. Eth_Receive
+
+#### Not supported Features
+
+##### ETH Features not supported in Hardware
+
+* GMII Mode
+* SGMII Mode
+* Half Duplex in 1000 Mbps
+* Synchronous Ethernet
+* Time Sensitive Network Support IEEE P802.3br/D2.0 Interspersing Express Traffic
+
+##### Supported in Hardware but not supported by Software
+
+* Eight priority level Quality Of Service (QOS) support (802.1p)
+* Support for Audio/Video Bridging (P802.1Qav/D6.0)
+* DSCP Priority Mapping (IPv4 and IPv6)
+* Energy Efficient Ethernet (EEE) support (802.3az)
+* Receive-based or destination-based Multicast and Broadcast rate limits
+* RAM Error Detection and Correction (SECDED)
+* CPSW Switch not implemented.(MCAL eth driver supports a single mac port with option to select the mac port in MCAL configuration)
+
+#### Non compliance
+
+##### Deviations to requirements (Requirement Traceability)
+
+###### Deviation of requirements against AUTOSAR specification requirements
+
+Will be updated in next release
+
+### Source files
+
+Static source C Files are defined below
+
+📦AM263x\
+ ┣ 📂build\
+ ┣ 📂mcal\
+ ┃ ┣ 📂**Eth**\
+ ┃ ┃ ┣ 📂**include**\
+ ┃ ┃ ┃ ┣ 📜**Eth.h** : *Contains the APIs of the ETH driver to be used by upper layers.*\
+ ┃ ┃ ┃ ┣ 📜**Eth_Irq.h** : *Contains ISR function declaration.*\
+ ┃ ┃ ┃ ┣ 📜**Eth_Types.h** : *Contains include header files.*\
+ ┃ ┃ ┣ 📂**src**\
+ ┃ ┃ ┃ ┣ 📂**cpsw**\
+ ┃ ┃ ┃ ┃ ┣ 📂**include**\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw.h** : *Internal header files.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw_Ale.h** : *Internal header files.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw_Cpdma.h** : *Internal header files.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw_Cpts.h** : *Internal header files.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw_Mdio.h** : *Internal header files.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw_Port.h** : *Internal header files.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw_Priv.h** : *Internal header files.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw_Stats.h** : *Internal header files.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw_Types.h** : *Internal header files.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Eth_Priv.h** : *Internal header files.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw.c** : *Contains module private functions used by main APIs.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw_Ale.c** : *Contains module private functions used by main APIs.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw_Cpdma.c** : *Contains module private functions used by main APIs.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw_Cpts.c** : *Contains module private functions used by main APIs.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw_Mdio.c** : *Contains module private functions used by main APIs.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw_Port.c** : *Contains module private functions used by main APIs.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**Cpsw_Stats.c** : *Contains module private functions used by main APIs.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**Eth_Priv.c** : *Contains module private functions used by main APIs.*\
+ ┃ ┃ ┃ ┣ 📂**hw**\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Hw_Cpsw.h** : *Contains Register address and operational macros.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Hw_Cpsw_Ale.h** : *Contains Register address and operational macros.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Hw_Cpsw_Cpdma.h** : *Contains Register address and operational macros.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Hw_Cpsw_Cpts.h** : *Contains Register address and operational macros.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Hw_Cpsw_Mdio.h** : *Contains Register address and operational macros.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Hw_Cpsw_Port.h** : *Contains Register address and operational macros.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Hw_Cpsw_Ss.h** : *Contains Register address and operational macros.*\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Hw_Cpsw_Stats.h** : *Contains Register address and operational macros.*\
+ ┃ ┃ ┃ ┣ 📜**Eth.c** : *Contains the implementation of the ETH driver to be used by upper layers.*\
+ ┃ ┃ ┃ ┣ 📜**Eth_Irq.c** : *Eth Interrupt service routines.*\
+ ┃ ┃ ┣ 📂**V0**\
+ ┃ ┃ ┃ ┗ 📜**Eth_Helpers.c** : *contains platform-dependent helper functions for ETH MCAL driver*\
+ ┃ ┃ ┃ ┣ 📜**Eth_Helpers.h** : *contains platform-dependent helper function declarations for ETH MCAL driver*\
+ ┃ ┃ ┗ 📜Makefile\
+ ┃ 📂mcal_config\
+ ┃ 📂mcal_docs\
+ ┃ 📜README.txt
+
+Plugin files are defined below in the table.
+
+|Plugin Files|Description|
+|------|------|
+|Eth_Cfg.h|Contains the pre-compiler switches.|
+|Eth_PBcfg.c|Contains all channels Post-Build Configured parameters |
+|Eth_Cfg.c|Contains all channels Pre-Compile Configured parameters|
+|Eth_Lcfg.c|Contains all channels Link time Configured parameters|
+
+```{figure} Assets/images/eth/eth_image5.png
+:alt: Eth header file include structure
+:align: center
+Eth header file include structure
+```
+
+### Module requirements
+
+Will be updated in next release
+
+#### Memory Mapping
+
+The objects (e.g., variables, functions, constants) are declared by compiler independent definitions – the compiler abstraction definitions.
+Each compiler abstraction definition is assigned to a memory section. The following table contains the memory section names and the compiler
+abstraction definitions defined for the Ethernet and illustrate their assignment among each other.
+
+| Compiler Abstraction Definitions / Memory Mapping Sections| ETH_CODE | ETH_VAR | ETH_VAR_NOINIT | ETH_CONST | ETH_APPL_DATA | ETH_APPL_CODE |
+|------------|----------|---------|-----------|-----------|----------|------------|
+| ETH_START_SEC_VAR_INIT_UNSPECIFIED (.data) |          | x       |          |           |          |           |
+| ETH_STOP_SEC_VAR_INIT_UNSPECIFIED  |          | x       |          |           |          |           |
+| ETH_START_SEC_CODE (.text)  | x        |         |   |        |           |              |
+| ETH_STOP_SEC_CODE    | x        |         |            |        |           |           |
+| ETH_START_SEC_VAR_NO_INIT_UNSPECIFIED (.bss)   |          |         | x          |           |            |           |
+| ETH_STOP_SEC_VAR_NO_INIT_UNSPECIFIED  |          |        | x            |        |          |                |
+| ETH_START_SEC_CONST_UNSPECIFIED (.const)   |          |         |          | x        |          |           |
+| ETH_STOP_SEC_CONST_UNSPECIFIED    |        |         |        | x         |         |           |
+| ETH_START_SEC_ISR_CODE (.text)   | x        |         |                |           |        |           |
+| ETH_STOP_SEC_ISR_CODE    | x        |       |      |      |       |        |
+| For application code used by ETH (like callback functions) |      |      |      |      |        | x       |
+
+#### Scheduling
+
+|Schedule Function API|Description|
+|------------|---------------|
+|Eth_MainFunction|The function checks for controller errors and lost frames. Used for polling state changes. Calls EthIf_CtrlModeIndication when the controller mode changed.|
+
+#### Error handling
+
+##### DET Errors
+
+The errors reported to DET module are described in the following table:
+
+| Type of Error    | Related Error code  | Value (Hex) |
+|----------------|--------------|------------------------|
+| API service called with wrong controller index    | ETH_E_INV_CTRL_IDX |0x1  |
+| API service called when controller is not initialized   | ETH_E_UNINIT  |0x2  |
+| API is called with wrong pointer value (e.g., NULL pointer) | ETH_E_PARAM_POINTER|0x3  |
+| API service called with wrong / inconsistent parameter(s) | ETH_E_INV_PARAM  |0x4  |
+| API service called with wrong / inconsistent controller mode| ETH_E_INV_MODE   |0x5   |
+
+The following table shows which parameter checks are performed on which services:
+
+| Services   | ETH_E_UNINIT | ETH_E_INV_CTRL_IDX | ETH_E_INV_PARAM | ETH_E_PARAM_POINTER | ETH_E_INIT_FAILED | ETH_E_INV_MODE |
+|-------------------------|--------------|--------------------|-----------------|---------------------|-------------------|----------------|
+| Eth_Init                |              |                    | x               | x                   |                   |                |
+| Eth_SetControllerMode   | x         | x                  |                 |                     |                   |                |
+| Eth_GetControllerMode  | x       | x                  |                 | x                   |                   |                |
+| Eth_GetPhysAddr      | x         | x                  |                 | x                   |                   |                |
+| Eth_SetPhysAddr         | x         | x              |                 | x                   |                   |                |
+| Eth_UpdatePhysAddrFilter| x        | x                  |                 | x                   |                   |                |
+| Eth_WriteMii        | x         | x                  |                 |                     |                   |                |
+| Eth_ReadMii          | x           | x                  |                 |                     |                   |                |
+| Eth_GetCounterValues    | x            | x                  |                 | x                   |                   |                |
+| Eth_GetRxStats       | x            | x                  |                 | x                   |                   |                |
+| Eth_GetTxStats       | x            | x                  |                 | x                   |                   |                |
+| Eth_GetTxErrorCounterValues| x         | x            |                 | x                   |                   |                |
+| Eth_GetCurrentTime      | x            | x                  |                 | x                   |                   |                |
+| Eth_EnableEgressTimeStamp| x           | x             |                 | x                   |                   |                |
+| Eth_GetEgressTimeStamp  | x            | x                  |                 | x                   |                   |                |
+| Eth_GetIngressTimeStamp | x            | x              |                 | x                   |                   |                |
+| Eth_ProvideTxBuffer    | x            | x                  |                 | x                   |                   |                |
+| Eth_Transmit    | x            | x           | x               | x                   | x                 | x              |
+| Eth_Receive      | x            | x                  |                 | x                   |                   | x              |
+| Eth_TxConfirmation     | x            | x                  |                 |                     |                   | x              |
+| Eth_MainFunction      | x            |                 |                 |                     |                   |                |
+| Eth_GetVersionInfo    |              |                    |                 | x                   |                   |                |
+| Eth_SetBandwidthLimit   | x            | x                  | x               |                     |                   |                |
+| Eth_GetBandwidthLimit   | x            | x                  | x               | x                   |                   |                |
+
+##### Runtime Errors
+
+There are no runtime errors.
+
+##### DEM Errors
+
+The errors reported to DEM are described in the following table:
+
+| DEM       | Error Code         | Description                 |
+|----------------|-----------------------|-----------------------------------------------------------------------------------------|
+| Assigned by DEM| ETH_E_ACCESS   | This error is raised when monitoring the access to the Ethernet Controller fails.  |
+| Assigned by DEM| ETH_E_RX_FRAMES_LOST | This error is raised when the loss of Ethernet frames during reception is detected.   |
+| Assigned by DEM| ETH_E_CRC   | This error is raised when the invalid Ethernet frames during reception is detected.   |
+| Assigned by DEM| ETH_E_UNDERSIZEFRAME | This error is raised when the undersized Ethernet frames during reception is detected.  |
+| Assigned by DEM| ETH_E_OVERSIZEFRAME | This error is raised when the oversized Ethernet frames during reception is detected.   |
+| Assigned by DEM| ETH_E_ALIGNMENT  | This error is raised when the misaligned Ethernet frames during reception is detected.  |
+| Assigned by DEM| ETH_E_SINGLECOLLISION| This error is raised when the single Ethernet frame collision is detected.       |
+| Assigned by DEM| ETH_E_MULTIPLECOLLISION| This error is raised when the multiple Ethernet frames collision is detected.    |
+| Assigned by DEM| ETH_E_LATECOLLISION  | This error is raised when the Ethernet frames late collision is detected.         |
+
+### Used resources
+
+#### Interrupt Handling
+
+Four interrupt routines are provided by the Ethernet driver. Basically, the ISR’s are in the Eth_Irq.c. User might edit it for
+adapting for the suitable OS. The current support is for the NON-OS Interrupts structure. The integrator has to map the interrupt service
+routines to the interrupt sources of the respective ETHERNET unit interrupt.
+
+Following are ISRs for each hardware unit:
+
+| HW Interrupt    | HW Interrupt ID | SW ISR for ETH module | Description                       |
+|--------------------|-----------------|-----------------------|-------------------------------|
+| CPSW_FH_INT  | 12         | Eth_TxIrqHdlr_0       | FHost (from host to Ethernet) paced pulse interrupt.     |
+| CPSW_TH_INT    | 13          | Eth_RxIrqHdlr_0       | THost (from Ethernet to host) paced pulse interrupt.       |
+| CPSW_TH_TRSH_INT  | 14         | Eth_RxThreshIrqHdlr_0 | THost (from Ethernet to host) non-paced pulse interrupt.   |
+| CPSW_MISC_INT  | 15           | Eth_MiscIrqHdlr_0     | Miscellaneous (statistics, host error and MDIO interrupts) non-paced pulse interrupt.|
+
+### Integration description
+
+#### Dependent modules
+
+##### MCU
+
+The module MCU powers up the microcontrollers peripherals at startup time and initializes the PLL and the internal clock domains which go to the Ethernet unit. Interrupt crossbar configuration and mapping of interrupts to core also taken care by MCU.
+
+##### PORT
+
+For PORT (IO PAD) configuration of Ethernet module PORT driver is used. Multiple configurations are available depending on Ethernet port used and mode of operation (like MII, RMII and RGMII).
+
+##### OSEK / AUTOSAR OS (Optional)
+
+An operating system can be used for task scheduling, interrupt handling, global suspend and restore of interrupts and creating of the Interrupt Vector Table.
+The Ethernet module may use OSEK/AUTOSAR OS to suspend and restore global interrupts.
+
+Apart from AUTOSAR OS module OS Counter Id can be configured from the Eth configuration.
+
+##### DET
+
+The module Ethernet depends on the DET (by default) to report development errors. Detection and reporting of development errors can be enabled or disabled by the switch "Enable Development Error Detection" on the tab "General Settings" within the module Ethernet.
+
+The following table represents the service IDs:
+
+| Service ID | Service       |
+|------------|---------------------|
+| 0x01     | Eth_Init            |
+| 0x03     | Eth_SetControllerMode    |
+| 0x04    | Eth_GetControllerMode    |
+| 0x05     | Eth_WriteMii         |
+| 0x06    | Eth_ReadMii        |
+| 0x08     | Eth_GetPhysAddr             |
+| 0x09      | Eth_ProvideTxBuffer         |
+| 0x0A       | Eth_Transmit          |
+| 0x0B    | Eth_Receive          |
+| 0x0C       | Eth_TxConfirmation          |
+| 0x0D     | Eth_GetVersionInfo          |
+| 0x12     | Eth_UpdatePhysAddrFilter    |
+| 0x13       | Eth_SetPhysAddr             |
+| 0x14       | Eth_GetCounterValues        |
+| 0x15    | Eth_GetRxStats              |
+| 0x16       | Eth_GetCurrentTime          |
+| 0x17       | Eth_EnableEgressTimeStamp   |
+| 0x18   | Eth_GetEgressTimeStamp      |
+| 0x19       | Eth_GetIngressTimeStamp     |
+| 0x1C    | Eth_GetTxStats              |
+| 0x1D    | Eth_GetTxErrorCounterValues |
+| 0x20       | Eth_MainFunction            |
+| 0x50     | Eth_SetBandwidthLimit       |
+| 0x51    | Eth_GetBandwidthLimit       |
+
+##### DEM
+
+By default, production code related errors are reported to the DEM using the service **Dem_SetEventStatus().**
+
+##### Callback Functions
+
+The Ethernet driver does not provide any call back functions.
+
+##### SchM
+
+If multiple AUTOSAR runnables have access to the same Data Store Memory block, the exported AUTOSAR specification enforces data consistency by using an AUTOSAR exclusive area. With this specification, the runnables have mutually exclusive access to the per-instance memory global data, which prevents data corruption. Beside the OS, the BSW Scheduler provides functions that ETH module calls at begin and end of critical sections. This implementation requires 1 level of exclusive access to guard critical sections.
+
+The data consistency mechanism that has to be applied to an ExclusiveArea might be domain, ECU or even project specific. The decision which mechanism has to be applied by RTE / Basic Software Scheduler is taken during ECU integration by setting the Exclusive Area configuration parameter RteExclusiveAreaImplMechanism. This parameter is an input for RTE generator. For ETH Module, data consistency and exclusive access to critical sections are required for the following sections as shown in the table below:
+
+| Exclusive Area Functions used | ETH Function calling Exclusive Area | Need for Exclusive Area | Recommended Exclusive Area Mapping |
+|-------|-------|-------|-------|
+|Will be updated in future release |  |  | |
+
+#### Multi-core support
+
+Not supported
+
+### Configuration
+
+
+#### EthConfigSet
+This container contains the configuration parameters and sub containers of the AUTOSAR Eth module.
+
+##### EthCtrlConfig
+Configuration of the individual controller
+
+###### EthCtrlEnableMii
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlEnableMii |
+| **Description** | Enables / Disables Media Independent Interface (MII) for transceiver access |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | true |
+
+###### EthCtrlEnableRxInterrupt
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlEnableRxInterrupt |
+| **Description** | Enables / Disables receive interrupt |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | true |
+
+###### EthCtrlEnableTxInterrupt
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlEnableTxInterrupt |
+| **Description** | Enables / Disables transmit interrupt |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | true |
+
+###### EthCtrlIdx
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlIdx |
+| **Description** | Specifies the instance ID of the configured controller. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 0 |
+| **Max-value** | 1 |
+| **Min-value** | 0 |
+
+###### EthPort
+
+| Item ||
+|--------|---------------|
+| **Name** | EthPort |
+| **Description** | Specifies the port of the Ethernet. |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | ETH_PORT1 |
+| **Range** | ETH_PORT1<br>ETH_PORT2 |
+
+###### EthCtrlMacLayerSpeed
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlMacLayerSpeed |
+| **Description** | Defines the baud rate of the MAC layer. This Autosar Parameter not used<br>                                                     Eth_MacConnectionType TI parameter used for Speed. |
+| **Multiplicity-Configuration-Class** | -- |
+| Link Time | VARIANT-LINK-TIME |
+| Post-Build Time | VARIANT-POST-BUILD |
+| Pre-Compile Time | VARIANT-PRE-COMPILE |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-build-variant-multiplicity** | true |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | ETH_MAC_LAYER_SPEED_1G |
+| **Range** | ETH_MAC_LAYER_SPEED_100M<br>ETH_MAC_LAYER_SPEED_10G<br>ETH_MAC_LAYER_SPEED_10M<br>ETH_MAC_LAYER_SPEED_1G |
+
+###### EthCtrlMacLayerSubType
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlMacLayerSubType |
+| **Description** | Defines the MAC layer subtype of a switch port.This Autosar Parameter not used<br>                                                     Eth_MacConnectionType TI parameter used for Maclayer. |
+| **Multiplicity-Configuration-Class** | -- |
+| Link Time | VARIANT-LINK-TIME |
+| Post-Build Time | VARIANT-POST-BUILD |
+| Pre-Compile Time | VARIANT-PRE-COMPILE |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-build-variant-multiplicity** | true |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | REDUCED |
+| **Range** | REDUCED<br>REVERSED<br>SERIAL<br>STANDARD<br>UNIVERSAL_SERIAL |
+
+###### EthCtrlMacLayerType
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlMacLayerType |
+| **Description** | Defines the MAC layer type of the ethernet controller.This Autosar Parameter not used<br>                                                     Eth_MacConnectionType TI parameter used for Maclayer. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | ETH_MAC_LAYER_TYPE_XGMII |
+| **Range** | ETH_MAC_LAYER_TYPE_XGMII<br>ETH_MAC_LAYER_TYPE_XMII<br>ETH_MAC_LAYER_TYPE_XXGMII |
+
+###### EthCtrlPhyAddress
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlPhyAddress |
+| **Description** | Specifies the unique 48-bit physical address (MAC address) of the controller in network byte order. |
+| **Multiplicity-Configuration-Class** | -- |
+| Link Time | VARIANT-LINK-TIME |
+| Post-Build Time | VARIANT-POST-BUILD |
+| Pre-Compile Time | VARIANT-PRE-COMPILE |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-build-variant-multiplicity** | true |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 11-22-33-44-55-66 |
+
+###### EthCacheFlushOps
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCacheFlushOps |
+| **Description** | Cache flush function pointer |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+
+###### EthInvalidateOps
+
+| Item ||
+|--------|---------------|
+| **Name** | EthInvalidateOps |
+| **Description** | Cache invalidate operation function pointer |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+
+###### EthEnableCacheOps
+
+| Item ||
+|--------|---------------|
+| **Name** | EthEnableCacheOps |
+| **Description** | Enable/Disable cache operations in Ethernet Driver |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | false |
+
+##### EthCtrlConfigEgress
+Configuration of one Ethernet controler egress behavior.
+
+###### EthCtrlConfigEgressLastSchedulerRef
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlConfigEgressLastSchedulerRef |
+| **Description** | Reference to the scheduler which is the last in the egress structure. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+
+###### EthCtrlConfigEgressFifo
+Represents a Fifo at the egress side.
+
+###### EthCtrlConfigEgressFifoBufLenByte
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlConfigEgressFifoBufLenByte |
+| **Description** | Length of Fifo elements in bytes. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 1522 |
+| **Max-value** | 65535 |
+| **Min-value** | 0 |
+
+###### EthCtrlConfigEgressFifoBufTotal
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlConfigEgressFifoBufTotal |
+| **Description** | Fifo buffer count. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 2 |
+| **Max-value** | 65535 |
+| **Min-value** | 0 |
+
+###### EthCtrlConfigEgressFifoIdx
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlConfigEgressFifoIdx |
+| **Description** | Egress Fifo index. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 0 |
+| **Max-value** | 255 |
+| **Min-value** | 0 |
+
+###### EthCtrlConfigEgressFifoPriorityAssignment
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlConfigEgressFifoPriorityAssignment |
+| **Description** | Message egress prority assignment. |
+| **Multiplicity-Configuration-Class** | -- |
+| Link Time | VARIANT-LINK-TIME |
+| Post-Build Time | VARIANT-POST-BUILD |
+| Pre-Compile Time | VARIANT-PRE-COMPILE |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-build-variant-multiplicity** | true |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 0 |
+| **Max-value** | 7 |
+| **Min-value** | 0 |
+
+###### EthCtrlConfigScheduler
+Represents a Scheduler on the egress side.
+
+###### EthCtrlConfigSchedulerPredecessor
+Defines an ordered list of predecessors for this scheduler.
+
+###### EthCtrlConfigSchedulerPredecessorOrder
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlConfigSchedulerPredecessorOrder |
+| **Description** | Defines the order of the scheduler predecessors. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 0 |
+| **Max-value** | 9223372036854775807 |
+| **Min-value** | 0 |
+
+###### EthCtrlConfigSchedulerPredecessorRef
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlConfigSchedulerPredecessorRef |
+| **Description** | Choice reference to the scheduler predecessor. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+
+###### EthCtrlConfigShaper
+Represents a Shaper an the egress side.
+
+###### EthCtrlConfigShaperIdleSlope
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlConfigShaperIdleSlope |
+| **Description** | Defines the increase of credit in bits per second for the AVB shaper. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-build-variant-multiplicity** | false |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 0 |
+| **Max-value** | 9223372036854775807 |
+| **Min-value** | 0 |
+
+###### EthCtrlConfigShaperPredecessorFifoRef
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlConfigShaperPredecessorFifoRef |
+| **Description** | Reference to the fifo which is the predecessor for this shaper. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+
+##### EthCtrlConfigIngress
+Configuration of one Ethernet controler ingress behavior.
+
+###### EthCtrlConfigIngressFifo
+Represents a Fifo at the ingress side.
+
+###### EthCtrlConfigIngressFifoBufLenByte
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlConfigIngressFifoBufLenByte |
+| **Description** | Length of Fifo elements in bytes. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 1522 |
+| **Max-value** | 65535 |
+| **Min-value** | 0 |
+
+###### EthCtrlConfigIngressFifoBufTotal
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlConfigIngressFifoBufTotal |
+| **Description** | Fifo buffer count. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Max-value** | 65535 |
+| **Min-value** | 0 |
+
+###### EthCtrlConfigIngressFifoIdx
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlConfigIngressFifoIdx |
+| **Description** | Ingress Fifo index. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 2 |
+| **Max-value** | 255 |
+| **Min-value** | 0 |
+
+###### EthCtrlConfigIngressFifoPriorityAssignment
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlConfigIngressFifoPriorityAssignment |
+| **Description** | Message ingress prority assignment. |
+| **Multiplicity-Configuration-Class** | -- |
+| Link Time | VARIANT-LINK-TIME |
+| Post-Build Time | VARIANT-POST-BUILD |
+| Pre-Compile Time | VARIANT-PRE-COMPILE |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-build-variant-multiplicity** | true |
+| **Post-Build-Variant-Value** | true |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 0 |
+| **Max-value** | 7 |
+| **Min-value** | 0 |
+
+##### EthDemEventParameterRefs
+
+| Item ||
+|--------|---------------|
+| **Name** | EthDemEventParameterRefs |
+| **Description** | Reference to the DemEventParameter which shall be issued when the error "Timeout on blocking API call occurs " has occurred. |
+| **Post-build-variant-multiplicity** | false |
+| **Multiplicity-Configuration-Class** | -- |
+| Link Time | VARIANT-LINK-TIME |
+| Post-Build Time | VARIANT-POST-BUILD |
+| Pre-Compile Time | VARIANT-PRE-COMPILE |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+
+##### EthPortConfig
+Structure for port configuration
+
+###### EthMacConfig
+MAC Init Configurations
+
+###### EthMacModeFlags
+
+###### EthMacConnectionType
+
+##### EthCpdmaConfig
+
+###### EthPacingClkFreq
+
+| Item ||
+|--------|---------------|
+| **Name** | EthPacingClkFreq |
+| **Description** | Port VID bit |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | 200000000 |
+| **Max-value** | 4294967295 |
+| **Min-value** | 0 |
+
+###### EthRxInterruptPacingEnabled
+
+| Item ||
+|--------|---------------|
+| **Name** | EthRxInterruptPacingEnabled |
+| **Description** | Enable/Disable Rx interrupt pacing |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | true |
+
+###### EthRxInterruptPerMsec
+
+| Item ||
+|--------|---------------|
+| **Name** | EthRxInterruptPerMsec |
+| **Description** | Port VID bit |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | 2 |
+| **Max-value** | 4294967295 |
+| **Min-value** | 0 |
+
+###### EthTxInterruptPerMsec
+
+| Item ||
+|--------|---------------|
+| **Name** | EthTxInterruptPerMsec |
+| **Description** | Port VID bit |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | 2 |
+| **Max-value** | 4294967295 |
+| **Min-value** | 0 |
+
+###### EthTxInterruptPacingEnabled
+
+| Item ||
+|--------|---------------|
+| **Name** | EthTxInterruptPacingEnabled |
+| **Description** | Enable/Disable Rx interrupt pacing |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | true |
+
+###### EthDmaModeFlags
+
+| Item ||
+|--------|---------------|
+| **Name** | EthDmaModeFlags |
+| **Description** | Port VID bit |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | 0 |
+| **Max-value** | 4294967295 |
+| **Min-value** | 0 |
+
+###### EthRxThresholdCount
+
+| Item ||
+|--------|---------------|
+| **Name** | EthRxThresholdCount |
+| **Description** | Port VID bit |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | 15 |
+| **Max-value** | 4294967295 |
+| **Min-value** | 0 |
+
+##### EthMdioConfig
+Structure for MDIO configuration
+
+###### EthMdioBusFreq
+
+| Item ||
+|--------|---------------|
+| **Name** | EthMdioBusFreq |
+| **Description** | Bus frequency for the MII module |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | 2200000 |
+| **Max-value** | 4294967295 |
+| **Min-value** | 0 |
+
+###### EthMdioClockFreq
+
+| Item ||
+|--------|---------------|
+| **Name** | EthMdioClockFreq |
+| **Description** | Clock frequency for MDIO link |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | 200000000 |
+| **Max-value** | 4294967295 |
+| **Min-value** | 0 |
+
+##### EthCptsConfig
+CPTS Module Init Configuration Structure for the CPTS modules provided during initialization
+
+###### EthCptsInputFreq
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCptsInputFreq |
+| **Description** | CPTS input clock frequency. Default CPTS input frequency is 266MHz. Please make sure to change ?CM_GMAC_GMAC_CLKCTRL[27:25 ] CLKSEL_RFT?  to select different freq source of the CPTS_RFT_CLK |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Max-value** | 4294967295 |
+| **Min-value** | 0 |
+
+###### EthCptsVlanType
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCptsVlanType |
+| **Description** | Time sync HW supports 2 level tagging. Select appropriate level to enable time sync on VLAN tagged packet. |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | ETH_CPTS_VLAN_TYPE_NONE |
+| **Range** | ETH_CPTS_VLAN_TYPE_NONE<br>ETH_CPTS_VLAN_TYPE_SINGLE_TAG<br>ETH_CPTS_VLAN_TYPE_STACKED_TAGS<br>ETH_CPTS_VLAN_TYPE_INVALID |
+
+###### EthCptsMessageCfg
+Structure for CPTS Ethernet Message Configuration
+
+###### EthCptsMessageCfgEnum
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCptsMessageCfgEnum |
+| **Description** | Enumerates CPTS Ethernet Message Types |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | ETH_CPTS_MESSAGE_SYNC |
+| **Range** | ETH_CPTS_MESSAGE_SYNC<br>ETH_CPTS_MESSAGE_DELAY_REQ<br>ETH_CPTS_MESSAGE_PDELAY_REQ<br>ETH_CPTS_MESSAGE_PDELAY_RESP<br>ETH_CPTS_MESSAGE_FOLLOW_UP<br>ETH_CPTS_MESSAGE_DELAY_RESP<br>ETH_CPTS_MESSAGE_PDELAY_RESP_FOLLOW_UP<br>ETH_CPTS_MESSAGE_ANNOUNCE<br>ETH_CPTS_MESSAGE_SIGNALING<br>ETH_CPTS_MESSAGE_MANAGEMENT<br>ETH_CPTS_MESSAGE_ALL |
+
+##### EthCpswQoSCfg
+CPSW module : Configure Quality of Service (rate limiting and traffic shaping)
+
+###### EthCpswRateLimitCfg
+Structure for CPSW Rate Limit Configuration
+
+###### EthCpswRateLimitPrio
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCpswRateLimitPrio |
+| **Description** | Bandwidth for each of rate limited priority |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 0 |
+| **Max-value** | 200 |
+| **Min-value** | 0 |
+
+#### EthGeneral
+General configuration of Ethernet Driver module
+
+##### EthDevErrorDetect
+
+| Item ||
+|--------|---------------|
+| **Name** | EthDevErrorDetect |
+| **Description** | Switches the development error detection and notification on or off. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | false |
+
+##### EthGetDropCountApi
+
+| Item ||
+|--------|---------------|
+| **Name** | EthGetDropCountApi |
+| **Description** | Enables / Disables Eth_GetCounterValues API. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | false |
+
+##### EthGetEtherStatsApi
+
+| Item ||
+|--------|---------------|
+| **Name** | EthGetEtherStatsApi |
+| **Description** | Enables / Disables Eth_GetEtherStats API. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | false |
+
+##### EthGetTxErrorCounterValuesApi
+
+| Item ||
+|--------|---------------|
+| **Name** | EthGetTxErrorCounterValuesApi |
+| **Description** | Enables/Disables Eth_GetTxErrorCounterValues API. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | false |
+
+##### EthGetTxStatsApi
+
+| Item ||
+|--------|---------------|
+| **Name** | EthGetTxStatsApi |
+| **Description** | Enables/Disables Eth_GetTxStats API. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | false |
+
+##### EthGlobalTimeSupport
+
+| Item ||
+|--------|---------------|
+| **Name** | EthGlobalTimeSupport |
+| **Description** | Enables/Disables the GlobalTime APIs used amongst others by Global Time Synchronization over Ethernet. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | false |
+
+##### EthIndex
+
+| Item ||
+|--------|---------------|
+| **Name** | EthIndex |
+| **Description** | Specifies the InstanceId of this module instance. If only one instance is present it shall have the Id 0. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 0 |
+| **Max-value** | 255 |
+| **Min-value** | 0 |
+
+##### EthMainFunctionPeriod
+
+| Item ||
+|--------|---------------|
+| **Name** | EthMainFunctionPeriod |
+| **Description** | Specifies the period of main function Eth_MainFunction in seconds. Ethernet driver does not require this information but the BSW scheduler. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 0.01 |
+| **Max-value** | INF |
+| **Min-value** | 0.0 |
+
+##### EthMaxCtrlsSupported
+
+| Item ||
+|--------|---------------|
+| **Name** | EthMaxCtrlsSupported |
+| **Description** | Limits the total number of supported controllers. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 1 |
+| **Max-value** | 255 |
+| **Min-value** | 1 |
+
+##### EthUpdatePhysAddrFilter
+
+| Item ||
+|--------|---------------|
+| **Name** | EthUpdatePhysAddrFilter |
+| **Description** | Tags: atp.Status=obsolete |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-build-variant-multiplicity** | false |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | false |
+
+##### EthVersionInfoApi
+
+| Item ||
+|--------|---------------|
+| **Name** | EthVersionInfoApi |
+| **Description** | Enables / Disables version info API |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | false |
+
+##### EthTrafficShapingSupport
+
+| Item ||
+|--------|---------------|
+| **Name** | EthTrafficShapingSupport |
+| **Description** | Enables/Disables Traffic shaping feature |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | true |
+
+##### EthMdioManualOperation
+
+| Item ||
+|--------|---------------|
+| **Name** | EthMdioManualOperation |
+| **Description** | Enables/Disables MDIO Manual Software BitBang Operation |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | true |
+
+##### Eth_MdioLowDelay
+
+| Item ||
+|--------|---------------|
+| **Name** | Eth_MdioLowDelay |
+| **Description** | Write low signal delay in number of NOP instructions |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 36 |
+| **Max-value** | 4294967295 |
+| **Min-value** | 0 |
+
+##### Eth_MdioHighDelay
+
+| Item ||
+|--------|---------------|
+| **Name** | Eth_MdioHighDelay |
+| **Description** | Write high signal delay in number of NOP instructions |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 33 |
+| **Max-value** | 4294967295 |
+| **Min-value** | 0 |
+
+##### EthUseDefaultMacAddr
+
+| Item ||
+|--------|---------------|
+| **Name** | EthUseDefaultMacAddr |
+| **Description** | Use default address for MAC ADDR |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | true |
+
+##### EthIrqType
+
+| Item ||
+|--------|---------------|
+| **Name** | EthIrqType |
+| **Description** | Type of Isr function:<br>                          void functionname(void)<br>                          CAT1 : interrupt void func(void)<br>                          CAT2 : ISR(func) |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Link-Time | VARIANT-LINK-TIME |
+| **Default-value** | ETH_ISR_CAT1 |
+| **Range** | ETH_ISR_VOID<br>ETH_ISR_CAT1<br>ETH_ISR_CAT2 |
+
+##### EthNumTxBuffers
+
+| Item ||
+|--------|---------------|
+| **Name** | EthNumTxBuffers |
+| **Description** | Number of TX buffers |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | 256 |
+| **Max-value** | 1024 |
+| **Min-value** | 8 |
+
+##### EthNumRxBuffers
+
+| Item ||
+|--------|---------------|
+| **Name** | EthNumRxBuffers |
+| **Description** | Number of RX buffers |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | 256 |
+| **Max-value** | 1024 |
+| **Min-value** | 8 |
+
+##### EthBufLenByte
+
+| Item ||
+|--------|---------------|
+| **Name** | EthBufLenByte |
+| **Description** | Maximum rx/tx buffer length (frame length) in bytes |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | 1522 |
+| **Max-value** | 1522 |
+| **Min-value** | 0 |
+
+##### EthAutoBuffRotation
+
+| Item ||
+|--------|---------------|
+| **Name** | EthAutoBuffRotation |
+| **Description** | Enable/Disable automatic buffer rotation |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | true |
+
+##### EthDefaultOSCounterId
+
+| Item ||
+|--------|---------------|
+| **Name** | EthDefaultOSCounterId |
+| **Description** | Default Os Counter Id if node reference to OsCounter ref EthOsCounterRef is not set |
+| **Multiplicity-Configuration-Class** | -- |
+| Post-Build Time | VARIANT-POST-BUILD |
+| Pre-Compile Time | VARIANT-PRE-COMPILE |
+| **Origin** | Texas Instruments |
+| **Post-build-variant-multiplicity** | false |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 0 |
+| **Max-value** | 16 |
+| **Min-value** | 0 |
+
+##### EthTimeoutDuration
+
+| Item ||
+|--------|---------------|
+| **Name** | EthTimeoutDuration |
+| **Description** | ETH timeout - used in ETH busy wait. Configure the timeout according to the r5f clock frequency(400MHz/200MHz) |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 3200 |
+| **Max-value** | 4294967295 |
+| **Min-value** | 1 |
+
+##### EthOsCounterRef
+
+| Item ||
+|--------|---------------|
+| **Name** | EthOsCounterRef |
+| **Description** | This parameter contains a reference to the OsCounter, which is used by the ETH driver. |
+| **Multiplicity-Configuration-Class** | -- |
+| Post-Build Time | VARIANT-POST-BUILD |
+| Pre-Compile Time | VARIANT-PRE-COMPILE |
+| **Origin** | Texas Instruments |
+| **Post-build-variant-multiplicity** | false |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+
+##### EthInterruptConfig
+interrupt configuration- misc interrupts flags.
+
+###### EthStatsInterruptEnable
+
+| Item ||
+|--------|---------------|
+| **Name** | EthStatsInterruptEnable |
+| **Description** | Enables/Disables interrupt for ethernet stats. |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | true |
+
+###### EthUsrMdioInterruptEnable
+
+| Item ||
+|--------|---------------|
+| **Name** | EthUsrMdioInterruptEnable |
+| **Description** | Enables/Disables interrupt for mdio. |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | true |
+
+###### EthHostErrorInterruptEnable
+
+| Item ||
+|--------|---------------|
+| **Name** | EthHostErrorInterruptEnable |
+| **Description** | Enables/Disables interrupt for host error. |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | true |
+
+##### EthCtrlOffloading
+Configuration of hardware offloading features.
+
+###### EthCtrlEnableOffloadChecksumICMP
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlEnableOffloadChecksumICMP |
+| **Description** | Enables  /  Disables  hardware offloading for ICMP checksums. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+
+###### EthCtrlEnableOffloadChecksumIPv4
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlEnableOffloadChecksumIPv4 |
+| **Description** | Enables  /  Disables  hardware offloading for IPv4 checksums. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+
+###### EthCtrlEnableOffloadChecksumTCP
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlEnableOffloadChecksumTCP |
+| **Description** | Enables  /  Disables  hardware offloading for TCP checksums. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+
+###### EthCtrlEnableOffloadChecksumUDP
+
+| Item ||
+|--------|---------------|
+| **Name** | EthCtrlEnableOffloadChecksumUDP |
+| **Description** | Enables  /  Disables  hardware offloading for UDP checksums. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Link-Time | VARIANT-LINK-TIME |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+### Examples
+
+#### Overview
+
+Will be updated in the next release
+
+#### Steps to build and run example
+
+There're several Ethernet example applications demonstrating the MCAL ETH driver features in folder <MCAL_ROOT>/examples/Eth.
+
+    - eth_app: basic test application.
+    - eth_test_app: full feature test application with linux host test app.
+    - eth_load_app: FreeRTOS porting to test CPU usage with high throughput.
+
+This application can be built from the build folder by giving,
+
+    - **gmake -s eth_app PLATFORM=am263**
+    - **gmake -s eth_test_app PLATFORM=am263**
+    - **gmake -s eth_load_app PLATFORM=am263 MCUPLUSSDK_ROOTDIR=/home/$USER/ti/mcu_plus_sdk_am263x_09_02_00_47**
+
+#### Run eth_app
+
+```{figure} Assets/images/eth/eth_image18.png
+```
+
+1. By default, in Example code PORT 1 is enabled for Transmit/receive functionality.
+2. Connect CANoe/PC through Ethernet cable to RJ45 of AM263x Board PORT 1.
+3. Flash the eth_app binary (under mcal/binary/eth_app/bin/am263) file on Hardware.
+4. Connect to Serial terminal to see the output.
+5. If CANoe using then speed(1000M) should be set accordingly in CANoe settings.
+6. If Wireshark using:
+
+    - in Auto negotiation no additional settings required.
+    - in Force configuration Speed and duplex should be set as per configuration in PC network settings.
+
+7. During Receive test the control will be in while loop until the expected frames received.
+8. Here we will send Frames from CANoe/ColaSoft Packet builder software to the EVM. (gAppObj.stats.recvPacketCnt will update if the frame received in EthIf_RxIndication).
+9. During Filter test Frames should send from CANoe/ColaSoft Packet builder with expected destination MAC address to the EVM.
+10. During Time stamp test PTP packets should send from CANoe/ColaSoft Packet builder with expected destination MAC address to the EVM.
+11. During Transmission test: EVM will transmit the frames to CANoe/PC. we can observe the Frames on CANoe/Wireshark.
+12. At the end we can see the Statistics in serial terminal.
+
+##### Hardware Software Setup and Tools
+
+1. Connect CANoe/PC through Ethernet cable to RJ45 of AM263x EVM PORT 1.
+2. If CANoe tool is connected to AM263x EVM then we can observe both Tx and Rx frames in CANoe software.
+   - If PC is connected to AM263x EVM then use wireshark tool to observe Transmitted frames from EVM,
+   - For Receive functionality send frames from Colasoft Packet builder tool to EVM.
+3. If CANoe using then speed(as per configuration:1000M) should be set accordingly in CANoe settings.
+   If Wireshark and Packet builder softwares using:
+
+   - in Auto negotiation mode no additional settings required.
+   - in Force configuration mode Speed and duplex should be set as per Eth and EthTrcv configuration in PC network settings.
+
+##### Configuration used to test this example
+
+**ETH Configuration**:
+
+Build Variant             : ETH_VARIANT_POST_BUILD
+
+EthStatsInterruptEnable   : True
+
+EthUsrMdioInterruptEnable : True
+
+EthHostErrorInterruptEnable  : True
+
+EthCtrlEnableRxInterrupt  : True
+
+EthCtrlEnableTxInterrupt  : True
+
+Number of TX buffers     : 24
+
+Number of RX buffers     : 48
+
+EthPort      : ETH_PORT1
+  
+EthMacConnectionType  : ETH_MAC_CONN_TYPE_RGMII_DETECT_INBAND
+
+**ETHTRCV Configuration:**
+
+Build Variant    : ETHTRCV_POST_BUILD_VARIANT
+
+EthTrcv1000Mbps_speed    : True
+
+EthTrcvAutoNegotiationEnabled    : (uint32 ) TRUE
+
+EthTrcvConnNeg    : TRCV_CONN_NEG_AUTO
+
+EthTrcvPhyAdvertiseCapability   : 10mbps Half_Duplex, 10mbps Full_Duplex, 100mbps Half_Duplex, 100mbps Full_Duplex, 1000mbps Full_Duplex
+
+EthTrcvLinkPartnerCapability   : 0U
+
+EthTrcvGigabitCapabilityEnabled    : (uint32 )TRUE
+
+EthTrcvDuplexMode    : ETHTRCV_DUPLEX_MODE_FULL
+
+EthTrcvEnableLoopback    : (boolean)FALSE
+
+##### Example Logs
+
+```
+
+    ETH_APP: Sample Application - STARTS !!! 
+                                        
+    ETH MCAL Version Info
+    ---------------------
+    Vendor ID           : 44
+    Module ID           : 88
+    SW Major Version    : 9
+    SW Minor Version    : 0
+    SW Patch Version    : 0
+                        
+                        
+    ETH TRCV MCAL Version Info
+    ---------------------
+    Vendor ID           : 44
+    Module ID           : 73
+    SW Major Version    : 9
+    SW Minor Version    : 0
+    SW Patch Version    : 0
+                        
+    ETH_APP: EthTrcv Controller mode change - ETHTRCV_MODE_ACTIVE
+    ETH_APP:ETHTRCV Link up
+    ETH_APP:ETHTRCV baud rate = 1000Mbps
+    ETH_APP:ETHTRCV in full duplex mode
+    ETH_APP:ETHTRCV Normal Operation
+    ETH_APP:ETHTRCV Tx mode Normal
+    ETH_APP:ETHTRCV PHY(DP83869HM) ID is proper. OUI: 0x80028, Model No: 0xf, Revision No: 0x1
+    ETH_APP:ETHTRCV Cable Diagnostics Ok
+    ETH_APP:ETHTRCV Phy test mode Normal
+    ETH_APP:EthTRCV Controller Up
+    ETH_APP:EthTRCV Controller Up
+
+    MAC Port 1 Address:
+
+    00:01:02:03:04:05
+
+    -----------------------------------------------
+    *********** ETH FILTER TEST *******************
+    -----------------------------------------------
+
+    Adding MAC Address to filter:
+    0a:0b:0c:0d:0e:0f
+
+    Waiting to receive 1000 packets from PC packet player..
+
+    Send packets with destination MAC address:
+    0a:0b:0c:0d:0e:0f
+
+    Removing MAC Address from filter:
+    0a:0b:0c:0d:0e:0f
+
+    Multicast address filter test 
+
+    Adding multicast MAC Address to filter:
+    01:00:5e:0d:0e:0f
+
+    Waiting to receive 1000 packets from PC packet player..
+
+    Send packets with destination MAC address:
+    01:00:5e:0d:0e:0f
+
+    Removing MAC Address from filter:
+    01:00:5e:0d:0e:0f
+
+    Opening up filter completely (ALE bypass)
+
+    Waiting to receive 1000 packets from PC packet player..
+
+    Send packets with any MAC address
+
+    ALE Bypass Transmit Test
+
+    Transmitting 50000 packets 
+    Expect PC Wireshark to receive 50000 packets..
+    Max Tx Packet Size Test passed 
+
+    Disabling filter bypass & adding host address back to filter 
+
+    Waiting to receive 1000 packets from PC packet player..
+
+    Send packets with Controller MAC address
+
+    -----------------------------------------------
+    ***********Time Stamping Test*******************
+    -----------------------------------------------
+
+        Get global time after delay upto 1000ms (loop=10)
+
+        Curr_Time: [ 0.   1. 920292352] TimeSync_Diff: [ 0.   1. 920292352](32K Cntr Diff 26372)
+        Curr_Time: [ 0.   5. 748930560] TimeSync_Diff: [ 0.   3. 828638208](32K Cntr Diff 23872)
+        Curr_Time: [ 0.   6. 352555008] TimeSync_Diff: [ 0.   0. 603624448](32K Cntr Diff 3715)
+        Curr_Time: [ 0.   8. 965744640] TimeSync_Diff: [ 0.   2. 613189632](32K Cntr Diff 16279)
+        Curr_Time: [ 0.   9. 259365376] TimeSync_Diff: [ 0.   0. 293620736](32K Cntr Diff 1778)
+        Curr_Time: [ 0.  12. 432555008] TimeSync_Diff: [ 0.   3. 173189632](32K Cntr Diff 19778)
+        Curr_Time: [ 0.  12. 521180160] TimeSync_Diff: [ 0.   0.  88625152](32K Cntr Diff 497)
+        Curr_Time: [ 0.  14. 653934592] TimeSync_Diff: [ 0.   2. 132754432](32K Cntr Diff 13278)
+        Curr_Time: [ 0.  15. 752559616] TimeSync_Diff: [ 0.   1.  98625024](32K Cntr Diff 6809)
+        Curr_Time: [ 0.  16. 220749824] TimeSync_Diff: [ 0.   0. 468190208](32K Cntr Diff 2872)
+
+
+    Time Sync Packet Egress Test 
+    --------------------------------
+        Packet Egress TS:[ 0.  16. 288872448][  ETH_VALID]
+        Packet Egress TS:[ 0.  16. 338898944][  ETH_VALID]
+        Packet Egress TS:[ 0.  16. 388918272][  ETH_VALID]
+        Packet Egress TS:[ 0.  16. 438942720][  ETH_VALID]
+        Packet Egress TS:[ 0.  16. 488963072][  ETH_VALID]
+        Packet Egress TS:[ 0.  16. 538987520][  ETH_VALID]
+        Packet Egress TS:[ 0.  16. 589002752][  ETH_VALID]
+        Packet Egress TS:[ 0.  16. 639027200][  ETH_VALID]
+        Packet Egress TS:[ 0.  16. 689043456][  ETH_VALID]
+        Packet Egress TS:[ 0.  16. 739067904][  ETH_VALID]
+        Packet Egress TS:[ 0.  16. 789087232][  ETH_VALID]
+        Packet Egress TS:[ 0.  16. 839111680][  ETH_VALID]
+        Packet Egress TS:[ 0.  16. 889127936][  ETH_VALID]
+        Packet Egress TS:[ 0.  16. 939152384][  ETH_VALID]
+        Packet Egress TS:[ 0.  16. 989172736][  ETH_VALID]
+        Packet Egress TS:[ 0.  17.  39197184][  ETH_VALID]
+        Packet Egress TS:[ 0.  17.  89213440][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 139237888][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 189259264][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 239281664][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 289297920][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 339322368][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 389338624][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 439363072][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 489377280][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 539401728][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 589417984][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 639442432][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 689456640][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 739483136][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 789497344][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 839521792][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 889538048][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 939562496][  ETH_VALID]
+        Packet Egress TS:[ 0.  17. 989578752][  ETH_VALID]
+        Packet Egress TS:[ 0.  18.  39601152][  ETH_VALID]
+        Packet Egress TS:[ 0.  18.  89617408][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 139641856][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 189658112][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 239682560][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 289702912][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 339727360][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 389741568][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 439768064][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 489782272][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 539806720][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 589822976][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 639847424][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 689861632][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 739888128][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 789906432][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 839932928][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 889947136][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 939971584][  ETH_VALID]
+        Packet Egress TS:[ 0.  18. 989987840][  ETH_VALID]
+        Packet Egress TS:[ 0.  19.  40012288][  ETH_VALID]
+        Packet Egress TS:[ 0.  19.  90028544][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 140052992][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 190073344][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 240097792][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 290112000][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 340138496][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 390158848][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 440183296][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 490203648][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 540226048][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 590244352][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 640266752][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 690283008][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 740307456][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 790321664][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 840348160][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 890362368][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 940386816][  ETH_VALID]
+        Packet Egress TS:[ 0.  19. 990407168][  ETH_VALID]
+        Packet Egress TS:[ 0.  20.  40431616][  ETH_VALID]
+        Packet Egress TS:[ 0.  20.  90447872][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 140472320][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 190492672][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 240517120][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 290533376][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 340557824][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 390572032][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 440598528][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 490618880][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 540641280][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 590657536][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 640681984][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 690698240][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 740722688][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 790736896][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 840763392][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 890781696][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 940808192][  ETH_VALID]
+        Packet Egress TS:[ 0.  20. 990822400][  ETH_VALID]
+        Packet Egress TS:[ 0.  21.  40846848][  ETH_VALID]
+        Packet Egress TS:[ 0.  21.  90863104][  ETH_VALID]
+        Packet Egress TS:[ 0.  21. 140887552][  ETH_VALID]
+        Packet Egress TS:[ 0.  21. 190903808][  ETH_VALID]
+        Packet Egress TS:[ 0.  21. 240926208][  ETH_VALID]
+        Packet Egress TS:[ 0.  21. 290942464][  ETH_VALID]
+        Packet Egress TS:[ 0.  21. 340966912][  ETH_VALID]
+        Packet Egress TS:[ 0.  21. 390983168][  ETH_VALID]
+        Packet Egress TS:[ 0.  21. 441007616][  ETH_VALID]
+        Packet Egress TS:[ 0.   0.  16186410][  ETH_VALID]
+        Packet Egress TS:[ 0.   0.  66210012][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 116226288][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 166250880][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 216266640][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 266290816][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 316306720][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 366331648][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 416351168][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 466375552][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 516391008][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 566414912][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 616431040][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 666455424][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 716471040][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 766496064][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 816516352][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 866540608][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 916555776][  ETH_VALID]
+        Packet Egress TS:[ 0.   0. 966580672][  ETH_VALID]
+        Packet Egress TS:[ 0.   1.  16595712][  ETH_VALID]
+        Packet Egress TS:[ 0.   1.  66620928][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 116635648][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 166661248][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 216682112][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 266705280][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 316721152][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 366745856][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 416761216][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 466785408][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 516801024][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 566825344][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 616841344][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 666865920][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 716881152][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 766905728][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 816921216][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 866945024][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 916961280][  ETH_VALID]
+        Packet Egress TS:[ 0.   1. 966984832][  ETH_VALID]
+        Packet Egress TS:[ 0.   2.  17000576][  ETH_VALID]
+        Packet Egress TS:[ 0.   2.  67026048][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 117047168][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 167070976][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 217086208][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 267110656][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 317125376][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 367145984][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 417160960][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 467186176][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 517206272][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 567230208][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 617245440][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 667270912][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 717286400][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 767310592][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 817325312][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 867345152][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 917361920][  ETH_VALID]
+        Packet Egress TS:[ 0.   2. 967385600][  ETH_VALID]
+        Packet Egress TS:[ 0.   3.  17401856][  ETH_VALID]
+        Packet Egress TS:[ 0.   3.  67425536][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 117441024][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 167465728][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 217480960][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 267505664][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 317521920][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 367545856][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 417561600][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 467585280][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 517601280][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 567625728][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 617641984][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 667665920][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 717681664][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 767706112][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 817725696][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 867750144][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 917766144][  ETH_VALID]
+        Packet Egress TS:[ 0.   3. 967790848][  ETH_VALID]
+        Packet Egress TS:[ 0.   4.  17806848][  ETH_VALID]
+        Packet Egress TS:[ 0.   4.  67831040][  ETH_VALID]
+        Packet Egress TS:[ 0.   4. 117851904][  ETH_VALID]
+        Packet Egress TS:[ 0.   4. 167875328][  ETH_VALID]
+        Packet Egress TS:[ 0.   4. 217891328][  ETH_VALID]
+        Packet Egress TS:[ 0.   4. 267915008][  ETH_VALID]
+        Packet Egress TS:[ 0.   4. 317931008][  ETH_VALID]
+        Packet Egress TS:[ 0.   4. 367955968][  ETH_VALID]
+        Packet Egress TS:[ 0.   4. 417976832][  ETH_VALID]
+        Packet Egress TS:[ 0.   4. 468000768][  ETH_VALID]
+        Packet Egress TS:[ 0.   4. 518016000][  ETH_VALID]
+        Packet Egress TS:[ 0.   4. 568040960][  ETH_VALID]
+        Packet Egress TS:[ 0.   4. 618061312][  ETH_VALID]
+        Packet Egress TS:[ 0.   4. 668086272][  ETH_VALID]
+        Packet Egress TS:[ 0.   4. 718106624][  ETH_VALID]
+        Packet Egress TS:[ 0.   4. 768131072][  ETH_VALID]
+
+    Time Sync Packet Ingress Test 
+    ---------------------------------
+    Send timestamp (0x88F7) packets (100) from PC 
+
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  14. 8004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  14. 8504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  14. 9004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  14. 9504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15.    4 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15.  504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 1004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 1504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 2004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 2504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 3004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 3504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 4004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 4504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 5004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 5504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 6004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 6504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 7004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 7504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 8004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 8504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 9004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  15. 9504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16.    4 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16.  504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 1004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 1504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 2004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 2504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 3004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 3504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 4004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 4504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 5004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 5504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 6004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 6504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 7004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 7504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 8004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 8504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 9004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  16. 9504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17.    4 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17.  504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 1004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 1504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 2004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 2504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 3004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 3504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 4004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 4504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 5004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 5504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 6004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 6504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 7004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 7504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 8004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 8504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 9004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  17. 9504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18.    4 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18.  504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 1004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 1504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 2004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 2504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 3004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 3504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 4004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 4504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 5004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 5504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 6004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 6504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 7004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 7504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 8004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 8504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 9004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  18. 9504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19.    4 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19.  504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19. 1004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19. 1504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19. 2004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19. 2504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19. 3004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19. 3504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19. 4004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19. 4504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19. 5004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19. 5504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19. 6004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19. 6504 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19. 7004 [  ETH_VALID]
+        Packet Ingress MessagType-                  CPTS_MESSAGE_SYNC, SeqID- 7711 [ 0.  19. 7504 [  ETH_VALID]
+    ----------------------------
+
+    Time Stamping Test Completed 
+
+    ----------------------------
+
+    ---------------------------------------------
+    ***********ETH RECEIVE  TEST*******************
+    ---------------------------------------------
+
+    Waiting to receive 50000 packets from CANoe/PC packet player
+
+    Receive packet statistics:
+    EXPECTEDETHERTYPE_IPV4 (0x800) = 54000 
+    EXPECTEDETHERTYPE_VLAN (0x8100) = 0
+    UNEXPECTEDETHERTYPE = 0
+
+    -----------------------------------------------
+    ***********ETH TRANSMIT TEST*******************
+    -----------------------------------------------
+
+    Transmitting 50000 packets, 
+    Expect CANoe / PC Wireshark to receive 50000 packets..
+    Stats: Sent=50000,
+
+    Transmitted 50000 packets 
+    ----------------------------
+    Controller 0 Counters
+    ----------------------------
+    Buffer overruns   : 0
+    CRC errors        : 0
+    Undersize packets : 0
+    Oversized packets : 0
+    Alignment errors  : 0
+    Erroneous inbound : 0
+    Erroneous outbound: 0
+    Single collision  : 0
+    Multiple collision: 0
+    Deferred transm   : 0
+    Late collisions   : 0
+    Excessive colls   : 0
+    Carrier loss      : 0
+    ----------------------------
+    Controller 0 Rx Statistics
+    ----------------------------
+    Rx Drop Events       : 0
+    Rx Octets            : 55073800
+    Rx Packets           : 56100
+    Rx Bcast Packets     : 0
+    Rx Mcast Packets     : 2000
+    Rx CRC/Align Errors  : 0
+    Rx Undersized Packets: 0
+    Rx Oversized Packets : 0
+    Rx Fragments         : 0
+    Rx Jabbers           : 0
+    Rx Unicast Packets            : 52100
+    ----------------------------
+    Controller 0 Tx Statistics 
+    ----------------------------
+    Tx Num octets          : 151817800
+    Tx No Unicast Packets  : 100200
+    Tx Unicast Packets     : 0
+    --------------------------------
+    Controller 0 Tx Error Counters 
+    --------------------------------
+    Tx Deferred transm      : 0
+    Tx Single collisions    : 0
+    Tx Multiple collisions  : 0
+    Tx Late collisions      : 0
+    Tx Excessive collisions : 0
+
+    ETH Test Passed!!!   
+
+```
+
+#### Run eth_test_app
+
+##### Configuration
+
+```{figure} Assets/images/eth/eth_AM263x_PC_topology.png
+```
+
+| RX buffer    | 16     |
+|---------------|--------|
+| RX threshold   | 8    |
+| RX IRQ pacePerMs | 2   |
+| TX buffer   | 16   |
+| TX IRQ pacePerMs | 2    |
+| Link speed     | 1 Gbps |
+
+##### Steps to build and run
+
+1. Build eth_load_app for AM263/AM273 in <mcal_sitara_mcu>/build
+
+```
+    make OS=Linux PLATFORM=am263 PROFILE=release allclean
+    make OS=Linux PLATFORM=am263 PROFILE=release BUILD_VARIANT=precompile eth_test_app
+```
+
+2. Build host test app in host test app directory
+
+```
+    <mcal_sitara_mcu>/mcal/examples/Eth/eth_test_app/host$ make clean && make
+```
+
+3. Launch target config for AM263x in CCS
+
+```
+    Connect to Cortex_R5_0
+    Load <mcal_sitara_mcu>/mcal/binary/eth_test_app/bin/am263/eth_test_app_r5f0_0_release.xer5f onto the core
+    Run the test app in CCS
+```
+
+4. Run host test app
+
+Run host load app with the eth interface in the host directory
+
+```
+    <mcal_sitara_mcu>/mcal/examples/Eth/eth_test_app/host$
+    sudo ./EthHostTestApp -i <eno>
+```
+
+##### Sample log
+
+```
+    Eth Application build date/time: Aug 16 2024, 18:58:42
+    Eth Application Starts
+    ETH_APP: EthTrcv Controller mode change - ETHTRCV_MODE_ACTIVE
+    ETH_APP:ETHTRCV Link up
+    ETH_APP:ETHTRCV baud rate = 1000Mbps
+    ETH_APP:ETHTRCV in full duplex mode
+    ETH_APP:ETHTRCV Normal Operation
+    ETH_APP:ETHTRCV Tx mode Normal
+    ETH_APP:ETHTRCV PHY(DP83869HM) ID is proper. OUI: 0x80028, Model No: 0xf, Revision No: 0x1
+    ETH_APP:ETHTRCV Cable Diagnostics Ok
+    ETH_APP:ETHTRCV Phy test mode Normal
+
+    MAC Port 1 Address:
+
+    aa:bb:cc:dd:ee:ff
+    
+    ETH MCAL Version Info
+    ---------------------
+    Vendor ID           : 44
+    Module ID           : 88
+    SW Major Version    : 10
+    SW Minor Version    : 0
+    SW Patch Version    : 0
+                            
+                            
+    ETH TRCV MCAL Version Info
+    ---------------------
+    Vendor ID           : 44
+    Module ID           : 73
+    SW Major Version    : 10
+    SW Minor Version    : 0
+    SW Patch Version    : 0
+                            
+                            Waiting for Host..
+    No Response from Host, remaining retry = 100
+    Host App detected! Sending Read ACK CMD...
+
+
+    -----------------------------------------------------------
+    test_0001: START
+    test_0001: received 1000 of 1000 frames
+    test_0001: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0002: START
+    test_0002: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0003: START
+    test_0003: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0004: START
+    test_0004: received 500 of 500 frames
+    test_0004: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0005: START
+    test_0005:  Null: Exp1: exp 500, got 500
+    test_0005:  Null: Exp2: exp   0, got   0
+    test_0005: Ucast: Exp1: exp 500, got 500
+    test_0005: Ucast: Exp2: exp 500, got 500
+    test_0005: Mcast: Exp1: exp 500, got 500
+    test_0005: Mcast: Exp2: exp 500, got 500
+    test_0005: Mcast: Exp1: exp 500, got 500
+    test_0005: Mcast: Exp2: exp   0, got   0
+    test_0005: Bcast: Exp1: exp 500, got 500
+    test_0005: Bcast: Exp2: exp 500, got 500
+    test_0005:  Null: Exp1: exp 500, got 500
+    test_0005:  Null: Exp2: exp   0, got   0
+    test_0005: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0006: START
+    test_0006: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0007: START
+    test_0007: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0008: START
+    test_0008: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0009: START
+    test_0009: received 1000 of 1000 frames
+    test_0009: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0010: START
+    Set CtrlMode DOWN
+    Get CtrlMode DOWN
+    Set CtrlMode ACTIVE
+    Get CtrlMode ACTIVE
+    test_0002: START
+    test_0002: END
+    test_0001: START
+    test_0001: received 1000 of 1000 frames
+    test_0001: END
+    Set CtrlMode DOWN
+    Get CtrlMode DOWN
+    Set CtrlMode ACTIVE
+    Get CtrlMode ACTIVE
+    test_0002: START
+    test_0002: END
+    test_0001: START
+    test_0001: received 1000 of 1000 frames
+    test_0001: END
+    Set CtrlMode DOWN
+    Get CtrlMode DOWN
+    Set CtrlMode ACTIVE
+    Get CtrlMode ACTIVE
+    test_0002: START
+    test_0002: END
+    test_0001: START
+    test_0001: received 1000 of 1000 frames
+    test_0001: END
+    Set CtrlMode DOWN
+    Get CtrlMode DOWN
+    Set CtrlMode ACTIVE
+    Get CtrlMode ACTIVE
+    test_0002: START
+    test_0002: END
+    test_0001: START
+    test_0001: received 1000 of 1000 frames
+    test_0001: END
+    Set CtrlMode DOWN
+    Get CtrlMode DOWN
+    Set CtrlMode ACTIVE
+    Get CtrlMode ACTIVE
+    test_0002: START
+    test_0002: END
+    test_0001: START
+    test_0001: received 1000 of 1000 frames
+    test_0001: END
+    Set CtrlMode DOWN
+    Get CtrlMode DOWN
+    Set CtrlMode ACTIVE
+    Get CtrlMode ACTIVE
+    test_0002: START
+    test_0002: END
+    test_0001: START
+    test_0001: received 1000 of 1000 frames
+    test_0001: END
+    Set CtrlMode DOWN
+    Get CtrlMode DOWN
+    Set CtrlMode ACTIVE
+    Get CtrlMode ACTIVE
+    test_0002: START
+    test_0002: END
+    test_0001: START
+    test_0001: received 1000 of 1000 frames
+    test_0001: END
+    Set CtrlMode DOWN
+    Get CtrlMode DOWN
+    Set CtrlMode ACTIVE
+    Get CtrlMode ACTIVE
+    test_0002: START
+    test_0002: END
+    test_0001: START
+    test_0001: received 1000 of 1000 frames
+    test_0001: END
+    Set CtrlMode DOWN
+    Get CtrlMode DOWN
+    Set CtrlMode ACTIVE
+    Get CtrlMode ACTIVE
+    test_0002: START
+    test_0002: END
+    test_0001: START
+    test_0001: received 1000 of 1000 frames
+    test_0001: END
+    Set CtrlMode DOWN
+    Get CtrlMode DOWN
+    Set CtrlMode ACTIVE
+    Get CtrlMode ACTIVE
+    test_0002: START
+    test_0002: END
+    test_0001: START
+    test_0001: received 1000 of 1000 frames
+    test_0001: END
+    test_0010: completed 10 of 10 iterations
+    test_0010: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0011: START
+    test_0011: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0300: START
+    Egress timestamp 0 Ts: 656061184  1  0
+    Egress timestamp 1 Ts: 687064576  1  0 [Exp: 0.030999999 Actual: 0.031003391]
+    Egress timestamp 2 Ts: 749068288  1  0 [Exp: 0.061999999 Actual: 0.062003713]
+    Egress timestamp 3 Ts: 874071040  1  0 [Exp: 0.125000000 Actual: 0.125002757]
+    Egress timestamp 4 Ts: 124073984  2  0 [Exp: 0.250000000 Actual: 0.250002950]
+    Egress timestamp 5 Ts: 624077056  2  0 [Exp: 0.500000000 Actual: 0.500003099]
+    Egress timestamp 6 Ts: 374080000  3  0 [Exp: 0.750000000 Actual: 0.750002921]
+    Egress timestamp 7 Ts: 374083072  4  0 [Exp: 1.000000000 Actual: 1.000003099]
+    Egress timestamp 8 Ts: 374086656  6  0 [Exp: 2.000000000 Actual: 2.000003576]
+    Egress timestamp 9 Ts: 374090240 11  0 [Exp: 5.000000000 Actual: 5.000003815]
+    test_0300: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0301: START
+    test_0301: received 10 of 10 frames
+    Ingress timestamp 0 Ts: 486692864 12  0
+    Ingress timestamp 1 Ts: 519077888 12  0 [Exp: 0.030999999 Actual: 0.032385025]
+    Ingress timestamp 2 Ts: 582726656 12  0 [Exp: 0.061999999 Actual: 0.063648768]
+    Ingress timestamp 3 Ts: 709055488 12  0 [Exp: 0.125000000 Actual: 0.126328826]
+    Ingress timestamp 4 Ts: 960325632 12  0 [Exp: 0.250000000 Actual: 0.251270145]
+    Ingress timestamp 5 Ts: 461671936 13  0 [Exp: 0.500000000 Actual: 0.501346290]
+    Ingress timestamp 6 Ts: 212937728 14  0 [Exp: 0.750000000 Actual: 0.751265764]
+    Ingress timestamp 7 Ts: 214307328 15  0 [Exp: 1.000000000 Actual: 1.001369596]
+    Ingress timestamp 8 Ts: 215655936 17  0 [Exp: 2.000000000 Actual: 2.001348495]
+    Ingress timestamp 9 Ts: 216968192 22  0 [Exp: 5.000000000 Actual: 5.001312256]
+    test_0301: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0302: START
+    Current timestamp 0 Ts: 334940160 24  0
+    Current timestamp 0 Ts: 338425344 25  0
+    Current timestamp 0 Ts: 341910528 26  0
+    Current timestamp 0 Ts: 345395712 27  0
+    Current timestamp 0 Ts: 348878848 28  0
+    Current timestamp 0 Ts: 352361984 29  0
+    Current timestamp 0 Ts: 355843072 30  0
+    Current timestamp 0 Ts: 359326208 31  0
+    Current timestamp 0 Ts: 362809344 32  0
+    Current timestamp 0 Ts: 366292480 33  0
+    test_0302: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0110: START
+    test_0100 frames 150000 size 1500: START
+    test_0100: 10 frames size 1500
+    test_0100: END
+    test_0100 frames 150000 size 512: START
+    test_0100: 10 frames size 512
+    test_0100: END
+    test_0100 frames 150000 size 256: START
+    test_0100: 10 frames size 256
+    test_0100: END
+    test_0100 frames 150000 size 128: START
+    test_0100: 10 frames size 128
+    test_0100: END
+    test_0100 frames 150000 size 64: START
+    test_0100: 10 frames size 64
+    test_0100: END
+    test_0110: DONE
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0101: START
+    receiveTput-1500: received 150000 frames in 1.92 secs (78144.50 frames/s, 937.73 Mbps) Lost 0
+    receiveTput-512: received 150000 frames in 1.92 secs (78232.04 frames/s, 320.44 Mbps) Lost 0
+    receiveTput-256: received 150000 frames in 1.91 secs (78620.55 frames/s, 161.01 Mbps) Lost 0
+    receiveTput-128: received 300000 frames in 3.76 secs (79704.50 frames/s, 81.62 Mbps) Lost 0
+    receiveTput-64: received 300000 frames in 3.75 secs (79945.94 frames/s, 40.93 Mbps) Lost 0
+    test_0101: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+
+    -----------------------------------------------------------
+    test_0500: START
+    EthTrcv link state: Up
+    EthTrcv link state: Up
+    EthTrcv link state: Up
+    EthTrcv link state: Up
+    .....
+    EthTrcv link state: Up
+    EthTrcv link state: Up
+    test_0500: END
+    Test Result: Pass 0
+    -----------------------------------------------------------
+
+    ----------------------------
+    Controller 0 Counters
+    ----------------------------
+    Buffer overruns   : 0
+    CRC errors        : 0
+    Undersize packets : 0
+    Oversized packets : 0
+    Alignment errors  : 0
+    SQE errors        : -1
+    Discarded inbound : -1
+    Erroneous inbound : 0
+    Discarded outbound: -1
+    Erroneous outbound: 0
+    Single collision  : 0
+    Multiple collision: 0
+    Deferred transm   : 0
+    Late collisions   : 0
+    Excessive colls   : 0
+    Carrier loss      : 0
+    ----------------------------
+    Controller 0 Rx Statistics
+    ----------------------------
+    Rx Drop Events       : 0
+    Rx Octets            : 402108288
+    Rx Packets           : 1051134
+    Rx Bcast Packets     : 0
+    Rx Mcast Packets     : 67
+    Rx CRC/Align Errors  : 0
+    Rx Undersized Packets: 0
+    Rx Oversized Packets : 0
+    Rx Fragments         : 0
+    Rx Jabbers           : 0
+    Rx Collisions        : -1
+    Rx 64 bytes or less Packets   : -1
+    Rx 65 to 127 bytes Packets    : -1
+    Rx 128 to 255 bytes Packets   : -1
+    Rx 256 to 511 bytes Packets   : -1
+    Rx 512 to 1023 bytes Packets  : -1
+    Rx 1024 to 1518 bytes Packets : -1
+    Rx Unicast Packets            : 1051000
+    ----------------------------
+    Controller 0 Tx Statistics 
+    ----------------------------
+    Tx Num octets          : 387075068
+    Tx No Unicast Packets  : 753102
+    Tx Unicast Packets     : 0
+    --------------------------------
+    Controller 0 Tx Error Counters 
+    --------------------------------
+    Tx Deferred transm      : 0
+    Tx Single collisions    : 0
+    Tx Multiple collisions  : 0
+    Tx Late collisions      : 0
+    Tx Excessive collisions : 0
+    ETH Stack Usage: 2560 bytes
+    Final Tests Results: PASS
+    Eth Application Completed
+
+```
+
+#### Run eth_load_app
+
+##### Configuration
+
+```{figure} Assets/images/eth/eth_AM263x_PC_topology.png
+```
+
+| RX buffer | 16   |
+|--------------|--------|
+| RX threshold    | 8    |
+| RX IRQ pacePerMs | 2    |
+| TX buffer   | 16   |
+| TX IRQ pacePerMs | 2    |
+| Link speed   | 1 Gbps |
+
+##### Steps to build and run
+
+1. Build eth_load_app for AM263/AM273 in <mcal_sitara_mcu>/build:
+
+```
+    export MCUPLUSSDK_ROOTDIR=/home/xl4jp/ti/mcu_plus_sdk_am263x_09_02_00_47
+    make OS=Linux PLATFORM=am263 PROFILE=release allclean
+    make OS=Linux PLATFORM=am263 PROFILE=release eth_load_app
+```
+
+2. Launch target config for AM263x in CCS.
+
+```
+    Connect to Cortex_R5_0.
+    Load <mcal_sitara_mcu>/mcal/binary/eth_load_app/bin/am263/eth_load_app_r5f0_0_release.xer5f onto the core.
+```
+
+3. Build and run host load app:
+
+Build and run host load app with the eth interface in the host directory
+
+```
+    <mcal_sitara_mcu>/mcal/examples/Eth/eth_load_app/host$ make clean && make
+    sudo ./EthHostLoadApp -i <eno>
+```
+
+4. Run the test app in CCS
+
+##### Sample log
+
+```
+    Eth Application build date/time: Aug 16 2024, 19:07:43
+    ETH_APP: EthTrcv Controller mode change - ETHTRCV_MODE_ACTIVE
+    ETH_APP:ETHTRCV Link up
+    ETH_APP:ETHTRCV baud rate = 1000Mbps
+    ETH_APP:ETHTRCV in full duplex mode
+    ETH_APP:ETHTRCV Normal Operation
+    ETH_APP:ETHTRCV Tx mode Normal
+    ETH_APP:ETHTRCV PHY(DP83869HM) ID is proper. OUI: 0x80028, Model No: 0xf, Revision No: 0x1
+    ETH_APP:ETHTRCV Cable Diagnostics Ok
+    ETH_APP:ETHTRCV Phy test mode Normal
+
+    aa:bb:cc:dd:ee:ff
+    Link Speed 1Gbps
+
+    ETH MCAL Version Info
+    ---------------------
+    Vendor ID           : 44
+    Module ID           : 88
+    SW Major Version    : 10
+    SW Minor Version    : 0
+    SW Patch Version    : 0
+
+
+    ETH TRCV MCAL Version Info
+    ---------------------
+    Vendor ID           : 44
+    Module ID           : 73
+    SW Major Version    : 10
+    SW Minor Version    : 0
+    SW Patch Version    : 0
+
+    RX_BUF=16 TX_BUF=16
+    RxPacing Enable=1 pacePerMs=2 Threshold=8
+    TxPacing Enable=1 pacePerMs=2
+    Tx throughput test size 1500 Done in 12s load 20 (irqLoad 2)
+    Tx throughput test size  512 Done in  6s load 55 (irqLoad 1)
+    Tx throughput test size  256 Done in  3s load 95 (irqLoad 1)
+    Tx throughput test size  128 Done in  3s load 95 (irqLoad 1)
+    Tx throughput test size   64 Done in  3s load 94 (irqLoad 1)
+    Rx throughput test size 1500 Done in  7s load 23 (irqLoad 23)
+    Rx throughput test size  512 Done in 11s load 21 (irqLoad 21)
+    Rx throughput test size  256 Done in 22s load 18 (irqLoad 18)
+    Rx throughput test size  128 Done in 26s load 17 (irqLoad 17)
+    Rx throughput test size   64 Done in 22s load 16 (irqLoad 16)
+    Performance result - 1Gbps link
+    ----------------------------------------------------------------------
+    |Pkt Size | TX throughput(Mbps) | TX packet rate(Pps) | Cpu load(%) |
+    ---------------------------------------------------------------------
+    |    1500 |                 614 |               50717 |          20 |
+    ---------------------------------------------------------------------
+    |     512 |                 826 |              196499 |          55 |
+    ---------------------------------------------------------------------
+    |     256 |                 802 |              371552 |          95 |
+    ---------------------------------------------------------------------
+    |     128 |                 441 |              388585 |          95 |
+    ---------------------------------------------------------------------
+    |      64 |                 247 |              396530 |          94 |
+    ---------------------------------------------------------------------
+    ----------------------------------------------------------------------
+    |Pkt Size | RX throughput(Mbps) | RX packet rate(Pps) | Cpu load(%) |
+    ---------------------------------------------------------------------
+    |    1500 |                 984 |               82010 |          23 |
+    ---------------------------------------------------------------------
+    |     512 |                 452 |              110554 |          21 |
+    ---------------------------------------------------------------------
+    |     256 |                 228 |              111599 |          18 |
+    ---------------------------------------------------------------------
+    |     128 |                 117 |              114353 |          17 |
+    ---------------------------------------------------------------------
+    |      64 |                  58 |              114127 |          16 |
+    ---------------------------------------------------------------------
+```
+
+#### File Structure
+
+📦AM263x\
+ ┣ 📂build\
+ ┣ 📂mcal\
+ ┃ ┣ 📂**examples**\
+ ┃ ┃ ┣ 📂**Eth**\
+ ┃ ┃ ┃ ┣ 📂**eth_app**\
+ ┃ ┃ ┃ ┃ ┣ 📂**soc**\
+ ┃ ┃ ┃ ┃ ┣ 📜**EthApp.c** : *Contains ETH test example.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**EthApp.h** : *Contains ETH test example header.*\
+ ┃ ┃ ┃ ┃ ┣ 📜Makefile\
+ ┃ ┃ ┃ ┣ 📂**eth_load_app**\
+ ┃ ┃ ┃ ┃ ┣ 📂**host**\
+ ┃ ┃ ┃ ┃ ┣ 📂**soc**\
+ ┃ ┃ ┃ ┃ ┣ 📜**app_utils.c** : *Contains contains common utility functions used by the MCAL Eth apps.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**app_utils.h** : *Contains contains common utility functions used by the MCAL Eth apps.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**EthLoadApp.c** : *Contains ETH load test example.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**EthLoadApp.h** : *Contains ETH load test example header.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**EthLoadUtils.c** : *Contains Eth utils target function definitions.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**EthLoadUtils.h** : *Contains Eth utils target function definitions.*\
+ ┃ ┃ ┃ ┃ ┣ 📜Makefile\
+ ┃ ┃ ┃ ┃ ┣ 📜**os_wrapper.c** : *Contains wrapper code for freertos.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**os_wrapper.h** : *Contains wrapper code for freertos.*\
+ ┃ ┃ ┃ ┣ 📂**eth_test_app**\
+ ┃ ┃ ┃ ┃ ┣ 📂**host**\
+ ┃ ┃ ┃ ┃ ┣ 📂**soc**\
+ ┃ ┃ ┃ ┃ ┣ 📜**EthTestApp.c** : *Contains ETH test example.*\
+ ┃ ┃ ┃ ┃ ┣ 📜**EthTestApp.h** : *Contains ETH test example header.*\
+ ┃ ┃ ┃ ┃ ┣ 📜Makefile\
+ ┃ ┣ 📂**examples_config**\
+ ┃ ┃ ┣ 📂**Eth_Demo_Cfg**\
+ ┃ ┃ ┃ ┣ 📂**soc**\
+ ┃ ┃ ┃ ┃ ┣ 📂**am263**\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂**r5f0_0**\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂include\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Eth_Cfg.h** : *Contains the Precompile switches, Symbolic names.*\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂src\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Eth_Cfg.c** : *Contains all Pre-Compile Configured parameters*\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Eth_Lcfg.c** : *Contains all linker Configured parameters*\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Eth_PBcfg.c** : *Contains all Post-Build Configured parameters*\
+ ┃ ┃ ┣ 📂**Eth_Demo_Lcfg**\
+ ┃ ┃ ┃ ┣ 📂**soc**\
+ ┃ ┃ ┃ ┃ ┣ 📂**am263**\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂**r5f0_0**\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂include\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Eth_Cfg.h** : *Contains the Precompile switches, Symbolic names.*\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂src\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Eth_Cfg.c** : *Contains all Pre-Compile Configured parameters*\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Eth_Lcfg.c** : *Contains all linker Configured parameters*\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Eth_PBcfg.c** : *Contains all Post-Build Configured parameters*\
+ ┃ ┃ ┣ 📂**Eth_Demo_PBcfg**\
+ ┃ ┃ ┃ ┣ 📂**soc**\
+ ┃ ┃ ┃ ┃ ┣ 📂**am263**\
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂**r5f0_0**\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂include\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Eth_Cfg.h** : *Contains the Precompile switches, Symbolic names.*\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂src\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Eth_Cfg.c** : *Contains all Pre-Compile Configured parameters*\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Eth_Lcfg.c** : *Contains all linker Configured parameters*\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜**Eth_PBcfg.c** : *Contains all Post-Build Configured parameters*\
+ ┃ 📂mcal_config\
+ ┃ 📂mcal_docs\
+ ┣ 📜README.txt
+
+### FAQ's
+
+None
+
+### References
+
+[AUTOSAR_SWS_EthernetDriver](https://www.autosar.org/fileadmin/standards/R4.3.1/CP/AUTOSAR_SWS_EthernetDriver.pdf)\
+[Technical Reference Manual](https://www.ti.com/am263)

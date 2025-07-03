@@ -1,0 +1,283 @@
+# Key Performance and Memory Consumption Data
+
+## Key Performance Metrics
+
+### PWM Driver
+
+| PWM Module Performance    |        |
+|------------------------------------|-----------|
+| Input PWM Signal Period      |  1ms   |
+| Duty Cycle     |  50%   |
+| Time taken to detect first edge after enabling edge detection |  2.87us  |
+| ISR Execution Time per edge         |  0.5us  |
+
+### CAN Driver
+
+Can Performance [CAN Performance](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fsoftware-dl.ti.com%2Fmcu-plus-sdk%2Fesd%2FPLATFORM_SW_MCAL%2FAM263x%2F10.00.00%2FCAN_Performance.xlsx&wdOrigin=BROWSELINK)
+
+### FLS Driver
+
+#### Config mode
+
+| Time Taken to erase sector of size(4096 bytes) | 126ms|
+|-------------|-------------|
+| Time Taken to write sector of size(4096 bytes) | 12ms|
+| Time Taken to read sector of size(4096 bytes)(Without DMA) | 4ms|
+| Time Taken to read sector of size(4096 bytes)(With DMA)  | 285us|
+| Chip Erase Time | 1076ms|
+
+#### MEMMAP mode
+
+| Time Taken to read sector of size(4096 bytes)   | 3ms|
+|-------------|-------------|
+
+### ETH Driver
+
+Peformance depends on Eth driver configuration.
+Below is default performance configuration having throughput > 900Mbps, packet size 1500 without packet lost.
+
+| Parameter | Value   |
+|-----------|---------|
+| RX buffer      | 16     |
+| RX threshold    | 8      |
+| RX IRQ pacePerMs | 2    |
+| TX buffer      | 16    |
+| TX IRQ pacePerMs| 2      |
+| Link speed      | 1 Gbps   |
+
+#### Transmit throughput
+
+| Pkt Size| TX throughput (Mbps)| TX packet rate (Pps)| CPU load (%) |
+|------|---------|--------|---------|
+| 1500  | 611   | 50485  | 20  |
+| 512  | 828    | 196832  | 55  |
+| 256  | 806    | 373504  | 95 |
+| 128  | 444    | 391198  | 95  |
+| 64   | 249   | 400125   | 94  |
+
+#### Receive throughput
+
+|Pkt Size|RX throughput(Mbps) |RX packet rate(Pps) |CPU load(%)|
+|-----|----------|------------|---------|
+|1500 |982  |81904   |23 |
+|512   |437  |106728   |20 |
+|256   |222  |108593   |17 |
+|128  |114  |111685   |16 |
+|64    |56  |110444  |16  |
+
+### LIN
+
+Will be updated in next release
+
+### ADC
+
+| CovMode  | TriggSrc | Num_Of_Channels | Theoretical(SPS) | Practical(SPS) |
+|------------|----------|--------------|-----------|----------------|
+| One_Shot | SRC_HW   | 1   | 493827    | 440044   |
+| One_Shot| SRC_SW   | 1     | 493827     | 440044    |
+| One_Shot | SRC_HW   | 6      | 2962962    | 1080594    |
+| One_Shot| SRC_SW   | 6      | 2962962     | 1083032     |
+| Continuous| SRC_SW   | 6    | 2962962      | 2461538    |
+
+### CDD IPC
+
+| Description    | Time (nsec) |
+|-------------------------|-------------|
+| One way message latency in case of notify  | 1648  |
+| One way message latency in case of RPMsg   | 9273   |
+| Average time taken to branch from ISR to notify callback | 1782  |
+| Average time taken to branch from ISR to rpmsg callback  | 4055  |
+
+Note:
+   One way latency is calculated by taking all the other 3 cores apart from self core as remote core(i.e. R50_1, R51_0 and R51_1).
+
+### CDD PWM
+
+| CDD PWM Module Performance |  |
+|----------------------------|-----------|
+| Input PWM Signal Period | 1ms   |
+| Duty Cycle   | 50%    |
+| Time taken by Normal ISR to process | 0.3750us |
+| Time taken by tripzone ISR to process | 0.524us  |
+
+### SPI
+
+#### Actual Performance details
+
+Performance Result through MCSPI with Interrupt mode are as follows:
+
+| No. of words| Datawidth (bits)| Clock Frequency (MHz)| Transfer Time (us) | Throughput (Mbps)| Total Average time|
+|--------------|------------------|-----------------------|--------------------|-------------------|--------------------|
+| 112000 | 8        | 5           | 206905             | 4.33049    | 2069 micro-seconds |
+| 112000  | 8      | 10          | 110605             | 8.1009            | 1106 micro-seconds |
+| 112000   | 8    | 50             | 36652     | 24.4461   | 366 micro-seconds  |
+| 56000 | 16      | 5              | 193405             | 4.63277           | 1934 micro-seconds |
+| 56000  | 16        | 10      | 100205             | 8.94167           | 1002 micro-seconds |
+| 56000   | 16     | 50           | 27606      | 32.4567           | 276 micro-seconds  |
+| 28000  | 32      | 5            | 186606             | 4.80156           | 1866 micro-seconds |
+| 28000  | 32    | 10          | 95403              | 9.39174           | 954 micro-seconds  |
+| 28000 | 32     | 50            | 23106              | 38.7778           | 231 micro-seconds  |
+
+Performance Result through MCSPI with Dma are as follows:
+
+| No. of words | Datawidth (bits) | Clock Frequency (MHz) | Transfer Time (us) | Throughput (Mbps) | Total Average time |
+|--------------|------------------|-----------------------|--------------------|-------------------|--------------------|
+| 112000  | 8     | 5           | 224409             | 3.99271           | 2244 micro-seconds |
+| 112000  | 8       | 10       | 128313             | 6.98292           | 1283 micro-seconds |
+| 112000   | 8                | 50         | 54511              | 16.437            | 545 micro-seconds  |
+| 56000    | 16       | 5                     | 202813             | 4.41786           | 2028 micro-seconds |
+| 56000   | 16               | 10         | 110219             | 8.12927           | 1102 micro-seconds |
+| 56000   | 16     | 50       | 37712              | 23.7584           | 377 micro-seconds  |
+| 28000  | 32      | 5        | 193493             | 4.63066           | 1935 micro-seconds |
+| 28000  | 32         | 10        | 100912             | 8.87902           | 1009 micro-seconds |
+| 28000   | 32      | 50       | 29306              | 30.5739           | 292 micro-seconds  |
+
+## Memory Footprints
+
+### ADC
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| adc   | 5476    | 4    | 3017    |
+ 
+### CAN
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| can   | 9542    | 1    | 16008    |
+ 
+### CMPSS
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| cdd_cmpss   | 2054    | 0    | 0    |
+ 
+### DIO
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| dio   | 814    | 0    | 0    |
+ 
+### DMA
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| dma   | 4896    | 16786    | 528    |
+ 
+### EPWM
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| epwm   | 14309    | 7    | 51096    |
+ 
+### ETH
+
+Eth memory footprint changes significantly with number of RX, TX buffer.
+
+Below table is memory footprint with minimum buffer number (RX=2, TX=2).
+
+| Module   | Code  | RO Data | RW Data |
+|-------------|-------|---------|---------|
+| Eth_Priv.oer5f  | 4464  | 188     | 7411    |
+| Cpsw_Cpts.oer5f| 1820  | 0       | 772     |
+| Cpsw_Ale.oer5f | 1616  | 0       | 0       |
+| Eth.oer5f | 1458  | 0       | 1       |
+| Eth_Irq.oer5f  | 884   | 0       | 0       |
+| Cpsw_Cpdma.oer5f | 464   | 0       | 0       |
+| Cpsw.oer5f   | 424   | 0       | 0       |
+| Cpsw_Stats.oer5f | 378   | 0       | 1       |
+| Cpsw_Mdio.oer5f | 260   | 0       | 0       |
+| Cpsw_Port.oer5f| 238   | 0       | 0       |
+| Eth_Helpers.oer5f| 36    | 0       | 0       |
+| **Total:**  | 12042 | 188     | 8185    |
+
+### ETH_TRCV
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| ethtrcv   | 3662    | 17    | 78    |
+ 
+### FLS
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| fls   | 7054    | 122    | 0    |
+ 
+### FSIRX
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| fsirx   | 1714    | 2    | 203    |
+ 
+### FSITX
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| fsitx   | 2306    | 9    | 181    |
+ 
+### GPT
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| gpt   | 2822    | 72    | 774    |
+ 
+### I2C
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| i2c   | 4410    | 536    | 159    |
+ 
+### ICU
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| icu   | 3870    | 1    | 920    |
+ 
+### IPC
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| ipc   | 5388    | 413    | 1656    |
+ 
+### LIN
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| lin   | 1920    | 9    | 10    |
+ 
+### MCU
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| mcu   | 6266    | 6    | 0    |
+ 
+### PORT
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| port   | 3124    | 1    | 176    |
+     
+### PWM
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| pwm   | 10258    | 7    | 465    |
+ 
+### SPI
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| spi   | 6706    | 1    | 0    |
+ 
+### UART
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| uart   | 5828    | 1    | 196    |
+ 
+### WDG
+
+| Modules   | .text  |  .data  |  .bss  |
+| ------------ | ----------| -------- | ---------- |
+| wdg   | 996    | 1    | 44    |
+ 
