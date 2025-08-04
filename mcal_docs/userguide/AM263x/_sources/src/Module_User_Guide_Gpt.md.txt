@@ -369,7 +369,7 @@ Configuration of an individual GPT channel.
 | Item ||
 |--------|---------------|
 | **Name** | GptChannelId |
-| **Description** | Channel Id of the GPT channel. This value will be assigned to the symbolic name derived of the GptChannelConfiguration container short name.              Channel 0 -Channel 3 are associated with RTI Module A,               Channel 4 -Channel 7 are associated with RTI Module B,               Channel 8 -Channel 11 are associated with RTI Module B,              Channel 12 -Channel 15 are associated with RTI Module C  |
+| **Description** | Channel Id of the GPT channel. This value will be assigned to the symbolic name derived of the GptChannelConfiguration container short name.              Channel 0 -Channel 3 are associated with RTI Module A,              Channel 4 -Channel 7 are associated with RTI Module B,              Channel 8 -Channel 11 are associated with RTI Module B,              Channel 12 -Channel 15 are associated with RTI Module C  |
 | **Origin** | AUTOSAR_ECUC |
 | **Post-Build-Variant-Value** | false |
 | **Value-Configuration-Class** | -- |

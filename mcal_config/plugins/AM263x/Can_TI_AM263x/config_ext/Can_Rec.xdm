@@ -269,7 +269,7 @@
                       <a:a name="IMPORTER_INFO" value="@REC"/>
                     </d:var>
                     <d:var name="CanWakeupProcessing" type="ENUMERATION" 
-                           value="POLLING">
+                           value="INTERRUPT">
                       <a:a name="IMPORTER_INFO" value="@REC"/>
                     </d:var>
                     <d:var name="CanWakeupSupport" type="BOOLEAN" value="false">
@@ -530,7 +530,7 @@
                       <a:a name="IMPORTER_INFO" value="@REC"/>
                     </d:var>
                     <d:var name="CanWakeupProcessing" type="ENUMERATION" 
-                           value="POLLING">
+                           value="INTERRUPT">
                       <a:a name="IMPORTER_INFO" value="@REC"/>
                     </d:var>
                     <d:var name="CanWakeupSupport" type="BOOLEAN" value="false">
@@ -728,7 +728,7 @@
                       <a:a name="IMPORTER_INFO" value="@REC"/>
                     </d:var>
                     <d:var name="CanWakeupProcessing" type="ENUMERATION" 
-                           value="POLLING">
+                           value="INTERRUPT">
                       <a:a name="IMPORTER_INFO" value="@REC"/>
                     </d:var>
                     <d:var name="CanWakeupSupport" type="BOOLEAN" value="false">

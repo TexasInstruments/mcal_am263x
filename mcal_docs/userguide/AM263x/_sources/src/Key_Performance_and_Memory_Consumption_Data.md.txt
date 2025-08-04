@@ -168,7 +168,7 @@ Performance Result through MCSPI with Dma are as follows:
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| epwm   | 14309    | 7    | 51096    |
+| epwm   | 15041    | 7    | 51096    |
  
 ### ETH
 
@@ -201,19 +201,19 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| fls   | 7054    | 122    | 0    |
+| fls   | 7080    | 122    | 0    |
  
 ### FSIRX
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| fsirx   | 1714    | 2    | 203    |
+| fsirx   | 1724    | 2    | 203    |
  
 ### FSITX
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| fsitx   | 2306    | 9    | 181    |
+| fsitx   | 2286    | 9    | 181    |
  
 ### GPT
 
@@ -225,7 +225,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| i2c   | 4410    | 536    | 159    |
+| i2c   | 3752    | 1    | 472    |
  
 ### ICU
 

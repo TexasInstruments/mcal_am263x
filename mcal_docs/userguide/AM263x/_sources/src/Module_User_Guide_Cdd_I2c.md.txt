@@ -213,7 +213,7 @@ On AM263x platform, there are 4 I2C instances I2C0, I2C1, I2C2 and I2C3 each con
 
 ```{Note}
 CddI2cQueueTimeout parameter Value should be passed as number of ticks according to
-clock frequency. The clock source have changed from RTI timers which used 200MHz clock frequency to R5f timers which uses 400MHz clock frequency, so the timeout values need to be configured accordingly. 
+clock frequency. The clock source have changed from RTI timers which used 200MHz clock frequency to R5f timers which uses 400MHz clock frequency, so the timeout values need to be configured accordingly.
 
 ```
 
@@ -531,30 +531,6 @@ Not Supported
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
 
-##### CddI2cArbitrationLossCheck
-
-| Item ||
-|--------|---------------|
-| **Name** | CddI2cArbitrationLossCheck |
-| **Description** | Switches to activate or deactivate Arbitration loss interrupt(ON/OFF). |
-| **Origin** | Texas Instruments |
-| **Post-Build-Variant-Value** | false |
-| **Value-Configuration-Class** | -- |
-| Pre-Compile-Time | VARIANT-PRE-COMPILE |
-| **Default-value** | false |
-
-##### CddI2cNackAsErrorCheck
-
-| Item ||
-|--------|---------------|
-| **Name** | CddI2cNackAsErrorCheck |
-| **Description** | Switches to activate or deactivate NACK error check(ON/OFF). |
-| **Origin** | Texas Instruments |
-| **Post-Build-Variant-Value** | false |
-| **Value-Configuration-Class** | -- |
-| Pre-Compile-Time | VARIANT-PRE-COMPILE |
-| **Default-value** | false |
-
 ##### CddI2cCancelCheck
 
 | Item ||
@@ -572,122 +548,16 @@ Not Supported
 | Item ||
 |--------|---------------|
 | **Name** | CddI2cStatusCheck |
-| **Description** | Switches to activate or deactivate Cdd_I2c_GetStatus API(ON/OFF). |
-| **Origin** | Texas Instruments |
-| **Post-Build-Variant-Value** | false |
-| **Value-Configuration-Class** | -- |
-| Pre-Compile-Time | VARIANT-PRE-COMPILE |
-| **Default-value** | false |
-
-##### CddI2cMultipleSequenceInQueueProcessCheck
-
-| Item ||
-|--------|---------------|
-| **Name** | CddI2cMultipleSequenceInQueueProcessCheck |
-| **Description** | Switches to activate or deactivate functionality to process same sequence in queue multiple times (ON/OFF). |
-| **Origin** | Texas Instruments |
-| **Post-Build-Variant-Value** | false |
-| **Value-Configuration-Class** | -- |
-| Pre-Compile-Time | VARIANT-PRE-COMPILE |
-| **Default-value** | false |
-
-##### CddI2cArbitrationLossParam
-
-| Item ||
-|--------|---------------|
-| **Name** | CddI2cArbitrationLossParam |
 | **Description** | Type of Isr function: void functionname(void) CAT1 : interrupt void func(void) CAT2 : ISR(func) |
 | **Origin** | Texas Instruments |
 | **Post-Build-Variant-Value** | false |
 | **Value-Configuration-Class** | -- |
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | CDD_I2C_ISR_VOID |
-| **Range** | CDD_I2C_ISR_VOID<br>CDD_I2C_ISR_CAT1<br>CDD_I2C_ISR_CAT2 |
+| **Multiplicity-Configuration-Class** | -- |
+| Pre-Compile Time | VARIANT-PRE-COMPILE |
 | **Post-build-variant-multiplicity** | false |
-
-##### CddI2cDefaultOSCounterId
-
-| Item ||
-|--------|---------------|
-| **Name** | CddI2cDefaultOSCounterId |
-| **Description** | Default Os Counter Id if node reference to OsCounter ref CddI2cOsCounterRef is not set |
-| **Origin** | Texas Instruments |
-| **Post-Build-Variant-Value** | false |
-| **Value-Configuration-Class** | -- |
-| Pre-Compile-Time | VARIANT-PRE-COMPILE |
-| **Default-value** | 0 |
-| **Max-value** | 16 |
-| **Min-value** | 0 |
-
-##### CddI2cArbitrationLossTimeout
-
-| Item ||
-|--------|---------------|
-| **Name** | CddI2cArbitrationLossTimeout |
-| **Description** | I2C timeout - used for timing I2C arbitration loss wait wait |
-| **Origin** | Texas Instruments |
-| **Post-Build-Variant-Value** | false |
-| **Value-Configuration-Class** | -- |
-| Pre-Compile-Time | VARIANT-PRE-COMPILE |
-| **Default-value** | 1000 |
-| **Max-value** | 4294967295 |
-| **Min-value** | 1 |
-
-##### CddI2cPollTimeout
-
-| Item ||
-|--------|---------------|
-| **Name** | CddI2cPollTimeout |
-| **Description** | I2C timeout - used for I2C polling timeouts |
-| **Origin** | Texas Instruments |
-| **Post-Build-Variant-Value** | false |
-| **Value-Configuration-Class** | -- |
-| Pre-Compile-Time | VARIANT-PRE-COMPILE |
-| **Default-value** | 1000 |
-| **Max-value** | 4294967295 |
-| **Min-value** | 1 |
-
-##### CddI2cQueueTimeout
-
-| Item ||
-|--------|---------------|
-| **Name** | CddI2cQueueTimeout |
-| **Description** | I2C timeout - used for queue timeouts. Unit is in clock ticks. Configure the timeout according to r5f clock frequency(400MHz/200MHz) |
-| **Origin** | Texas Instruments |
-| **Post-Build-Variant-Value** | false |
-| **Value-Configuration-Class** | -- |
-| Pre-Compile-Time | VARIANT-PRE-COMPILE |
-| **Default-value** | 1000 |
-| **Max-value** | 4294967295 |
-| **Min-value** | 1 |
-
-##### CddI2cQueueSize
-
-| Item ||
-|--------|---------------|
-| **Name** | CddI2cQueueSize |
-| **Description** | Define I2c driver max queue size. |
-| **Origin** | Texas Instruments |
-| **Post-Build-Variant-Value** | false |
-| **Value-Configuration-Class** | -- |
-| Pre-Compile-Time | VARIANT-PRE-COMPILE |
-| **Default-value** | 10 |
-| **Max-value** | 255 |
-| **Min-value** | 0 |
-
-##### CddI2cMaxlengthByte
-
-| Item ||
-|--------|---------------|
-| **Name** | CddI2cMaxlengthByte |
-| **Description** | Maximum Length of byte to be write or read  |
-| **Origin** | Texas Instruments |
-| **Post-Build-Variant-Value** | false |
-| **Value-Configuration-Class** | -- |
-| Pre-Compile-Time | VARIANT-PRE-COMPILE |
-| **Default-value** | 1 |
-| **Max-value** | 255 |
-| **Min-value** | 0 |
+| **Range** | CDD_I2C_ISR_VOID<br>CDD_I2C_ISR_CAT1<br>CDD_I2C_ISR_CAT2 |
 
 ##### CddI2cHwUnitsUsed
 
@@ -714,18 +584,6 @@ Not Supported
 | **Value-Configuration-Class** | -- |
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
-
-##### CddI2cOsCounterRef
-
-| Item ||
-|--------|---------------|
-| **Name** | CddI2cOsCounterRef |
-| **Description** | This parameter contains a reference to the OsCounter, which is used by the CddI2c driver. |
-| **Origin** | Texas Instruments |
-| **Post-build-variant-multiplicity** | false |
-| **Post-Build-Variant-Value** | false |
-| **Value-Configuration-Class** | -- |
-| Pre-Compile-Time | VARIANT-PRE-COMPILE |
 
 #### CddI2cHwConfig
 This container contains the HW unit initialization parameters
@@ -754,19 +612,19 @@ This container contains the HW unit initialization parameters
 | **Value-Configuration-Class** | -- |
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | CDD_I2C_100KHZ |
-| **Range** | CDD_I2C_100KHZ<br>CDD_I2C_400KHZ<br>CDD_I2C_1P0MHZ<br>CDD_I2C_3P4MHZ |
+| **Range** | CDD_I2C_100KHZ<br>CDD_I2C_400KHZ |
 
 ##### CddI2cHwUnitFrequency
 
 | Item ||
 |--------|---------------|
 | **Name** | CddI2cHwUnitFrequency |
-| **Description** | Frequency which the HW unit will utilise(Range = 6.7 MHz - 13.3 MHz), please note that this differs from the bus frequency used for communication |
+| **Description** | Frequency which the HW unit will utilize(Range = 6.7 MHz - 13.3 MHz), please note that this differs from the bus frequency used for communication |
 | **Origin** | Texas Instruments |
 | **Post-Build-Variant-Value** | false |
 | **Value-Configuration-Class** | -- |
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
-| **Default-value** | 12500000 |
+| **Default-value** | 8000000 |
 | **Max-value** | 13300000 |
 | **Min-value** | 6700000 |
 
@@ -782,6 +640,20 @@ This container contains the HW unit initialization parameters
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | 200000000 |
 | **Max-value** | 4294967295 |
+| **Min-value** | 0 |
+
+##### CddI2cOwnAddress
+
+| Item ||
+|--------|---------------|
+| **Name** | CddI2cOwnAddress |
+| **Description** | Own address - used in both 7 and 10-bit address mode. |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 127 |
+| **Max-value** | 1023 |
 | **Min-value** | 0 |
 
 #### CddI2cChannelConfig
@@ -908,8 +780,8 @@ I2cApp: Module ID: 255
 I2cApp: SW Major version ID: 10
 I2cApp: SW Minor version ID: 0
 I2cApp: SW Patch version ID: 0
-I2cApp: Temperature write SuccessFull 
-I2cApp: Message written to EEPROM: I2C read/write test passed 
+I2cApp: Temperature write SuccessFull
+I2cApp: Message written to EEPROM: I2C read/write test passed
 I2cApp: EEPROM address pointer reset to start read from location : 0
 I2cApp: Temperature sensor reading : 38.500000 (celcius)
 I2cApp: Message read from EEPROM: I2C read/write test passed
@@ -928,7 +800,7 @@ All tests have passed
  ┃ ┃ ┃ ┣ 📜**I2capp.c** : *Contains I2c test example*\
  ┃ ┃ ┃ ┗ 📜Makefile\
  ┃ ┣ 📂**examples_config**\
- ┃ ┃ ┣ 📂**I2c_Demo_Cfg**\
+ ┃ ┃ ┣ 📂**Cdd_I2c_Demo_Cfg**\
  ┃ ┃ ┃ ┗ 📂**soc**\
  ┃ ┃ ┃ ┃ ┣ 📂**am263**\
  ┃ ┃ ┃ ┃ ┃ ┗ 📂**r5f0_0**\

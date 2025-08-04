@@ -1,15 +1,14 @@
 export MCAL_PATH?=$(abspath ../)
 export CCS_VERSION?=ccs1281
-export AUTOSAR_VERSION?=4.3.1
+export AUTOSAR_VERSION?=431
 
-AUTOSAR_VERSION_NO_DOT=$(subst .,,$(AUTOSAR_VERSION))
 ifeq ($(OS),Windows_NT)
-	export ECHO=@echo
+    export ECHO=@echo
     export MAKE=gmake
     export EB_PATH?=C:/EB
     export EB_PATH_SCRIPT=$(EB_PATH)/tresos/bin/tresos_cmd.bat
-	export TOOLS_PATH?=C:/ti
-	export CCS_PATH?=$(TOOLS_PATH)/$(CCS_VERSION)/ccs
+    export TOOLS_PATH?=C:/ti
+    export CCS_PATH?=$(TOOLS_PATH)/$(CCS_VERSION)/ccs
     export CCS_ECLIPSE=$(CCS_PATH)/eclipse/eclipse
     export CYGWIN_PATH?=$(CCS_PATH)/utils/cygwin
     export MKDIR=$(CYGWIN_PATH)/mkdir -p
@@ -29,11 +28,11 @@ ifeq ($(OS),Windows_NT)
 else
     UNAME_S := $(shell uname -s)
     ifneq (,$(filter $(UNAME_S),Linux Darwin))
-	    export ECHO=@echo
+        export ECHO=@echo
         export MAKE=make
         export EB_PATH?=/opt/EB
         export EB_PATH_SCRIPT=$(EB_PATH)/tresos/bin/tresos_cmd.sh
-		export TOOLS_PATH?=$(HOME)/ti
+        export TOOLS_PATH?=$(HOME)/ti
         export CCS_PATH?=$(TOOLS_PATH)/$(CCS_VERSION)/ccs
         export CCS_ECLIPSE=$(CCS_PATH)/eclipse/eclipse
         export MKDIR=mkdir -p
@@ -50,4 +49,17 @@ else
         export PYTHON=python3
         DOT=$(shell which dot)
     endif
+endif
+
+ifeq ($(PLATFORM),$(filter $(PLATFORM), am263 am263x))
+  export EB_PLATFORM?=AM263x
+  export TI_MCAL_DEVICE?=AM263x
+endif
+ifeq ($(PLATFORM),$(filter $(PLATFORM), am263px))
+  export EB_PLATFORM?=AM263Px
+  export TI_MCAL_DEVICE?=AM263Px
+endif
+ifeq ($(PLATFORM),$(filter $(PLATFORM), am261 am261x))
+  export EB_PLATFORM?=AM261x
+  export TI_MCAL_DEVICE?=AM261x
 endif

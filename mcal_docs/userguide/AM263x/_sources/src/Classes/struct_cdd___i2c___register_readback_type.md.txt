@@ -4,7 +4,7 @@ orphan: true
 
 ---
 title: Cdd_I2c_RegisterReadbackType
-summary: CDD I2C register readback structure. 
+summary: CDD_I2C register readback structure. 
 
 ---
 
@@ -12,19 +12,9 @@ summary: CDD I2C register readback structure.
 
 
 
-CDD I2C register readback structure. 
+CDD_I2C register readback structure. 
 
 
-`#include <Cdd_I2c_Cfg.h>`
-
-## Structure Members
-
-|  Member Type   | Member name    | Brief |
-| -------------- | -------------- | ----- |
-|  uint32 | prescalarreg |  I2C Prescaler register.  |
-|  uint32 | clkdividerlowreg |  I2C Clock Divider Low register.  |
-|  uint32 | clkdividerhighreg |  I2C Clock Divider High register.  |
-|  uint32 | modereg |  I2C Mode register.  |
-|  uint32 | ownaddrreg |  I2C Own Address register.  |
+`#include <Cdd_I2c.h>`
 
 

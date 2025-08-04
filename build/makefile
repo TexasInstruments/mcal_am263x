@@ -13,11 +13,11 @@ mcal_EXAMPLE_LIST_CLEAN = $(addsuffix _clean, $(mcal_EXAMPLE_LIST))
 mcal_test_EXAMPLE_LIST_CLEAN = $(addsuffix _clean, $(mcal_test_EXAMPLE_LIST))
 mcal_PKG_LIST_ALL_CLEAN = $(addsuffix _clean, $(mcal_PKG_LIST_ALL))
 
-.PHONY : mcal_libs mcal_libs_clean unit_test unit_test_clean examples examples_clean kw_list all allkw testall clean gen_memstats $(mcal_PKG_LIST_ALL)
+.PHONY : mcal_libs mcal_libs_clean unit_test unit_test_clean examples examples_clean kw_list all allkw testall clean gen_memstats $(mcal_PKG_LIST_ALL) allclean scrub
 
 version:
 	$(ECHO) ------------------------------------------------------
-	$(ECHO) \# $(PLATFORM) MCAL 10.02.02
+	$(ECHO) \# $(PLATFORM) MCAL 11.00.00
 	$(ECHO) ------------------------------------------------------
 
 mcal_libs: $(mcal_LIB_LIST)
@@ -49,6 +49,9 @@ clean: mcal_libs_clean mcal_app_libs_clean unit_test_clean examples_clean
 
 allclean:
 	$(RM) -rf $(DEST_ROOT)
+
+scrub:
+	$(RM) -rf $(mcal_PATH)/binary
 
 help:
 	$(ECHO) ------------------------------------------------------

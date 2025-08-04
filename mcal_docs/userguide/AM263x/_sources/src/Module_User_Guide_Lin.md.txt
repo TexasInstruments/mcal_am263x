@@ -445,6 +445,7 @@ This container contains the configuration (parameters) of the LIN Controller(s).
 | **Name** | LinChannelEcuMWakeupSource |
 | **Description** | This parameter contains a reference to the Wakeup Source for this controller as defined in the ECU State Manager. |
 | **Origin** | AUTOSAR_ECUC |
+| **Post-build-variant-multiplicity** | false |
 | **Post-Build-Variant-Value** | false |
 | **Value-Configuration-Class** | -- |
 | Post-Build-Time | VARIANT-POST-BUILD |

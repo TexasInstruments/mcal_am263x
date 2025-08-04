@@ -47,7 +47,7 @@
             <a href="../index.html" class="icon icon-home"> AM263x MCAL User Guide
           </a>
               <div class="version">
-                10.02.02
+                11.00.00
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -105,24 +105,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#cddi2cdeverrordetect">4.7.9.1. CddI2cDevErrorDetect</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#cddi2cuseinterrupts">4.7.9.2. CddI2cUseInterrupts</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#cddi2cversioninfoapi">4.7.9.3. CddI2cVersionInfoApi</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2carbitrationlosscheck">4.7.9.4. CddI2cArbitrationLossCheck</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2cnackaserrorcheck">4.7.9.5. CddI2cNackAsErrorCheck</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2ccancelcheck">4.7.9.6. CddI2cCancelCheck</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2cstatuscheck">4.7.9.7. CddI2cStatusCheck</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2cmultiplesequenceinqueueprocesscheck">4.7.9.8. CddI2cMultipleSequenceInQueueProcessCheck</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2carbitrationlossparam">4.7.9.9. CddI2cArbitrationLossParam</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2cdefaultoscounterid">4.7.9.10. CddI2cDefaultOSCounterId</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2carbitrationlosstimeout">4.7.9.11. CddI2cArbitrationLossTimeout</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2cpolltimeout">4.7.9.12. CddI2cPollTimeout</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2cqueuetimeout">4.7.9.13. CddI2cQueueTimeout</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2cqueuesize">4.7.9.14. CddI2cQueueSize</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2cmaxlengthbyte">4.7.9.15. CddI2cMaxlengthByte</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2chwunitsused">4.7.9.16. CddI2cHwUnitsUsed</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2cenableregisterreadbackapi">4.7.9.17. CddI2cEnableRegisterReadbackApi</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2coscounterref">4.7.9.18. CddI2cOsCounterRef</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2chwconfig">4.7.9.19. CddI2cHwConfig</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2cchannelconfig">4.7.9.20. CddI2cChannelConfig</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cddi2csequenceconfig">4.7.9.21. CddI2cSequenceConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cddi2ccancelcheck">4.7.9.4. CddI2cCancelCheck</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cddi2cstatuscheck">4.7.9.5. CddI2cStatusCheck</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cddi2chwunitsused">4.7.9.6. CddI2cHwUnitsUsed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cddi2cenableregisterreadbackapi">4.7.9.7. CddI2cEnableRegisterReadbackApi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cddi2chwconfig">4.7.9.8. CddI2cHwConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cddi2cchannelconfig">4.7.9.9. CddI2cChannelConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cddi2csequenceconfig">4.7.9.10. CddI2cSequenceConfig</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#examples">4.7.10. Examples</a><ul>
@@ -1187,74 +1176,8 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 </tbody>
 </table>
 </section>
-<section id="cddi2carbitrationlosscheck">
-<h3><span class="section-number">4.7.9.4. </span>CddI2cArbitrationLossCheck<a class="headerlink" href="#cddi2carbitrationlosscheck" title="Link to this heading"></a></h3>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Item</p></th>
-<th class="head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Name</strong></p></td>
-<td><p>CddI2cArbitrationLossCheck</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Description</strong></p></td>
-<td><p>Switches to activate or deactivate Arbitration loss interrupt(ON/OFF).</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Origin</strong></p></td>
-<td><p>Texas Instruments</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Post-Build-Variant-Value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Value-Configuration-Class</strong></p></td>
-<td><p>–</p></td>
-</tr>
-<tr class="row-odd"><td><p>Pre-Compile-Time</p></td>
-<td><p>VARIANT-PRE-COMPILE</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Default-value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="cddi2cnackaserrorcheck">
-<h3><span class="section-number">4.7.9.5. </span>CddI2cNackAsErrorCheck<a class="headerlink" href="#cddi2cnackaserrorcheck" title="Link to this heading"></a></h3>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Item</p></th>
-<th class="head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Name</strong></p></td>
-<td><p>CddI2cNackAsErrorCheck</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Description</strong></p></td>
-<td><p>Switches to activate or deactivate NACK error check(ON/OFF).</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Origin</strong></p></td>
-<td><p>Texas Instruments</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Post-Build-Variant-Value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Value-Configuration-Class</strong></p></td>
-<td><p>–</p></td>
-</tr>
-<tr class="row-odd"><td><p>Pre-Compile-Time</p></td>
-<td><p>VARIANT-PRE-COMPILE</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Default-value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="cddi2ccancelcheck">
-<h3><span class="section-number">4.7.9.6. </span>CddI2cCancelCheck<a class="headerlink" href="#cddi2ccancelcheck" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.9.4. </span>CddI2cCancelCheck<a class="headerlink" href="#cddi2ccancelcheck" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -1287,7 +1210,7 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 </table>
 </section>
 <section id="cddi2cstatuscheck">
-<h3><span class="section-number">4.7.9.7. </span>CddI2cStatusCheck<a class="headerlink" href="#cddi2cstatuscheck" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.9.5. </span>CddI2cStatusCheck<a class="headerlink" href="#cddi2cstatuscheck" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -1297,72 +1220,6 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 <tbody>
 <tr class="row-even"><td><p><strong>Name</strong></p></td>
 <td><p>CddI2cStatusCheck</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Description</strong></p></td>
-<td><p>Switches to activate or deactivate Cdd_I2c_GetStatus API(ON/OFF).</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Origin</strong></p></td>
-<td><p>Texas Instruments</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Post-Build-Variant-Value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Value-Configuration-Class</strong></p></td>
-<td><p>–</p></td>
-</tr>
-<tr class="row-odd"><td><p>Pre-Compile-Time</p></td>
-<td><p>VARIANT-PRE-COMPILE</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Default-value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="cddi2cmultiplesequenceinqueueprocesscheck">
-<h3><span class="section-number">4.7.9.8. </span>CddI2cMultipleSequenceInQueueProcessCheck<a class="headerlink" href="#cddi2cmultiplesequenceinqueueprocesscheck" title="Link to this heading"></a></h3>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Item</p></th>
-<th class="head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Name</strong></p></td>
-<td><p>CddI2cMultipleSequenceInQueueProcessCheck</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Description</strong></p></td>
-<td><p>Switches to activate or deactivate functionality to process same sequence in queue multiple times (ON/OFF).</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Origin</strong></p></td>
-<td><p>Texas Instruments</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Post-Build-Variant-Value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Value-Configuration-Class</strong></p></td>
-<td><p>–</p></td>
-</tr>
-<tr class="row-odd"><td><p>Pre-Compile-Time</p></td>
-<td><p>VARIANT-PRE-COMPILE</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Default-value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="cddi2carbitrationlossparam">
-<h3><span class="section-number">4.7.9.9. </span>CddI2cArbitrationLossParam<a class="headerlink" href="#cddi2carbitrationlossparam" title="Link to this heading"></a></h3>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Item</p></th>
-<th class="head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Name</strong></p></td>
-<td><p>CddI2cArbitrationLossParam</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Description</strong></p></td>
 <td><p>Type of Isr function: void functionname(void) CAT1 : interrupt void func(void) CAT2 : ISR(func)</p></td>
@@ -1382,251 +1239,23 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 <tr class="row-even"><td><p><strong>Default-value</strong></p></td>
 <td><p>CDD_I2C_ISR_VOID</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Range</strong></p></td>
+<tr class="row-odd"><td><p><strong>Multiplicity-Configuration-Class</strong></p></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-even"><td><p>Pre-Compile Time</p></td>
+<td><p>VARIANT-PRE-COMPILE</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Post-build-variant-multiplicity</strong></p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Range</strong></p></td>
 <td><p>CDD_I2C_ISR_VOID<br>CDD_I2C_ISR_CAT1<br>CDD_I2C_ISR_CAT2</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Post-build-variant-multiplicity</strong></p></td>
-<td><p>false</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="cddi2cdefaultoscounterid">
-<h3><span class="section-number">4.7.9.10. </span>CddI2cDefaultOSCounterId<a class="headerlink" href="#cddi2cdefaultoscounterid" title="Link to this heading"></a></h3>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Item</p></th>
-<th class="head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Name</strong></p></td>
-<td><p>CddI2cDefaultOSCounterId</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Description</strong></p></td>
-<td><p>Default Os Counter Id if node reference to OsCounter ref CddI2cOsCounterRef is not set</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Origin</strong></p></td>
-<td><p>Texas Instruments</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Post-Build-Variant-Value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Value-Configuration-Class</strong></p></td>
-<td><p>–</p></td>
-</tr>
-<tr class="row-odd"><td><p>Pre-Compile-Time</p></td>
-<td><p>VARIANT-PRE-COMPILE</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Default-value</strong></p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Max-value</strong></p></td>
-<td><p>16</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Min-value</strong></p></td>
-<td><p>0</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="cddi2carbitrationlosstimeout">
-<h3><span class="section-number">4.7.9.11. </span>CddI2cArbitrationLossTimeout<a class="headerlink" href="#cddi2carbitrationlosstimeout" title="Link to this heading"></a></h3>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Item</p></th>
-<th class="head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Name</strong></p></td>
-<td><p>CddI2cArbitrationLossTimeout</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Description</strong></p></td>
-<td><p>I2C timeout - used for timing I2C arbitration loss wait wait</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Origin</strong></p></td>
-<td><p>Texas Instruments</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Post-Build-Variant-Value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Value-Configuration-Class</strong></p></td>
-<td><p>–</p></td>
-</tr>
-<tr class="row-odd"><td><p>Pre-Compile-Time</p></td>
-<td><p>VARIANT-PRE-COMPILE</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Default-value</strong></p></td>
-<td><p>1000</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Max-value</strong></p></td>
-<td><p>4294967295</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Min-value</strong></p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="cddi2cpolltimeout">
-<h3><span class="section-number">4.7.9.12. </span>CddI2cPollTimeout<a class="headerlink" href="#cddi2cpolltimeout" title="Link to this heading"></a></h3>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Item</p></th>
-<th class="head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Name</strong></p></td>
-<td><p>CddI2cPollTimeout</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Description</strong></p></td>
-<td><p>I2C timeout - used for I2C polling timeouts</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Origin</strong></p></td>
-<td><p>Texas Instruments</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Post-Build-Variant-Value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Value-Configuration-Class</strong></p></td>
-<td><p>–</p></td>
-</tr>
-<tr class="row-odd"><td><p>Pre-Compile-Time</p></td>
-<td><p>VARIANT-PRE-COMPILE</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Default-value</strong></p></td>
-<td><p>1000</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Max-value</strong></p></td>
-<td><p>4294967295</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Min-value</strong></p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="cddi2cqueuetimeout">
-<h3><span class="section-number">4.7.9.13. </span>CddI2cQueueTimeout<a class="headerlink" href="#cddi2cqueuetimeout" title="Link to this heading"></a></h3>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Item</p></th>
-<th class="head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Name</strong></p></td>
-<td><p>CddI2cQueueTimeout</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Description</strong></p></td>
-<td><p>I2C timeout - used for queue timeouts. Unit is in clock ticks. Configure the timeout according to r5f clock frequency(400MHz/200MHz)</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Origin</strong></p></td>
-<td><p>Texas Instruments</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Post-Build-Variant-Value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Value-Configuration-Class</strong></p></td>
-<td><p>–</p></td>
-</tr>
-<tr class="row-odd"><td><p>Pre-Compile-Time</p></td>
-<td><p>VARIANT-PRE-COMPILE</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Default-value</strong></p></td>
-<td><p>1000</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Max-value</strong></p></td>
-<td><p>4294967295</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Min-value</strong></p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="cddi2cqueuesize">
-<h3><span class="section-number">4.7.9.14. </span>CddI2cQueueSize<a class="headerlink" href="#cddi2cqueuesize" title="Link to this heading"></a></h3>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Item</p></th>
-<th class="head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Name</strong></p></td>
-<td><p>CddI2cQueueSize</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Description</strong></p></td>
-<td><p>Define I2c driver max queue size.</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Origin</strong></p></td>
-<td><p>Texas Instruments</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Post-Build-Variant-Value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Value-Configuration-Class</strong></p></td>
-<td><p>–</p></td>
-</tr>
-<tr class="row-odd"><td><p>Pre-Compile-Time</p></td>
-<td><p>VARIANT-PRE-COMPILE</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Default-value</strong></p></td>
-<td><p>10</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Max-value</strong></p></td>
-<td><p>255</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Min-value</strong></p></td>
-<td><p>0</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="cddi2cmaxlengthbyte">
-<h3><span class="section-number">4.7.9.15. </span>CddI2cMaxlengthByte<a class="headerlink" href="#cddi2cmaxlengthbyte" title="Link to this heading"></a></h3>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Item</p></th>
-<th class="head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Name</strong></p></td>
-<td><p>CddI2cMaxlengthByte</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Description</strong></p></td>
-<td><p>Maximum Length of byte to be write or read</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Origin</strong></p></td>
-<td><p>Texas Instruments</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Post-Build-Variant-Value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Value-Configuration-Class</strong></p></td>
-<td><p>–</p></td>
-</tr>
-<tr class="row-odd"><td><p>Pre-Compile-Time</p></td>
-<td><p>VARIANT-PRE-COMPILE</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Default-value</strong></p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Max-value</strong></p></td>
-<td><p>255</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Min-value</strong></p></td>
-<td><p>0</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="cddi2chwunitsused">
-<h3><span class="section-number">4.7.9.16. </span>CddI2cHwUnitsUsed<a class="headerlink" href="#cddi2chwunitsused" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.9.6. </span>CddI2cHwUnitsUsed<a class="headerlink" href="#cddi2chwunitsused" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -1665,7 +1294,7 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 </table>
 </section>
 <section id="cddi2cenableregisterreadbackapi">
-<h3><span class="section-number">4.7.9.17. </span>CddI2cEnableRegisterReadbackApi<a class="headerlink" href="#cddi2cenableregisterreadbackapi" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.9.7. </span>CddI2cEnableRegisterReadbackApi<a class="headerlink" href="#cddi2cenableregisterreadbackapi" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -1697,44 +1326,11 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 </tbody>
 </table>
 </section>
-<section id="cddi2coscounterref">
-<h3><span class="section-number">4.7.9.18. </span>CddI2cOsCounterRef<a class="headerlink" href="#cddi2coscounterref" title="Link to this heading"></a></h3>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Item</p></th>
-<th class="head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Name</strong></p></td>
-<td><p>CddI2cOsCounterRef</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Description</strong></p></td>
-<td><p>This parameter contains a reference to the OsCounter, which is used by the CddI2c driver.</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Origin</strong></p></td>
-<td><p>Texas Instruments</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Post-build-variant-multiplicity</strong></p></td>
-<td><p>false</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Post-Build-Variant-Value</strong></p></td>
-<td><p>false</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Value-Configuration-Class</strong></p></td>
-<td><p>–</p></td>
-</tr>
-<tr class="row-even"><td><p>Pre-Compile-Time</p></td>
-<td><p>VARIANT-PRE-COMPILE</p></td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="cddi2chwconfig">
-<h3><span class="section-number">4.7.9.19. </span>CddI2cHwConfig<a class="headerlink" href="#cddi2chwconfig" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.9.8. </span>CddI2cHwConfig<a class="headerlink" href="#cddi2chwconfig" title="Link to this heading"></a></h3>
 <p>This container contains the HW unit initialization parameters</p>
 <section id="cddi2chwunittype">
-<h4><span class="section-number">4.7.9.19.1. </span>CddI2cHwUnitType<a class="headerlink" href="#cddi2chwunittype" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.9.8.1. </span>CddI2cHwUnitType<a class="headerlink" href="#cddi2chwunittype" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -1770,7 +1366,7 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 </table>
 </section>
 <section id="cddi2cchannelbitrate">
-<h4><span class="section-number">4.7.9.19.2. </span>CddI2cChannelBitRate<a class="headerlink" href="#cddi2cchannelbitrate" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.9.8.2. </span>CddI2cChannelBitRate<a class="headerlink" href="#cddi2cchannelbitrate" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -1800,13 +1396,13 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 <td><p>CDD_I2C_100KHZ</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Range</strong></p></td>
-<td><p>CDD_I2C_100KHZ<br>CDD_I2C_400KHZ<br>CDD_I2C_1P0MHZ<br>CDD_I2C_3P4MHZ</p></td>
+<td><p>CDD_I2C_100KHZ<br>CDD_I2C_400KHZ</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="cddi2chwunitfrequency">
-<h4><span class="section-number">4.7.9.19.3. </span>CddI2cHwUnitFrequency<a class="headerlink" href="#cddi2chwunitfrequency" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.9.8.3. </span>CddI2cHwUnitFrequency<a class="headerlink" href="#cddi2chwunitfrequency" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -1818,7 +1414,7 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 <td><p>CddI2cHwUnitFrequency</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Description</strong></p></td>
-<td><p>Frequency which the HW unit will utilise(Range = 6.7 MHz - 13.3 MHz), please note that this differs from the bus frequency used for communication</p></td>
+<td><p>Frequency which the HW unit will utilize(Range = 6.7 MHz - 13.3 MHz), please note that this differs from the bus frequency used for communication</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Origin</strong></p></td>
 <td><p>Texas Instruments</p></td>
@@ -1833,7 +1429,7 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 <td><p>VARIANT-PRE-COMPILE</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Default-value</strong></p></td>
-<td><p>12500000</p></td>
+<td><p>8000000</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Max-value</strong></p></td>
 <td><p>13300000</p></td>
@@ -1845,7 +1441,7 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 </table>
 </section>
 <section id="cddi2cclkinputsrc">
-<h4><span class="section-number">4.7.9.19.4. </span>CddI2cClkInputSrc<a class="headerlink" href="#cddi2cclkinputsrc" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.9.8.4. </span>CddI2cClkInputSrc<a class="headerlink" href="#cddi2cclkinputsrc" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -1883,12 +1479,51 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 </tbody>
 </table>
 </section>
+<section id="cddi2cownaddress">
+<h4><span class="section-number">4.7.9.8.5. </span>CddI2cOwnAddress<a class="headerlink" href="#cddi2cownaddress" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Name</strong></p></td>
+<td><p>CddI2cOwnAddress</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Description</strong></p></td>
+<td><p>Own address - used in both 7 and 10-bit address mode.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Origin</strong></p></td>
+<td><p>Texas Instruments</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Post-Build-Variant-Value</strong></p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Value-Configuration-Class</strong></p></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pre-Compile-Time</p></td>
+<td><p>VARIANT-PRE-COMPILE</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Default-value</strong></p></td>
+<td><p>127</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Max-value</strong></p></td>
+<td><p>1023</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Min-value</strong></p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="cddi2cchannelconfig">
-<h3><span class="section-number">4.7.9.20. </span>CddI2cChannelConfig<a class="headerlink" href="#cddi2cchannelconfig" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.9.9. </span>CddI2cChannelConfig<a class="headerlink" href="#cddi2cchannelconfig" title="Link to this heading"></a></h3>
 <p>This container contains the Channel configurations</p>
 <section id="cddi2cchanneldirection">
-<h4><span class="section-number">4.7.9.20.1. </span>CddI2cChannelDirection<a class="headerlink" href="#cddi2cchanneldirection" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.9.9.1. </span>CddI2cChannelDirection<a class="headerlink" href="#cddi2cchanneldirection" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -1924,7 +1559,7 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 </table>
 </section>
 <section id="cddi2cchannelslaveaddress">
-<h4><span class="section-number">4.7.9.20.2. </span>CddI2cChannelSlaveAddress<a class="headerlink" href="#cddi2cchannelslaveaddress" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.9.9.2. </span>CddI2cChannelSlaveAddress<a class="headerlink" href="#cddi2cchannelslaveaddress" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -1967,10 +1602,10 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 </section>
 </section>
 <section id="cddi2csequenceconfig">
-<h3><span class="section-number">4.7.9.21. </span>CddI2cSequenceConfig<a class="headerlink" href="#cddi2csequenceconfig" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.9.10. </span>CddI2cSequenceConfig<a class="headerlink" href="#cddi2csequenceconfig" title="Link to this heading"></a></h3>
 <p>This container contains the Sequence configurations</p>
 <section id="cddi2csequencehwunittype">
-<h4><span class="section-number">4.7.9.21.1. </span>CddI2cSequenceHwUnitType<a class="headerlink" href="#cddi2csequencehwunittype" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.9.10.1. </span>CddI2cSequenceHwUnitType<a class="headerlink" href="#cddi2csequencehwunittype" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -2006,7 +1641,7 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 </table>
 </section>
 <section id="cddi2cnumberofchannelsinsequence">
-<h4><span class="section-number">4.7.9.21.2. </span>CddI2cNumberOfChannelsInSequence<a class="headerlink" href="#cddi2cnumberofchannelsinsequence" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.9.10.2. </span>CddI2cNumberOfChannelsInSequence<a class="headerlink" href="#cddi2cnumberofchannelsinsequence" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -2045,7 +1680,7 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 </table>
 </section>
 <section id="cddi2csequencecompletenotify">
-<h4><span class="section-number">4.7.9.21.3. </span>CddI2cSequenceCompleteNotify<a class="headerlink" href="#cddi2csequencecompletenotify" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.9.10.3. </span>CddI2cSequenceCompleteNotify<a class="headerlink" href="#cddi2csequencecompletenotify" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -2078,7 +1713,7 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 </table>
 </section>
 <section id="cddi2csequenceerrornotify">
-<h4><span class="section-number">4.7.9.21.4. </span>CddI2cSequenceErrorNotify<a class="headerlink" href="#cddi2csequenceerrornotify" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.9.10.4. </span>CddI2cSequenceErrorNotify<a class="headerlink" href="#cddi2csequenceerrornotify" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -2152,8 +1787,8 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 <span class="nl">I2cApp</span><span class="p">:</span><span class="w"> </span><span class="n">SW</span><span class="w"> </span><span class="n">Major</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">ID</span><span class="o">:</span><span class="w"> </span><span class="mi">10</span>
 <span class="nl">I2cApp</span><span class="p">:</span><span class="w"> </span><span class="n">SW</span><span class="w"> </span><span class="n">Minor</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">ID</span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="nl">I2cApp</span><span class="p">:</span><span class="w"> </span><span class="n">SW</span><span class="w"> </span><span class="n">Patch</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">ID</span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
-<span class="nl">I2cApp</span><span class="p">:</span><span class="w"> </span><span class="n">Temperature</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">SuccessFull</span><span class="w"> </span>
-<span class="nl">I2cApp</span><span class="p">:</span><span class="w"> </span><span class="n">Message</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">EEPROM</span><span class="o">:</span><span class="w"> </span><span class="n">I2C</span><span class="w"> </span><span class="n">read</span><span class="o">/</span><span class="n">write</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">passed</span><span class="w"> </span>
+<span class="nl">I2cApp</span><span class="p">:</span><span class="w"> </span><span class="n">Temperature</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">SuccessFull</span>
+<span class="nl">I2cApp</span><span class="p">:</span><span class="w"> </span><span class="n">Message</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">EEPROM</span><span class="o">:</span><span class="w"> </span><span class="n">I2C</span><span class="w"> </span><span class="n">read</span><span class="o">/</span><span class="n">write</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">passed</span>
 <span class="nl">I2cApp</span><span class="p">:</span><span class="w"> </span><span class="n">EEPROM</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="nl">I2cApp</span><span class="p">:</span><span class="w"> </span><span class="n">Temperature</span><span class="w"> </span><span class="n">sensor</span><span class="w"> </span><span class="n">reading</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">38.500000</span><span class="w"> </span><span class="p">(</span><span class="n">celcius</span><span class="p">)</span>
 <span class="nl">I2cApp</span><span class="p">:</span><span class="w"> </span><span class="n">Message</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">EEPROM</span><span class="o">:</span><span class="w"> </span><span class="n">I2C</span><span class="w"> </span><span class="n">read</span><span class="o">/</span><span class="n">write</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">passed</span>
@@ -2172,7 +1807,7 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 ┃ ┃ ┃ ┣ 📜<strong>I2capp.c</strong> : <em>Contains I2c test example</em><br />
 ┃ ┃ ┃ ┗ 📜Makefile<br />
 ┃ ┣ 📂<strong>examples_config</strong><br />
-┃ ┃ ┣ 📂<strong>I2c_Demo_Cfg</strong><br />
+┃ ┃ ┣ 📂<strong>Cdd_I2c_Demo_Cfg</strong><br />
 ┃ ┃ ┃ ┗ 📂<strong>soc</strong><br />
 ┃ ┃ ┃ ┃ ┣ 📂<strong>am263</strong><br />
 ┃ ┃ ┃ ┃ ┃ ┗ 📂<strong>r5f0_0</strong><br />
@@ -2205,7 +1840,7 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
 
   <div role="contentinfo">
     <p>&#169; <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">Copyright</a>  2025, Texas Instruments Incorporated.
-          <span class="lastupdated" >Last updated on Jul 03, 2025.
+          <span class="lastupdated" >Last updated on Aug 04, 2025.
       </span><br>
         <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a> <br>
 
@@ -2222,7 +1857,7 @@ clock frequency. The clock source have changed from RTI timers which used 200MHz
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"></span>
-       Current Version: 10.02.02
+       Current Version: 11.00.00
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
