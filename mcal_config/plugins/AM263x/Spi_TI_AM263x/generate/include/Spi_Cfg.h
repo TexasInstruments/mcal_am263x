@@ -91,7 +91,6 @@
 #include "Dem.h"
 [!ENDIF!][!//
 [!IF "as:modconf('Spi')[1]/SpiGeneral/SpiDevErrorDetect = 'true'"!]#include "Det.h"[!ENDIF!]
-[!IF "not(node:empty(as:modconf('Spi')[1]/SpiGeneral/SpiUserCallbackHeaderFile/*))"!]#include "[!"as:modconf('Spi')[1]/SpiGeneral/SpiUserCallbackHeaderFile/*"!]"[!ENDIF!]
 
 #ifdef __cplusplus
 extern "C" {
@@ -143,7 +142,7 @@ extern "C" {
  *  \name Pre-Compile Switches for API Services
  *  @{
  */
-  
+
 /** \brief Enable/disable SPI dev detect error */
 #define SPI_DEV_ERROR_DETECT        [!IF "as:modconf('Spi')[1]/SpiGeneral/SpiDevErrorDetect = 'true'"!](STD_ON)[!ELSE!](STD_OFF)[!ENDIF!]
 /** \brief Enable/disable SPI job log */
@@ -207,7 +206,7 @@ extern "C" {
 /*
  *Design: MCAL-14198, MCAL-14197
  */
- 
+
 /** \brief Scalability level */
 #define SPI_SCALEABILITY            (SPI_LEVEL_[!"as:modconf('Spi')[1]/SpiGeneral/SpiLevelDelivered"!])
 /* @} */
@@ -262,7 +261,7 @@ extern "C" {
  * All below macros are used for enabling the ISR for a particular hardware.
  * @{
  */
- 
+
 /** \brief Enable/disable SPI MCSPI unit ISR */
 [!LOOP "as:modconf('Spi')[1]/SpiDriver"!][!//
 [!LOOP "SpiHwUnitConfig/*"!][!//
@@ -292,7 +291,7 @@ extern "C" {
  * \name SPI Symbolic Name
  * @{
  */
- 
+
 
 [!VAR "SpiJobIndex" = "0"!][!//
 [!VAR "SpiHwUnitIndex" = "0"!][!//
@@ -350,10 +349,10 @@ extern "C" {
 
 
 
-/* Requirements : SWS_Spi_00376,SWS_Spi_00355,SWS_Spi_00164,MCAL-1363, 
+/* Requirements : SWS_Spi_00376,SWS_Spi_00355,SWS_Spi_00164,MCAL-1363,
 * MCAL-1364, MCAL-1365 */
 /*
- * 
+ *
  *Design: MCAL-14295, MCAL-14313, MCAL-14340
  */
 /** \brief Type of application data buffer elements */
@@ -363,7 +362,7 @@ typedef uint32 Spi_RegisterPtrType;
 
 /* Requirements : SWS_Spi_00377,SWS_Spi_00165,MCAL-1366, MCAL-1367 */
 /*
- * 
+ *
  *Design: MCAL-14293, MCAL-14339
  */
 /**
@@ -374,34 +373,34 @@ typedef uint16 Spi_NumberOfDataType;
 
 /* Requirements : SWS_Spi_00356,SWS_Spi_00166,MCAL-1368, MCAL-1369, MCAL-1370 */
 /*
- * 
+ *
  *Design: MCAL-14292, MCAL-14311, MCAL-14337
  */
 /** \brief Specifies the identification (ID) for a Channel */
 typedef uint8 Spi_ChannelType;
 
-/* Requirements :SWS_Spi_00379,SWS_Spi_00357,SWS_Spi_00167, MCAL-1371, 
+/* Requirements :SWS_Spi_00379,SWS_Spi_00357,SWS_Spi_00167, MCAL-1371,
 *  MCAL-1372, MCAL-1373 */
 /*
- * 
+ *
  *Design: MCAL-14290, MCAL-14309, MCAL-14336
  */
 /** \brief Specifies the identification (ID) for a Job */
 typedef uint16 Spi_JobType;
 
-/* Requirements : SWS_Spi_00380,SWS_Spi_00358,SWS_Spi_00168,MCAL-1374, 
+/* Requirements : SWS_Spi_00380,SWS_Spi_00358,SWS_Spi_00168,MCAL-1374,
 * MCAL-1375, MCAL-1376 */
 /*
- * 
+ *
  *Design: MCAL-14289, MCAL-14308, MCAL-14334
  */
 /** \brief Specifies the identification (ID) for a sequence of jobs */
 typedef uint8 Spi_SequenceType;
 
-/* Requirements : SWS_Spi_00381,SWS_Spi_00359,SWS_Spi_00169,MCAL-1377, 
+/* Requirements : SWS_Spi_00381,SWS_Spi_00359,SWS_Spi_00169,MCAL-1377,
 *  MCAL-1378, MCAL-1379 */
 /*
- * 
+ *
  *Design: MCAL-14288, MCAL-14306, MCAL-14333
  */
 /**
@@ -450,13 +449,19 @@ extern const struct Spi_ConfigType_s SpiDriver;
 /*                        Typedefs,Enums and structures                                  */
 /* ========================================================================== */
 
+/** \brief Typedef for job end notification function pointer */
+/* Requirements : SWS_Spi_00192 */
+typedef P2FUNC (void, SPI_APPL_CODE, Spi_JobEndNotifyType)(void);
 
+/** \brief Typedef for sequence end notification function pointer */
+/* Requirements : SWS_Spi_00073,SWS_Spi_00193,SWS_Spi_00341,SWS_Spi_00193 */
+typedef P2FUNC (void, SPI_APPL_CODE, Spi_SeqEndNotifyType)(void);
 
 /**
- *  \brief This type defines a range of specific status for SPI 
+ *  \brief This type defines a range of specific status for SPI
  *   Handler/Driver
  */
- 
+
  typedef enum
 {
 	/** \brief  MCSPI0 instance */
@@ -469,11 +474,11 @@ extern const struct Spi_ConfigType_s SpiDriver;
     CSIB3,
     /** \brief MCSPI4 instance */
     CSIB4
-    
+
 } Spi_HwUnitType;
 
 /*
- * 
+ *
  *Design: MCAL-14299, MCAL-14346, MCAL-14328, MCAL-14327, MCAL-14351, MCAL-14323, MCAL-14322, MCAL-14321, MCAL-14320, MCAL-14319
  */
 /**
@@ -484,7 +489,7 @@ typedef enum
 {
 	/** \brief The SPI Handler/Driver is not initialized or not usable */
     SPI_UNINIT = 0U,
-    /** \brief The SPI Handler/Driver is not currently transmitting 
+    /** \brief The SPI Handler/Driver is not currently transmitting
 	 *   any Job */
     SPI_IDLE = 1U,
     /** \brief The SPI Handler/Driver is performing a SPI Job (transmit) */
@@ -498,12 +503,12 @@ typedef enum
 /* Requirements :SWS_Spi_00015,SWS_Spi_00374,SWS_Spi_00062,SWS_Spi_00261,
 * SWS_Spi_00012, SWS_Spi_00384,SWS_Spi_00119, MCAL-1350, MCAL-1351, MCAL-1353 */
 /*
- * 
+ *
  *Design: MCAL-14298, MCAL-14344, MCAL-14326, MCAL-14350, MCAL-14318
  */
 typedef enum
 {
-	/** \brief The last transmission of the Job has been finished 
+	/** \brief The last transmission of the Job has been finished
 	*   successfully */
     SPI_JOB_OK = 0U,
     /** \brief The SPI Handler/Driver is performing a SPI Job.
@@ -517,33 +522,33 @@ typedef enum
 } Spi_JobResultType;
 
 /**
- *  \brief This type defines a range of specific Sequences status for 
+ *  \brief This type defines a range of specific Sequences status for
  *  SPI Handler/Driver
  */
  /*
- * 
+ *
  *Design: MCAL-14297, MCAL-14317, MCAL-14330, MCAL-14348, MCAL-14316, MCAL-14315, MCAL-14314, MCAL-14347
  */
-/* Requirements :SWS_Spi_00353,SWS_Spi_00354,SWS_Spi_00017,SWS_Spi_00352, 
-* SWS_Spi_00351,SWS_Spi_00019,SWS_Spi_00251,SWS_Spi_00375,SWS_Spi_00120 , 
+/* Requirements :SWS_Spi_00353,SWS_Spi_00354,SWS_Spi_00017,SWS_Spi_00352,
+* SWS_Spi_00351,SWS_Spi_00019,SWS_Spi_00251,SWS_Spi_00375,SWS_Spi_00120 ,
 * SWS_Spi_00120, MCAL-1355, MCAL-1357, MCAL-1359 */
 typedef enum
 {
-	/** \brief The last transmission of the Sequence has been finished 
+	/** \brief The last transmission of the Sequence has been finished
 	 *   successfully */
     SPI_SEQ_OK = 0U,
-    /** \brief The SPI Handler/Driver is performing a SPI Sequence. 
+    /** \brief The SPI Handler/Driver is performing a SPI Sequence.
 	 * The meaning of this status is equal to SPI_BUSY */
     SPI_SEQ_PENDING = 1U,
     /** \brief The last transmission of the Sequence has failed */
     SPI_SEQ_FAILED = 2U,
-    /** \brief The last transmission of the Sequence has been canceled by 
+    /** \brief The last transmission of the Sequence has been canceled by
 	 * user */
     SPI_SEQ_CANCELLED = 3U
 } Spi_SeqResultType;
 
 /**
- *  \brief This type defines a range of specific HW unit status for 
+ *  \brief This type defines a range of specific HW unit status for
  *  SPI Handler/Driver
  */
 typedef enum
@@ -557,26 +562,26 @@ typedef enum
 } Spi_HwUnitResultType;
 
 /**
- *  \brief Specifies the asynchronous mechanism mode for SPI busses 
+ *  \brief Specifies the asynchronous mechanism mode for SPI busses
  *   handled asynchronously in LEVEL 2
  */
 /* Requirements : SWS_Spi_00382,SWS_Spi_00360,SWS_Spi_00170,SWS_Spi_00150,
 * SWS_Spi_00361,SWS_Spi_00362,MCAL-1380, MCAL-1381, MCAL-1382, MCAL-1383,
  *                MCAL-1384, MCAL-1385, MCAL-1300 */
  /*
- * 
+ *
  *Design: MCAL-14286, MCAL-14303, MCAL-14332,MCAL-22662, MCAL-14302, MCAL-14301
  */
 typedef enum
 {
-	/** \brief The asynchronous mechanism is ensured by polling, so 
-	* interrupts related to SPI busses handled asynchronously 
+	/** \brief The asynchronous mechanism is ensured by polling, so
+	* interrupts related to SPI busses handled asynchronously
 	* are disabled */
     SPI_POLLING_MODE = 0U,
     /** \brief The asynchronous mechanism is ensured by
      * interrupt, so interrupts related to SPI busses
      * handled asynchronously are enabled */
-    SPI_INTERRUPT_MODE = 1U 
+    SPI_INTERRUPT_MODE = 1U
 } Spi_AsyncModeType;
 
 /**
@@ -623,16 +628,16 @@ typedef enum
  */
 typedef enum
 {
-	/** \brief SPI Clock Phase = 0 (rising edge latch),  
+	/** \brief SPI Clock Phase = 0 (rising edge latch),
 	 *                                   Polarity = 0 (Active HIGH) */
     SPI_CLK_MODE_0 = 0x00U,
-     /** \brief SPI Clock Phase = 1 (falling edge latch), 
+     /** \brief SPI Clock Phase = 1 (falling edge latch),
 	 *                                   Polarity = 0 (Active HIGH) */
     SPI_CLK_MODE_1 = 0x01U,
-    /** \brief SPI Clock Phase = 0 (rising edge latch),  
+    /** \brief SPI Clock Phase = 0 (rising edge latch),
 	 *                                    Polarity = 1 (Active LOW) */
     SPI_CLK_MODE_2 = 0x02U,
-    /** \brief SPI Clock Phase = 1 (falling edge latch), 
+    /** \brief SPI Clock Phase = 1 (falling edge latch),
 	 *                                    Polarity = 1 (Active LOW) */
     SPI_CLK_MODE_3 = 0x03U,
 } Spi_ClkMode;
@@ -688,7 +693,7 @@ typedef enum
 } Spi_CsModeType;
 
 /**
- *  \brief Spi_DataDelayType defines the number of interface clock 
+ *  \brief Spi_DataDelayType defines the number of interface clock
  *  cycles between CS toggling and first or last edge of MCSPI clock.
  */
 typedef enum
@@ -704,7 +709,7 @@ typedef enum
 } Spi_DataDelayType;
 
 /**
- *  \brief Spi_DataLineReceiveType defines the lines selected for 
+ *  \brief Spi_DataLineReceiveType defines the lines selected for
  * reception
  */
 typedef enum
@@ -712,11 +717,11 @@ typedef enum
 	/** \brief Data line 0 (SPIDAT[0]) selected for reception */
     DATA_LINE_0_RECEPTION = 0U,
     /** \brief Data line 1 (SPIDAT[1]) selected for reception */
-    DATA_LINE_1_RECEPTION = 1U,  
+    DATA_LINE_1_RECEPTION = 1U,
 } Spi_DataLineReceiveType;
 
 /**
- *  \brief Spi_DataLineTransmitType defines the lines selected for 
+ *  \brief Spi_DataLineTransmitType defines the lines selected for
  * transmission
  */
 typedef enum
@@ -727,9 +732,9 @@ typedef enum
     DATA_LINE_0_TRANSMISSION = 0x2U,
     /** \brief Data line 1 (SPIDAT[1]) selected for transmission */
     DATA_LINE_1_TRANSMISSION = 0x1U,
-    /** \brief Data line 0 and 1 (SPIDAT[0] & SPIDAT[1]) selected for 
+    /** \brief Data line 0 and 1 (SPIDAT[0] & SPIDAT[1]) selected for
 	* transmission */
-    DATA_LINE_BOTH_TRANSMISSION = 0x0U, 
+    DATA_LINE_BOTH_TRANSMISSION = 0x0U,
 } Spi_DataLineTransmitType;
 
 /**
@@ -742,7 +747,7 @@ typedef enum
     /** \brief Event occurs in Overflow/Under flow */
     SPI_EVENT_PENDING = 1U,
     /** \brief The status reading fails */
-    SPI_STATUS_READ_FAIL = 2U, 
+    SPI_STATUS_READ_FAIL = 2U,
 } Mcspi_IrqStatusType;
 
 /**
@@ -764,9 +769,9 @@ typedef struct
     /** \brief Default transmit value when TX buffer is NULL */
     uint32                defaultTxData;
     /** \brief Max data length for external or internal buffer in SPI words.
-     *   In case of internal buffers, this represents the number of 
-	 *    words to  copy from application buffer to internal buffer 
-	 *	 in case of Spi_WriteIB() API or from internal buffer to 
+     *   In case of internal buffers, this represents the number of
+	 *    words to  copy from application buffer to internal buffer
+	 *	 in case of Spi_WriteIB() API or from internal buffer to
 	 *	 application buffer in case of Spi_ReadIB().
      *   The value of this should be less than or equal to the SPI
      *   configuration SPI_IB_MAX_LENGTH as this macro is is used for
@@ -775,7 +780,7 @@ typedef struct
     Spi_NumberOfDataType  maxBufLength;
     /** \brief Start with MSB or LSB.
      *   Only MSB is supported.  */
-    Spi_TransferType      transferType;  
+    Spi_TransferType      transferType;
 } Spi_ChannelConfigType;
 
 /**
@@ -798,19 +803,19 @@ typedef struct
      *   0x02   -   2.5 clock cycles
      *   0x03   -   3.5 clock cycles */
     Spi_DataDelayType csIdleTime;
-    /** \brief Clock divider. This is used to derive the required baudrate 
+    /** \brief Clock divider. This is used to derive the required baudrate
 	 *   from the McSPI functional clock. This value should be 1 less
-     *   than the actual divider value. So a value of 0 means the 
+     *   than the actual divider value. So a value of 0 means the
 	 *   divider is 1.
-     *  Maximum allowed value of divider is 
+     *  Maximum allowed value of divider is
 	 *  4095(12 bit register field)*/
     uint32            clkDivider;
-    /** \brief Mode 0 = {0=CPOL,0=CPHA}; Mode 1={0,1}; Mode 2={1,0} 
+    /** \brief Mode 0 = {0=CPOL,0=CPHA}; Mode 1={0,1}; Mode 2={1,0}
 	 *   Mode 3={1,1} */
     Spi_ClkMode       clkMode;
     /** \brief TX and RX mode */
     Spi_TxRxMode      txRxMode;
-    /** \brief Start bit D/CX added before SPI transfer. Polarity is defined 
+    /** \brief Start bit D/CX added before SPI transfer. Polarity is defined
 	 *   by start bit level (below). */
     uint16            startBitEnable;
     /** \brief Start-bit polarity used when startBitEnable is TRUE. */
@@ -818,7 +823,7 @@ typedef struct
     /** \brief Defines the data lines selected for reception. */
     Spi_DataLineReceiveType     receptionLineEnable;
     /** \brief Defines the data lines selected for transmission. */
-    Spi_DataLineTransmitType    transmissionLineEnable;   
+    Spi_DataLineTransmitType    transmissionLineEnable;
 } Spi_McspiExternalDeviceConfigType;
 
 /**
@@ -826,7 +831,7 @@ typedef struct
  */
 typedef struct
 {
-	/** \brief MCSPI HW specific external device config. Should be populated 
+	/** \brief MCSPI HW specific external device config. Should be populated
 	 *   only if hwUnitId is MCSPI */
     Spi_McspiExternalDeviceConfigType mcspi;
 } Spi_ExternalDeviceConfigType;
@@ -905,7 +910,7 @@ typedef struct
  *                MCAL-1503
  */
  /*
- * 
+ *
  *Design: MCAL-14300, MCAL-14324, MCAL-14354, MCAL-14342, MCAL-14353, MCAL-14341, MCAL-14352
  */
 typedef struct Spi_ConfigType_s
@@ -958,9 +963,9 @@ typedef struct Spi_JobConfigType_PC_s
     Spi_JobType          jobId;
     /** \brief Chip select pin to use */
     Spi_CsPinType        csPin;
-    /** \brief index into SpiConfig.extDevCfg[] indicating the devCfg 
+    /** \brief index into SpiConfig.extDevCfg[] indicating the devCfg
 	 *   associated with the job */
-    uint8                externalDeviceCfgId; 
+    uint8                externalDeviceCfgId;
 } Spi_JobConfigType_PC;
 
 /**

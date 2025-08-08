@@ -510,7 +510,7 @@
 								<a:a name="DESC" value="EN: Container holding all Complex driver specific published information parameters"/>
 								<a:a name="UUID" value="f8059619-213b-455c-9706-745609dfcae6"/>
 								<v:var name="CddUartDeviceVariant" type="ENUMERATION">
-									<a:a name="DESC" value="EN: Device variant AM273X"/>
+									<a:a name="DESC" value="EN: Device variant AM263X"/>
 									<a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
 										<icc:v class="PostBuild">VariantPostBuild</icc:v>
 										<icc:v class="PreCompile">VariantPreCompile</icc:v>
@@ -524,7 +524,6 @@
 									<a:da name="ENABLE" value="true"/>
 									<a:da name="RANGE">
 										<a:v>AM263X</a:v>
-										<a:v>AM273X</a:v>
 									</a:da>
 								</v:var>
 							</v:ctr>
