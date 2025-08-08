@@ -263,7 +263,7 @@ ifeq ($(OS),Windows_NT)
 else
   BOOTIMAGE_CERT_GEN_CMD=$(ROOTDIR)/build/bootimage_scripts/x509CertificateGen.sh
 endif
-BOOTIMAGE_TEMP_OUT_FILE=temp.txt
+BOOTIMAGE_TEMP_OUT_FILE=$(OUTNAME)_temp.txt
 
 BOOTIMAGE_CORE_ID_r5fss0-0 = 0
 BOOTIMAGE_CORE_ID_r5fss0-1 = 1
@@ -306,21 +306,11 @@ else
 	$(COPY) $(BOOTIMAGE_RPRC_NAME) $(BOOTIMAGE_RPRC_NAME_TMP)
 	$(RM) $(BOOTIMAGE_RPRC_NAME)
 	$(XIPGEN_CMD) -i $(BOOTIMAGE_RPRC_NAME_TMP) -o $(BOOTIMAGE_RPRC_NAME) -x $(BOOTIMAGE_RPRC_NAME_XIP) --flash-start-addr 0x60000000 -v > $(BOOTIMAGE_TEMP_OUT_FILE)
-#	$(ECHO) \#
-#	$(ECHO) \# Generated XIP RPRC
 	$(MULTI_CORE_IMAGE_GEN) --devID $(SBL_DEV_ID) --out $(BOOTIMAGE_NAME) $(MULTI_CORE_IMAGE_PARAMS) >> $(BOOTIMAGE_TEMP_OUT_FILE)
-#	$(ECHO) \#
-#	$(ECHO) \# Generated XIP Appimage
 	$(MULTI_CORE_IMAGE_GEN) --devID $(SBL_DEV_ID) --out $(BOOTIMAGE_NAME_XIP) $(MULTI_CORE_IMAGE_PARAMS_XIP) >> $(BOOTIMAGE_TEMP_OUT_FILE)
-
-#	$(ECHO) \#
-#	$(ECHO) \# Cleaning Temp files
 	$(RM) $(BOOTIMAGE_RPRC_NAME_TMP)
 	$(RM) $(BOOTIMAGE_RPRC_NAME)
 	$(RM) $(BOOTIMAGE_TEMP_OUT_FILE)
-#	$(ECHO) \#
-#	$(ECHO) \# Moving generated files to binary directory
-#	$(ECHO) \#
 	$(MV) $(OUTNAME).* $(BINDIR)
 	$(ECHO) \# Multicore Boot image generation for: $(BOOTIMAGE_NAME) Done !!!
 	$(ECHO) \#
