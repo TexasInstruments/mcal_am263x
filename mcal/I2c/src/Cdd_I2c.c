@@ -87,22 +87,23 @@ Cdd_I2c_DriverObjType Cdd_I2c_DrvObj;
 FUNC(void, CDD_I2C_CODE) Cdd_I2c_Init(const Cdd_I2c_ConfigType *configPtr)
 {
 #if (STD_ON == CDD_I2C_DEV_ERROR_DETECT)
+    Std_ReturnType retVal = E_OK;
     if (NULL_PTR != configPtr)
     {
         (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, CDD_I2C_SID_INIT, CDD_I2C_E_PARAM_CONFIG);
+        retVal = E_NOT_OK;
     }
-    else if (CDD_I2C_UNINIT != Cdd_I2c_DrvState)
+    if (CDD_I2C_UNINIT != Cdd_I2c_DrvState)
     {
         (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, CDD_I2C_SID_INIT, CDD_I2C_E_ALREADY_INITIALIZED);
+        retVal = E_NOT_OK;
     }
-    else
+    if (E_OK == retVal)
 #endif
     {
         /* Only pre-compile variant supported */
         const Cdd_I2c_ConfigType *localConfigPtr = &Cdd_I2c_Config;
 #if (STD_ON == CDD_I2C_DEV_ERROR_DETECT)
-        Std_ReturnType retVal;
-
         retVal = Cdd_I2c_checkConfig(localConfigPtr);
         if (E_OK == retVal)
 #endif
@@ -183,7 +184,20 @@ Cdd_I2c_SetupEB(Cdd_I2c_ChannelType chId, Cdd_I2c_DataConstPtrType txDataBufferP
     Std_ReturnType retVal = E_OK;
 
 #if (STD_ON == CDD_I2C_DEV_ERROR_DETECT)
-    retVal = Cdd_I2c_SetupEBParamCheck(CDD_I2C_SID_SETUP_EB, chId, txDataBufferPtr, rxDataBufferPtr, length);
+    if (CDD_I2C_UNINIT == Cdd_I2c_DrvState)
+    {
+        (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, CDD_I2C_SID_SETUP_EB, CDD_I2C_E_UNINIT);
+        retVal = E_NOT_OK;
+    }
+    if (chId >= CDD_I2C_MAX_CH)
+    {
+        (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, CDD_I2C_SID_SETUP_EB, CDD_I2C_E_PARAM_CHANNEL);
+        retVal = E_NOT_OK;
+    }
+    if (E_OK == retVal)
+    {
+        retVal = Cdd_I2c_SetupEBParamCheck(CDD_I2C_SID_SETUP_EB, chId, txDataBufferPtr, rxDataBufferPtr, length);
+    }
     if (E_OK == retVal)
 #endif
     {
@@ -213,12 +227,27 @@ Cdd_I2c_SetupEBDynamic(Cdd_I2c_ChannelType chId, Cdd_I2c_AddressType deviceAddre
     Std_ReturnType retVal = E_OK;
 
 #if (STD_ON == CDD_I2C_DEV_ERROR_DETECT)
-    retVal = Cdd_I2c_SetupEBParamCheck(CDD_I2C_SID_SETUP_EB_DYNAMIC, chId, txDataBufferPtr, rxDataBufferPtr, length);
-    if ((E_OK == retVal) && (deviceAddress > CDD_I2C_ADDRESS_10_BIT_MAX))
+    if (CDD_I2C_UNINIT == Cdd_I2c_DrvState)
+    {
+        (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, CDD_I2C_SID_SETUP_EB_DYNAMIC, CDD_I2C_E_UNINIT);
+        retVal = E_NOT_OK;
+    }
+    if (chId >= CDD_I2C_MAX_CH)
+    {
+        (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, CDD_I2C_SID_SETUP_EB_DYNAMIC,
+                              CDD_I2C_E_PARAM_CHANNEL);
+        retVal = E_NOT_OK;
+    }
+    if (deviceAddress > CDD_I2C_ADDRESS_10_BIT_MAX)
     {
         (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, CDD_I2C_SID_SETUP_EB_DYNAMIC,
                               CDD_I2C_E_PARAM_ADDRESS);
         retVal = E_NOT_OK;
+    }
+    if (E_OK == retVal)
+    {
+        retVal =
+            Cdd_I2c_SetupEBParamCheck(CDD_I2C_SID_SETUP_EB_DYNAMIC, chId, txDataBufferPtr, rxDataBufferPtr, length);
     }
     if (E_OK == retVal)
 #endif
@@ -250,19 +279,21 @@ Cdd_I2c_SetupEBDynamic(Cdd_I2c_ChannelType chId, Cdd_I2c_AddressType deviceAddre
 
 FUNC(Std_ReturnType, CDD_I2C_CODE) Cdd_I2c_AsyncTransmit(Cdd_I2c_SequenceType sequenceId)
 {
-    Std_ReturnType retVal = E_NOT_OK;
+    Std_ReturnType retVal = E_OK;
 
 #if (STD_ON == CDD_I2C_DEV_ERROR_DETECT)
     if (CDD_I2C_UNINIT == Cdd_I2c_DrvState)
     {
         (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, CDD_I2C_SID_ASYNC_TRANSMIT, CDD_I2C_E_UNINIT);
+        retVal = E_NOT_OK;
     }
-    else if (sequenceId >= CDD_I2C_MAX_SEQ)
+    if (sequenceId >= CDD_I2C_MAX_SEQ)
     {
         (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, CDD_I2C_SID_ASYNC_TRANSMIT,
                               CDD_I2C_E_PARAM_SEQUENCE);
+        retVal = E_NOT_OK;
     }
-    else
+    if (E_OK == retVal)
 #endif
     {
         Cdd_I2c_DriverObjType *drvObj = &Cdd_I2c_DrvObj;
@@ -271,7 +302,7 @@ FUNC(Std_ReturnType, CDD_I2C_CODE) Cdd_I2c_AsyncTransmit(Cdd_I2c_SequenceType se
         SchM_Enter_Cdd_I2c_I2C_EXCLUSIVE_AREA_0();
 
         /* Pending sequence cannot be queued again */
-        if ((CDD_I2C_SEQ_PENDING == seqObj->seqResult) || (CDD_I2C_SEQ_QUEUED == seqObj->seqResult))
+        if (CDD_I2C_SEQ_PENDING == seqObj->seqResult)
         {
             (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, CDD_I2C_SID_ASYNC_TRANSMIT,
                                   CDD_I2C_E_SEQ_BUSY);
@@ -297,9 +328,29 @@ FUNC(Std_ReturnType, CDD_I2C_CODE) Cdd_I2c_AsyncTransmit(Cdd_I2c_SequenceType se
 FUNC(Std_ReturnType, CDD_I2C_CODE) Cdd_I2c_Cancel(Cdd_I2c_SequenceType sequenceId)
 {
     Std_ReturnType retVal = E_NOT_OK;
-    (void)sequenceId;
 
-    // TODO
+#if (STD_ON == CDD_I2C_DEV_ERROR_DETECT)
+    if (CDD_I2C_UNINIT == Cdd_I2c_DrvState)
+    {
+        (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, CDD_I2C_SID_CANCEL, CDD_I2C_E_UNINIT);
+    }
+    else if (sequenceId >= CDD_I2C_MAX_SEQ)
+    {
+        (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, CDD_I2C_SID_CANCEL, CDD_I2C_E_PARAM_SEQUENCE);
+    }
+    else
+#endif
+    {
+        Cdd_I2c_DriverObjType *drvObj = &Cdd_I2c_DrvObj;
+        Cdd_I2c_SeqObjType    *seqObj = &drvObj->seqObj[sequenceId];
+
+        SchM_Enter_Cdd_I2c_I2C_EXCLUSIVE_AREA_0();
+
+        retVal = Cdd_I2c_cancelSeq(drvObj, seqObj);
+
+        SchM_Exit_Cdd_I2c_I2C_EXCLUSIVE_AREA_0();
+    }
+
     return retVal;
 }
 #endif
@@ -452,21 +503,8 @@ static Std_ReturnType Cdd_I2c_SetupEBParamCheck(uint8 apiId, Cdd_I2c_ChannelType
 {
     Std_ReturnType         retVal = E_OK;
     Cdd_I2c_DriverObjType *drvObj = &Cdd_I2c_DrvObj;
-    (void)length;
 
-    if (CDD_I2C_UNINIT == Cdd_I2c_DrvState)
-    {
-        (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, apiId, CDD_I2C_E_UNINIT);
-        retVal = E_NOT_OK;
-    }
-
-    if ((E_OK == retVal) && (chId >= CDD_I2C_MAX_CH))
-    {
-        (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, apiId, CDD_I2C_E_PARAM_CHANNEL);
-        retVal = E_NOT_OK;
-    }
-
-    if ((E_OK == retVal) && (CDD_I2C_WRITE == drvObj->chObj[chId].chCfg->direction))
+    if (CDD_I2C_WRITE == drvObj->chObj[chId].chCfg->direction)
     {
         if (NULL_PTR == txDataBufferPtr)
         {
@@ -481,7 +519,7 @@ static Std_ReturnType Cdd_I2c_SetupEBParamCheck(uint8 apiId, Cdd_I2c_ChannelType
         }
     }
 
-    if ((E_OK == retVal) && (drvObj->chObj[chId].chCfg->direction == CDD_I2C_READ))
+    if (drvObj->chObj[chId].chCfg->direction == CDD_I2C_READ)
     {
         if (NULL_PTR == rxDataBufferPtr)
         {
@@ -494,6 +532,12 @@ static Std_ReturnType Cdd_I2c_SetupEBParamCheck(uint8 apiId, Cdd_I2c_ChannelType
             (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, apiId, CDD_I2C_E_PARAM_DIRECTION);
             retVal = E_NOT_OK;
         }
+    }
+
+    if (length == 0U)
+    {
+        (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, apiId, CDD_I2C_E_PARAM_LENGTH);
+        retVal = E_NOT_OK;
     }
 
     return retVal;

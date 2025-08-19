@@ -63,17 +63,17 @@
 
 static void Cdd_I2c_hwSetupClk(uint32 baseAddr, uint32 baudRate, uint32 hwUnitFrequency, uint32 sysClk);
 
-static Cdd_I2c_ChannelResultType Cdd_I2c_hwWaitOnBusBusy(uint32 baseAddr);
-static Cdd_I2c_ChannelResultType Cdd_I2c_hwWaitForBusBusy(uint32 baseAddr);
-static Cdd_I2c_ChannelResultType Cdd_I2c_hwWaitForTxReady(uint32 baseAddr);
-static Cdd_I2c_ChannelResultType Cdd_I2c_hwWaitForRxReady(uint32 baseAddr);
-static Cdd_I2c_ChannelResultType Cdd_I2c_hwWaitForAccessReady(uint32 baseAddr);
-static Cdd_I2c_ChannelResultType Cdd_I2c_hwWaitForStop(uint32 baseAddr);
+static Cdd_I2c_ChannelResultType Cdd_I2c_hwCheckForBusFree(uint32 baseAddr);
+static Cdd_I2c_ChannelResultType Cdd_I2c_hwCheckForBusBusy(uint32 baseAddr);
+static Cdd_I2c_ChannelResultType Cdd_I2c_hwCheckForTxReady(uint32 baseAddr);
+static Cdd_I2c_ChannelResultType Cdd_I2c_hwCheckForRxReady(uint32 baseAddr);
+static Cdd_I2c_ChannelResultType Cdd_I2c_hwCheckForAccessReady(uint32 baseAddr);
+static Cdd_I2c_ChannelResultType Cdd_I2c_hwCheckForStop(uint32 baseAddr);
+static Cdd_I2c_ChannelResultType Cdd_I2c_hwGetErrorCode(uint16 intrStatus, boolean checkStopStatus);
 
 static void Cdd_I2c_hwSetMode(uint32 baseAddr, uint16 ctrlMask, uint16 ctrlCmds);
 static void Cdd_I2c_hwReset(uint32 baseAddr);
 static void Cdd_I2c_hwEnableModule(uint32 baseAddr);
-static void Cdd_I2c_hwStart(uint32 baseAddr);
 static void Cdd_I2c_hwStop(uint32 baseAddr);
 
 static void   Cdd_I2c_hwEnableIntr(uint32 baseAddr, uint16 mask);
@@ -128,19 +128,44 @@ void Cdd_I2c_hwDeInit(uint32 baseAddr)
 
 Cdd_I2c_ChannelResultType Cdd_I2c_hwTxPolling(Cdd_I2c_ChObjType *chObj)
 {
-    Cdd_I2c_HwUnitObjType    *hwUnitObj = chObj->hwUnitObj;
-    uint32                    baseAddr  = hwUnitObj->baseAddr;
-    uint16                    ctrlMask, ctrlCmds;
-    Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_OK;
+    Cdd_I2c_ChannelResultType chResult;
 
-    /* Wait for bus to get free */
+    /* Init variables */
+    chObj->chResult = CDD_I2C_CH_RESULT_PENDING;
     if (TRUE == chObj->doBusyCheck)
     {
-        chResult = Cdd_I2c_hwWaitOnBusBusy(baseAddr);
+        /* Wait for bus to get free */
+        chObj->transStage = CDD_I2C_TRANS_STAGE_WAIT_ON_BB;
+    }
+    else
+    {
+        chObj->transStage = CDD_I2C_TRANS_STAGE_SETUP;
+    }
+    chResult = Cdd_I2c_hwTxPollingContinue(chObj);
+
+    return chResult;
+}
+
+Cdd_I2c_ChannelResultType Cdd_I2c_hwTxPollingContinue(Cdd_I2c_ChObjType *chObj)
+{
+    Cdd_I2c_HwUnitObjType    *hwUnitObj = chObj->hwUnitObj;
+    uint32                    baseAddr  = hwUnitObj->baseAddr;
+    Cdd_I2c_ChannelResultType chResult  = chObj->chResult;
+
+    if (CDD_I2C_TRANS_STAGE_WAIT_ON_BB == chObj->transStage)
+    {
+        chResult = Cdd_I2c_hwCheckForBusFree(baseAddr);
+        if (CDD_I2C_CH_RESULT_OK == chResult)
+        {
+            chResult          = CDD_I2C_CH_RESULT_PENDING;
+            chObj->transStage = CDD_I2C_TRANS_STAGE_SETUP;
+        }
     }
 
-    if (CDD_I2C_CH_RESULT_OK == chResult)
+    if (CDD_I2C_TRANS_STAGE_SETUP == chObj->transStage)
     {
+        uint16 ctrlMask, ctrlCmds;
+
         Cdd_I2c_hwClearAllStatus(baseAddr);
         Cdd_I2c_hwSetSlaveAddress(baseAddr, chObj->deviceAddress);
         Cdd_I2c_hwSetDataCount(baseAddr, chObj->length);
@@ -153,55 +178,91 @@ Cdd_I2c_ChannelResultType Cdd_I2c_hwTxPolling(Cdd_I2c_ChObjType *chObj)
         {
             ctrlCmds |= CDD_I2C_ICMDR_XA_MASK;
         }
-        Cdd_I2c_hwSetMode(baseAddr, ctrlMask, ctrlCmds);
+        /* Start along with setting other bits */
+        ctrlMask |= CDD_I2C_ICMDR_STT_MASK;
+        ctrlCmds |= CDD_I2C_ICMDR_STT_MASK;
 
         /* Write the first data */
         Cdd_I2c_hwWriteData(baseAddr, *chObj->curTxBufPtr);
         chObj->curTxBufPtr++;
         chObj->curLength++;
 
-        Cdd_I2c_hwStart(baseAddr);
-
-        /* Wait for bus busy */
-        chResult = Cdd_I2c_hwWaitForBusBusy(baseAddr);
+        /* Start */
+        Cdd_I2c_hwSetMode(baseAddr, ctrlMask, ctrlCmds);
+        chObj->transStage = CDD_I2C_TRANS_STAGE_WAIT_FOR_BB;
     }
 
-    if (CDD_I2C_CH_RESULT_OK == chResult)
+    if (CDD_I2C_TRANS_STAGE_WAIT_FOR_BB == chObj->transStage)
     {
-        /* Transmit the remaining data */
-        while (chObj->curLength < chObj->length)
+        chResult = Cdd_I2c_hwCheckForBusBusy(baseAddr);
+        if (CDD_I2C_CH_RESULT_OK == chResult)
         {
-            /* Wait for TX ready */
-            chResult = Cdd_I2c_hwWaitForTxReady(baseAddr);
-            if (CDD_I2C_CH_RESULT_OK != chResult)
-            {
-                /* NACK or AL Errors - force stop */
-                Cdd_I2c_hwWaitForAccessReady(baseAddr);
-                Cdd_I2c_hwStop(baseAddr);
-                Cdd_I2c_hwWaitForStop(baseAddr);
-                Cdd_I2c_hwClearAllStatus(baseAddr);
-                break;
-            }
-
-            /* Write the remaining data */
-            Cdd_I2c_hwWriteData(baseAddr, *chObj->curTxBufPtr);
-            chObj->curTxBufPtr++;
-            chObj->curLength++;
+            chResult          = CDD_I2C_CH_RESULT_PENDING;
+            chObj->transStage = CDD_I2C_TRANS_STAGE_DATA_TRANSFER;
         }
     }
 
-    if (CDD_I2C_CH_RESULT_OK == chResult)
+    if (CDD_I2C_TRANS_STAGE_DATA_TRANSFER == chObj->transStage)
     {
-        /* Wait for register access ready */
-        chResult = Cdd_I2c_hwWaitForAccessReady(baseAddr);
+        chResult = Cdd_I2c_hwCheckForTxReady(baseAddr);
         if (CDD_I2C_CH_RESULT_OK == chResult)
         {
-            /* Generate stop if required */
-            if (TRUE == chObj->isStopRequired)
+            chResult = CDD_I2C_CH_RESULT_PENDING;
+            if (chObj->curLength < chObj->length)
             {
-                Cdd_I2c_hwStop(baseAddr);
-                chResult = Cdd_I2c_hwWaitForStop(baseAddr);
+                /* Write the remaining data */
+                Cdd_I2c_hwWriteData(baseAddr, *chObj->curTxBufPtr);
+                chObj->curTxBufPtr++;
+                chObj->curLength++;
             }
+            else
+            {
+                chObj->transStage = CDD_I2C_TRANS_STAGE_WAIT_FOR_AR;
+            }
+        }
+        else
+        {
+            if (CDD_I2C_CH_RESULT_PENDING != chResult)
+            {
+                /* NACK or AL Errors - force stop */
+                chObj->chErrorCode = chResult;
+                chResult           = CDD_I2C_CH_RESULT_PENDING;
+                chObj->transStage  = CDD_I2C_TRANS_STAGE_WAIT_FOR_AR;
+            }
+        }
+    }
+
+    if (CDD_I2C_TRANS_STAGE_WAIT_FOR_AR == chObj->transStage)
+    {
+        chResult = Cdd_I2c_hwCheckForAccessReady(baseAddr);
+        if (CDD_I2C_CH_RESULT_OK == chResult)
+        {
+            /* Generate stop if required or in case of error */
+            if ((TRUE == chObj->isStopRequired) || (chObj->chErrorCode != CDD_I2C_CH_RESULT_OK))
+            {
+                chResult          = CDD_I2C_CH_RESULT_PENDING;
+                chObj->transStage = CDD_I2C_TRANS_STAGE_WAIT_FOR_STOP;
+                Cdd_I2c_hwStop(baseAddr);
+            }
+            else
+            {
+                Cdd_I2c_hwClearAllStatus(baseAddr);
+                /* Use any error code that is already detected */
+                chResult          = chObj->chErrorCode;
+                chObj->transStage = CDD_I2C_TRANS_STAGE_COMPLETE;
+            }
+        }
+    }
+
+    if (CDD_I2C_TRANS_STAGE_WAIT_FOR_STOP == chObj->transStage)
+    {
+        chResult = Cdd_I2c_hwCheckForStop(baseAddr);
+        if (CDD_I2C_CH_RESULT_OK == chResult)
+        {
+            Cdd_I2c_hwClearAllStatus(baseAddr);
+            /* Use any error code that is already detected */
+            chResult          = chObj->chErrorCode;
+            chObj->transStage = CDD_I2C_TRANS_STAGE_COMPLETE;
         }
     }
 
@@ -210,19 +271,44 @@ Cdd_I2c_ChannelResultType Cdd_I2c_hwTxPolling(Cdd_I2c_ChObjType *chObj)
 
 Cdd_I2c_ChannelResultType Cdd_I2c_hwRxPolling(Cdd_I2c_ChObjType *chObj)
 {
-    Cdd_I2c_HwUnitObjType    *hwUnitObj = chObj->hwUnitObj;
-    uint32                    baseAddr  = hwUnitObj->baseAddr;
-    uint16                    ctrlMask, ctrlCmds;
-    Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_OK;
+    Cdd_I2c_ChannelResultType chResult;
 
-    /* Wait for bus to get free */
+    /* Init variables */
+    chObj->chResult = CDD_I2C_CH_RESULT_PENDING;
     if (TRUE == chObj->doBusyCheck)
     {
-        chResult = Cdd_I2c_hwWaitOnBusBusy(baseAddr);
+        /* Wait for bus to get free */
+        chObj->transStage = CDD_I2C_TRANS_STAGE_WAIT_ON_BB;
+    }
+    else
+    {
+        chObj->transStage = CDD_I2C_TRANS_STAGE_SETUP;
+    }
+    chResult = Cdd_I2c_hwRxPollingContinue(chObj);
+
+    return chResult;
+}
+
+Cdd_I2c_ChannelResultType Cdd_I2c_hwRxPollingContinue(Cdd_I2c_ChObjType *chObj)
+{
+    Cdd_I2c_HwUnitObjType    *hwUnitObj = chObj->hwUnitObj;
+    uint32                    baseAddr  = hwUnitObj->baseAddr;
+    Cdd_I2c_ChannelResultType chResult  = chObj->chResult;
+
+    if (CDD_I2C_TRANS_STAGE_WAIT_ON_BB == chObj->transStage)
+    {
+        chResult = Cdd_I2c_hwCheckForBusFree(baseAddr);
+        if (CDD_I2C_CH_RESULT_OK == chResult)
+        {
+            chResult          = CDD_I2C_CH_RESULT_PENDING;
+            chObj->transStage = CDD_I2C_TRANS_STAGE_SETUP;
+        }
     }
 
-    if (CDD_I2C_CH_RESULT_OK == chResult)
+    if (CDD_I2C_TRANS_STAGE_SETUP == chObj->transStage)
     {
+        uint16 ctrlMask, ctrlCmds;
+
         Cdd_I2c_hwClearAllStatus(baseAddr);
         Cdd_I2c_hwSetSlaveAddress(baseAddr, chObj->deviceAddress);
         Cdd_I2c_hwSetDataCount(baseAddr, chObj->length);
@@ -235,43 +321,81 @@ Cdd_I2c_ChannelResultType Cdd_I2c_hwRxPolling(Cdd_I2c_ChObjType *chObj)
         {
             ctrlCmds |= CDD_I2C_ICMDR_XA_MASK;
         }
-        Cdd_I2c_hwSetMode(baseAddr, ctrlMask, ctrlCmds);
-        Cdd_I2c_hwStart(baseAddr);
+        /* Start along with setting other bits */
+        ctrlMask |= CDD_I2C_ICMDR_STT_MASK;
+        ctrlCmds |= CDD_I2C_ICMDR_STT_MASK;
 
-        /* Wait for bus busy */
-        chResult = Cdd_I2c_hwWaitForBusBusy(baseAddr);
+        /* Start */
+        Cdd_I2c_hwSetMode(baseAddr, ctrlMask, ctrlCmds);
+        chObj->transStage = CDD_I2C_TRANS_STAGE_WAIT_FOR_BB;
     }
 
-    if (CDD_I2C_CH_RESULT_OK == chResult)
+    if (CDD_I2C_TRANS_STAGE_WAIT_FOR_BB == chObj->transStage)
+    {
+        chResult = Cdd_I2c_hwCheckForBusBusy(baseAddr);
+        if (CDD_I2C_CH_RESULT_OK == chResult)
+        {
+            chResult          = CDD_I2C_CH_RESULT_PENDING;
+            chObj->transStage = CDD_I2C_TRANS_STAGE_DATA_TRANSFER;
+        }
+    }
+
+    if (CDD_I2C_TRANS_STAGE_DATA_TRANSFER == chObj->transStage)
     {
         /* Read the remaining bytes */
         while (chObj->curLength < chObj->length)
         {
-            /* Wait for RX ready */
-            chResult = Cdd_I2c_hwWaitForRxReady(baseAddr);
-            if (CDD_I2C_CH_RESULT_OK != chResult)
+            chResult = Cdd_I2c_hwCheckForRxReady(baseAddr);
+            if (CDD_I2C_CH_RESULT_OK == chResult)
             {
-                /* NACK or AL Errors - force stop */
-                Cdd_I2c_hwStop(baseAddr);
-                Cdd_I2c_hwWaitForStop(baseAddr);
-                Cdd_I2c_hwClearAllStatus(baseAddr);
+                chResult = CDD_I2C_CH_RESULT_PENDING;
+
+                /* Read the data */
+                *chObj->curRxBufPtr = Cdd_I2c_hwReadData(baseAddr);
+                chObj->curRxBufPtr++;
+                chObj->curLength++;
+
+                if (chObj->curLength == chObj->length)
+                {
+                    /* Generate stop if required */
+                    if (TRUE == chObj->isStopRequired)
+                    {
+                        chObj->transStage = CDD_I2C_TRANS_STAGE_WAIT_FOR_STOP;
+                        Cdd_I2c_hwStop(baseAddr);
+                    }
+                    else
+                    {
+                        Cdd_I2c_hwClearAllStatus(baseAddr);
+                        /* Use any error code that is already detected */
+                        chResult          = chObj->chErrorCode;
+                        chObj->transStage = CDD_I2C_TRANS_STAGE_COMPLETE;
+                    }
+                }
+            }
+            else
+            {
+                if (CDD_I2C_CH_RESULT_PENDING != chResult)
+                {
+                    /* NACK or AL Errors - force stop */
+                    chObj->chErrorCode = chResult;
+                    chResult           = CDD_I2C_CH_RESULT_PENDING;
+                    chObj->transStage  = CDD_I2C_TRANS_STAGE_WAIT_FOR_STOP;
+                    Cdd_I2c_hwStop(baseAddr);
+                }
                 break;
             }
-
-            /* Read the data */
-            *chObj->curRxBufPtr = Cdd_I2c_hwReadData(baseAddr);
-            chObj->curRxBufPtr++;
-            chObj->curLength++;
         }
     }
 
-    if (CDD_I2C_CH_RESULT_OK == chResult)
+    if (CDD_I2C_TRANS_STAGE_WAIT_FOR_STOP == chObj->transStage)
     {
-        /* Generate stop if required */
-        if (TRUE == chObj->isStopRequired)
+        chResult = Cdd_I2c_hwCheckForStop(baseAddr);
+        if (CDD_I2C_CH_RESULT_OK == chResult)
         {
-            Cdd_I2c_hwStop(baseAddr);
-            chResult = Cdd_I2c_hwWaitForStop(baseAddr);
+            Cdd_I2c_hwClearAllStatus(baseAddr);
+            /* Use any error code that is already detected */
+            chResult          = chObj->chErrorCode;
+            chObj->transStage = CDD_I2C_TRANS_STAGE_COMPLETE;
         }
     }
 
@@ -285,37 +409,31 @@ Cdd_I2c_ChannelResultType Cdd_I2c_hwTxIntr(Cdd_I2c_ChObjType *chObj)
     uint16                    ctrlMask, ctrlCmds;
     Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_OK;
 
-    /* Wait for bus to get free - TODO: Do we need for intr mode? */
-    if (TRUE == chObj->doBusyCheck)
+    Cdd_I2c_hwClearAllStatus(baseAddr);
+    Cdd_I2c_hwSetSlaveAddress(baseAddr, chObj->deviceAddress);
+    Cdd_I2c_hwSetDataCount(baseAddr, chObj->length);
+    Cdd_I2c_hwEnableIntr(baseAddr, CDD_I2C_HW_INTR_ENABLE_MASK_TX);
+
+    /* Master mode bit is auto cleared for every transaction - set this everytime */
+    ctrlMask = CDD_I2C_ICMDR_MST_MASK | CDD_I2C_ICMDR_TRX_MASK | CDD_I2C_ICMDR_RM_MASK | CDD_I2C_ICMDR_XA_MASK |
+               CDD_I2C_ICMDR_STP_MASK;
+    ctrlCmds = CDD_I2C_ICMDR_MST_MASK | CDD_I2C_ICMDR_TRX_MASK;
+    if (CDD_I2C_10_BIT_ADDRESS == chObj->addressScheme)
     {
-        chResult = Cdd_I2c_hwWaitOnBusBusy(baseAddr);
+        ctrlCmds |= CDD_I2C_ICMDR_XA_MASK;
     }
+    /* Start along with setting other bits */
+    ctrlMask |= CDD_I2C_ICMDR_STT_MASK;
+    ctrlCmds |= CDD_I2C_ICMDR_STT_MASK;
 
-    if (CDD_I2C_CH_RESULT_OK == chResult)
-    {
-        Cdd_I2c_hwClearAllStatus(baseAddr);
-        Cdd_I2c_hwSetSlaveAddress(baseAddr, chObj->deviceAddress);
-        Cdd_I2c_hwSetDataCount(baseAddr, chObj->length);
+    /* Write the first data */
+    Cdd_I2c_hwWriteData(baseAddr, *chObj->curTxBufPtr);
+    chObj->curTxBufPtr++;
+    chObj->curLength++;
 
-        /* Master mode bit is auto cleared for every transaction - set this everytime */
-        ctrlMask = CDD_I2C_ICMDR_MST_MASK | CDD_I2C_ICMDR_TRX_MASK | CDD_I2C_ICMDR_RM_MASK | CDD_I2C_ICMDR_XA_MASK |
-                   CDD_I2C_ICMDR_STP_MASK;
-        ctrlCmds = CDD_I2C_ICMDR_MST_MASK | CDD_I2C_ICMDR_TRX_MASK;
-        if (CDD_I2C_10_BIT_ADDRESS == chObj->addressScheme)
-        {
-            ctrlCmds |= CDD_I2C_ICMDR_XA_MASK;
-        }
-        Cdd_I2c_hwSetMode(baseAddr, ctrlMask, ctrlCmds);
-        Cdd_I2c_hwEnableIntr(baseAddr, CDD_I2C_HW_INTR_ENABLE_MASK_TX);
-
-        /* Write the first data */
-        Cdd_I2c_hwWriteData(baseAddr, *chObj->curTxBufPtr);
-        chObj->curTxBufPtr++;
-        chObj->curLength++;
-
-        Cdd_I2c_hwStart(baseAddr);
-        chResult = CDD_I2C_CH_RESULT_PENDING;
-    }
+    /* Start */
+    chObj->transStage = CDD_I2C_TRANS_STAGE_DATA_TRANSFER;
+    Cdd_I2c_hwSetMode(baseAddr, ctrlMask, ctrlCmds);
 
     return chResult;
 }
@@ -327,64 +445,51 @@ Cdd_I2c_ChannelResultType Cdd_I2c_hwRxIntr(Cdd_I2c_ChObjType *chObj)
     uint16                    ctrlMask, ctrlCmds;
     Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_OK;
 
-    /* Wait for bus to get free - TODO: Do we need for intr mode? */
-    if (TRUE == chObj->doBusyCheck)
-    {
-        chResult = Cdd_I2c_hwWaitOnBusBusy(baseAddr);
-    }
+    Cdd_I2c_hwClearAllStatus(baseAddr);
+    Cdd_I2c_hwSetSlaveAddress(baseAddr, chObj->deviceAddress);
+    Cdd_I2c_hwSetDataCount(baseAddr, chObj->length);
+    Cdd_I2c_hwEnableIntr(baseAddr, CDD_I2C_HW_INTR_ENABLE_MASK_RX);
 
-    if (CDD_I2C_CH_RESULT_OK == chResult)
+    /* Master mode bit is auto cleared for every transaction - set this everytime */
+    ctrlMask = CDD_I2C_ICMDR_MST_MASK | CDD_I2C_ICMDR_TRX_MASK | CDD_I2C_ICMDR_RM_MASK | CDD_I2C_ICMDR_XA_MASK |
+               CDD_I2C_ICMDR_STP_MASK;
+    ctrlCmds = CDD_I2C_ICMDR_MST_MASK; /* Read */
+    if (CDD_I2C_10_BIT_ADDRESS == chObj->addressScheme)
     {
-        Cdd_I2c_hwClearAllStatus(baseAddr);
-        Cdd_I2c_hwSetSlaveAddress(baseAddr, chObj->deviceAddress);
-        Cdd_I2c_hwSetDataCount(baseAddr, chObj->length);
-
-        /* Master mode bit is auto cleared for every transaction - set this everytime */
-        ctrlMask = CDD_I2C_ICMDR_MST_MASK | CDD_I2C_ICMDR_TRX_MASK | CDD_I2C_ICMDR_RM_MASK | CDD_I2C_ICMDR_XA_MASK |
-                   CDD_I2C_ICMDR_STP_MASK;
-        ctrlCmds = CDD_I2C_ICMDR_MST_MASK; /* Read */
-        if (CDD_I2C_10_BIT_ADDRESS == chObj->addressScheme)
-        {
-            ctrlCmds |= CDD_I2C_ICMDR_XA_MASK;
-        }
-        Cdd_I2c_hwSetMode(baseAddr, ctrlMask, ctrlCmds);
-        Cdd_I2c_hwEnableIntr(baseAddr, CDD_I2C_HW_INTR_ENABLE_MASK_RX);
-        Cdd_I2c_hwStart(baseAddr);
-        chResult = CDD_I2C_CH_RESULT_PENDING;
+        ctrlCmds |= CDD_I2C_ICMDR_XA_MASK;
     }
+    /* Start along with setting other bits */
+    ctrlMask |= CDD_I2C_ICMDR_STT_MASK;
+    ctrlCmds |= CDD_I2C_ICMDR_STT_MASK;
+
+    /* Start */
+    chObj->transStage = CDD_I2C_TRANS_STAGE_DATA_TRANSFER;
+    Cdd_I2c_hwSetMode(baseAddr, ctrlMask, ctrlCmds);
 
     return chResult;
 }
 
-Cdd_I2c_ChannelResultType Cdd_I2c_hwContinueTxRxIntr(Cdd_I2c_ChObjType *chObj)
+Cdd_I2c_ChannelResultType Cdd_I2c_hwTxRxIntrContinue(Cdd_I2c_ChObjType *chObj)
 {
     Cdd_I2c_HwUnitObjType    *hwUnitObj = chObj->hwUnitObj;
     uint32                    baseAddr  = hwUnitObj->baseAddr;
     Cdd_I2c_ChannelResultType chResult  = CDD_I2C_CH_RESULT_PENDING;
+    Cdd_I2c_ChannelResultType chErrorCode;
     uint16                    intrStatus;
 
     /* Get status */
     intrStatus = Cdd_I2c_hwGetIntrStatus(baseAddr);
 
     /* Check for errors */
-    if ((intrStatus & CDD_I2C_HW_INTR_STATUS_MASK_ERR) != 0U)
+    chErrorCode = Cdd_I2c_hwGetErrorCode(intrStatus, FALSE);
+    if (chErrorCode != CDD_I2C_CH_RESULT_OK)
     {
-        if ((intrStatus & CDD_I2C_ICSTR_AL_MASK) != 0U)
-        {
-            chObj->chErrorCode = CDD_I2C_CH_RESULT_ARBFAIL;
-        }
-        if ((intrStatus & CDD_I2C_ICSTR_NACK_MASK) != 0U)
-        {
-            chObj->chErrorCode = CDD_I2C_CH_RESULT_NACKFAIL;
-        }
-        if ((intrStatus & CDD_I2C_ICSTR_AD0_MASK) != 0U)
-        {
-            chObj->chErrorCode = CDD_I2C_CH_RESULT_NOT_OK;
-        }
+        chObj->chErrorCode = chErrorCode;
         Cdd_I2c_hwDisableIntr(baseAddr, CDD_I2C_HW_INTR_STATUS_MASK_ERR);
         Cdd_I2c_hwClearIntr(baseAddr, CDD_I2C_HW_INTR_STATUS_MASK_ERR);
 
         /* NACK or AL Errors - force stop */
+        chObj->transStage = CDD_I2C_TRANS_STAGE_WAIT_FOR_STOP;
         Cdd_I2c_hwStop(baseAddr);
     }
     /* Check for stop condition */
@@ -393,7 +498,8 @@ Cdd_I2c_ChannelResultType Cdd_I2c_hwContinueTxRxIntr(Cdd_I2c_ChObjType *chObj)
         /* End of transfer - disable and clear all status */
         Cdd_I2c_hwDisableAllIntr(baseAddr);
         Cdd_I2c_hwClearAllStatus(baseAddr);
-        chResult = chObj->chErrorCode;
+        chResult          = chObj->chErrorCode;
+        chObj->transStage = CDD_I2C_TRANS_STAGE_COMPLETE;
     }
     else
     {
@@ -406,6 +512,7 @@ Cdd_I2c_ChannelResultType Cdd_I2c_hwContinueTxRxIntr(Cdd_I2c_ChObjType *chObj)
                 Cdd_I2c_hwClearIntr(baseAddr, CDD_I2C_ICSTR_ARDY_MASK);
                 if (TRUE == chObj->isStopRequired)
                 {
+                    chObj->transStage = CDD_I2C_TRANS_STAGE_WAIT_FOR_STOP;
                     Cdd_I2c_hwStop(baseAddr);
                 }
                 else
@@ -413,13 +520,14 @@ Cdd_I2c_ChannelResultType Cdd_I2c_hwContinueTxRxIntr(Cdd_I2c_ChObjType *chObj)
                     /* End of transfer - disable and clear all status */
                     Cdd_I2c_hwDisableAllIntr(baseAddr);
                     Cdd_I2c_hwClearAllStatus(baseAddr);
-                    chResult = CDD_I2C_CH_RESULT_OK;
+                    chResult          = CDD_I2C_CH_RESULT_OK;
+                    chObj->transStage = CDD_I2C_TRANS_STAGE_COMPLETE;
                 }
             }
         }
 
         /* Check for receive ready */
-        if ((CDD_I2C_READ == chObj->chCfg->direction) && (intrStatus & CDD_I2C_ICSTR_ICRRDY_MASK) != 0U)
+        if ((CDD_I2C_READ == chObj->chCfg->direction) && ((intrStatus & CDD_I2C_ICSTR_ICRRDY_MASK) != 0U))
         {
             if (chObj->curLength < chObj->length)
             {
@@ -434,6 +542,7 @@ Cdd_I2c_ChannelResultType Cdd_I2c_hwContinueTxRxIntr(Cdd_I2c_ChObjType *chObj)
                 Cdd_I2c_hwDisableIntr(baseAddr, CDD_I2C_ICIMR_ICRRDY_MASK);
                 if (TRUE == chObj->isStopRequired)
                 {
+                    chObj->transStage = CDD_I2C_TRANS_STAGE_WAIT_FOR_STOP;
                     Cdd_I2c_hwStop(baseAddr);
                 }
                 else
@@ -441,13 +550,14 @@ Cdd_I2c_ChannelResultType Cdd_I2c_hwContinueTxRxIntr(Cdd_I2c_ChObjType *chObj)
                     /* End of transfer - disable and clear all status */
                     Cdd_I2c_hwDisableAllIntr(baseAddr);
                     Cdd_I2c_hwClearAllStatus(baseAddr);
-                    chResult = CDD_I2C_CH_RESULT_OK;
+                    chResult          = CDD_I2C_CH_RESULT_OK;
+                    chObj->transStage = CDD_I2C_TRANS_STAGE_COMPLETE;
                 }
             }
         }
 
         /* Check for transmit ready */
-        if ((CDD_I2C_WRITE == chObj->chCfg->direction) && (intrStatus & CDD_I2C_ICSTR_ICXRDY_MASK) != 0U)
+        if ((CDD_I2C_WRITE == chObj->chCfg->direction) && ((intrStatus & CDD_I2C_ICSTR_ICXRDY_MASK) != 0U))
         {
             if (chObj->curLength < chObj->length)
             {
@@ -516,7 +626,7 @@ static void Cdd_I2c_hwSetupClk(uint32 baseAddr, uint32 baudRate, uint32 hwUnitFr
     }
 
     /* Calculate divisor - use actual module frequency after prescaler */
-    hwUnitFrequencyActual  = sysClk / (preScaler + 1U);
+    hwUnitFrequencyActual  = sysClk / ((uint32)preScaler + 1U);
     divisor                = (uint16)(hwUnitFrequencyActual / baudRate);
     divisor               -= (2U * diff);
     clkh                   = divisor >> 1U;
@@ -527,148 +637,136 @@ static void Cdd_I2c_hwSetupClk(uint32 baseAddr, uint32 baudRate, uint32 hwUnitFr
     return;
 }
 
-static Cdd_I2c_ChannelResultType Cdd_I2c_hwWaitOnBusBusy(uint32 baseAddr)
+static Cdd_I2c_ChannelResultType Cdd_I2c_hwCheckForBusFree(uint32 baseAddr)
 {
-    Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_OK;
-    uint32                    intrStatus;
+    Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_PENDING;
+    uint16                    intrStatus;
 
-    // TODO: Implement timeout
-    while (TRUE)
+    intrStatus = Cdd_I2c_hwGetIntrStatus(baseAddr);
+    if ((intrStatus & CDD_I2C_ICSTR_BB_MASK) != CDD_I2C_ICSTR_BB_MASK)
     {
-        intrStatus = Cdd_I2c_hwGetIntrStatus(baseAddr);
-        if ((intrStatus & CDD_I2C_ICSTR_BB_MASK) != CDD_I2C_ICSTR_BB_MASK)
-        {
-            break;
-        }
+        chResult = CDD_I2C_CH_RESULT_OK;
     }
 
     return chResult;
 }
 
-static Cdd_I2c_ChannelResultType Cdd_I2c_hwWaitForBusBusy(uint32 baseAddr)
+static Cdd_I2c_ChannelResultType Cdd_I2c_hwCheckForBusBusy(uint32 baseAddr)
 {
-    Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_OK;
-    uint32                    intrStatus;
+    Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_PENDING;
+    uint16                    intrStatus;
 
-    // TODO: Implement timeout
-    while (TRUE)
+    intrStatus = Cdd_I2c_hwGetIntrStatus(baseAddr);
+    if ((intrStatus & CDD_I2C_ICSTR_BB_MASK) == CDD_I2C_ICSTR_BB_MASK)
     {
-        intrStatus = Cdd_I2c_hwGetIntrStatus(baseAddr);
-        if ((intrStatus & CDD_I2C_ICSTR_BB_MASK) == CDD_I2C_ICSTR_BB_MASK)
-        {
-            break;
-        }
+        chResult = CDD_I2C_CH_RESULT_OK;
     }
 
     return chResult;
 }
 
-static Cdd_I2c_ChannelResultType Cdd_I2c_hwWaitForTxReady(uint32 baseAddr)
+static Cdd_I2c_ChannelResultType Cdd_I2c_hwCheckForTxReady(uint32 baseAddr)
 {
-    Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_OK;
-    uint32                    intrStatus;
+    Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_PENDING;
+    Cdd_I2c_ChannelResultType chErrorCode;
+    uint16                    intrStatus;
 
-    // TODO: Implement timeout
-    while (TRUE)
+    intrStatus = Cdd_I2c_hwGetIntrStatus(baseAddr);
+    if ((intrStatus & CDD_I2C_ICSTR_ICXRDY_MASK) == CDD_I2C_ICSTR_ICXRDY_MASK)
     {
-        intrStatus = Cdd_I2c_hwGetIntrStatus(baseAddr);
-        if ((intrStatus & CDD_I2C_ICSTR_ICXRDY_MASK) == CDD_I2C_ICSTR_ICXRDY_MASK)
-        {
-            break;
-        }
-        if ((intrStatus & (CDD_I2C_ICSTR_AL_MASK | CDD_I2C_ICSTR_NACK_MASK | CDD_I2C_ICSTR_SCD_MASK)) != 0U)
-        {
-            chResult = CDD_I2C_CH_RESULT_NOT_OK;
-            if ((intrStatus & CDD_I2C_ICSTR_AL_MASK) != 0U)
-            {
-                chResult = CDD_I2C_CH_RESULT_ARBFAIL;
-            }
-            if ((intrStatus & CDD_I2C_ICSTR_NACK_MASK) != 0U)
-            {
-                chResult = CDD_I2C_CH_RESULT_NACKFAIL;
-            }
-            if ((intrStatus & CDD_I2C_ICSTR_SCD_MASK) != 0U)
-            {
-                chResult = CDD_I2C_CH_RESULT_BUSFAIL;
-            }
-            break;
-        }
+        chResult = CDD_I2C_CH_RESULT_OK;
+    }
+    chErrorCode = Cdd_I2c_hwGetErrorCode(intrStatus, TRUE);
+    if (chErrorCode != CDD_I2C_CH_RESULT_OK)
+    {
+        chResult = chErrorCode;
     }
 
     return chResult;
 }
 
-static Cdd_I2c_ChannelResultType Cdd_I2c_hwWaitForRxReady(uint32 baseAddr)
+static Cdd_I2c_ChannelResultType Cdd_I2c_hwCheckForRxReady(uint32 baseAddr)
 {
-    Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_OK;
-    uint32                    intrStatus;
+    Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_PENDING;
+    Cdd_I2c_ChannelResultType chErrorCode;
+    uint16                    intrStatus;
 
-    // TODO: Implement timeout
-    while (TRUE)
+    intrStatus = Cdd_I2c_hwGetIntrStatus(baseAddr);
+    if ((intrStatus & CDD_I2C_ICSTR_ICRRDY_MASK) == CDD_I2C_ICSTR_ICRRDY_MASK)
     {
-        intrStatus = Cdd_I2c_hwGetIntrStatus(baseAddr);
-        if ((intrStatus & CDD_I2C_ICSTR_ICRRDY_MASK) == CDD_I2C_ICSTR_ICRRDY_MASK)
-        {
-            break;
-        }
-        if ((intrStatus & (CDD_I2C_ICSTR_AL_MASK | CDD_I2C_ICSTR_NACK_MASK | CDD_I2C_ICSTR_SCD_MASK)) != 0U)
-        {
-            chResult = CDD_I2C_CH_RESULT_NOT_OK;
-            if ((intrStatus & CDD_I2C_ICSTR_AL_MASK) != 0U)
-            {
-                chResult = CDD_I2C_CH_RESULT_ARBFAIL;
-            }
-            if ((intrStatus & CDD_I2C_ICSTR_NACK_MASK) != 0U)
-            {
-                chResult = CDD_I2C_CH_RESULT_NACKFAIL;
-            }
-            if ((intrStatus & CDD_I2C_ICSTR_SCD_MASK) != 0U)
-            {
-                chResult = CDD_I2C_CH_RESULT_BUSFAIL;
-            }
-            break;
-        }
+        chResult = CDD_I2C_CH_RESULT_OK;
+    }
+    chErrorCode = Cdd_I2c_hwGetErrorCode(intrStatus, TRUE);
+    if (chErrorCode != CDD_I2C_CH_RESULT_OK)
+    {
+        chResult = chErrorCode;
     }
 
     return chResult;
 }
 
-static Cdd_I2c_ChannelResultType Cdd_I2c_hwWaitForAccessReady(uint32 baseAddr)
+static Cdd_I2c_ChannelResultType Cdd_I2c_hwCheckForAccessReady(uint32 baseAddr)
 {
-    Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_OK;
-    uint32                    intrStatus;
+    Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_PENDING;
+    uint16                    intrStatus;
 
-    // TODO: Implement timeout
-    while (TRUE)
+    intrStatus = Cdd_I2c_hwGetIntrStatus(baseAddr);
+    if ((intrStatus & CDD_I2C_ICSTR_ARDY_MASK) == CDD_I2C_ICSTR_ARDY_MASK)
     {
-        intrStatus = Cdd_I2c_hwGetIntrStatus(baseAddr);
-        if ((intrStatus & CDD_I2C_ICSTR_ARDY_MASK) == CDD_I2C_ICSTR_ARDY_MASK)
-        {
-            break;
-        }
+        chResult = CDD_I2C_CH_RESULT_OK;
     }
 
     return chResult;
 }
 
-static Cdd_I2c_ChannelResultType Cdd_I2c_hwWaitForStop(uint32 baseAddr)
+static Cdd_I2c_ChannelResultType Cdd_I2c_hwCheckForStop(uint32 baseAddr)
 {
-    Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_OK;
-    uint32                    intrStatus;
+    Cdd_I2c_ChannelResultType chResult = CDD_I2C_CH_RESULT_PENDING;
+    uint16                    intrStatus, pinStatus;
 
-    // TODO: Implement timeout
-    while (TRUE)
+    intrStatus = Cdd_I2c_hwGetIntrStatus(baseAddr);
+    /* Also check the external SCL and SDA pins to go high (free) */
+    pinStatus = HW_RD_REG16(baseAddr + CDD_I2C_ICPDIN);
+    /* Wait for both stop to complete and bus to become free */
+    if (((intrStatus & CDD_I2C_ICSTR_SCD_MASK) == CDD_I2C_ICSTR_SCD_MASK) &&
+        ((intrStatus & CDD_I2C_ICSTR_BB_MASK) != CDD_I2C_ICSTR_BB_MASK) &&
+        ((pinStatus & (CDD_I2C_ICPDIN_PDIN0_MASK | CDD_I2C_ICPDIN_PDIN1_MASK)) ==
+         (CDD_I2C_ICPDIN_PDIN0_MASK | CDD_I2C_ICPDIN_PDIN1_MASK)))
     {
-        intrStatus = Cdd_I2c_hwGetIntrStatus(baseAddr);
-        /* Wait for both stop to complete and bus to become free */
-        if (((intrStatus & CDD_I2C_ICSTR_SCD_MASK) == CDD_I2C_ICSTR_SCD_MASK) &&
-            ((intrStatus & CDD_I2C_ICSTR_BB_MASK) != CDD_I2C_ICSTR_BB_MASK))
-        {
-            break;
-        }
+        chResult = CDD_I2C_CH_RESULT_OK;
     }
 
     return chResult;
+}
+
+static Cdd_I2c_ChannelResultType Cdd_I2c_hwGetErrorCode(uint16 intrStatus, boolean checkStopStatus)
+{
+    Cdd_I2c_ChannelResultType chErrorCode = CDD_I2C_CH_RESULT_OK;
+
+    if ((intrStatus & CDD_I2C_ICSTR_AL_MASK) != 0U)
+    {
+        chErrorCode = CDD_I2C_CH_RESULT_ARBFAIL;
+    }
+    if ((intrStatus & CDD_I2C_ICSTR_NACK_MASK) != 0U)
+    {
+        chErrorCode = CDD_I2C_CH_RESULT_NACKFAIL;
+    }
+    if ((intrStatus & CDD_I2C_ICSTR_AD0_MASK) != 0U)
+    {
+        chErrorCode = CDD_I2C_CH_RESULT_NOT_OK;
+    }
+    /* Check this only for polled mode as in intr mode
+     * we use stop intr status for getting interrupt and handle
+     * the transfer end */
+    if (TRUE == checkStopStatus)
+    {
+        if ((intrStatus & CDD_I2C_ICSTR_SCD_MASK) != 0U)
+        {
+            chErrorCode = CDD_I2C_CH_RESULT_BUSFAIL;
+        }
+    }
+
+    return chErrorCode;
 }
 
 static void Cdd_I2c_hwSetMode(uint32 baseAddr, uint16 ctrlMask, uint16 ctrlCmds)
@@ -692,11 +790,6 @@ static void Cdd_I2c_hwEnableModule(uint32 baseAddr)
 
     regVal = CDD_I2C_ICMDR_MST_MASK | CDD_I2C_ICMDR_FREE_MASK | CDD_I2C_ICMDR_IRS_MASK;
     HW_WR_REG16(baseAddr + CDD_I2C_ICMDR, regVal);
-}
-
-static void Cdd_I2c_hwStart(uint32 baseAddr)
-{
-    Cdd_I2c_hwSetMode(baseAddr, CDD_I2C_ICMDR_STT_MASK, CDD_I2C_ICMDR_STT_MASK);
 }
 
 static void Cdd_I2c_hwStop(uint32 baseAddr)

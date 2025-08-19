@@ -46,6 +46,21 @@ extern "C" {
 /** \brief Maximum possible 7 bit address */
 #define CDD_I2C_ADDRESS_7_BIT_MAX (127U)
 
+/*
+ * I2C driver transfer stages - used in polling mode
+ */
+typedef enum
+{
+    CDD_I2C_TRANS_STAGE_INIT,
+    CDD_I2C_TRANS_STAGE_WAIT_ON_BB,
+    CDD_I2C_TRANS_STAGE_SETUP,
+    CDD_I2C_TRANS_STAGE_WAIT_FOR_BB,
+    CDD_I2C_TRANS_STAGE_DATA_TRANSFER,
+    CDD_I2C_TRANS_STAGE_WAIT_FOR_AR,
+    CDD_I2C_TRANS_STAGE_WAIT_FOR_STOP,
+    CDD_I2C_TRANS_STAGE_COMPLETE
+} Cdd_I2c_TransStageType;
+
 /* ================================================================ */
 /*                         Structures and Enums                     */
 /* ================================================================ */
@@ -115,6 +130,8 @@ typedef struct
     /**< Flag to indicate whether to perform stop at end of channel transfer */
     boolean                     doBusyCheck;
     /**< Flag to indicate whether to perform bus busy check at start of channel transfer */
+    Cdd_I2c_TransStageType      transStage;
+    /**< Flag to indicate the current stage of data transfer */
 } Cdd_I2c_ChObjType;
 
 /**
@@ -159,6 +176,7 @@ typedef struct
 /* ================================================================ */
 
 Std_ReturnType Cdd_I2c_startSeqAsync(Cdd_I2c_DriverObjType *drvObj, Cdd_I2c_SeqObjType *seqObj);
+Std_ReturnType Cdd_I2c_cancelSeq(Cdd_I2c_DriverObjType *drvObj, Cdd_I2c_SeqObjType *seqObj);
 
 #if (STD_ON == CDD_I2C_DEV_ERROR_DETECT)
 Std_ReturnType Cdd_I2c_checkConfig(const Cdd_I2c_ConfigType *configPtr);

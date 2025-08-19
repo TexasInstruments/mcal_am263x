@@ -58,10 +58,12 @@ void Cdd_I2c_hwInit(uint32 baseAddr, uint32 baudRate, uint32 hwUnitFrequency, ui
 void Cdd_I2c_hwDeInit(uint32 baseAddr);
 
 Cdd_I2c_ChannelResultType Cdd_I2c_hwTxPolling(Cdd_I2c_ChObjType *chObj);
+Cdd_I2c_ChannelResultType Cdd_I2c_hwTxPollingContinue(Cdd_I2c_ChObjType *chObj);
 Cdd_I2c_ChannelResultType Cdd_I2c_hwRxPolling(Cdd_I2c_ChObjType *chObj);
+Cdd_I2c_ChannelResultType Cdd_I2c_hwRxPollingContinue(Cdd_I2c_ChObjType *chObj);
 Cdd_I2c_ChannelResultType Cdd_I2c_hwTxIntr(Cdd_I2c_ChObjType *chObj);
 Cdd_I2c_ChannelResultType Cdd_I2c_hwRxIntr(Cdd_I2c_ChObjType *chObj);
-Cdd_I2c_ChannelResultType Cdd_I2c_hwContinueTxRxIntr(Cdd_I2c_ChObjType *chObj);
+Cdd_I2c_ChannelResultType Cdd_I2c_hwTxRxIntrContinue(Cdd_I2c_ChObjType *chObj);
 
 void Cdd_I2c_hwDisableAllIntr(uint32 baseAddr);
 void Cdd_I2c_hwClearAllStatus(uint32 baseAddr);
