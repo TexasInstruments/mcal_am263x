@@ -104,21 +104,21 @@ FUNC(void, CDD_I2C_CODE) Cdd_I2c_Init(const Cdd_I2c_ConfigType *configPtr)
         /* Only pre-compile variant supported */
         const Cdd_I2c_ConfigType *localConfigPtr = &Cdd_I2c_Config;
 #if (STD_ON == CDD_I2C_DEV_ERROR_DETECT)
-        retVal = Cdd_I2c_checkConfig(localConfigPtr);
+        retVal = Cdd_I2c_CheckConfig(localConfigPtr);
         if (E_OK == retVal)
 #endif
         {
             Cdd_I2c_DriverObjType *drvObj = &Cdd_I2c_DrvObj;
 
-            Cdd_I2c_resetDrvObj(drvObj);
-            Cdd_I2c_copyConfig(drvObj, localConfigPtr);
+            Cdd_I2c_ResetDrvObj(drvObj);
+            Cdd_I2c_CopyConfig(drvObj, localConfigPtr);
 
             /* Init HW once all config is copied */
             for (uint32 hwIdx = 0U; hwIdx < CDD_I2C_MAX_HW_UNIT; hwIdx++)
             {
                 Cdd_I2c_HwUnitObjType          *hwUnitObj = &drvObj->hwUnitObj[hwIdx];
                 const Cdd_I2c_HwUnitConfigType *hwUnitCfg = hwUnitObj->hwUnitCfg;
-                Cdd_I2c_hwInit(hwUnitObj->baseAddr, hwUnitCfg->baudRate, hwUnitCfg->hwUnitFrequency, hwUnitCfg->sysClk,
+                Cdd_I2c_HwInit(hwUnitObj->baseAddr, hwUnitCfg->baudRate, hwUnitCfg->hwUnitFrequency, hwUnitCfg->sysClk,
                                hwUnitCfg->ownAddress);
             }
             Cdd_I2c_DrvState = CDD_I2C_IDLE;
@@ -146,7 +146,7 @@ FUNC(Std_ReturnType, CDD_I2C_CODE) Cdd_I2c_DeInit(void)
         for (uint32 hwIdx = 0U; hwIdx < CDD_I2C_MAX_HW_UNIT; hwIdx++)
         {
             Cdd_I2c_HwUnitObjType *hwUnitObj = &drvObj->hwUnitObj[hwIdx];
-            Cdd_I2c_hwDeInit(hwUnitObj->baseAddr);
+            Cdd_I2c_HwDeInit(hwUnitObj->baseAddr);
         }
         Cdd_I2c_DrvState = CDD_I2C_UNINIT;
     }
@@ -310,7 +310,7 @@ FUNC(Std_ReturnType, CDD_I2C_CODE) Cdd_I2c_AsyncTransmit(Cdd_I2c_SequenceType se
         else
         {
             /* Call the start sequence API */
-            retVal = Cdd_I2c_startSeqAsync(drvObj, seqObj);
+            retVal = Cdd_I2c_StartSeqAsync(drvObj, seqObj);
             if (E_OK != retVal)
             {
                 (void)Det_ReportError(CDD_I2C_MODULE_ID, CDD_I2C_INSTANCE_ID, CDD_I2C_SID_ASYNC_TRANSMIT,
@@ -346,7 +346,7 @@ FUNC(Std_ReturnType, CDD_I2C_CODE) Cdd_I2c_Cancel(Cdd_I2c_SequenceType sequenceI
 
         SchM_Enter_Cdd_I2c_I2C_EXCLUSIVE_AREA_0();
 
-        retVal = Cdd_I2c_cancelSeq(drvObj, seqObj);
+        retVal = Cdd_I2c_CancelSeq(drvObj, seqObj);
 
         SchM_Exit_Cdd_I2c_I2C_EXCLUSIVE_AREA_0();
     }
@@ -377,7 +377,7 @@ FUNC(void, CDD_I2C_CODE) Cdd_I2c_MainFunction(void)
             hwUnitObj = &drvObj->hwUnitObj[hwUnitIdx];
             if (NULL_PTR != hwUnitObj->curChObj)
             {
-                Cdd_I2c_processEvents(drvObj, hwUnitObj);
+                Cdd_I2c_ProcessEvents(drvObj, hwUnitObj);
             }
         }
 
@@ -487,8 +487,8 @@ Cdd_I2c_RegisterReadback(uint8 hwUnitId, Cdd_I2c_RegisterReadbackType *regRbPtr)
     {
         uint32 baseAddr;
 
-        baseAddr = Cdd_I2c_getHwUnitBaseAddr(hwUnitId);
-        Cdd_I2c_hwRegReadback(baseAddr, regRbPtr);
+        baseAddr = Cdd_I2c_GetHwUnitBaseAddr(hwUnitId);
+        Cdd_I2c_HwRegReadback(baseAddr, regRbPtr);
         retVal = E_OK;
     }
 

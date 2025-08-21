@@ -95,8 +95,8 @@
 static void CddFsiTx_delayWait(uint32 delaycount);
 #if (STD_ON == CDD_FSI_TX_DMA_ENABLE)
 static void           CddFsiTx_IrqDmaTx(void *hwUnitObj);
-static Std_ReturnType CddFsiTxDma_ModuleChannelConfigure(Cdd_FsiTx_HwUnitObjType *hwUnitObj, const uint16 *tx_buffrPtr,
-                                                         uint16                    table_size,
+static Std_ReturnType CddFsiTxDma_ModuleChannelConfigure(const Cdd_FsiTx_HwUnitObjType *hwUnitObj,
+                                                         const uint16 *tx_buffrPtr, uint16 table_size,
                                                          Cdd_FsiTx_DataBufferType *srcaddr_databuffer, uint8 bCnt,
                                                          uint8 cCount, uint32 mode, const uint16 *tx_tag_udataPtr,
                                                          uint32 *tag_udata);
@@ -311,7 +311,7 @@ Std_ReturnType CddFsiTx_BufferLoad(const Cdd_FsiTx_HwUnitObjType *hwUnitObj,
  *  Requirement(s): SITARAMCU_MCAL-___    */
 
 #if (STD_ON == CDD_FSI_TX_DMA_ENABLE)
-Std_ReturnType CddFsiTx_DMABufferLoad(Cdd_FsiTx_HwUnitObjType *hwUnitObj, Cdd_FsiTx_DataBufferType *databuffer,
+Std_ReturnType CddFsiTx_DMABufferLoad(const Cdd_FsiTx_HwUnitObjType *hwUnitObj, Cdd_FsiTx_DataBufferType *databuffer,
                                       uint32 userData, uint32 TxDatalength)
 {
     uint32         baseAddr = hwUnitObj->hwUnitCfg.baseAddr;
@@ -475,8 +475,8 @@ void CddFsiTx_resetDrvObj(Cdd_FsiTx_DriverObjType *drvObj)
  *  \param[out]  void
  *  \context
  ******************************************************************************/
-static Std_ReturnType CddFsiTxDma_ModuleChannelConfigure(Cdd_FsiTx_HwUnitObjType *hwUnitObj, const uint16 *tx_buffrPtr,
-                                                         uint16                    table_size,
+static Std_ReturnType CddFsiTxDma_ModuleChannelConfigure(const Cdd_FsiTx_HwUnitObjType *hwUnitObj,
+                                                         const uint16 *tx_buffrPtr, uint16 table_size,
                                                          Cdd_FsiTx_DataBufferType *srcaddr_databuffer, uint8 bCnt,
                                                          uint8 cCount, uint32 mode, const uint16 *tx_tag_udataPtr,
                                                          uint32 *tag_udata)

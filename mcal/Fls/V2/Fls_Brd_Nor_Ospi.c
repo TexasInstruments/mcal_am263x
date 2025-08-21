@@ -357,7 +357,11 @@ Std_ReturnType Nor_OspiWrite(OSPI_Handle handle, uint32 offset, uint8 *buf, uint
     {
         retVal = E_NOT_OK;
     }
-    boolean isFlsWriteInitStage = (Fls_WriteStage == FLS_S_INIT_STAGE);
+    boolean isFlsWriteInitStage = FALSE;
+    if (Fls_WriteStage == FLS_S_INIT_STAGE)
+    {
+        isFlsWriteInitStage = TRUE;
+    }
     if ((E_OK == retVal) && (isFlsWriteInitStage == TRUE))
     {
         uint32           pageSize, chunkLen, actual;
@@ -965,8 +969,17 @@ void Fls_JobDoneNotification(uint32 chunkSize, Fls_JobType job)
 {
     boolean isNotify = FALSE;
 #if (STD_OFF == FLS_USE_INTERRUPTS)
-    boolean isFlsWriteStageDone = (Fls_WriteStage == FLS_S_WRITE_DONE);
-    boolean isFlsEraseStage     = (boolean)(Fls_EraseStage == FLS_S_DEFAULT);
+    boolean isFlsWriteStageDone = FALSE;
+    boolean isFlsEraseStage     = FALSE;
+
+    if (Fls_WriteStage == FLS_S_WRITE_DONE)
+    {
+        isFlsWriteStageDone = TRUE;
+    }
+    if (Fls_EraseStage == FLS_S_DEFAULT)
+    {
+        isFlsEraseStage = TRUE;
+    }
     if ((job == FLS_JOB_WRITE) && (isFlsWriteStageDone == TRUE))
     {
         isNotify = TRUE;
@@ -1136,7 +1149,7 @@ uint8 Fls_norBlankCheck(uint32 actualChunkSize)
     uint32 len          = actualChunkSize;
     uint8 *readData_buf = Fls_BlankCheckRxDataBuf;
 
-    if (Fls_DrvObj.spiHandle != NULL_PTR)
+    if ((Fls_DrvObj.spiHandle != NULL_PTR) && (actualChunkSize <= (sizeof(Fls_BlankCheckRxDataBuf))))
     {
         retVal = Nor_OspiRead(Fls_DrvObj.spiHandle, addr, (uint8 *)readData_buf, len);
         if ((uint8)E_OK == retVal)
@@ -1477,7 +1490,7 @@ Std_ReturnType Fls_norCompare(uint32 actualChunkSize)
     uint8 *readData_buf = Fls_CompareRxDataBuf;
     uint8 *expData_Buf  = Fls_DrvObj.ramAddr;
 
-    if ((Fls_DrvObj.spiHandle != NULL_PTR) && (actualChunkSize > 0U))
+    if ((Fls_DrvObj.spiHandle != NULL_PTR) && (actualChunkSize <= (sizeof(Fls_CompareRxDataBuf))))
     {
         retVal = Nor_OspiRead(Fls_DrvObj.spiHandle, addr, (uint8 *)readData_buf, len);
         if ((Std_ReturnType)E_OK == retVal)

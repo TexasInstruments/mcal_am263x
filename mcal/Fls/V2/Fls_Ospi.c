@@ -288,7 +288,7 @@ Std_ReturnType Fls_Ospi_ReadCmd(OSPI_Handle handle, const OSPI_ReadCmdParams *rd
 }
 
 #if (FLS_DMA_ENABLE == STD_ON)
-void Fls_Ospi_Dma_Read(OSPI_Handle handle, OSPI_Transaction *trans)
+void Fls_Ospi_Dma_Read(OSPI_Handle handle, const OSPI_Transaction *trans)
 {
     uint32    dmaOffset;
     uint32    nonAlignedBytes;
@@ -306,7 +306,7 @@ void Fls_Ospi_Dma_Read(OSPI_Handle handle, OSPI_Transaction *trans)
 
     if (handle != NULL_PTR)
     {
-        OSPI_Transaction *transaction = trans;
+        const OSPI_Transaction *transaction = trans;
 
         /* Enable Direct Access Mode */
         HW_WR_FIELD32(FLS_OSPI_CTRL_BASE_ADDR + OSPI_CONFIG_REG, OSPI_CONFIG_REG_ENB_DIR_ACC_CTLR_FLD, 1);
@@ -1059,7 +1059,7 @@ static Std_ReturnType Fls_Ospi_ProgramInstance(OSPI_Config *config)
                       OSPI_utilLog2(fls_config_sfdp->eraseCfg.blockSize));
 
         /* Set current protocol as 1s1s1s */
-        obj->currentprotocol          = FLS_OSPI_RX_1S_1S_1S;
+        obj->currentprotocol          = (uint32)FLS_OSPI_RX_1S_1S_1S;
         addrnumBytesInput             = fls_config_sfdp->addrnumBytes;
         fls_config_sfdp->addrnumBytes = 3;
         /* Now configure the flash for the 1s_1s_1s protocol */
@@ -1233,7 +1233,7 @@ Std_ReturnType Fls_Ospi_setProtocol(OSPI_Handle handle, uint32 protocol)
     uint32         cmd, data, addr, dtr;
     dtr = 0;
 
-    switch (protocol)
+    switch ((Fls_OSPI_Modes)protocol) /* Explicitly cast from uint32 to Fls_OSPI_Modes for MISRA compliance */
     {
         case FLS_OSPI_RX_1S_1S_1S:
             /*Set cmd, address, data and dtr*/

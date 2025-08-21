@@ -288,7 +288,7 @@ void IpcNotify_wait(void)
     /* Processor sending will trigger read request multiple times and ensure
      * that read request is reached to receiving processor. The delay implemented
      * here is not to clear the interrupt while sending processor is reading back
-     * and verifying the interrupt is triggered at receving Processor
+     * and verifying the interrupt is triggered at receiving Processor
      */
     for (loopCounter = 0U; loopCounter < IPC_NOTIFY_WAIT_CYCLES; loopCounter += 1U)
     {

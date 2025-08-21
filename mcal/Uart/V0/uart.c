@@ -443,7 +443,11 @@ uint32 UART_checkCharsAvailInFifo(uint32 baseAddr)
     /* Checking if the Transmitter FIFO and Transmitter Shift Register are empty. */
     uint32  hwRdReg       = HW_RD_REG32(baseAddr + UART_LSR);
     uint32  uartLsrTxMask = (UART_LSR_TX_SR_E_MASK | UART_LSR_TX_FIFO_E_MASK);
-    boolean maskVal       = (uartLsrTxMask == (hwRdReg & uartLsrTxMask));
+    boolean maskVal       = FALSE;
+    if (uartLsrTxMask == (hwRdReg & uartLsrTxMask))
+    {
+        maskVal = TRUE;
+    }
     if (maskVal == TRUE)
     {
         retVal = (uint32)TRUE;

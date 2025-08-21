@@ -38,7 +38,7 @@ static inline sint32 RPMessage_lld_init_Enable_Core(RPMessageLLD_Handle hRpMsg);
 static sint32  RPMessage_lld_init_lldInitParamsCheck(RPMessageLLD_Handle hRpMsg, RPMessageLLD_InitHandle hRpMsgInit,
                                                      sint32 status);
 static sint32  RPMessage_lld_ParamsCheck(RPMessageLLD_InitHandle hRpMsgInit, sint32 value);
-static boolean RPMessage_getEndPtMsg_timeoutCheck(RPMessage_Struct *epObj, sint32 *status, boolean done, uint32 tryLoop,
+static boolean RPMessage_getEndPtMsg_timeoutCheck(RPMessage_Struct *epObj, sint32 *status, boolean done,
                                                   uint32 startTime, uint32 timeout);
 static sint32  RPMessage_lld_recvHandlerEndPtCheck(RPMessageLLD_Handle hRpMsg, RPMessage_LocalMsg *pMsg,
                                                    uint16 localEndPt, uint8 *vringBufAddr, RPMessage_Header *header,
@@ -123,7 +123,7 @@ sint32 RPMessage_getEndPtMsg(RPMessage_Struct *epObj, RPMessage_LocalMsg **pMsg,
             tryLoop = RPMessage_getEndPtMsg_mutexResourceTryLock(epObj, &status, tryLoop, startTicks, timeout);
             if (tryLoop != 1U)
             {
-                done = RPMessage_getEndPtMsg_timeoutCheck(epObj, &status, done, tryLoop, startTime, timeout);
+                done = RPMessage_getEndPtMsg_timeoutCheck(epObj, &status, done, startTime, timeout);
             }
         }
         else
@@ -568,11 +568,12 @@ static sint32 RPMessage_lld_ParamsCheck(RPMessageLLD_InitHandle hRpMsgInit, sint
     return status;
 }
 
-static boolean RPMessage_getEndPtMsg_timeoutCheck(RPMessage_Struct *epObj, sint32 *status, boolean done, uint32 tryLoop,
+static boolean RPMessage_getEndPtMsg_timeoutCheck(RPMessage_Struct *epObj, sint32 *status, boolean done,
                                                   uint32 startTime, uint32 timeout)
 {
     uint32  tempTime, endTime;
     boolean isDone = done;
+
     if (*status == MCAL_SystemP_TIMEOUT)
     {
         isDone = TRUE;
@@ -626,7 +627,6 @@ static sint32 RPMessage_lld_recvHandlerEndPtCheck(RPMessageLLD_Handle hRpMsg, RP
                 epObj->recvCallback(hRpMsg, (RPMessage_EpObject *)epObj, epObj->recvCallbackArgs,
                                     &vringBufAddr[sizeof(RPMessage_Header)], header->dataLen, crcStatus,
                                     (uint16)remoteCoreId, (uint16)header->srcEndPt);
-                retVal = MCAL_SystemP_SUCCESS;
 
                 /* pMsg is not used, free it */
                 RPMessage_freeEndPtMsg(&hRpMsg->coreObj[remoteCoreId], (uint16)remoteCoreId, pMsg);

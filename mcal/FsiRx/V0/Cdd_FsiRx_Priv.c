@@ -96,11 +96,6 @@ static Std_ReturnType CddFsiRxDma_ModuleChannelConfigure(Cdd_FsiRx_HwUnitObjType
 /* ========================================================================== */
 #define CDD_FSIRX_START_SEC_VAR_NO_INIT_UNSPECIFIED
 #include "Cdd_FsiRx_MemMap.h"
-
-#if (STD_ON == CDD_FSI_RX_DMA_ENABLE)
-/** \brief CDD_FSI_RX DMA object */
-VAR(Cdd_FsiRx_HwUnitObjType, CDD_FSIRX_VAR_CLEARED) * Cdd_FsiRx_DmaConfigObj;
-#endif /* #if (STD_ON == CDD_FSI_RX_DMA_ENABLE) */
 VAR(CddFsiRx_DriverObjType, CDD_FSIRX_VAR_CLEARED) Cdd_FsiRx_DrvObj;
 #define CDD_FSIRX_STOP_SEC_VAR_NO_INIT_UNSPECIFIED
 #include "Cdd_FsiRx_MemMap.h"
@@ -145,13 +140,9 @@ void CddFsiRx_hwUnitInit(const Cdd_FsiRx_HwUnitObjType *hwUnitObj)
 #if (STD_OFF == CDD_FSI_RX_MAIN_FUNCTION_API)
     if (hwUnitObj->hwUnitCfg.receptionMode == CDD_FSI_RX_INTERRUPT_MODE)
     {
-        (void)CddFsiRx_disableInterrupt(baseAddr, CDD_FSI_RX_INT_TYPE);
+        (void)CddFsiRx_disableInterrupt(baseAddr, (uint8)CDD_FSI_RX_INT_TYPE);
         (void)CddFsiRx_clearAllRxEvents(baseAddr);
     }
-#endif
-#if (STD_ON == CDD_FSI_RX_DMA_ENABLE)
-
-    Cdd_FsiRx_DmaConfigObj = hwUnitObj;
 #endif
     /* Set the rx buffer pointer to initial index to receive data from first position*/
     CddFsiRx_ForceRxBufferPtr(baseAddr, 0U);
@@ -162,7 +153,7 @@ void CddFsiRx_hwUnitInit(const Cdd_FsiRx_HwUnitObjType *hwUnitObj)
 #if (STD_OFF == CDD_FSI_RX_MAIN_FUNCTION_API)
     if (hwUnitObj->hwUnitCfg.receptionMode == CDD_FSI_RX_INTERRUPT_MODE)
     {
-        (void)CddFsiRx_enableInterrupt(baseAddr, CDD_FSI_RX_INT_TYPE);
+        (void)CddFsiRx_enableInterrupt(baseAddr, (uint8)CDD_FSI_RX_INT_TYPE);
     }
 #endif
 
@@ -183,7 +174,7 @@ Std_ReturnType CddFsiRx_hwUnitDeInit(const Cdd_FsiRx_HwUnitObjType *hwUnitObj)
 #if (STD_OFF == CDD_FSI_RX_MAIN_FUNCTION_API)
     if (hwUnitObj->hwUnitCfg.receptionMode == CDD_FSI_RX_INTERRUPT_MODE)
     {
-        CddFsiRx_disableInterrupt(baseAddr, CDD_FSI_RX_INT_TYPE);
+        CddFsiRx_disableInterrupt(baseAddr, (uint8)CDD_FSI_RX_INT_TYPE);
     }
 #endif
 #if (STD_ON == CDD_FSI_RX_DMA_ENABLE)

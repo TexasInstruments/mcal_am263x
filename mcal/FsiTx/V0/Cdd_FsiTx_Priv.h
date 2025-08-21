@@ -199,7 +199,7 @@ Std_ReturnType CddFsiTx_PingTransmit(const Cdd_FsiTx_HwUnitObjType *hwUnitObj);
 Std_ReturnType CddFsiTx_Transmit(const Cdd_FsiTx_HwUnitObjType *hwUnitObj, uint8 UserData,
                                  Cdd_FsiTx_DataLengthType txDataLength);
 void CddFsiTx_IrqTx(Cdd_FsiTx_HwUnitObjType *hwUnitObj, CddFsiTx_McalIntNumberType InterruptNum, uint16 EvtFlag);
-Std_ReturnType CddFsiTx_DMABufferLoad(Cdd_FsiTx_HwUnitObjType *hwUnitObj, Cdd_FsiTx_DataBufferType *databuffer,
+Std_ReturnType CddFsiTx_DMABufferLoad(const Cdd_FsiTx_HwUnitObjType *hwUnitObj, Cdd_FsiTx_DataBufferType *databuffer,
                                       uint32 userData, uint32 TxDatalength);
 void           CddFsiTx_MainFunction(Cdd_FsiTx_HwUnitObjType *hwUnitObj);
 Std_ReturnType CddFsiTx_ClearResetTxSubModules(const Cdd_FsiTx_HwUnitObjType *hwUnitObj,
