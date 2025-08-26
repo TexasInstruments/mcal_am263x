@@ -43,7 +43,7 @@
 /* ========================================================================== */
 /*                             Include Files                                  */
 /* ========================================================================== */
-
+#include "Std_Types.h"
 [!IF "node:refexists(as:modconf('Gpt')[1]/GptDriverConfiguration/GptOsCounterRef)"!][!//
 #include "Os.h"
 [!ENDIF!][!//
