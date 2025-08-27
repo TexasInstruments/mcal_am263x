@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+[!AUTOSPACING!][!//
+[!VAR "DMA_ENABLE" = ""STD_OFF""!]
+[!LOOP "as:modconf('Cdd_Uart')[1]/CddUartDriver/*/CddUartChannel/*"!]
+[!IF "contains(CddUartIOMode, 'DMA')"!][!VAR "DMA_ENABLE" = ""STD_ON""!][!BREAK!][!ENDIF!]
+[!ENDLOOP!]
+[!VAR "ISR_EXECUTION_CONTEXT"="node:when((as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartIrqType = 'CDD_UART_ISR_CAT2'),'INTERRUPT-CAT-2','INTERRUPT-CAT-1')"!]
+[!VAR "ISR_CAT"="node:when((as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartIrqType = 'CDD_UART_ISR_CAT2'),'CAT-2','CAT-1')"!]
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00044.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="8c5399e9-1565-4078-ac75-e0b492876276">
+      <SHORT-NAME>Cdd_Uart_TI_AM263x</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-MODULE-DESCRIPTION UUID="97e117da-b670-4346-a3f4-8455303ae524">
+          <SHORT-NAME>Cdd_Uart</SHORT-NAME>
+          <CATEGORY>BSW_MODULE</CATEGORY>
+          <EXPECTED-ENTRYS>
+		  	    [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartCancelApi = 'true'"!]
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Cancel</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            [!ENDIF!]
+            [!LOOP "as:modconf('Cdd_Uart')[1]/CddUartDriver/*/CddUartChannel/*"!]
+            [!IF "((CddUartIOMode = 'CDD_UART_MODE_INTERRUPT') and (num:i(substring-after(node:value(CddUartHwID),'CDD_UART_CHANNEL_ID_'))='0') )"!]
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Channel0Isr</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            [!BREAK!]
+            [!ENDIF!]
+            [!ENDLOOP!]
+            [!LOOP "as:modconf('Cdd_Uart')[1]/CddUartDriver/*/CddUartChannel/*"!]
+            [!IF "((CddUartIOMode = 'CDD_UART_MODE_INTERRUPT') and (num:i(substring-after(node:value(CddUartHwID),'CDD_UART_CHANNEL_ID_'))='1') )"!]
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Channel1Isr</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            [!BREAK!]
+            [!ENDIF!]
+            [!ENDLOOP!]
+            [!LOOP "as:modconf('Cdd_Uart')[1]/CddUartDriver/*/CddUartChannel/*"!]
+            [!IF "((CddUartIOMode = 'CDD_UART_MODE_INTERRUPT') and (num:i(substring-after(node:value(CddUartHwID),'CDD_UART_CHANNEL_ID_'))='2') )"!]
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Channel2Isr</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            [!BREAK!]
+            [!ENDIF!]
+            [!ENDLOOP!]
+            [!LOOP "as:modconf('Cdd_Uart')[1]/CddUartDriver/*/CddUartChannel/*"!]
+            [!IF "((CddUartIOMode = 'CDD_UART_MODE_INTERRUPT') and (num:i(substring-after(node:value(CddUartHwID),'CDD_UART_CHANNEL_ID_'))='3') )"!]
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Channel3Isr</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            [!BREAK!]
+            [!ENDIF!]
+            [!ENDLOOP!]
+            [!LOOP "as:modconf('Cdd_Uart')[1]/CddUartDriver/*/CddUartChannel/*"!]
+            [!IF "((CddUartIOMode = 'CDD_UART_MODE_INTERRUPT') and (num:i(substring-after(node:value(CddUartHwID),'CDD_UART_CHANNEL_ID_'))='4') )"!]
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Channel4Isr</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            [!BREAK!]
+            [!ENDIF!]
+            [!ENDLOOP!]
+            [!LOOP "as:modconf('Cdd_Uart')[1]/CddUartDriver/*/CddUartChannel/*"!]
+            [!IF "((CddUartIOMode = 'CDD_UART_MODE_INTERRUPT') and (num:i(substring-after(node:value(CddUartHwID),'CDD_UART_CHANNEL_ID_'))='5') )"!]
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Channel5Isr</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            [!BREAK!]
+            [!ENDIF!]
+            [!ENDLOOP!]
+            [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDeinitApi = 'true'"!]
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_DeInit</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            [!ENDIF!]
+            [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddVersionInfoApi = 'true'"!]
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_GetVersionInfo</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            [!ENDIF!]
+            [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartReadApi = 'true'"!]
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Read</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            [!ENDIF!]
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Init</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartGetRemainingWordsApi = 'true'"!]
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_GetRemainingWords</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            [!ENDIF!]
+            [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartWriteApi = 'true'"!]
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Write</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            [!ENDIF!]
+            [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartRegisterReadbackApi = 'true'"!]
+            <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_RegisterReadback</BSW-MODULE-ENTRY-REF>
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+            [!ENDIF!]
+          </EXPECTED-ENTRYS>
+          <MODULE-ID>255</MODULE-ID>
+          [!IF "((as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true') or ($DMA_ENABLE="STD_ON") )"!]
+          <BSW-MODULE-DEPENDENCYS>
+		  	    [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true'"!]
+            <BSW-MODULE-DEPENDENCY UUID="f05e0f47-9829-448b-919c-c6e29047f2df">
+              <SHORT-NAME>Det</SHORT-NAME>
+              <TARGET-MODULE-ID>15</TARGET-MODULE-ID>
+              <TARGET-MODULE-REFS>
+              <BSW-MODULE-DESCRIPTION-REF-CONDITIONAL>
+                <BSW-MODULE-DESCRIPTION-REF DEST="BSW-MODULE-DESCRIPTION">/AUTOSAR_Det/Det</BSW-MODULE-DESCRIPTION-REF>
+              </BSW-MODULE-DESCRIPTION-REF-CONDITIONAL>
+              </TARGET-MODULE-REFS>
+            </BSW-MODULE-DEPENDENCY>
+			      [!ENDIF!]
+			      [!IF "$DMA_ENABLE="STD_ON""!]
+            <BSW-MODULE-DEPENDENCY UUID="770b5cb4-5cd7-45c2-b2f0-837c66c67297">
+              <SHORT-NAME>Cdd_Dma</SHORT-NAME>
+              <TARGET-MODULE-ID>255</TARGET-MODULE-ID>
+              <TARGET-MODULE-REFS>
+              <BSW-MODULE-DESCRIPTION-REF-CONDITIONAL>
+                <BSW-MODULE-DESCRIPTION-REF DEST="BSW-MODULE-DESCRIPTION">/Cdd_Dma_TI_AM263x/Cdd_Dma_ModuleEntry</BSW-MODULE-DESCRIPTION-REF>
+              </BSW-MODULE-DESCRIPTION-REF-CONDITIONAL>
+              </TARGET-MODULE-REFS>
+            </BSW-MODULE-DEPENDENCY>
+            [!ENDIF!]
+          </BSW-MODULE-DEPENDENCYS>
+          [!ENDIF!]
+          <INTERNAL-BEHAVIORS>
+            <BSW-INTERNAL-BEHAVIOR UUID="11b68843-41dc-4de5-bd6b-9c2b46a4366a">
+              <SHORT-NAME>Cdd_Uart_Behavior</SHORT-NAME>
+              <EXCLUSIVE-AREAS>
+                  <EXCLUSIVE-AREA UUID="8cafc625-a493-4118-8120-035194733cce">
+                  <SHORT-NAME>UART_EXCLUSIVE_AREA_0</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+              </EXCLUSIVE-AREAS>
+              <ENTITYS>
+                [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartCancelApi = 'true'"!]
+                <BSW-CALLED-ENTITY UUID="1d9e3d47-ed0d-4bb1-aae7-cb0836946495">
+                  <SHORT-NAME>Cdd_Uart_Cancel</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Cdd_Uart_TI_AM263x/Cdd_Uart/Cdd_Uart_Behavior/UART_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
+                  [!IF "((as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true') or ($DMA_ENABLE="STD_ON"))"!]
+                  <CALL-POINTS>
+                    [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true'"!]
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Det_ReportError</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_Det/BSWModuleEntry/Det_ReportError</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                    [!ENDIF!]
+                    [!IF "$DMA_ENABLE="STD_ON""!]
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Cdd_Dma_DisableTransferRegion</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Dma_TI_AM263x/Cdd_Dma_ModuleEntry/Cdd_Dma_DisableTransferRegion</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                    [!ENDIF!]
+                  </CALL-POINTS>
+                  [!ENDIF!]
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Cancel</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+                [!ENDIF!]
+                [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDeinitApi = 'true'"!]
+                <BSW-CALLED-ENTITY UUID="fb0caad0-0f36-44d4-852b-5eb81a11dc55">
+                  <SHORT-NAME>Cdd_Uart_DeInit</SHORT-NAME>
+                  <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
+                  [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true'"!]
+                  <CALL-POINTS>
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Det_ReportError</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_Det/BSWModuleEntry/Det_ReportError</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                  </CALL-POINTS>
+                  [!ENDIF!]
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_DeInit</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+                [!ENDIF!]
+                [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartGetRemainingWordsApi = 'true'"!]
+                <BSW-CALLED-ENTITY UUID="2fe48c3e-d288-4c27-8302-22193b23ec0c">
+                  <SHORT-NAME>Cdd_Uart_GetRemainingWords</SHORT-NAME>
+                  <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
+                  [!IF "((as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true') or ($DMA_ENABLE="STD_ON"))"!]
+                  <CALL-POINTS>
+                    [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true'"!]
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Det_ReportError</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_Det/BSWModuleEntry/Det_ReportError</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                    [!ENDIF!]
+                    [!IF "$DMA_ENABLE="STD_ON""!]
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Cdd_Dma_GetParam</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Dma_TI_AM263x/Cdd_Dma_ModuleEntry/Cdd_Dma_GetParam</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                    [!ENDIF!]
+                  </CALL-POINTS>
+                  [!ENDIF!]
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_GetRemainingWords</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+				        [!ENDIF!]
+				        [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartReadApi = 'true'"!]
+                <BSW-CALLED-ENTITY UUID="9290ba4a-5562-46b8-81ea-d2be50b17cbc">
+                  <SHORT-NAME>Cdd_Uart_Read</SHORT-NAME>
+                  <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
+                  [!IF "((as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true') or ($DMA_ENABLE="STD_ON"))"!]
+                  <CALL-POINTS>
+                    [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true'"!]
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Det_ReportError</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_Det/BSWModuleEntry/Det_ReportError</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                    [!ENDIF!]
+                    [!IF "$DMA_ENABLE="STD_ON""!]
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Cdd_Dma_EnableTransferRegion</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Dma_TI_AM263x/Cdd_Dma_ModuleEntry/Cdd_Dma_EnableTransferRegion</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Cdd_Dma_ParamSet</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Dma_TI_AM263x/Cdd_Dma_ModuleEntry/Cdd_Dma_ParamSet</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                    [!ENDIF!]
+                  </CALL-POINTS>
+                  [!ENDIF!]
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Read</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+				        [!ENDIF!]
+                [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddVersionInfoApi = 'true'"!]
+                <BSW-CALLED-ENTITY UUID="68701f54-e691-4533-9c5a-fc3a7193e3e6">
+                  <SHORT-NAME>Cdd_Uart_GetVersionInfo</SHORT-NAME>
+                  <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
+                  [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true'"!]
+                  <CALL-POINTS>
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Det_ReportError</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_Det/BSWModuleEntry/Det_ReportError</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                  </CALL-POINTS>
+                  [!ENDIF!]
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_GetVersionInfo</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+                [!ENDIF!]
+                <BSW-CALLED-ENTITY UUID="86940652-3614-4687-b0ba-206f0dfb2e93">
+                  <SHORT-NAME>Cdd_Uart_Init</SHORT-NAME>
+                  <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
+                  [!IF "((as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true') or ($DMA_ENABLE="STD_ON"))"!]
+                  <CALL-POINTS>
+                    [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true'"!]
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Det_ReportError</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_Det/BSWModuleEntry/Det_ReportError</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                    [!ENDIF!]
+                    [!IF "$DMA_ENABLE="STD_ON""!]
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Cdd_Dma_CbkRegister</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Dma_TI_AM263x/Cdd_Dma_ModuleEntry/Cdd_Dma_CbkRegister</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                    [!ENDIF!]
+                  </CALL-POINTS>
+                  [!ENDIF!]
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Init</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+                [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartWriteApi = 'true'"!]
+                <BSW-CALLED-ENTITY UUID="7a316b55-1153-4972-ae5a-e44366d7df07">
+                  <SHORT-NAME>Cdd_Uart_Write</SHORT-NAME>
+                  <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
+                  [!IF "((as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true') or ($DMA_ENABLE="STD_ON"))"!]
+                  <CALL-POINTS>
+                    [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true'"!]
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Det_ReportError</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_Det/BSWModuleEntry/Det_ReportError</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                    [!ENDIF!]
+                    [!IF "$DMA_ENABLE="STD_ON""!]
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Cdd_Dma_EnableTransferRegion</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Dma_TI_AM263x/Cdd_Dma_ModuleEntry/Cdd_Dma_EnableTransferRegion</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Cdd_Dma_LinkChannel</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Dma_TI_AM263x/Cdd_Dma_ModuleEntry/Cdd_Dma_LinkChannel</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Cdd_Dma_ParamSet</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Dma_TI_AM263x/Cdd_Dma_ModuleEntry/Cdd_Dma_ParamSet</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                    [!ENDIF!]
+                  </CALL-POINTS>
+                  [!ENDIF!]
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Write</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+                [!ENDIF!]
+                [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartRegisterReadbackApi = 'true'"!]
+                <BSW-CALLED-ENTITY UUID="b85a8174-b219-4e68-b395-5b9a6083decd">
+                  <SHORT-NAME>Cdd_Uart_RegisterReadback</SHORT-NAME>
+                  <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
+                  [!IF "as:modconf('Cdd_Uart')[1]/CddUartGeneral/CddUartDevErrorDetect = 'true'"!]
+                  <CALL-POINTS>
+                    <BSW-DIRECT-CALL-POINT>
+                      <SHORT-NAME>Det_ReportError</SHORT-NAME>
+                      <CALLED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_Det/BSWModuleEntry/Det_ReportError</CALLED-ENTRY-REF>
+                    </BSW-DIRECT-CALL-POINT>
+                  </CALL-POINTS>
+                  [!ENDIF!]
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_RegisterReadback</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+                [!ENDIF!]
+                [!LOOP "as:modconf('Cdd_Uart')[1]/CddUartDriver/*/CddUartChannel/*"!]
+                [!IF "((CddUartIOMode = 'CDD_UART_MODE_INTERRUPT') and (num:i(substring-after(node:value(CddUartHwID),'CDD_UART_CHANNEL_ID_'))='0') )"!]
+                <BSW-INTERRUPT-ENTITY UUID="a8f2b6cc-cc26-4db9-a8d6-30c02d1c7d5a">
+                  <SHORT-NAME>Cdd_Uart_Channel0Isr</SHORT-NAME>
+                  <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Channel0Isr</IMPLEMENTED-ENTRY-REF>
+                  <INTERRUPT-CATEGORY>[!"$ISR_CAT"!]</INTERRUPT-CATEGORY>
+                </BSW-INTERRUPT-ENTITY>
+                [!BREAK!]
+                [!ENDIF!]
+                [!ENDLOOP!]
+                [!LOOP "as:modconf('Cdd_Uart')[1]/CddUartDriver/*/CddUartChannel/*"!]
+                [!IF "((CddUartIOMode = 'CDD_UART_MODE_INTERRUPT') and (num:i(substring-after(node:value(CddUartHwID),'CDD_UART_CHANNEL_ID_'))='1') )"!]
+               <BSW-INTERRUPT-ENTITY UUID="8ea8c9fe-8ad7-4b76-8cbf-bac35f1fe4a6">
+                  <SHORT-NAME>Cdd_Uart_Channel1Isr</SHORT-NAME>
+                  <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Channel1Isr</IMPLEMENTED-ENTRY-REF>
+                  <INTERRUPT-CATEGORY>[!"$ISR_CAT"!]</INTERRUPT-CATEGORY>
+                </BSW-INTERRUPT-ENTITY>
+                [!BREAK!]
+                [!ENDIF!]
+                [!ENDLOOP!]
+                [!LOOP "as:modconf('Cdd_Uart')[1]/CddUartDriver/*/CddUartChannel/*"!]
+                [!IF "((CddUartIOMode = 'CDD_UART_MODE_INTERRUPT') and (num:i(substring-after(node:value(CddUartHwID),'CDD_UART_CHANNEL_ID_'))='2') )"!]
+                <BSW-INTERRUPT-ENTITY UUID="7e694b2f-36cf-4a8e-9885-97b7de642574">
+                  <SHORT-NAME>Cdd_Uart_Channel2Isr</SHORT-NAME>
+                  <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Channel2Isr</IMPLEMENTED-ENTRY-REF>
+                  <INTERRUPT-CATEGORY>[!"$ISR_CAT"!]</INTERRUPT-CATEGORY>
+                </BSW-INTERRUPT-ENTITY>
+                [!BREAK!]
+                [!ENDIF!]
+                [!ENDLOOP!]
+                [!LOOP "as:modconf('Cdd_Uart')[1]/CddUartDriver/*/CddUartChannel/*"!]
+                [!IF "((CddUartIOMode = 'CDD_UART_MODE_INTERRUPT') and (num:i(substring-after(node:value(CddUartHwID),'CDD_UART_CHANNEL_ID_'))='3') )"!]
+                <BSW-INTERRUPT-ENTITY UUID="1fd21ffd-0819-467a-a5cf-0d4debad7fd3">
+                  <SHORT-NAME>Cdd_Uart_Channel3Isr</SHORT-NAME>
+                  <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Channel3Isr</IMPLEMENTED-ENTRY-REF>
+                  <INTERRUPT-CATEGORY>[!"$ISR_CAT"!]</INTERRUPT-CATEGORY>
+                </BSW-INTERRUPT-ENTITY>
+                [!BREAK!]
+                [!ENDIF!]
+                [!ENDLOOP!]
+                [!LOOP "as:modconf('Cdd_Uart')[1]/CddUartDriver/*/CddUartChannel/*"!]
+                [!IF "((CddUartIOMode = 'CDD_UART_MODE_INTERRUPT') and (num:i(substring-after(node:value(CddUartHwID),'CDD_UART_CHANNEL_ID_'))='4') )"!]
+                <BSW-INTERRUPT-ENTITY UUID="a6dc07c4-e89f-4681-a031-338ab4bb9127">
+                  <SHORT-NAME>Cdd_Uart_Channel4Isr</SHORT-NAME>
+                  <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Channel4Isr</IMPLEMENTED-ENTRY-REF>
+                  <INTERRUPT-CATEGORY>[!"$ISR_CAT"!]</INTERRUPT-CATEGORY>
+                </BSW-INTERRUPT-ENTITY>
+                [!BREAK!]
+                [!ENDIF!]
+                [!ENDLOOP!]
+                [!LOOP "as:modconf('Cdd_Uart')[1]/CddUartDriver/*/CddUartChannel/*"!]
+                [!IF "((CddUartIOMode = 'CDD_UART_MODE_INTERRUPT') and (num:i(substring-after(node:value(CddUartHwID),'CDD_UART_CHANNEL_ID_'))='5') )"!]
+                <BSW-INTERRUPT-ENTITY UUID="1eb51b65-5011-4995-816e-6a174b2423ba">
+                  <SHORT-NAME>Cdd_Uart_Channel5Isr</SHORT-NAME>
+                  <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_Uart_TI_AM263x/Cdd_Uart_ModuleEntry/Cdd_Uart_Channel5Isr</IMPLEMENTED-ENTRY-REF>
+                  <INTERRUPT-CATEGORY>[!"$ISR_CAT"!]</INTERRUPT-CATEGORY>
+                </BSW-INTERRUPT-ENTITY>
+                [!BREAK!]
+                [!ENDIF!]
+                [!ENDLOOP!]
+              </ENTITYS>
+            </BSW-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </BSW-MODULE-DESCRIPTION>
+        <BSW-IMPLEMENTATION UUID="2dec24f4-5453-4989-8e1c-034bdbadd928">
+          <SHORT-NAME>Cdd_Uart_Impl</SHORT-NAME>
+          <CODE-DESCRIPTORS>
+            <CODE UUID="5737ce1b-ffcf-444e-bc4e-49d4bce01780">
+              <SHORT-NAME>Files</SHORT-NAME>
+              <ARTIFACT-DESCRIPTORS>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <SHORT-LABEL>generate::include::Cdd_Uart_Cfg.h</SHORT-LABEL>
+                  <CATEGORY>SWHDR</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <SHORT-LABEL>generate::src::Cdd_Uart_Cfg.c</SHORT-LABEL>
+                  <CATEGORY>SWSRC</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <SHORT-LABEL>generate::src::Cdd_Uart_PBcfg.c</SHORT-LABEL>
+                  <CATEGORY>SWSRC</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <SHORT-LABEL>include::Cdd_Uart_Irq.h</SHORT-LABEL>
+                  <CATEGORY>SWHDR</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <SHORT-LABEL>include::Cdd_Uart.h</SHORT-LABEL>
+                  <CATEGORY>SWHDR</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <SHORT-LABEL>src::Cdd_Uart_Irq.c</SHORT-LABEL>
+                  <CATEGORY>SWSRC</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <SHORT-LABEL>src::Cdd_Uart.c</SHORT-LABEL>
+                  <CATEGORY>SWSRC</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <SHORT-LABEL>V0::Cdd_Uart_Priv.c</SHORT-LABEL>
+                  <CATEGORY>SWSRC</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <SHORT-LABEL>V0::Cdd_Uart_Priv.h</SHORT-LABEL>
+                  <CATEGORY>SWHDR</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <SHORT-LABEL>V0::uart_dma_edma.c</SHORT-LABEL>
+                  <CATEGORY>SWSRC</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <SHORT-LABEL>V0::uart_dma.h</SHORT-LABEL>
+                  <CATEGORY>SWHDR</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <SHORT-LABEL>V0::uart.c</SHORT-LABEL>
+                  <CATEGORY>SWSRC</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <SHORT-LABEL>V0::uart.h</SHORT-LABEL>
+                  <CATEGORY>SWHDR</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+              </ARTIFACT-DESCRIPTORS>
+            </CODE>
+          </CODE-DESCRIPTORS>
+          <COMPILERS>
+            <COMPILER UUID="0b8123f6-7a16-41e8-82a1-fca975c5b6b5">
+              <SHORT-NAME>tiarmclang</SHORT-NAME>
+              <NAME>TI ARM Clang</NAME>
+              <VENDOR>Texas Instruments</VENDOR>
+              <VERSION>2.1.3</VERSION>
+            </COMPILER>
+          </COMPILERS>
+          <LINKERS>
+            <LINKER UUID="40a4b98f-a712-4524-be53-589f7131798b">
+              <SHORT-NAME>tiarmlnk</SHORT-NAME>
+              <NAME>TI ARM Clang Linker</NAME>
+              <VENDOR>Texas Instruments</VENDOR>
+              <VERSION>2.1.3</VERSION>
+            </LINKER>
+          </LINKERS>
+          <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+          <RESOURCE-CONSUMPTION UUID="a8992e3d-4dd7-40d6-8dd8-96a83a07cc22">
+            <SHORT-NAME>ResourceConsumption</SHORT-NAME>
+            <MEMORY-SECTIONS>
+              <MEMORY-SECTION UUID="c292b04d-e201-4b55-92a3-bbd257bb231e">
+                <SHORT-NAME>CDD_UART_CODE</SHORT-NAME>
+                <SW-ADDRMETHOD-REF DEST="SW-ADDR-METHOD">/AUTOSAR_MemMap/SwAddrMethods/CODE</SW-ADDRMETHOD-REF>
+                <SYMBOL>CODE</SYMBOL>
+              </MEMORY-SECTION>
+              <MEMORY-SECTION UUID="5acebe07-bd34-4c3b-b6b5-d777ba82324a">
+                <SHORT-NAME>CDD_UART_CONFIG_DATA</SHORT-NAME>
+                <ALIGNMENT>UNSPECIFIED</ALIGNMENT>
+                <SW-ADDRMETHOD-REF DEST="SW-ADDR-METHOD">/AUTOSAR_MemMap/SwAddrMethods/CONST_PBCFG</SW-ADDRMETHOD-REF>
+                <SYMBOL>CONFIG_DATA</SYMBOL>
+              </MEMORY-SECTION>
+              <MEMORY-SECTION UUID="5ccd8703-35fe-415f-be51-97f98e0b4fd2">
+                <SHORT-NAME>CDD_UART_ISR_CODE</SHORT-NAME>
+                <SW-ADDRMETHOD-REF DEST="SW-ADDR-METHOD">/AUTOSAR_MemMap/SwAddrMethods/CODE</SW-ADDRMETHOD-REF>
+                <SYMBOL>ISR_CODE</SYMBOL>
+              </MEMORY-SECTION>
+              <MEMORY-SECTION UUID="af29cb27-3a35-4995-8587-1a3c117d4591">
+                <SHORT-NAME>CDD_UART_VAR_INIT_32</SHORT-NAME>
+                <ALIGNMENT>32</ALIGNMENT>
+                <SW-ADDRMETHOD-REF DEST="SW-ADDR-METHOD">/AUTOSAR_MemMap/SwAddrMethods/VAR_INIT</SW-ADDRMETHOD-REF>
+                <SYMBOL>VAR_INIT_32</SYMBOL>
+              </MEMORY-SECTION>
+              <MEMORY-SECTION UUID="c9654253-b499-490a-876a-0eec4581162d">
+                <SHORT-NAME>CDD_UART_VAR_INIT_UNSPECIFIED</SHORT-NAME>
+                <ALIGNMENT>UNSPECIFIED</ALIGNMENT>
+                <SW-ADDRMETHOD-REF DEST="SW-ADDR-METHOD">/AUTOSAR_MemMap/SwAddrMethods/VAR_INIT</SW-ADDRMETHOD-REF>
+                <SYMBOL>VAR_INIT_UNSPECIFIED</SYMBOL>
+              </MEMORY-SECTION>
+              <MEMORY-SECTION UUID="93189bfd-764a-480e-9e82-64e9c0b89a0a">
+                <SHORT-NAME>CDD_UART_VAR_NO_INIT_32</SHORT-NAME>
+                <ALIGNMENT>32</ALIGNMENT>
+                <SW-ADDRMETHOD-REF DEST="SW-ADDR-METHOD">/AUTOSAR_MemMap/SwAddrMethods/VAR_NO_INIT</SW-ADDRMETHOD-REF>
+                <SYMBOL>VAR_NO_INIT_32</SYMBOL>
+              </MEMORY-SECTION>
+              <MEMORY-SECTION UUID="48324c5a-aaf7-4fc7-ae41-f18b5ca85c5d">
+                <SHORT-NAME>CDD_UART_VAR_NO_INIT_UNSPECIFIED</SHORT-NAME>
+                <ALIGNMENT>UNSPECIFIED</ALIGNMENT>
+                <SW-ADDRMETHOD-REF DEST="SW-ADDR-METHOD">/AUTOSAR_MemMap/SwAddrMethods/VAR_NO_INIT</SW-ADDRMETHOD-REF>
+                <SYMBOL>VAR_NO_INIT_UNSPECIFIED</SYMBOL>
+              </MEMORY-SECTION>
+            </MEMORY-SECTIONS>
+          </RESOURCE-CONSUMPTION>
+          <SW-VERSION>10.01.00</SW-VERSION>
+          <VENDOR-ID>44</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.3.1</AR-RELEASE-VERSION>
+          <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/Cdd_Uart_TI_AM263x/Cdd_Uart/Cdd_Uart_Behavior</BEHAVIOR-REF>
+          <VENDOR-SPECIFIC-MODULE-DEF-REFS>
+            <VENDOR-SPECIFIC-MODULE-DEF-REF DEST="ECUC-MODULE-DEF">/TI_AM263x/Cdd_Uart</VENDOR-SPECIFIC-MODULE-DEF-REF>
+          </VENDOR-SPECIFIC-MODULE-DEF-REFS>
+        </BSW-IMPLEMENTATION>
+      </ELEMENTS>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="b1228d14-40ce-441b-b967-2f0cbb2fa275">
+          <SHORT-NAME>Cdd_Uart_ModuleEntry</SHORT-NAME>
+          <ELEMENTS>
+            <BSW-MODULE-ENTRY UUID="31569f3c-379a-452b-b99c-1aa9e0196e3f">
+              <SHORT-NAME>Cdd_Uart_Cancel</SHORT-NAME>
+              <SERVICE-ID>6</SERVICE-ID>
+              <IS-REENTRANT>false</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+              <CALL-TYPE>REGULAR</CALL-TYPE>
+              <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="fbe2b09c-6e66-4179-9754-6bbe5ab3f4bb">
+              <SHORT-NAME>Cdd_Uart_GetRemainingWords</SHORT-NAME>
+              <SERVICE-ID>7</SERVICE-ID>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+              <CALL-TYPE>REGULAR</CALL-TYPE>
+              <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="e8177795-0cf6-4180-bf95-91826d3f2766">
+              <SHORT-NAME>Cdd_Uart_DeInit</SHORT-NAME>
+              <SERVICE-ID>11</SERVICE-ID>
+              <IS-REENTRANT>false</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+              <CALL-TYPE>REGULAR</CALL-TYPE>
+              <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="21a36216-b903-4463-8c88-6db9468d7f9c">
+              <SHORT-NAME>Cdd_Uart_GetVersionInfo</SHORT-NAME>
+              <SERVICE-ID>2</SERVICE-ID>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+              <CALL-TYPE>REGULAR</CALL-TYPE>
+              <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="852b622c-3273-4635-9472-19fe2bdebb4d">
+              <SHORT-NAME>Cdd_Uart_Init</SHORT-NAME>
+              <SERVICE-ID>1</SERVICE-ID>
+              <IS-REENTRANT>false</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+              <CALL-TYPE>REGULAR</CALL-TYPE>
+              <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="f408ad9e-103b-4cd3-99d7-374edd63468d">
+              <SHORT-NAME>Cdd_Uart_Write</SHORT-NAME>
+              <SERVICE-ID>4</SERVICE-ID>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+              <CALL-TYPE>REGULAR</CALL-TYPE>
+              <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="40e19309-2695-4b47-8b96-4dce09091f3c">
+              <SHORT-NAME>Cdd_Uart_Read</SHORT-NAME>
+              <SERVICE-ID>3</SERVICE-ID>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+              <CALL-TYPE>REGULAR</CALL-TYPE>
+              <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="fd4e2e60-aa07-44d7-b9bf-45a9d979cc6a">
+              <SHORT-NAME>Cdd_Uart_RegisterReadback</SHORT-NAME>
+              <SERVICE-ID>13</SERVICE-ID>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+              <CALL-TYPE>REGULAR</CALL-TYPE>
+              <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="3074dada-cb11-4bd9-bfee-8f1ec3c7fb30">
+              <SHORT-NAME>Cdd_Uart_Channel0Isr</SHORT-NAME>
+              <IS-REENTRANT>false</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>              
+              <CALL-TYPE>INTERRUPT</CALL-TYPE>
+              <EXECUTION-CONTEXT>[!"$ISR_EXECUTION_CONTEXT"!]</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="e06bf03a-1999-42e3-b351-c4fa44a301fb">
+              <SHORT-NAME>Cdd_Uart_Channel1Isr</SHORT-NAME>
+              <IS-REENTRANT>false</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>              
+              <CALL-TYPE>INTERRUPT</CALL-TYPE>
+              <EXECUTION-CONTEXT>[!"$ISR_EXECUTION_CONTEXT"!]</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="75c4bf98-2de7-4c2c-aaaa-36df63103bde">
+              <SHORT-NAME>Cdd_Uart_Channel2Isr</SHORT-NAME>
+              <IS-REENTRANT>false</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>              
+              <CALL-TYPE>INTERRUPT</CALL-TYPE>
+              <EXECUTION-CONTEXT>[!"$ISR_EXECUTION_CONTEXT"!]</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="9f5db7ff-07fa-4500-8d00-4418c0d43266">
+              <SHORT-NAME>Cdd_Uart_Channel3Isr</SHORT-NAME>
+              <IS-REENTRANT>false</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>              
+              <CALL-TYPE>INTERRUPT</CALL-TYPE>
+              <EXECUTION-CONTEXT>[!"$ISR_EXECUTION_CONTEXT"!]</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="088f4a9e-efa7-44d7-a0be-049180637d82">
+              <SHORT-NAME>Cdd_Uart_Channel4Isr</SHORT-NAME>
+              <IS-REENTRANT>false</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>              
+              <CALL-TYPE>INTERRUPT</CALL-TYPE>
+              <EXECUTION-CONTEXT>[!"$ISR_EXECUTION_CONTEXT"!]</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="6936477e-4611-405b-8a8b-00cdb6613f96">
+              <SHORT-NAME>Cdd_Uart_Channel5Isr</SHORT-NAME>
+              <IS-REENTRANT>false</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>              
+              <CALL-TYPE>INTERRUPT</CALL-TYPE>
+              <EXECUTION-CONTEXT>[!"$ISR_EXECUTION_CONTEXT"!]</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

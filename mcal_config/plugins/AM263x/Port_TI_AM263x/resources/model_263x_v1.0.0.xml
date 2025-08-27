@@ -1,0 +1,4955 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<SoC>
+<projectName>AM263x</projectName>
+<versionNumber>TBD</versionNumber>
+<padDB>
+
+<!-- START REGULAR PADCONF blocks -->
+
+
+<clockNode>
+	<name>PIN_M2</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>CLKOUT0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOI_138</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINM2_CLKOUT0</register>
+				</regbit>
+			</confregisters>
+			<ballname>M2</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_B2</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM0_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_43</signal>
+			</muxmode>
+			
+			
+			<confregisters>
+				<regbit>
+					<register>PINB2_EPWM0_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>B2</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_B1</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM0_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_44</signal>
+			</muxmode>
+		
+			<confregisters>
+				<regbit>
+					<register>PINB1_EPWM0_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>B1</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_D3</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM1_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_45</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PIND3_EPWM1_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>D3</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_D2</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM1_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_46</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PIND2_EPWM1_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>D2</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_C2</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM2_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_47</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINC2_EPWM2_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>C2</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_C1</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM2_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_48</signal>
+			</muxmode>
+		
+			<confregisters>
+				<regbit>
+					<register>PINC1_EPWM2_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>C1</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_E2</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM3_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_49</signal>
+			</muxmode>
+		
+			<confregisters>
+				<regbit>
+					<register>PINE2_EPWM3_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>E2</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_E3</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM3_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_50</signal>
+			</muxmode>
+		
+			<confregisters>
+				<regbit>
+					<register>PINE3_EPWM3_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>E3</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_D1</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>1</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM4_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_51</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PIND1_EPWM4_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>D1</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_E4</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM4_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX1_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_52</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINE4_EPWM4_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>E4</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_F2</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM5_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX1_DATA0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_53</signal>
+			</muxmode>
+		
+			<confregisters>
+				<regbit>
+					<register>PINF2_EPWM5_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>F2</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_G2</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM5_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX1_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_54</signal>
+			</muxmode>
+		
+			<confregisters>
+				<regbit>
+					<register>PING2_EPWM5_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>G2</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_E1</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM6_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX1_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_55</signal>
+			</muxmode>
+		
+			<confregisters>
+				<regbit>
+					<register>PINE1_EPWM6_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>E1</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_F3</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM6_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX1_DATA0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_56</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINF3_EPWM6_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>F3</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_F4</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM7_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX1_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_57</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINF4_EPWM7_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>F4</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_F1</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM7_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_58</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINF1_EPWM7_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>F1</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_G3</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM8_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART4_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>I2C3_SDA</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX2_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_59</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PING3_EPWM8_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>G3</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_H2</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM8_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART4_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>I2C3_SCL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX2_DATA0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_60</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINH2_EPWM8_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>H2</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_G1</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM9_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX2_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_61</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PING1_EPWM9_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>G1</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_J2</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM9_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART1_RTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX2_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_62</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINJ2_EPWM9_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>J2</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_G4</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM10_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART1_CTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX2_DATA0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_63</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PING4_EPWM10_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>G4</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_J3</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM10_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART2_RTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX2_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_64</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINJ3_EPWM10_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>J3</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_H1</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM11_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART2_CTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_CLKLB</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_65</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINH1_EPWM11_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>H1</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_J1</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM11_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART3_RTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_OEn_REn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_66</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINJ1_EPWM11_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>J1</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_K2</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM12_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART3_CTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>SPI4_CS1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_WEn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_67</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINK2_EPWM12_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>K2</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_J4</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM12_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART1_DCDn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_CSn0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_68</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINJ4_EPWM12_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>J4</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_K4</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM13_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART1_RIn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_69</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINK4_EPWM13_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>K4</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_K3</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM13_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART1_DTRn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_70</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINK3_EPWM13_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>K3</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_V17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM14_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART1_DSRn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD2</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_71</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINV17_EPWM14_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>V17</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_T16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM14_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>MII1_RX_ER</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_72</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINT16_EPWM14_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>T16</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_P15</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM15_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART5_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>MII1_COL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD4</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_73</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINP15_EPWM15_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>P15</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_R16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EPWM15_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART5_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>MII1_CRS</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD5</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_74</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINR16_EPWM15_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>R16</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_B14</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>UART4_RTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>SPI4_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOI_130</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP0_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>9</mode>
+				<signal>SDFM1_CLK0</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINB14_EQEP0_A</register>
+				</regbit>
+			</confregisters>
+			<ballname>B14</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_A14</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>UART4_CTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>SPI4_CS0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOI_131</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP0_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>9</mode>
+				<signal>SDFM1_D0</signal>
+		    </muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINA14_EQEP0_B</register>
+				</regbit>
+			</confregisters>
+			<ballname>A14</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_D11</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>UART4_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>LIN4_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>SPI4_D1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOI_133</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP0_I</signal>
+			</muxmode>
+			<muxmode>
+				<mode>9</mode>
+				<signal>SDFM1_D1</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PIND11_EQEP0_I</register>
+				</regbit>
+			</confregisters>
+			<ballname>D11</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_C12</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>UART4_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>LIN4_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>SPI4_D0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOI_132</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP0_S</signal>
+			</muxmode>
+			<muxmode>
+				<mode>9</mode>
+				<signal>SDFM1_CLK1</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINC12_EQEP0_S</register>
+				</regbit>
+			</confregisters>
+			<ballname>C12</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_P2</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>EXT_REFCLK0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT15</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_121</signal>
+			</muxmode>
+			<muxmode>
+				<mode>9</mode>
+				<signal>EQEP1_I</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINP2_EXT_REFCLK0</register>
+				</regbit>
+			</confregisters>
+			<ballname>P2</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_A13</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>I2C0_SCL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOI_135</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP2_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>9</mode>
+				<signal>SDFM1_CLK3</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINA13_I2C0_SCL</register>
+				</regbit>
+			</confregisters>
+			<ballname>A13</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_B13</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>I2C0_SDA</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOI_134</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP2_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>9</mode>
+				<signal>SDFM1_CLK2</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINB13_I2C0_SDA</register>
+				</regbit>
+			</confregisters>
+			<ballname>B13</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_D7</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>I2C1_SCL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>SPI3_CS0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT7</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_23</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PIND7_I2C1_SCL</register>
+				</regbit>
+			</confregisters>
+			<ballname>D7</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_C8</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>I2C1_SDA</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>SPI3_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT8</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_24</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINC8_I2C1_SDA</register>
+				</regbit>
+			</confregisters>
+			<ballname>C8</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_A9</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>LIN1_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART1_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>SPI2_CS0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT5</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_19</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINA9_LIN1_RXD</register>
+				</regbit>
+			</confregisters>
+			<ballname>A9</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_B9</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>LIN1_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART1_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>SPI2_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT6</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_20</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINB9_LIN1_TXD</register>
+				</regbit>
+			</confregisters>
+			<ballname>B9</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_B8</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>LIN2_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART2_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>SPI2_D0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_21</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINB8_LIN2_RXD</register>
+				</regbit>
+			</confregisters>
+			<ballname>B8</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_A8</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>LIN2_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART2_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>SPI2_D1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_22</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINA8_LIN2_TXD</register>
+				</regbit>
+			</confregisters>
+			<ballname>A8</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_M1</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MCAN0_RX</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>SPI4_CS0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_7</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINM1_MCAN0_RX</register>
+				</regbit>
+			</confregisters>
+			<ballname>M1</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_L1</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MCAN0_TX</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>SPI4_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_8</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINL1_MCAN0_TX</register>
+				</regbit>
+			</confregisters>
+			<ballname>L1</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_L2</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MCAN1_RX</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>SPI4_D0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_9</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINL2_MCAN1_RX</register>
+				</regbit>
+			</confregisters>
+			<ballname>L2</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_K1</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MCAN1_TX</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>SPI4_D1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_10</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINK1_MCAN1_TX</register>
+				</regbit>
+			</confregisters>
+			<ballname>K1</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_A12</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MCAN2_RX</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART2_RTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOI_137</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP2_I</signal>
+			</muxmode>
+			<muxmode>
+				<mode>9</mode>
+				<signal>SDFM1_D3</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINA12_MCAN2_RX</register>
+				</regbit>
+			</confregisters>
+			<ballname>A12</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_B12</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MCAN2_TX</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART1_RTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOI_136</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP2_S</signal>
+			</muxmode>
+			<muxmode>
+				<mode>9</mode>
+				<signal>SDFM1_D2</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINB12_MCAN2_TX</register>
+				</regbit>
+			</confregisters>
+			<ballname>B12</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_M17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MDIO0_MDC</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_42</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINM17_MDIO0_MDC</register>
+				</regbit>
+			</confregisters>
+			<ballname>M17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_N16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MDIO0_MDIO</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_41</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINN16_MDIO0_MDIO</register>
+				</regbit>
+			</confregisters>
+			<ballname>N16</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_A5</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>7</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MMC0_CD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART0_CTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>I2C2_SDA</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM20_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD15</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_84</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM1_D3</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINA5_MMC0_CD</register>
+				</regbit>
+			</confregisters>
+			<ballname>A5</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_B6</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>7</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MMC0_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART0_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>LIN0_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM17_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD8</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_77</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM1_CLK0</signal>
+			</muxmode>
+		
+			<confregisters>
+				<regbit>
+					<register>PINB6_MMC0_CLK</register>
+				</regbit>
+			</confregisters>
+			<ballname>B6</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_A4</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>7</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MMC0_CMD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART0_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>LIN0_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM17_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD9</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_78</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM1_D0</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINA4_MMC0_CMD</register>
+				</regbit>
+			</confregisters>
+			<ballname>A4</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_C6</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>7</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MMC0_WP</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART0_RTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>I2C2_SCL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM20_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD14</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_83</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM1_CLK3</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINC6_MMC0_WP</register>
+				</regbit>
+			</confregisters>
+			<ballname>C6</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_B5</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>7</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MMC0_D0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART2_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>I2C1_SCL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM18_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD10</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_79</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM1_CLK1</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINB5_MMC0_D0</register>
+				</regbit>
+			</confregisters>
+			<ballname>B5</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_B4</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MMC0_D1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM18_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD11</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_80</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM1_D1</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINB4_MMC0_D1</register>
+				</regbit>
+			</confregisters>
+			<ballname>B4</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_A3</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>7</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MMC0_D2</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART2_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>I2C1_SDA</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM19_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD12</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_81</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM1_CLK2</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINA3_MMC0_D2</register>
+				</regbit>
+			</confregisters>
+			<ballname>A3</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_A2</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MMC0_D3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART3_RTSn</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM19_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD13</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_82</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM1_D2</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINA2_MMC0_D3</register>
+				</regbit>
+			</confregisters>
+			<ballname>A2</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_R2</name>
+	<type>
+		<pad>
+		<dir>I</dir>
+			<numberOfMuxmodes>1</numberOfMuxmodes>
+			<muxmode>
+				<mode> </mode>
+				<signal>PORz</signal>
+			</muxmode>
+			
+			<confregisters>
+				<regbit>
+					<register>PINR2_PADCJ</register>
+				</regbit>
+			</confregisters>
+			<ballname>R2</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+
+<clockNode>
+	<name>PIN_L18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PR0_MDIO0_MDC</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM21_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_CSn3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_86</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINL18_PR0_MDIO0_MDC</register>
+				</regbit>
+			</confregisters>
+			<ballname>L18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_L17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PR0_MDIO0_MDIO</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM21_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_CSn2</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_85</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINL17_PR0_MDIO0_MDIO</register>
+				</regbit>
+			</confregisters>
+			<ballname>L17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_K17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>RMII2_RXD0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>RGMII2_RD0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_RXD0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_93</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINK17_PRU0_GIO0</register>
+				</regbit>
+			</confregisters>
+			<ballname>K17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_K18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>RMII2_RXD1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>RGMII2_RD1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_RXD1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A2</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_94</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINK18_PRU0_GIO1</register>
+				</regbit>
+			</confregisters>
+			<ballname>K18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+
+<clockNode>
+	<name>PIN_J18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO2</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>RGMII2_RD2</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_RXD2</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_95</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINJ18_PRU0_GIO2</register>
+				</regbit>
+			</confregisters>
+			<ballname>J18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_J17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>RGMII2_RD3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_RXD3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A4</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_96</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINJ17_PRU0_GIO3</register>
+				</regbit>
+			</confregisters>
+			<ballname>J17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_K16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO4</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>RGMII2_RX_CTL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_RXDV</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_92</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINK16_PRU0_GIO4</register>
+				</regbit>
+			</confregisters>
+			<ballname>K16</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_G17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO5</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>RMII2_RX_ER</signal>
+			</muxmode>
+
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_RX_ER</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM22_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_DIR</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_87</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PING17_PRU0_GIO5</register>
+				</regbit>
+			</confregisters>
+			<ballname>G17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_K15</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO6</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>RMII2_REF_CLK</signal>
+			</muxmode>
+
+			<muxmode>
+				<mode>3</mode>
+				<signal>RGMII2_RXC</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_RXCLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_CSn1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_91</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINK15_PRU0_GIO6</register>
+				</regbit>
+			</confregisters>
+			<ballname>K15</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_G15</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO8</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM23_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_WPn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_90</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PING15_PRU0_GIO8</register>
+				</regbit>
+			</confregisters>
+			<ballname>G15</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_F17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO9</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>PR0_UART0_CTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_COL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM22_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_88</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINF17_PRU0_GIO9</register>
+				</regbit>
+			</confregisters>
+			<ballname>F17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_G18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>7</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO10</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>RMII2_CRS_DV</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>PR0_UART0_RTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_CRS</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM23_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_WAIT0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_89</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PING18_PRU0_GIO10</register>
+				</regbit>
+			</confregisters>
+			<ballname>G18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_M16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO11</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>RMII2_TXD0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>RGMII2_TD0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_TXD0</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A7</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_99</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINM16_PRU0_GIO11</register>
+				</regbit>
+			</confregisters>
+			<ballname>M16</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_M15</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO12</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>RMII2_TXD1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>RGMII2_TD1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_TXD1</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A8</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_100</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINM15_PRU0_GIO12</register>
+				</regbit>
+			</confregisters>
+			<ballname>M15</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_H17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO13</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>3</mode>
+				<signal>RGMII2_TD2</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_TXD2</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A9</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_101</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINH17_PRU0_GIO13</register>
+				</regbit>
+			</confregisters>
+			<ballname>H17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_H16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO14</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>3</mode>
+				<signal>RGMII2_TD3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_TXD3</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A10</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_102</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINH16_PRU0_GIO14</register>
+				</regbit>
+			</confregisters>
+			<ballname>H16</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_L16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO15</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>RMII2_TX_EN</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>RGMII2_TX_CTL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_TX_EN</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A6</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_98</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINL16_PRU0_GIO15</register>
+				</regbit>
+			</confregisters>
+			<ballname>L16</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_H18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU0_GIO16</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>3</mode>
+				<signal>RGMII2_TXC</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>MII2_TXCLK</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A5</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_97</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINH18_PRU0_GIO16</register>
+				</regbit>
+			</confregisters>
+			<ballname>H18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_F18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO0</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>3</mode>
+				<signal>FSITX2_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA6</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A13</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_109</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINF18_PRU1_GIO0</register>
+				</regbit>
+			</confregisters>
+			<ballname>F18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_G16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>FSIRX2_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA7</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A14</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_110</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PING16_PRU1_GIO1</register>
+				</regbit>
+			</confregisters>
+			<ballname>G16</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_E17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO2</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>FSIRX2_DATA0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA8</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A15</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_111</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINE17_PRU1_GIO2</register>
+				</regbit>
+			</confregisters>
+			<ballname>E17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_E18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>FSIRX2_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA9</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A16</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_112</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINE18_PRU1_GIO3</register>
+				</regbit>
+			</confregisters>
+			<ballname>E18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_F16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO4</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>FSITX2_DATA0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA5</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A12</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_108</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINF16_PRU1_GIO4</register>
+				</regbit>
+			</confregisters>
+			<ballname>F16</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_F15</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO5</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_OEn_REn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_103</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINF15_PRU1_GIO5</register>
+				</regbit>
+			</confregisters>
+			<ballname>F15</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_E16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO6</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>FSITX2_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA4</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A11</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_107</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINE16_PRU1_GIO6</register>
+				</regbit>
+			</confregisters>
+			<ballname>E16</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_D18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO8</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_WEn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_106</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PIND18_PRU1_GIO8</register>
+				</regbit>
+			</confregisters>
+			<ballname>D18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_C18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO9</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>PR0_UART0_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_BE0n_CLE</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_104</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINC18_PRU1_GIO9</register>
+				</regbit>
+			</confregisters>
+			<ballname>C18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_D17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO10</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>PR0_UART0_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA2</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_BE1n</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_105</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PIND17_PRU1_GIO10</register>
+				</regbit>
+			</confregisters>
+			<ballname>D17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+
+<clockNode>
+	<name>PIN_B18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO11</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>FSITX3_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA12</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A19</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_115</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINB18_PRU1_GIO11</register>
+				</regbit>
+			</confregisters>
+			<ballname>B18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_B17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO12</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>FSIRX3_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA13</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A20</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_116</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINB17_PRU1_GIO12</register>
+				</regbit>
+			</confregisters>
+			<ballname>B17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_D16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO13</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>FSIRX3_DATA0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA14</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT11</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A21</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_117</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PIND16_PRU1_GIO13</register>
+				</regbit>
+			</confregisters>
+			<ballname>D16</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_C17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO14</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>FSIRX3_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA15</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT12</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_CSn0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_118</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINC17_PRU1_GIO14</register>
+				</regbit>
+			</confregisters>
+			<ballname>C17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_A17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO15</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>FSITX3_DATA0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA11</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A18</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_114</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINA17_PRU1_GIO15</register>
+				</regbit>
+			</confregisters>
+			<ballname>A17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_C16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO16</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>FSITX3_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_DATA10</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_A17</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_113</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINC16_PRU1_GIO16</register>
+				</regbit>
+			</confregisters>
+			<ballname>C16</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_C15</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>8</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO18</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>UART3_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>PR0_IEP0_EDIO_DATA_IN_OUT31</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_CTL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT14</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_WAIT1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_120</signal>
+			</muxmode>
+			<muxmode>
+				<mode>9</mode>
+				<signal>EQEP1_B</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINC15_PRU1_GIO18</register>
+				</regbit>
+			</confregisters>
+			<ballname>C15</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_D15</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>7</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO19</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>UART3_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>PR0_IEP0_EDC_SYNC_OUT0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>TRC_CTL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>PR0_IEP0_EDC_SYNC_OUT0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_119</signal>
+			</muxmode>
+			<muxmode>
+				<mode>9</mode>
+				<signal>EQEP1_A</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PIND15_PRU1_GIO19</register>
+				</regbit>
+			</confregisters>
+			<ballname>D15</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_N2</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>QSPI0_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_2</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINN2_QSPI0_CLK</register>
+				</regbit>
+			</confregisters>
+			<ballname>N2</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_P1</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>QSPI0_CSn0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_0</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINP1_QSPI0_CSN0</register>
+				</regbit>
+			</confregisters>
+			<ballname>P1</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_LB</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>1</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>QSPI0_CLKLB</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINLB_CLKLB</register>
+				</regbit>
+			</confregisters>
+			<ballname>LB</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_R3</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>QSPI0_CSn1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_1</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINR3_QSPI0_CSN1</register>
+				</regbit>
+			</confregisters>
+			<ballname>R3</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_N1</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>QSPI0_D0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_3</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINN1_QSPI0_D0</register>
+				</regbit>
+			</confregisters>
+			<ballname>N1</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_N4</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>QSPI0_D1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_4</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINN4_QSPI0_D1</register>
+				</regbit>
+			</confregisters>
+			<ballname>N4</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_M4</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>QSPI0_D2</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_5</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINN4_QSPI0_D2</register>
+				</regbit>
+			</confregisters>
+			<ballname>M4</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_P3</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>2</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>QSPI0_D3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_6</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINN4_QSPI0_D3</register>
+				</regbit>
+			</confregisters>
+			<ballname>P3</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_R17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>RGMII1_RXC</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>RMII1_REF_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>MII1_RXCLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX0_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_29</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP2_A</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINR17_RGMII1_RXC</register>
+				</regbit>
+			</confregisters>
+			<ballname>R17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_R18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>RGMII1_RX_CTL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>RMII1_RX_ER</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>MII1_RXDV</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX0_DATA0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_30</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP2_B</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINR18_RGMII1_RX_CTL</register>
+				</regbit>
+			</confregisters>
+			<ballname>R18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_N18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>RGMII1_TXC</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>MII1_TXCLK</signal>
+			</muxmode>
+		
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX1_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_35</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP0_I</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINN18_RGMII1_TXC</register>
+				</regbit>
+			</confregisters>
+			<ballname>N18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_M18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>RGMII1_TX_CTL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>RMII1_TX_EN</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>MII1_TX_EN</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX1_DATA0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_36</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP0_S</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINM18_RGMII1_TX_CTL</register>
+				</regbit>
+			</confregisters>
+			<ballname>M18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_U17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>RGMII1_RD0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>RMII1_RXD0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>MII1_RXD0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX0_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_31</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP2_S</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINU17_RGMII1_RD0</register>
+				</regbit>
+			</confregisters>
+			<ballname>U17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_T17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>RGMII1_RD1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>RMII1_RXD1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>MII1_RXD1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX0_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_32</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP2_I</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINT17_RGMII1_RD1</register>
+				</regbit>
+			</confregisters>
+			<ballname>T17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_U18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>RGMII1_RD2</signal>
+			</muxmode>
+			
+			<muxmode>
+				<mode>2</mode>
+				<signal>MII1_RXD2</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX0_DATA0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_33</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP0_A</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINU18_RGMII1_RD2</register>
+				</regbit>
+			</confregisters>
+			<ballname>U18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_T18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>RGMII1_RD3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>MII1_RXD3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX0_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_34</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP0_B</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINT18_RGMII1_RD3</register>
+				</regbit>
+			</confregisters>
+			<ballname>T18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_P16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>RGMII1_TD0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>RMII1_TXD0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>MII1_TXD0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX1_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_37</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP1_A</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINP16_RGMII1_TD0</register>
+				</regbit>
+			</confregisters>
+			<ballname>P16</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_P17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>RGMII1_TD1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>RMII1_TXD1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>MII1_TXD1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX1_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_38</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP1_B</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINP17_RGMII1_TD1</register>
+				</regbit>
+			</confregisters>
+			<ballname>P17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_P18</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>RGMII1_TD2</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>RMII1_CRS_DV</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>MII1_TXD2</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX1_DATA0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_39</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP1_S</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINP18_RGMII1_TD2</register>
+				</regbit>
+			</confregisters>
+			<ballname>P18</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_N17</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>RGMII1_TD3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>MII1_TXD3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX1_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOCD_40</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>EQEP1_I</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINN17_RGMII1_TD3</register>
+				</regbit>
+			</confregisters>
+			<ballname>N17</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_D4</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>1</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>SAFETY_ERRORn</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PIND4_SAFETY_ERRORN</register>
+				</regbit>
+			</confregisters>
+			<ballname>D4</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_B16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>CLKOUT1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_122</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM0_CLK0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>9</mode>
+				<signal>EQEP1_S</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINB16_SDFM0_CLK0</register>
+				</regbit>
+			</confregisters>
+			<ballname>B16</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_A16</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>7</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO7</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>CPTS0_TS_SYNC</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>UART5_RTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>PR0_IEP0_EDC_SYNC_OUT1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>I2C3_SDA</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_124</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM0_CLK1</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINA16_SDFM0_CLK1</register>
+				</regbit>
+			</confregisters>
+			<ballname>A16</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_B15</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>UART5_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>I2C3_SCL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_ADVn_ALE</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_126</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM0_CLK2</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINB15_SDFM0_CLK2</register>
+				</regbit>
+			</confregisters>
+			<ballname>B15</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_A15</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MCAN3_TX</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART5_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOI_128</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM0_CLK3</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINA15_SDFM0_CLK3</register>
+				</regbit>
+			</confregisters>
+			<ballname>A15</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_D14</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>ECAP0_APWM_OUT</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_123</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM0_D0</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PIND14_SDFM0_D0</register>
+				</regbit>
+			</confregisters>
+			<ballname>D14</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_D13</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>PRU1_GIO17</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>UART5_CTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>PR0_IEP0_EDIO_DATA_IN_OUT30</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_125</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM0_D1</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PIND13_SDFM0_D1</register>
+				</regbit>
+			</confregisters>
+			<ballname>D13</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_C13</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>UART5_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOGH_127</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM0_D2</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINC13_SDFM0_D2</register>
+				</regbit>
+			</confregisters>
+			<ballname>C13</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_C14</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>MCAN3_RX</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOI_129</signal>
+			</muxmode>
+			<muxmode>
+				<mode>8</mode>
+				<signal>SDFM0_D3</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINC14_SDFM0_D3</register>
+				</regbit>
+			</confregisters>
+			<ballname>C14</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_A11</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>SPI0_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART3_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>LIN3_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX0_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_12</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINA11_SPI0_CLK</register>
+				</regbit>
+			</confregisters>
+			<ballname>A11</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_A10</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>SPI1_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART4_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>LIN4_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT2</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX0_CLK</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_16</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINA10_SPI1_CLK</register>
+				</regbit>
+			</confregisters>
+			<ballname>A10</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_C11</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>4</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>SPI0_CS0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART3_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>LIN3_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_11</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINC11_SPI0_CS0</register>
+				</regbit>
+			</confregisters>
+			<ballname>C11</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_C10</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>SPI0_D0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX0_DATA0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_13</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINC10_SPI0_D0</register>
+				</regbit>
+			</confregisters>
+			<ballname>C10</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_B11</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>SPI0_D1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSITX0_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_14</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINB11_SPI0_D1</register>
+				</regbit>
+			</confregisters>
+			<ballname>B11</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_C9</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>SPI1_CS0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART4_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>LIN4_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT1</signal>
+			</muxmode>			
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_15</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINC9_SPI1_CS0</register>
+				</regbit>
+			</confregisters>
+			<ballname>C9</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_B10</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>SPI1_D0</signal>
+			</muxmode>		
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART5_TXD</signal>
+			</muxmode>			
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT3</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX0_DATA0</signal>
+			</muxmode>			
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_17</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINB10_SPI1_D0</register>
+				</regbit>
+			</confregisters>
+			<ballname>B10</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_C4</name>
+	<type>
+		<pad>
+		<dir>O</dir>
+			<numberOfMuxmodes>1</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>TDO</signal>
+			</muxmode>
+			
+			
+			<confregisters>
+				<regbit>
+					<register>PINC4_PADTDO</register>
+				</regbit>
+			</confregisters>
+			<ballname>C4</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_B3</name>
+	<type>
+		<pad>
+		<dir>I</dir>
+			<numberOfMuxmodes>1</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>TCK</signal>
+			</muxmode>			
+			<confregisters>
+				<regbit>
+					<register>PINB3_TCK</register>
+				</regbit>
+			</confregisters>
+			<ballname>B3</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+
+<clockNode>
+	<name>PIN_C5</name>
+	<type>
+		<pad>
+		<dir>I</dir>
+			<numberOfMuxmodes>1</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>TDI</signal>
+			</muxmode>			
+			<confregisters>
+				<regbit>
+					<register>PINC5_TDI</register>
+				</regbit>
+			</confregisters>
+			<ballname>C5</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_C4</name>
+	<type>
+		<pad>
+		<dir>O</dir>
+			<numberOfMuxmodes>1</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>TDO</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINC4_PADFH</register>
+				</regbit>
+			</confregisters>
+			<ballname>C4</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_D5</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>1</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>TMS</signal>
+			</muxmode>
+
+			<confregisters>
+				<regbit>
+					<register>PIND5_TMS</register>
+				</regbit>
+			</confregisters>
+			<ballname>D5</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_B7</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>7</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>UART0_CTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>I2C2_SDA</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>SPI3_D1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>MCAN3_RX</signal>
+			</muxmode>
+			<muxmode>
+				<mode>4</mode>
+				<signal>SPI0_CS1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT10</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_26</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINB7_UART0_CTSn</register>
+				</regbit>
+			</confregisters>
+			<ballname>B7</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_C7</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>6</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>UART0_RTSn</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>I2C2_SCL</signal>
+			</muxmode>
+			<muxmode>
+				<mode>2</mode>
+				<signal>SPI3_D0</signal>
+			</muxmode>
+			<muxmode>
+				<mode>3</mode>
+				<signal>MCAN3_TX</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT9</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_25</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINC7_UART0_RTSN</register>
+				</regbit>
+			</confregisters>
+			<ballname>C7</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_A7</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>UART0_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>LIN0_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_27</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINA7_UART0_RXD</register>
+				</regbit>
+			</confregisters>
+			<ballname>A7</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_A6</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>3</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>UART0_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>LIN0_TXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_28</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINA6_UART0_TXD</register>
+				</regbit>
+			</confregisters>
+			<ballname>A6</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_L3</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>UART1_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>LIN1_RXD</signal>
+			</muxmode>			
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM16_A</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD6</signal>
+			</muxmode>			
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_75</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINL3_UART1_RXD</register>
+				</regbit>
+			</confregisters>
+			<ballname>L3</ballname>
+		</pad>
+	</type>
+</clockNode>
+<clockNode>
+	<name>PIN_M3</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>UART1_TXD</signal>
+			</muxmode>		
+			<muxmode>
+				<mode>1</mode>
+				<signal>LIN1_TXD</signal>
+			</muxmode>		
+			<muxmode>
+				<mode>5</mode>
+				<signal>EPWM16_B</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>GPMC0_AD7</signal>
+			</muxmode>			
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOEF_76</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PINM3_UART1_TXD</register>
+				</regbit>
+			</confregisters>
+			<ballname>M3</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_C3</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>1</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>WARMRSTn</signal>
+			</muxmode>			
+			<confregisters>
+				<regbit>
+					<register>PINC3_WARMRSTN</register>
+				</regbit>
+			</confregisters>
+			<ballname>C3</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<clockNode>
+	<name>PIN_D9</name>
+	<type>
+		<pad>
+		<dir>IO</dir>
+			<numberOfMuxmodes>5</numberOfMuxmodes>
+			<muxmode>
+				<mode>0</mode>
+				<signal>SPI1_D1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>1</mode>
+				<signal>UART5_RXD</signal>
+			</muxmode>
+			<muxmode>
+				<mode>5</mode>
+				<signal>XBAROUT4</signal>
+			</muxmode>
+			<muxmode>
+				<mode>6</mode>
+				<signal>FSIRX0_DATA1</signal>
+			</muxmode>
+			<muxmode>
+				<mode>7</mode>
+				<signal>GPIOAB_18</signal>
+			</muxmode>
+			<confregisters>
+				<regbit>
+					<register>PIND9_SPI1_D1</register>
+				</regbit>
+			</confregisters>
+			<ballname>D9</ballname>
+		</pad>
+	</type>
+</clockNode>
+
+<!-- ########################################## -->
+<!-- ########################################## -->
+<!-- ####    END LABEL DECLARATIONS HERE   -->     
+<!-- ########################################## -->
+<!-- ########################################## -->
+
+
+</padDB>
+</SoC>

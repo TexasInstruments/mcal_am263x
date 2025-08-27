@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00044.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="02fc1f48-e61b-4625-85bc-0ce8fefc888c">
+      <SHORT-NAME>AUTOSAR_Det</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-MODULE-DESCRIPTION UUID="0f1f09f1-2662-4a74-9861-0538025a1201">
+          <SHORT-NAME>Det</SHORT-NAME>
+          <CATEGORY>BSW_MODULE</CATEGORY>
+          <MODULE-ID>15</MODULE-ID>
+          <INTERNAL-BEHAVIORS>
+            <BSW-INTERNAL-BEHAVIOR UUID="bace92a1-7b40-499e-976c-a40aa9a9dc7d">
+              <SHORT-NAME>BswInternalBehavior_0</SHORT-NAME>
+              <ENTITYS>
+                <BSW-CALLED-ENTITY UUID="2a58c268-0109-425d-ae78-4feb8293c080">
+                  <SHORT-NAME>Det_ReportError</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_Det/BSWModuleEntry/Det_ReportError</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+                <BSW-CALLED-ENTITY UUID="e9a95f00-0d82-4ce9-bd71-3724b6655651">
+                  <SHORT-NAME>Det_ReportRuntimeError</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                  <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
+                  <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR_Det/BSWModuleEntry/Det_ReportRuntimeError</IMPLEMENTED-ENTRY-REF>
+                </BSW-CALLED-ENTITY>
+              </ENTITYS>
+            </BSW-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </BSW-MODULE-DESCRIPTION>
+      </ELEMENTS>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="bde87b4e-f3da-43ac-a0a7-5436040d6cc7">
+          <SHORT-NAME>BSWModuleEntry</SHORT-NAME>
+          <ELEMENTS>
+            <BSW-MODULE-ENTRY UUID="8d7038f8-3312-403e-a2e2-a1b28638c27c">
+              <SHORT-NAME>Det_ReportError</SHORT-NAME>
+              <SERVICE-ID>1</SERVICE-ID>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS xsi:nil="true"/>
+              <CALL-TYPE>REGULAR</CALL-TYPE>
+              <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>ABSTRACT</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+            <BSW-MODULE-ENTRY UUID="1fe4a5e8-50e8-4f56-a694-aae5f7a56538">
+              <SHORT-NAME>Det_ReportRuntimeError</SHORT-NAME>
+              <SERVICE-ID>4</SERVICE-ID>
+              <IS-REENTRANT>true</IS-REENTRANT>
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
+              <CALL-TYPE>REGULAR</CALL-TYPE>
+              <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
+              <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
+              <BSW-ENTRY-KIND>ABSTRACT</BSW-ENTRY-KIND>
+            </BSW-MODULE-ENTRY>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+
