@@ -150,7 +150,7 @@ Performance Result through MCSPI with Dma are as follows:
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| cdd_cmpss   | 2054    | 0    | 0    |
+| cdd_cmpss   | 2052    | 0    | 0    |
  
 ### DIO
 
@@ -207,13 +207,13 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| fsirx   | 1718    | 2    | 203    |
+| fsirx   | 1674    | 2    | 203    |
  
 ### FSITX
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| fsitx   | 2300    | 9    | 181    |
+| fsitx   | 2148    | 9    | 181    |
  
 ### GPT
 
