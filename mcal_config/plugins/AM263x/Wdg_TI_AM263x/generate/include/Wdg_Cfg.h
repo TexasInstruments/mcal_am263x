@@ -85,7 +85,7 @@ extern "C" {
 *  \brief Pre Compile config macro name.
 */
 [!LOOP "as:modconf('Wdg')[as:path(node:dtos(.))='/TI_AM263x/Wdg']/WdgSettingsConfig"!]
-#define WDG_INIT_CONFIG_PC		[!"@name"!]
+#define WDG_INIT_CONFIG_PC		Wdg_Config
 [!ENDLOOP!]
 [!ENDIF!]
 /** \brief WDG configuration index*/
@@ -173,7 +173,7 @@ extern "C" {
  ******************************************************************************/
 [!LOOP "as:modconf('Wdg')[as:path(node:dtos(.))='/TI_AM263x/Wdg']/WdgSettingsConfig"!]
 /** \brief WDG Configuration struct declaration */
-extern const struct Wdg_ConfigType_s [!"@name"!];
+extern const struct Wdg_ConfigType_s Wdg_Config;
 [!ENDLOOP!]
 #ifdef __cplusplus
 }

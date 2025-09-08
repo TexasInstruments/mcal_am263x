@@ -132,7 +132,7 @@ extern "C" {
 /*
  *Design: MCAL-14193, MCAL-14196, MCAL-14195, MCAL-14194, MCAL-14192, MCAL-14183, MCAL-14182, MCAL-14184, MCAL-14187, MCAL-14186, MCAL-14189
  */
- 
+
 [!LOOP "as:modconf('Spi')[1]/SpiDriver"!][!//
 [!LOOP "SpiJob/*"!][!//
 [!IF "not(node:empty(SpiJobEndNotification/*)) and not(text:match(SpiJobEndNotification/*,'NULL_PTR'))"!][!//
@@ -147,7 +147,7 @@ extern "C" {
 /*
  *Design: MCAL-14211, MCAL-14212, MCAL-14206, MCAL-14209, MCAL-14210, MCAL-14201, MCAL-14205, MCAL-14213, MCAL-14207, MCAL-14215, MCAL-14223, MCAL-14204, MCAL-14236,
  */
- 
+
 [!LOOP "as:modconf('Spi')[1]/SpiDriver"!][!//
 [!LOOP "SpiSequence/*"!][!//
 [!IF "not(node:empty(SpiSeqEndNotification/*)) and not(text:match(SpiSeqEndNotification/*,'NULL_PTR'))"!][!//
@@ -160,7 +160,7 @@ extern "C" {
 [!ENDLOOP!][!//
 
 [!LOOP "as:modconf('Spi')[1]/SpiDriver"!][!//
-CONST(struct Spi_ConfigType_s, SPI_CONFIG_DATA) [!"@name"!] =
+CONST(struct Spi_ConfigType_s, SPI_CONFIG_DATA) Spi_Config =
 {
 [!WS "4"!].maxChannels = [!"SpiMaxChannel/*"!]U,
 [!WS "4"!].maxJobs = [!"SpiMaxJob/*"!]U,
@@ -361,8 +361,8 @@ CONST(Spi_SeqConfigType_PC, SPI_CONFIG_DATA) Spi_SeqConfig_PC[SPI_MAX_SEQ] =
  */
 const uint32 Spi_HwUnitBaseAddr[SPI_HW_UNIT_CNT] =
 {
- 
- 
+
+
    0x52200000 ,      	            /* MCSPI0 */
    0x52201000 ,      	    /* MCSPI1 */
    0x52202000 ,      	    /* MCSPI2 */

@@ -130,10 +130,10 @@ extern "C" {
 /**  \brief Pre Compile config macro name. */
 [!IF "as:modconf('Fls')[1]/IMPLEMENTATION_CONFIG_VARIANT = 'VariantPreCompile'"!]
 [!LOOP "as:modconf('Fls')[1]/FlsConfigSet"!]
-#define FLS_INIT_CONFIG_PC       [!"@name"!]
+#define FLS_INIT_CONFIG_PC       Fls_Config
 [!ENDLOOP!]
 [!ENDIF!]
-       
+
 
 /** \brief Enable/disable FLS Blank Check API */
 #define FLS_BLANK_CHECK_API          ([!IF "as:modconf('Fls')[1]/FlsGeneral/FlsBlankCheckApi = 'true'"!]STD_ON[!ELSE!]STD_OFF[!ENDIF!])
@@ -197,7 +197,7 @@ extern "C" {
 #define FLS_REGISTER_READBACK_API       ([!IF "as:modconf('Fls')[1]/FlsGeneral/FlsEnableRegisterReadbackApi"!]STD_ON[!ELSE!]STD_OFF[!ENDIF!])
 /** \brief Number of Sectorlist configured */
 [!LOOP "as:modconf('Fls')[1]/FlsConfigSet"!][!//
-[!VAR "NumOfSectorCfg" = "0"!]  
+[!VAR "NumOfSectorCfg" = "0"!]
 [!WS "4"!][!LOOP "FlsSectorList/FlsSector/*"!]
 [!VAR "NumOfSectorCfg" = "$NumOfSectorCfg + 1"!]
 [!WS "4"!][!ENDLOOP!]
@@ -215,7 +215,7 @@ extern "C" {
 [!ERROR!][!//
         "Reference to the DMA handler cannot be NULL"[!//
 [!ENDERROR!][!//
-[!ENDIF!][!// 
+[!ENDIF!][!//
 [!ELSE!]
 [!ERROR!][!//
         "MemMapMode should be Selected to Enable DMA"[!//
@@ -242,7 +242,7 @@ extern "C" {
 /* ========================================================================== */
 [!LOOP "as:modconf('Fls')[1]/FlsConfigSet"!]
 /** \brief FLS Configuration struct declaration */
-extern const struct Fls_ConfigType_s [!"@name"!];
+extern const struct Fls_ConfigType_s Fls_Config;
 [!ENDLOOP!]
 
 

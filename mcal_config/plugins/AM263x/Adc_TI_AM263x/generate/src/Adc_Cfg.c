@@ -141,7 +141,7 @@ extern "C" {
 /* Create runtime configurations. */
 [!LOOP "as:modconf('Adc')[1]/AdcConfigSet"!]
 [!VAR "GrpLpCnt" = "0"!]
-CONST(struct Adc_ConfigType_s, ADC_CONFIG_DATA) [!"@name"!] =
+CONST(struct Adc_ConfigType_s, ADC_CONFIG_DATA) Adc_Config =
 {
     .maxGroup = [!"num:i(count(AdcHwUnit/*/AdcGroup/*))"!]U,
     .maxHwUnit = [!"num:i(count(AdcHwUnit/*))"!]U,
@@ -163,7 +163,7 @@ CONST(struct Adc_ConfigType_s, ADC_CONFIG_DATA) [!"@name"!] =
             .accessMode = [!"AdcGroupAccessMode"!],
             .streamBufMode = [!"AdcStreamingBufferMode"!],
             .hwTrigSignal = [!IF "not(node:empty(AdcHwTrigSignal))"!] [!"AdcHwTrigSignal"!][!ELSE!]ADC_HW_TRIG_BOTH_EDGES[!ENDIF!],
-            .hwTrigTimer = [!IF "AdcGroupTriggSrc = 'ADC_TRIGG_SRC_SW'"!]ADC_TRIGGER_SW_ONLY[!ELSE!][!"AdcExtHwTrigTimer"!][!ENDIF!],            
+            .hwTrigTimer = [!IF "AdcGroupTriggSrc = 'ADC_TRIGG_SRC_SW'"!]ADC_TRIGGER_SW_ONLY[!ELSE!][!"AdcExtHwTrigTimer"!][!ENDIF!],
             .groupReplacement = (Adc_GroupReplacementType)[!"AdcGroupReplacement"!],
             [!NOCODE!][!//
             [!VAR "GroupChannelMask" = "0"!]
@@ -174,7 +174,7 @@ CONST(struct Adc_ConfigType_s, ADC_CONFIG_DATA) [!"@name"!] =
             [!VAR "CheckFlag" = "0"!]
             [!LOOP "AdcGroupDefinition/*"!]
             [!VAR "curNode" = "node:path(node:ref(node:current()))"!]
-            [!VAR "Last1" = "node:value(concat($curNode,'/AdcChannelId'))"!]            
+            [!VAR "Last1" = "node:value(concat($curNode,'/AdcChannelId'))"!]
 [!IF "node:exists(concat($curNode,'/AdcChannelLimitCheck'))"!]
             [!VAR "Check" = "node:value(concat($curNode,'/AdcChannelLimitCheck'))"!]
             [!IF "$Check = 'true'"!]
@@ -218,7 +218,7 @@ CONST(struct Adc_ConfigType_s, ADC_CONFIG_DATA) [!"@name"!] =
             [!ENDIF!]
             [!ENDIF!]
             [!ENDLOOP!]
-            [!ENDNOCODE!][!//            
+            [!ENDNOCODE!][!//
             .groupDataAccessMode = [!"AdcGroupDataAccessMethod"!],
             [!WS "12"!].numChannels = [!"num:i(count(AdcGroupDefinition/*))"!]U,
             [!NOCODE!][!//

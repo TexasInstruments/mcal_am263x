@@ -158,7 +158,7 @@ static CONST( Port_PinConfigType, PORT_PBCFG) [!"@name"!]_PinConfig[ PORT_MAX_PI
 [!WS "16"!].mode = PORT_PIN_MODE_MII,
 [!ELSEIF "$MIImatch2"!]
 [!WS "16"!].mode = PORT_PIN_MODE_MII,
-[!ELSE!][!//          
+[!ELSE!][!//
 [!VAR "portstr2" = "text:toupper($portstr1)"!][!//
 [!WS "16"!].mode = PORT_PIN_MODE_[!"$portstr2"!],
 [!ENDIF!][!//
@@ -247,7 +247,7 @@ static CONST( Port_DioRegConfigType, PORT_PBCFG) [!"@name"!]_DioConfig[ PORT_MAX
 
 
 /*</PORT_PIN_CONFIGURATION>*/
-CONST(Port_ConfigType, PORT_PBCFG) [!"@name"!] =
+CONST(Port_ConfigType, PORT_PBCFG) Port_Config =
 {
     .NumberOfPortPins = [!"num:i($NumPortPins)"!],
     .PinConfig_pt = [!"@name"!]_PinConfig,
@@ -257,7 +257,7 @@ CONST(Port_ConfigType, PORT_PBCFG) [!"@name"!] =
 [!ELSE!][!//
 	.DioConfig_pt = (Port_DioRegConfigType) NULL_PTR,
 [!ENDIF!][!//
-	
+
 };
 
 [!ENDLOOP!][!//
