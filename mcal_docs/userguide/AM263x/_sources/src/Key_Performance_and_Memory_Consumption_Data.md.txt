@@ -144,7 +144,7 @@ Performance Result through MCSPI with Dma are as follows:
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| can   | 9542    | 1    | 16008    |
+| can   | 9560    | 1    | 16008    |
  
 ### CMPSS
 
@@ -195,13 +195,13 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| ethtrcv   | 3628    | 17    | 78    |
+| ethtrcv   | 3726    | 17    | 78    |
  
 ### FLS
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| fls   | 7038    | 122    | 0    |
+| fls   | 6474    | 118    | 0    |
  
 ### FSIRX
 
@@ -225,7 +225,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| i2c   | 4344    | 1    | 2052    |
+| i2c   | 4276    | 1    | 2052    |
  
 ### ICU
 
@@ -237,19 +237,19 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| ipc   | 5650    | 429    | 1656    |
+| ipc   | 5666    | 429    | 1656    |
  
 ### LIN
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| lin   | 1920    | 9    | 10    |
+| lin   | 1940    | 9    | 10    |
  
 ### MCU
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| mcu   | 6430    | 6    | 0    |
+| mcu   | 6482    | 6    | 0    |
  
 ### PORT
 

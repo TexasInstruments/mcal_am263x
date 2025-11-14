@@ -3856,7 +3856,7 @@
                             <L-2 L="EN">Port pin gpio muxmode from mode list for use with Port_Init() function.</L-2>
                           </DESC>
                           <SCOPE>LOCAL</SCOPE>
-                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <ORIGIN>Texas Instruments</ORIGIN>
                           <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
                           <VALUE-CONFIG-CLASSES>
                             <ECUC-VALUE-CONFIGURATION-CLASS>
@@ -3873,2439 +3873,2439 @@
                           <LITERALS>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TCK_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TMS_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>CPTS0_TS_SYNC_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM0_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM0_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM1_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM1_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM10_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM10_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM11_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM11_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM12_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM12_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>CLKOUT0_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM13_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM13_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM14_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM14_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM15_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM15_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM16_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM16_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM17_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM17_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM18_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM18_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM19_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM19_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM2_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM2_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM20_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM20_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM21_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM21_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM22_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM22_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM23_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM23_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM3_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM3_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM4_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM4_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM5_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM5_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM6_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM6_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM7_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM7_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM8_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM8_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM9_A_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM9_B_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP0_A_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP0_B_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_RXD0_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_TXD3_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_TXCLK_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_RXD2_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP0_I_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP0_S_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP1_A_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP1_A_MUXMODE_9</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP1_B_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP1_B_MUXMODE_9</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP1_I_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_TX_EN_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP1_I_MUXMODE_9</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_TXD1_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_TXD2_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP1_S_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP1_S_MUXMODE_9</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP2_A_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP2_B_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP2_I_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EQEP2_S_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_CRS_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_RXCLK_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_RX_ER_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_RXD3_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_RXD1_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_RXDV_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PR0_IEP0_EDIO_DATA_IN_OUT31_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN4_RXD_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX0_CLK_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX0_DATA0_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX0_DATA1_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX1_CLK_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX1_DATA0_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX1_DATA1_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX2_CLK_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX2_CLK_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX2_DATA0_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX2_DATA0_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX2_DATA1_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX2_DATA1_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX3_CLK_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX3_DATA0_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSIRX3_DATA1_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX0_CLK_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX0_DATA0_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX0_DATA1_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX1_CLK_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX1_DATA0_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX1_DATA1_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX2_CLK_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX2_CLK_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX2_DATA0_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX2_DATA0_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX2_DATA1_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX2_DATA1_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX3_CLK_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX3_DATA0_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>FSITX3_DATA1_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN4_TXD_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_0_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_1_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_10_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_11_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_12_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_13_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_14_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_15_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_16_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_17_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_18_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_19_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_2_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_20_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_21_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_22_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_23_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_24_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_25_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_26_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_27_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_28_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_29_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_3_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_30_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_31_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_4_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM28_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM28_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_5_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_6_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_7_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_8_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOAB_9_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_32_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_33_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_34_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_35_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_36_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_37_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_38_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_39_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_40_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_41_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_42_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_43_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_44_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_45_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_46_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_47_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_48_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_49_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_50_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_51_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_52_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_53_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_54_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_55_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_56_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_57_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_58_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_59_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_60_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_61_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_62_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOCD_63_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_64_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_65_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_66_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_67_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_68_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_69_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_70_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_71_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_72_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_73_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_74_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_75_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_76_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_77_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_78_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_79_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_COL_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_RX_ER_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII2_RX_ER_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_80_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_81_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_82_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_83_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_84_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_85_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII2_CRS_DV_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_CRS_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_86_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_COL_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_87_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII2_RXD0_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII2_RXD1_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_RXD0_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_RXD1_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_88_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_89_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_90_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_91_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_92_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_93_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_94_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_TXD2_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_TXCLK_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_TXD3_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOEF_95_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_100_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_101_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_102_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_103_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_104_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_105_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_106_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_107_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_108_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_109_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_110_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_111_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_112_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_113_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_114_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_115_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_116_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_117_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_118_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_119_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_120_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_121_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_122_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_123_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_124_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_125_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_RXD3_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_RXD2_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_TXD1_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_126_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_127_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_96_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_97_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_TX_EN_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_98_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOGH_99_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII2_TX_EN_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOI_128_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOI_130_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOI_131_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOI_132_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOI_133_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOI_134_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOI_135_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOI_136_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOI_137_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOI_138_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_TXD0_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII2_TXD1_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII2_TXD0_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TDO_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TDI_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A0_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A1_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A10_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A11_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A12_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A13_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A14_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A15_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A16_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A17_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A18_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A19_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A2_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A20_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A21_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A3_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A4_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A5_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A6_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A7_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A8_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_A9_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD0_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD1_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD10_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD11_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD12_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD13_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD14_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD15_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD2_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD3_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD4_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD5_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD6_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD7_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD8_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_AD9_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_ADVn_ALE_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_BE0n_CLE_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_BE1n_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_CLK_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_CLKLB_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_CSn0_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_CSn1_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_CSn2_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_CSn3_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_DIR_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_OEn_REn_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_WAIT0_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_WAIT1_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_WEn_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPMC0_WPn_MUXMODE_6</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>I2C0_SCL_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>I2C0_SDA_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>I2C1_SCL_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>I2C1_SCL_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>I2C1_SDA_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>I2C1_SDA_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>I2C2_SCL_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>I2C2_SCL_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>I2C2_SDA_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>I2C2_SDA_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>I2C3_SCL_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>I2C3_SCL_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>I2C3_SDA_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>I2C3_SDA_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN0_RXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN0_RXD_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN0_TXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN0_TXD_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN1_RXD_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN1_RXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN1_TXD_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN1_TXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN2_RXD_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN2_TXD_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN3_RXD_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN3_TXD_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MCAN0_RX_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MCAN0_TX_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MCAN1_RX_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MCAN1_TX_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MCAN2_RX_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MCAN2_TX_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MCAN3_RX_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MCAN3_RX_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MCAN3_TX_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MCAN3_TX_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MMC0_CD_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MMC0_CLK_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MMC0_CMD_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MMC0_D0_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MMC0_D1_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MMC0_D2_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MMC0_D3_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MMC0_WP_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM30_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>ECAP0_APWM_OUT_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_CLK_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT13_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PR0_IEP0_EDC_SYNC_OUT0_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PR0_IEP0_EDC_SYNC_OUT1_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PR0_MDIO0_MDC_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PR0_MDIO0_MDIO_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PR0_UART0_CTSn_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PR0_UART0_RTSn_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PR0_UART0_RXD_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PR0_UART0_TXD_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM29_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM27_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM29_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM31_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO0_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO1_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO10_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO11_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO12_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM27_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO13_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO14_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO15_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO16_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO2_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM26_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO3_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO4_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO5_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO6_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO8_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU0_GIO9_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO0_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO1_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO10_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO11_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO12_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM30_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO13_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO14_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO15_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO16_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO17_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO18_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO19_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO2_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO3_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO4_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO5_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM31_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO6_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO7_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO8_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PRU1_GIO9_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>QSPI0_CLK_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>QSPI0_CLKLB_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>QSPI0_CSn0_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>QSPI0_CSn1_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>QSPI0_D0_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>QSPI0_D1_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>QSPI0_D2_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>QSPI0_D3_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII1_RD0_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII1_RD1_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII1_RD2_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII1_RD3_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM25_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM25_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII1_RX_CTL_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII1_RXC_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII1_TD0_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII1_TD1_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII1_TD2_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII1_TD3_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM24_B_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM24_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII2_REF_CLK_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_RXCLK_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII2_RXDV_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII1_TX_CTL_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII1_TXC_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII2_RD0_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EPWM26_A_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII2_RD1_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII2_RD2_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII2_RD3_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII2_RX_CTL_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII2_RXC_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII2_TD0_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII2_TD1_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII2_TD2_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII2_TD3_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII2_TX_CTL_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RGMII2_TXC_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII1_CRS_DV_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII1_REF_CLK_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII1_RX_ER_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII1_RXD0_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII1_RXD1_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII1_TX_EN_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII1_TXD0_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>RMII1_TXD1_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM0_CLK0_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM0_CLK1_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN4_TXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>PR0_IEP0_EDIO_DATA_IN_OUT30_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM0_CLK2_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>CLKOUT1_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM0_CLK3_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM0_D0_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>GPIOI_129_MUXMODE_7</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM0_D1_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM0_D2_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM0_D3_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_CLK0_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_CLK0_MUXMODE_9</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_CLK1_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_CLK1_MUXMODE_9</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_CLK2_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_CLK2_MUXMODE_9</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_CLK3_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_CLK3_MUXMODE_9</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_D0_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>LIN4_RXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_D0_MUXMODE_9</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_D1_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_D1_MUXMODE_9</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_D2_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_D2_MUXMODE_9</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_D3_MUXMODE_8</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SDFM1_D3_MUXMODE_9</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI0_CLK_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI0_CS0_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI0_CS1_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI0_D0_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI0_D1_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI1_CLK_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI1_CS0_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI1_D0_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI1_D1_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI2_CLK_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI2_CS0_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI2_D0_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI2_D1_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI3_CLK_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI3_CS0_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI3_D0_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI3_D1_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI4_CLK_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI4_CLK_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI4_CS0_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI4_CS0_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI4_CS1_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI4_D0_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI4_D0_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI4_D1_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>SPI4_D1_MUXMODE_3</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_CTL_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA0_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA1_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA10_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA11_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA12_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA13_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA14_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA15_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA2_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA3_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA4_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA5_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA6_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA7_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA8_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>TRC_DATA9_MUXMODE_4</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART0_CTSn_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART0_CTSn_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART0_RTSn_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART0_RTSn_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART0_RXD_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART0_RXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>EXT_REFCLK0_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART0_TXD_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART0_TXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART1_CTSn_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART1_DCDn_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART1_DSRn_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART1_DTRn_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART1_RIn_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART1_RTSn_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART1_RXD_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART1_RXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART1_TXD_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART1_TXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART2_CTSn_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART2_RTSn_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART2_RXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART2_TXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART3_CTSn_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART3_RTSn_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART3_RXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART3_RXD_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART3_TXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART3_TXD_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART4_CTSn_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART4_RTSn_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART4_RXD_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART4_RXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART4_TXD_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART4_TXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART5_CTSn_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART5_RTSn_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART5_RXD_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART5_RXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART5_TXD_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>UART5_TXD_MUXMODE_1</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT0_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT1_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT10_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT11_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT12_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT14_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT15_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT2_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT3_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT4_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT5_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT6_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT7_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT8_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>XBAROUT9_MUXMODE_5</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MII1_TXD0_MUXMODE_2</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MDIO0_MDC_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                             <ECUC-ENUMERATION-LITERAL-DEF>
                               <SHORT-NAME>MDIO0_MDIO_MUXMODE_0</SHORT-NAME>
-                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <ORIGIN>Texas Instruments</ORIGIN>
                             </ECUC-ENUMERATION-LITERAL-DEF>
                           </LITERALS>
                         </ECUC-ENUMERATION-PARAM-DEF>

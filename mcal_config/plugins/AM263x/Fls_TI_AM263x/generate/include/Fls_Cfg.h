@@ -244,6 +244,7 @@ extern "C" {
 /** \brief FLS Configuration struct declaration */
 extern const struct Fls_ConfigType_s Fls_Config;
 [!ENDLOOP!]
+extern struct Fls_ConfigSfdp_s *Fls_Config_SFDP_Ptr;
 
 
 /* ========================================================================== */
