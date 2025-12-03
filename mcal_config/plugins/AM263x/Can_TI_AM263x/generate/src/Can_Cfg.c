@@ -50,9 +50,9 @@
 /**********************************************************************************************************************
  *  GLOBAL DATA
  *********************************************************************************************************************/
-#define CAN_START_SEC_CONFIG_DATA
-#include "Can_MemMap.h"
 
+#define CAN_START_SEC_VAR_INIT_UNSPECIFIED
+#include "Can_MemMap.h"
 [!AUTOSPACING!]
 
 [!IF "(as:modconf('Can')[1]/IMPLEMENTATION_CONFIG_VARIANT = 'VariantPreCompile')"!]
@@ -116,7 +116,11 @@ static Can_ControllerType
 [!ENDLOOP!][!ENDLOOP!]
 
 [!ENDIF!][!// /* VariantPreCompile or VariantPostBuild */
+#define CAN_STOP_SEC_VAR_INIT_UNSPECIFIED
+#include "Can_MemMap.h"
 
+#define CAN_START_SEC_CONFIG_DATA
+#include "Can_MemMap.h"
 [!IF "(as:modconf('Can')[1]/IMPLEMENTATION_CONFIG_VARIANT = 'VariantPreCompile') or (as:modconf('Can')[1]/IMPLEMENTATION_CONFIG_VARIANT = 'VariantPostBuild')"!]
 /* Controller structure defined here for all config sets */
 
@@ -194,7 +198,11 @@ const struct Can_ControllerStruct_PC
 [!ENDLOOP!][!ENDLOOP!]
 
 [!ENDIF!][!// /* VariantPreCompile */
+#define  CAN_STOP_SEC_CONFIG_DATA
+#include "Can_MemMap.h"
 
+#define CAN_START_SEC_VAR_INIT_UNSPECIFIED
+#include "Can_MemMap.h"
 [!IF "(as:modconf('Can')[1]/IMPLEMENTATION_CONFIG_VARIANT = 'VariantPreCompile')"!]
 /*List of the Controller structures */
 [!LOOP "as:modconf('Can')[1]/CanConfigSet"!]
@@ -410,7 +418,11 @@ static Can_MailboxType
 
 [!ENDLOOP!][!ENDLOOP!]
 [!ENDIF!][!//
+#define CAN_STOP_SEC_VAR_INIT_UNSPECIFIED
+#include "Can_MemMap.h"
 
+#define CAN_START_SEC_CONFIG_DATA
+#include "Can_MemMap.h"
 [!IF "(as:modconf('Can')[1]/IMPLEMENTATION_CONFIG_VARIANT = 'VariantPreCompile') or (as:modconf('Can')[1]/IMPLEMENTATION_CONFIG_VARIANT = 'VariantPostBuild')"!]
 /* All the Mailbox objects(MB's) will be defined here for all config sets */
 [!LOOP "as:modconf('Can')[1]/CanConfigSet"!]
@@ -422,7 +434,11 @@ static const struct Can_MailboxStruct_PC
 };
 [!ENDLOOP!][!ENDLOOP!]
 [!ENDIF!][!//
+#define  CAN_STOP_SEC_CONFIG_DATA
+#include "Can_MemMap.h"
 
+#define CAN_START_SEC_VAR_INIT_UNSPECIFIED
+#include "Can_MemMap.h"
 [!IF "(as:modconf('Can')[1]/IMPLEMENTATION_CONFIG_VARIANT = 'VariantPreCompile')"!]
 /* List of the Mailboxes */
 [!LOOP "as:modconf('Can')[1]/CanConfigSet"!]
@@ -448,7 +464,11 @@ const struct Can_MailboxStruct_PC
 };
 [!ENDLOOP!]
 [!ENDIF!][!//
+#define CAN_STOP_SEC_VAR_INIT_UNSPECIFIED
+#include "Can_MemMap.h"
 
+#define CAN_START_SEC_CONFIG_DATA
+#include "Can_MemMap.h"
 [!IF "(as:modconf('Can')[1]/IMPLEMENTATION_CONFIG_VARIANT = 'VariantPreCompile')"!]
 /*Can Config struct */
 [!LOOP "as:modconf('Can')[1]/CanConfigSet"!]

@@ -189,8 +189,8 @@ static CONST( Port_PinConfigType, PORT_PBCFG) [!"@name"!]_PinConfig[ PORT_MAX_PI
 [!WS "9"!].Port_PinDioRegId = [!IF "$GPIOREG != 'PORT_DIO_INVALID_REG_ID'"!]([!"num:i($GPIOREGID)"!]U - 1U)[!ELSE!][!"$GPIOREG"!][!ENDIF!], /* GPIO register index is 0 based */
 [!WS "9"!].Port_PinDioChannelId = [!IF "$GPIOREG != 'PORT_DIO_INVALID_REG_ID'"!][!"num:i($GPIOREG_CH)"!][!ELSE!][!"$GPIOREG"!][!ENDIF!],
 [!WS "9"!].Port_RegOffsetAddr = [!"PortPinIdAddr"!],
-[!WS "9"!].Port_PinSignalName = (const sint8 *)"[!"PortPinPeripheralSignal"!]",
-[!WS "9"!].Port_PinName        = (const sint8 *)"[!"PortPinName"!]",
+[!WS "9"!]/* Port_PinSignalName: [!"PortPinPeripheralSignal"!] */
+[!WS "9"!]/* Port_PinName      : [!"PortPinName"!] */
 [!WS "4"!]},
 [!VAR "NumPortPins" = "$NumPortPins + 1"!][!//
 [!ENDLOOP!][!//

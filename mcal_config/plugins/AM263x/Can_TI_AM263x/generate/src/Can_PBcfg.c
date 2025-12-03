@@ -51,9 +51,9 @@
 /**********************************************************************************************************************
  *  GLOBAL DATA
  *********************************************************************************************************************/
-#define CAN_START_SEC_CONFIG_DATA
-#include "Can_MemMap.h"
 
+#define CAN_START_SEC_VAR_INIT_UNSPECIFIED
+#include "Can_MemMap.h"
 [!AUTOSPACING!]
 
 [!VAR "notifyFxnList" = "' '"!]
@@ -333,13 +333,11 @@ static Can_MailboxType
     [!ENDLOOP!]
 };
 [!ENDLOOP!]
-
-#define CAN_STOP_SEC_CONFIG_DATA
+#define CAN_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Can_MemMap.h"
 
 #define CAN_START_SEC_CONFIG_DATA
 #include "Can_MemMap.h"
-
 /*Can Config struct */
 [!LOOP "as:modconf('Can')[1]/CanConfigSet"!]
 const struct Can_ConfigType_s Can_Config =
@@ -357,9 +355,9 @@ const struct Can_ConfigType_s Can_Config =
 [!WS "4"!]}
 };
 [!ENDLOOP!]
-
 #define  CAN_STOP_SEC_CONFIG_DATA
 #include "Can_MemMap.h"
+
 /*********************************************************************************************************************
  *  End of File: Can_PBcfg.c
  *********************************************************************************************************************/
