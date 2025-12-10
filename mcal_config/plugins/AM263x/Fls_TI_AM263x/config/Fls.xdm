@@ -1717,11 +1717,15 @@
                 </v:ctr>
                 <v:lst name="FlsExternalDriver" type="MAP">
                   <a:da name="MAX" value="1"/>
+                  <a:da name="ENABLE" value="false"/>
+                  <a:da name="EDITABLE" value="false"/>
                   <v:ctr name="FlsExternalDriver" type="IDENTIFIABLE">
                     <a:a name="DESC"
                          value="EN: This container is present for external Flash drivers only. Internal Flash drivers do not use the parameter listed in this container, hence its multiplicity is 0 for internal drivers. Currently, not supported as only one external driver present."/>
                     <a:a name="UUID"
                          value="ECUC:81c36c86-d308-47d4-bc55-a02b401446e0"/>
+                    <a:da name="ENABLE" value="false"/>
+                    <a:da name="EDITABLE" value="false"/>
                     <v:lst name="FlsSpiReference">
                       <a:da name="MIN" value="1"/>
                       <v:ref name="FlsSpiReference"

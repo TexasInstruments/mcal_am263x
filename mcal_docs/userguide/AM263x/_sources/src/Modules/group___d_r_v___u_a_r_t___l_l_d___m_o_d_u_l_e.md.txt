@@ -147,6 +147,11 @@ typedef  struct CddUart_Object * CddUart_Handle;
 | UART_XOFF2   |  |
 | UART_TLR   |  |
 | UART_UASR   |  |
+| UART_TIMEOUTL   |  |
+| UART_TIMEOUTH   |  |
+| UART_EFR2   |  |
+| UART_EFR2_TIMEOUT_BEHAVE_SHIFT   |  |
+| UART_EFR2_TIMEOUT_BEHAVE_MASK   |  |
 | UART_RHR_RHR_SHIFT   |  |
 | UART_RHR_RHR_MASK   |  |
 | UART_RHR_RESERVED_24_SHIFT   |  |

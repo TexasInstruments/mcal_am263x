@@ -273,11 +273,11 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| uart   | 5828    | 1    | 196    |
+| uart   | 5864    | 1    | 196    |
  
 ### WDG
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| wdg   | 996    | 1    | 44    |
+| wdg   | 1076    | 1    | 44    |
  
