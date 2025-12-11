@@ -72,33 +72,32 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">4.7. CDD_I2C Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#acronyms-and-definitions">4.7.1. Acronyms and Definitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">4.7.2. Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#functional-overview">4.7.3. Functional Overview</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#i2c-driver-architecture">4.7.3.1. I2C Driver Architecture</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#initialization">4.7.3.2. Initialization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#states">4.7.3.3. States</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functional-overview">4.7.3. Functional Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#features">4.7.4. Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#supported-hw-features">4.7.4.1. Supported HW Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#supported-sw-features">4.7.4.2. Supported SW Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features-not-supported-by-the-driver">4.7.4.3. Features Not Supported by the Driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#i2c-driver-architecture">4.7.4.4. I2C Driver Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initialization">4.7.4.5. Initialization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#states">4.7.4.6. States</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features-provided-beyond-the-autosar-standard">4.7.4.7. Features Provided Beyond the AUTOSAR Standard</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#hardware-features">4.7.4. Hardware Features</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#supported-features">4.7.4.1. Supported Features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#features-provided-beyond-the-autosar-standard">4.7.4.2. Features Provided Beyond the AUTOSAR Standard</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#not-supported-features">4.7.4.3. Not supported Features</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#source-files">4.7.5. Source files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-requirements">4.7.6. Module requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#source-files">4.7.5. Source Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-requirements">4.7.6. Module Requirements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#memory-mapping">4.7.6.1. Memory Mapping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#scheduling">4.7.6.2. Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#error-handling">4.7.6.3. Error handling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#error-codes">4.7.6.4. Error codes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-handling">4.7.6.3. Error Handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-codes">4.7.6.4. Error Codes</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#used-resources">4.7.7. Used resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#used-resources">4.7.7. Used Resources</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#interrupt-handling">4.7.7.1. Interrupt Handling</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#integration-description">4.7.8. Integration description</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#dependent-modules">4.7.8.1. Dependent modules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#multi-core-support">4.7.8.2. Multi-core support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integration-description">4.7.8. Integration Description</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dependent-modules">4.7.8.1. Dependent Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multi-core-support">4.7.8.2. Multi-core Support</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#configuration">4.7.9. Configuration</a><ul>
@@ -116,8 +115,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#examples">4.7.10. Examples</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#overview">4.7.10.1. Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#setup-required-to-run-example">4.7.10.2. Setup required to run example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#how-to-run-examples">4.7.10.3. How to run examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setup-required-to-run-example">4.7.10.2. Setup Required to Run Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-run-examples">4.7.10.3. How to Run Examples</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sample-log">4.7.10.4. Sample Log</a></li>
 </ul>
 </li>
@@ -183,20 +182,20 @@
 <tr class="row-even"><td><p>AUTOSAR</p></td>
 <td><p>Automotive Open System Architecture</p></td>
 </tr>
-<tr class="row-odd"><td><p>I2C</p></td>
-<td><p>Inter Integrated Circuit</p></td>
+<tr class="row-odd"><td><p>API</p></td>
+<td><p>Application Programming Interface</p></td>
 </tr>
 <tr class="row-even"><td><p>BSW</p></td>
 <td><p>Basic Software</p></td>
 </tr>
-<tr class="row-odd"><td><p>MCAL</p></td>
-<td><p>Micro Controller Abstraction Layer</p></td>
-</tr>
-<tr class="row-even"><td><p>API</p></td>
-<td><p>Application Programming Interface</p></td>
-</tr>
 <tr class="row-odd"><td><p>DET</p></td>
 <td><p>Default Error Tracer</p></td>
+</tr>
+<tr class="row-even"><td><p>I2C</p></td>
+<td><p>Inter Integrated Circuit</p></td>
+</tr>
+<tr class="row-odd"><td><p>MCAL</p></td>
+<td><p>Micro Controller Abstraction Layer</p></td>
 </tr>
 <tr class="row-even"><td><p>MCU</p></td>
 <td><p>Micro Controller Unit</p></td>
@@ -221,13 +220,13 @@
 <td><p>4.3.1</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Supported Configuration Variants</strong></p></td>
-<td><p>Pre-Compile</p></td>
+<td><p><strong>Pre-Compile</strong></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Vendor ID</strong></p></td>
-<td><p>CDD_I2C_VENDOR_ID (44)(TEXAS INSTRUMENTS)</p></td>
+<td><p><strong>CDD_I2C_VENDOR_ID (44)(TEXAS INSTRUMENTS)</strong></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Module ID</strong></p></td>
-<td><p>CDD_I2C_MODULE_ID (255)</p></td>
+<td><p><strong>CDD_I2C_MODULE_ID (255)</strong></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Supported Platform</strong></p></td>
 <td><p>AM263x</p></td>
@@ -238,21 +237,60 @@
 <section id="functional-overview">
 <h2><span class="section-number">4.7.3. </span>Functional Overview<a class="headerlink" href="#functional-overview" title="Link to this heading"></a></h2>
 <p>The I2C component is a proprietary extension of AUTOSAR BSW. The I2C driver was designed similar to the SPI driver specifications and is compatible to AUTOSAR 4.3.1.</p>
+</section>
+<section id="features">
+<h2><span class="section-number">4.7.4. </span>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
+<p>On AM263x platform, there are 4 I2C instances I2C0, I2C1, I2C2 and I2C3.</p>
+<section id="supported-hw-features">
+<h3><span class="section-number">4.7.4.1. </span>Supported HW Features<a class="headerlink" href="#supported-hw-features" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Controller Mode</p></li>
+<li><p>Polling and Interrupt Mode (at instance level)</p></li>
+<li><p>Configurable Baudrate (at instance level)</p></li>
+<li><p>Configurable Own Address (at instance level)</p></li>
+<li><p>7 and 10 bit Address Schemes (at channel level)</p></li>
+<li><p>Restart Mode: Stop or no stop between channels (at channel level)</p></li>
+<li><p>Read or Write Operation (at channel level)</p></li>
+<li><p>Configurable Target Address (at channel level)</p></li>
+</ul>
+</section>
+<section id="supported-sw-features">
+<h3><span class="section-number">4.7.4.2. </span>Supported SW Features<a class="headerlink" href="#supported-sw-features" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Configurable Development Error</p></li>
+<li><p>Configurable Sequence Size</p></li>
+<li><p>Configurable Channel Size</p></li>
+<li><p>Configurable Data Length to Transfer</p></li>
+<li><p>Configurable Hardware Units</p></li>
+<li><p>Configurable Channels</p></li>
+<li><p>Configurable Sequences</p></li>
+<li><p>Multiple Channels in a Sequence</p></li>
+<li><p>Transfer Complete and Error Notification Callback</p></li>
+</ul>
+</section>
+<section id="features-not-supported-by-the-driver">
+<h3><span class="section-number">4.7.4.3. </span>Features Not Supported by the Driver<a class="headerlink" href="#features-not-supported-by-the-driver" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Target Mode</p></li>
+<li><p>Multi Master Mode and Arbitration Loss scenarios are not tested</p></li>
+<li><p>DMA Mode</p></li>
+</ul>
+</section>
 <section id="i2c-driver-architecture">
-<h3><span class="section-number">4.7.3.1. </span>I2C Driver Architecture<a class="headerlink" href="#i2c-driver-architecture" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.4.4. </span>I2C Driver Architecture<a class="headerlink" href="#i2c-driver-architecture" title="Link to this heading"></a></h3>
 <p>The following figure shows where the I2C is located in the AUTOSAR architecture.</p>
 <figure class="align-center">
 <img alt="../_images/i2c_architecture.png" src="../_images/i2c_architecture.png" />
 </figure>
-<p>The expected flow for utilization of the driver as per the example application is interrupt registration (only required in case of interrupt mode), I2c driver initialization using Cdd_I2c_Init. Post initialization buffer set up linking is done to point channels to their respective buffers using Cdd_I2c_SetupEB and for writing data to slaves Cdd_I2c_AsyncTransmit() is used in both polling as well as interrupt mode.</p>
+<p>The expected flow for utilization of the driver as per the example application is interrupt registration (only required in case of interrupt mode), I2c driver initialization using Cdd_I2c_Init(). Post initialization buffer set up linking is done to point channels to their respective buffers using Cdd_I2c_SetupEB() and for writing data to slaves Cdd_I2c_AsyncTransmit() is used in both polling as well as interrupt mode.</p>
 <p>For reception of data from I2c slaves Cdd_I2c_AsyncTransmit() can be used in interrupt mode. If polling mode is being used, use Cdd_I2c_MainFunction() to process any sequence in the queue and update the status of the queue to real time value.</p>
 </section>
 <section id="initialization">
-<h3><span class="section-number">4.7.3.2. </span>Initialization<a class="headerlink" href="#initialization" title="Link to this heading"></a></h3>
-<p>The driver I2C is initialized by calling Cdd_I2c_Init (). To re-initialize the driver call Cdd_I2c_DeInit () and then Cdd_I2c_Init () again. Only pre-compile variant is supported for the driver, hence all configuration related parameters are provided through the GUI. The service for de-initialization is provided with the function Cdd_I2c_DeInit ().</p>
+<h3><span class="section-number">4.7.4.5. </span>Initialization<a class="headerlink" href="#initialization" title="Link to this heading"></a></h3>
+<p>The driver I2C is initialized by calling Cdd_I2c_Init(). To re-initialize the driver call Cdd_I2c_DeInit() and then Cdd_I2c_Init() again. Only pre-compile variant is supported for the driver, hence all configuration related parameters are provided through the GUI. The service for de-initialization is provided with the function Cdd_I2c_DeInit().</p>
 </section>
 <section id="states">
-<h3><span class="section-number">4.7.3.3. </span>States<a class="headerlink" href="#states" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.4.6. </span>States<a class="headerlink" href="#states" title="Link to this heading"></a></h3>
 <p>I2C maintains states for:</p>
 <ol class="arabic">
 <li><p>Driver</p>
@@ -260,7 +298,7 @@
 <li><p>CDD_I2C_UNINIT</p>
 <ul>
 <li><p>Driver is uninitialized</p></li>
-<li><p>Cdd_I2c_Init () has not been called or Cdd_I2c_DeInit () has been called after initialization</p></li>
+<li><p>Cdd_I2c_Init() has not been called or Cdd_I2c_DeInit() has been called after initialization</p></li>
 </ul>
 </li>
 <li><p>CDD_I2C_IDLE</p>
@@ -274,9 +312,9 @@
 </ul>
 </li>
 </ul>
-<p>The state for I2c driver is returned with Cdd_I2c_GetStaus() function call.</p>
+<p>The state for I2c driver is returned with Cdd_I2c_GetStatus() function call.</p>
 </li>
-<li><p>Channels:-</p>
+<li><p>Channels</p>
 <ul class="simple">
 <li><p>CDD_I2C_CH_RESULT_OK</p>
 <ul>
@@ -294,7 +332,7 @@
 <li><p>Channel transmission/reception currently in progress</p></li>
 </ul>
 </li>
-<li><p>CDD_I2C_CH_RESULT_BUS_FAIL</p>
+<li><p>CDD_I2C_CH_RESULT_BUSFAIL</p>
 <ul>
 <li><p>Channel transmission/reception failed due to bus fault</p></li>
 </ul>
@@ -306,14 +344,14 @@
 </li>
 <li><p>CDD_I2C_CH_RESULT_NACKFAIL</p>
 <ul>
-<li><p>Channel transmission/reception failed due to no acknowledge</p></li>
+<li><p>Channel transmission/reception failed due to no acknowledge from target</p></li>
 </ul>
 </li>
 </ul>
 <p>The channel status is returned with Cdd_I2c_GetResult() function call.
 In case incorrect channel ID is passed a DET error occur</p>
 </li>
-<li><p>Sequences:-</p>
+<li><p>Sequences</p>
 <ul class="simple">
 <li><p>CDD_I2C_SEQ_OK</p>
 <ul>
@@ -352,9 +390,9 @@ In case incorrect channel ID is passed a DET error occur</p>
 </ul>
 </li>
 </ul>
-<p>The sequence status is returned with Cdd_I2c_GetSequenceResult</p>
+<p>The sequence status is returned with Cdd_I2c_GetSequenceResult()</p>
 </li>
-<li><p>Hardware Units:-</p>
+<li><p>Hardware Units</p>
 <ul class="simple">
 <li><p>CDD_I2C_HW_UNIT_FREE</p>
 <ul>
@@ -369,46 +407,23 @@ In case incorrect channel ID is passed a DET error occur</p>
 </ul>
 </li>
 </ol>
-</section>
-</section>
-<section id="hardware-features">
-<h2><span class="section-number">4.7.4. </span>Hardware Features<a class="headerlink" href="#hardware-features" title="Link to this heading"></a></h2>
-<p>On AM263x platform, there are 4 I2C instances I2C0, I2C1, I2C2 and I2C3 each consisting of 25 registers for control, data transmission and reception.</p>
-<section id="supported-features">
-<h3><span class="section-number">4.7.4.1. </span>Supported Features<a class="headerlink" href="#supported-features" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Configurable Development error (Software supported)</p></li>
-<li><p>Polling mode (Software supported)</p></li>
-<li><p>Interrupt mode (Software supported)</p></li>
-<li><p>Configurable sequence size (Software supported)</p></li>
-<li><p>Configurable channel size (Software supported)</p></li>
-<li><p>Configurable data length (Software supported)</p></li>
-<li><p>Configurable Hardware units (Hardware supported)</p></li>
-<li><p>Configurable Channels (Software supported)</p></li>
-<li><p>Configurable Sequences (Software supported)</p></li>
-<li><p>Channel in use checks (Software supported)</p></li>
-<li><p>Sequence in use checks (Software supported)</p></li>
-<li><p>Hardware unit in use checks (Software supported)</p></li>
-<li><p>7 and 10 bit address schemes (Hardware supported)</p></li>
-<li><p>Multiple channels in a sequence</p></li>
-</ul>
 <section id="configurable-development-error">
-<h4><span class="section-number">4.7.4.1.1. </span>Configurable Development Error<a class="headerlink" href="#configurable-development-error" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.4.6.1. </span>Configurable Development Error<a class="headerlink" href="#configurable-development-error" title="Link to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>User configurable error check to report development errors.</p></li>
 <li><p>Blocking error</p></li>
 </ol>
 </section>
 <section id="configurable-sequence-and-channel-size">
-<h4><span class="section-number">4.7.4.1.2. </span>Configurable Sequence and Channel Size<a class="headerlink" href="#configurable-sequence-and-channel-size" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.4.6.2. </span>Configurable Sequence and Channel Size<a class="headerlink" href="#configurable-sequence-and-channel-size" title="Link to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>User configurable maximum size for Sequence and Channel</p></li>
 </ol>
 </section>
 <section id="configurable-hardware-units">
-<h4><span class="section-number">4.7.4.1.3. </span>Configurable Hardware Units<a class="headerlink" href="#configurable-hardware-units" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.4.6.3. </span>Configurable Hardware Units<a class="headerlink" href="#configurable-hardware-units" title="Link to this heading"></a></h4>
 <ol class="arabic simple">
-<li><p>User configurable parameter to define how many Hardware Units (Instances) to use out of a maximum of 4</p></li>
+<li><p>User configurable parameter to define how many Hardware Units (Instances) to use out of a maximum supported by the device</p></li>
 <li><p>User configurable parameter to specify which Hardware Unit to use</p></li>
 <li><p>User configurable parameter to specify Serial clock frequency (Channel bit rate)</p></li>
 <li><p>User configurable parameter to specify the frequency at which the Hardware Unit will operate internally</p></li>
@@ -419,13 +434,12 @@ In case incorrect channel ID is passed a DET error occur</p>
 </figure>
 </section>
 <section id="configurable-channels">
-<h4><span class="section-number">4.7.4.1.4. </span>Configurable Channels<a class="headerlink" href="#configurable-channels" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.4.6.4. </span>Configurable Channels<a class="headerlink" href="#configurable-channels" title="Link to this heading"></a></h4>
 <ol class="arabic simple">
-<li><p>User configurable parameter to define channel direction (read or write), I2c Slave address, address scheme (7 bit slave address or 10 bit slave address) and chained channel implementation.</p></li>
-<li><p>A channel is the actual unit which contains the data to be transmitted along with direction(read/write) and slave address.</p></li>
+<li><p>User configurable parameter to define channel direction (read or write), I2c Target Address, Address Scheme (7 bit or 10 bit address) and chained channel implementation.</p></li>
+<li><p>A channel is the actual unit which contains the data to be transmitted along with direction (read/write) and target address.</p></li>
 <li><p>The number of channels configured can not exceed the maximum number of channels defined in the general container.</p></li>
 <li><p>Data buffer is linked to channels in the application by provided API’s</p></li>
-<li><p>Same channels can be used by multiple sequences</p></li>
 <li><p>Restart mode parameter to decide whether to perform a stop between channels of a sequence</p></li>
 </ol>
 <figure class="align-center">
@@ -433,7 +447,7 @@ In case incorrect channel ID is passed a DET error occur</p>
 </figure>
 </section>
 <section id="configurable-sequences">
-<h4><span class="section-number">4.7.4.1.5. </span>Configurable Sequences<a class="headerlink" href="#configurable-sequences" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.4.6.5. </span>Configurable Sequences<a class="headerlink" href="#configurable-sequences" title="Link to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>User configurable parameter to define which Hardware unit to use, number of channels present in the sequence, sequence complete callback function and sequence error notify callback function</p></li>
 <li><p>Sequences are accessible to the user and are passed as function parameters for transmission and reception</p></li>
@@ -443,30 +457,30 @@ In case incorrect channel ID is passed a DET error occur</p>
 </figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In a sequence, there can be multiple channel but all the channel should have the same slave address.</p>
+<p>In a sequence, there can be multiple channels but all the channels should have the same target address if restart mode is no-stop between channels.</p>
 </div>
 </section>
 <section id="channel-in-use-checks">
-<h4><span class="section-number">4.7.4.1.6. </span>Channel in Use Checks<a class="headerlink" href="#channel-in-use-checks" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.4.6.6. </span>Channel in Use Checks<a class="headerlink" href="#channel-in-use-checks" title="Link to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>Channels in free state, i.e. not currently being transmitted by another sequence or the same sequence are available for transmission/reception</p></li>
 </ol>
 </section>
 <section id="sequence-in-use-checks">
-<h4><span class="section-number">4.7.4.1.7. </span>Sequence in Use Checks<a class="headerlink" href="#sequence-in-use-checks" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.4.6.7. </span>Sequence in Use Checks<a class="headerlink" href="#sequence-in-use-checks" title="Link to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>Sequence not in transmission currently are available for use.</p></li>
 </ol>
 </section>
 <section id="hardware-unit-in-use-checks">
-<h4><span class="section-number">4.7.4.1.8. </span>Hardware Unit in Use Checks<a class="headerlink" href="#hardware-unit-in-use-checks" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.4.6.8. </span>Hardware Unit in Use Checks<a class="headerlink" href="#hardware-unit-in-use-checks" title="Link to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>Hardware not in use, i.e. currently not transmitting/receiving any sequence is available for use.</p></li>
 </ol>
 </section>
 </section>
 <section id="features-provided-beyond-the-autosar-standard">
-<h3><span class="section-number">4.7.4.2. </span>Features Provided Beyond the AUTOSAR Standard<a class="headerlink" href="#features-provided-beyond-the-autosar-standard" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.4.7. </span>Features Provided Beyond the AUTOSAR Standard<a class="headerlink" href="#features-provided-beyond-the-autosar-standard" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Hardware configuration unit container to handle different hardware units</p></li>
 <li><p>Hardware configuration unit container to handle transfer speeds and hardware unit mapping. Parallel sequence and channel processing on different hardware units. Configure acknowledge and no acknowledge handling (ACK, NACK). Configurable addressing for standard (7bit) and extended (10bit) addresses.</p></li>
@@ -482,35 +496,27 @@ In case incorrect channel ID is passed a DET error occur</p>
 </li>
 </ol>
 </section>
-<section id="not-supported-features">
-<h3><span class="section-number">4.7.4.3. </span>Not supported Features<a class="headerlink" href="#not-supported-features" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Multi master mode (Software limitation)</p></li>
-<li><p>DMA mode (Software limitation)</p></li>
-</ul>
-</section>
 </section>
 <section id="source-files">
-<h2><span class="section-number">4.7.5. </span>Source files<a class="headerlink" href="#source-files" title="Link to this heading"></a></h2>
-<p>Description of static files is provided below:</p>
+<h2><span class="section-number">4.7.5. </span>Source Files<a class="headerlink" href="#source-files" title="Link to this heading"></a></h2>
 <p>📦AM263x<br />
 ┣ 📂build<br />
 ┣ 📂mcal<br />
 ┃ ┣ 📂<strong>I2c</strong><br />
 ┃ ┃ ┣ 📂<strong>include</strong><br />
-┃ ┃ ┃ ┣ 📜<strong>Cdd_I2c.h</strong> : <em>Header file that contains all API relevant declarations</em><br />
+┃ ┃ ┃ ┣ 📜<strong>Cdd_I2c.h</strong> : <em>Contains the API declarations of the Cdd_I2c driver to be used by upper layers</em><br />
 ┃ ┃ ┃ ┗ 📜<strong>Cdd_I2c_Irq.h</strong> : <em>Contains the declarations of the ISR handlers</em><br />
 ┃ ┃ ┣ 📂<strong>src</strong><br />
 ┃ ┃ ┃ ┣ 📜<strong>Cdd_I2c.c</strong> : <em>Source file that contains the API relevant implementation</em><br />
 ┃ ┃ ┃ ┣ 📜<strong>Cdd_I2c_Priv.c</strong> : <em>Contains internal function definitions used to realize the driver</em><br />
-┃ ┃ ┃ ┣ 📜<strong>Cdd_I2c_Priv.h</strong> : <em>Contains internal function declarations used to realize the driver</em><br />
+┃ ┃ ┃ ┣ 📜<strong>Cdd_I2c_Priv.h</strong> : <em>Contains data structures and Internal function declarations</em><br />
 ┃ ┃ ┃ ┣ 📜<strong>Cdd_I2c_Utils.c</strong> : <em>Contains internal function definitions for queue implementation</em><br />
 ┃ ┃ ┃ ┣ 📜<strong>Cdd_I2c_Utils.h</strong> : <em>Contains internal function declarations for queue implementation</em><br />
 ┃ ┃ ┃ ┗ 📜<strong>Cdd_I2c_Irq.c</strong> : <em>Contains the ISR implementation</em><br />
 ┃ ┃ ┣ 📂<strong>V0</strong><br />
 ┃ ┃ ┃ ┣ 📜<strong>Cdd_I2c_hw_reg.h</strong> : <em>Contains register offsets, mask values, shift values and specific bit set reset macros</em><br />
 ┃ ┃ ┃ ┣ 📜<strong>Cdd_I2c_Hw.c</strong> : <em>Contains internal function definitions used to realize the driver</em><br />
-┃ ┃ ┃ ┗ 📜<strong>Cdd_I2c_Hw.h</strong> : <em>Contains internal function declarations used to realize the driver</em><br />
+┃ ┃ ┃ ┗ 📜<strong>Cdd_I2c_Hw.h</strong> : <em>Contains data structures and Internal function declarations for HW layer</em><br />
 ┃ ┃ ┗ 📜Makefile<br />
 ┣ 📂mcal_config<br />
 ┣ 📂mcal_docs<br />
@@ -527,7 +533,7 @@ In case incorrect channel ID is passed a DET error occur</p>
 <td><p>This file contains general container configuration parameters like DET error ON, Polling mode OFF, Sequence size, Queue size, Channel size etc.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Cdd_I2c_Cfg.c</p></td>
-<td><p>Contains all channels Post-Build Configuration parameters</p></td>
+<td><p>Contains all channels Pre-Build Configuration parameters</p></td>
 </tr>
 </tbody>
 </table>
@@ -537,7 +543,7 @@ In case incorrect channel ID is passed a DET error occur</p>
 </figure>
 </section>
 <section id="module-requirements">
-<h2><span class="section-number">4.7.6. </span>Module requirements<a class="headerlink" href="#module-requirements" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.7.6. </span>Module Requirements<a class="headerlink" href="#module-requirements" title="Link to this heading"></a></h2>
 <section id="memory-mapping">
 <h3><span class="section-number">4.7.6.1. </span>Memory Mapping<a class="headerlink" href="#memory-mapping" title="Link to this heading"></a></h3>
 <p>The objects (e.g. variables, functions, constants) are declared by compiler independent definitions – the compiler abstraction definitions. Each compiler abstraction definition is assigned to a memory section. The following table contains the memory section names and the compiler abstraction definitions of the I2C and illustrates their assignment among each other.</p>
@@ -545,152 +551,16 @@ In case incorrect channel ID is passed a DET error occur</p>
 <thead>
 <tr class="row-odd"><th class="head"><p>Memory Mapping Sections</p></th>
 <th class="head"><p>I2C_CODE</p></th>
-<th class="head"><p>I2C_VAR1</p></th>
 <th class="head"><p>I2C_VAR_NO_INIT</p></th>
 <th class="head"><p>I2C_VAR_INIT</p></th>
-<th class="head"><p>CDD_VAR_ZERO_INIT</p></th>
 <th class="head"><p>I2C_CONST</p></th>
-<th class="head"><p>I2C_PBCFG</p></th>
+<th class="head"><p>I2C_CFG</p></th>
 <th class="head"><p>I2C_APPL_CODE</p></th>
 <th class="head"><p>I2C_APPL_DATA</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>I2C_START_SEC_CODE</p></td>
-<td><p>x</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>I2C_STOP_SEC_CODE</p></td>
-<td><p>x</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>I2C_START_SEC_CODE_ISR</p></td>
-<td><p>x</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>I2C_STOP_SEC_CODE_ISR</p></td>
-<td><p>x</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>I2C_START_SEC_PBCFG_ROOT</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p>x</p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>I2C_STOP_SEC_PBCFG_ROOT</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p>x</p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>I2C_START_SEC_PBCFG</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p>x</p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>I2C_STOP_SEC_PBCFG</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p>x</p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>I2C_START_SEC_CONST_32BIT (.text)</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p>x</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>I2C_STOP_SEC_CONST_32BIT</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p>x</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>I2C_START_SEC_CONST_UNSPECIFIED</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p>x</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>I2C_STOP_SEC_CONST_UNSPECIFIED</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p>x</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>I2C_START_SEC_VAR_NOINIT_UNSPECIFIED</p></td>
-<td><p></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p>CDD_I2C_START_SEC_CODE</p></td>
 <td><p>x</p></td>
 <td><p></p></td>
 <td><p></p></td>
@@ -699,9 +569,7 @@ In case incorrect channel ID is passed a DET error occur</p>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>I2C_STOP_SEC_VAR_NOINIT_UNSPECIFIED</p></td>
-<td><p></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p>CDD_I2C_STOP_SEC_CODE</p></td>
 <td><p>x</p></td>
 <td><p></p></td>
 <td><p></p></td>
@@ -710,9 +578,61 @@ In case incorrect channel ID is passed a DET error occur</p>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p>I2C_START_SEC_VAR_INIT_UNSPECIFIED</p></td>
+<tr class="row-even"><td><p>CDD_I2C_START_SEC_ISR_CODE</p></td>
+<td><p>x</p></td>
 <td><p></p></td>
 <td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CDD_I2C_STOP_SEC_ISR_CODE</p></td>
+<td><p>x</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CDD_I2C_START_SEC_CONFIG_DATA</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>x</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CDD_I2C_STOP_SEC_CONFIG_DATA</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>x</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CDD_I2C_START_SEC_CONST_32</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>x</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CDD_I2C_STOP_SEC_CONST_32</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>x</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CDD_I2C_START_SEC_VAR_NOINIT_UNSPECIFIED</p></td>
 <td><p></p></td>
 <td><p>x</p></td>
 <td><p></p></td>
@@ -721,9 +641,7 @@ In case incorrect channel ID is passed a DET error occur</p>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>I2C_STOP_SEC_VAR_INIT_UNSPECIFIED</p></td>
-<td><p></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p>CDD_I2C_STOP_SEC_VAR_NOINIT_UNSPECIFIED</p></td>
 <td><p></p></td>
 <td><p>x</p></td>
 <td><p></p></td>
@@ -732,9 +650,7 @@ In case incorrect channel ID is passed a DET error occur</p>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p>I2C_START_SEC_VAR_ZERO_INIT_UNSPECIFIED</p></td>
-<td><p></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p>CDD_I2C_START_SEC_VAR_INIT_UNSPECIFIED</p></td>
 <td><p></p></td>
 <td><p></p></td>
 <td><p>x</p></td>
@@ -743,9 +659,7 @@ In case incorrect channel ID is passed a DET error occur</p>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>I2C_STOP_SEC_VAR_ZERO_INIT_UNSPECIFIED</p></td>
-<td><p></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p>CDD_I2C_STOP_SEC_VAR_INIT_UNSPECIFIED</p></td>
 <td><p></p></td>
 <td><p></p></td>
 <td><p>x</p></td>
@@ -761,13 +675,9 @@ In case incorrect channel ID is passed a DET error occur</p>
 <td><p></p></td>
 <td><p></p></td>
 <td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
 <td><p>x</p></td>
 </tr>
 <tr class="row-odd"><td><p>Notification called from I2C</p></td>
-<td><p></p></td>
-<td><p></p></td>
 <td><p></p></td>
 <td><p></p></td>
 <td><p></p></td>
@@ -795,14 +705,14 @@ In case incorrect channel ID is passed a DET error occur</p>
 </table>
 </section>
 <section id="error-handling">
-<h3><span class="section-number">4.7.6.3. </span>Error handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.6.3. </span>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h3>
 <section id="development-error-reporting">
 <h4><span class="section-number">4.7.6.3.1. </span>Development Error Reporting<a class="headerlink" href="#development-error-reporting" title="Link to this heading"></a></h4>
-<p>By default, development errors are reported to the DET using the service Det_ReportError (), If development error reporting is enabled (i.e. precompile parameter   CDD_I2C_DEV_ERROR_DETECT==STD_ON). If another module is used for development error reporting, the function prototype for reporting the error can be configured by the integrator, but must have the same signature as the service Det_ReportError (). The reported I2C ID is 255</p>
+<p>By default, development errors are reported to the DET using the service Det_ReportError(), if development error reporting is enabled (i.e. precompile parameter   CDD_I2C_DEV_ERROR_DETECT==STD_ON). If another module is used for development error reporting, the function prototype for reporting the error can be configured by the integrator, but must have the same signature as the service Det_ReportError(). The reported I2C ID is 255</p>
 </section>
 </section>
 <section id="error-codes">
-<h3><span class="section-number">4.7.6.4. </span>Error codes<a class="headerlink" href="#error-codes" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.6.4. </span>Error Codes<a class="headerlink" href="#error-codes" title="Link to this heading"></a></h3>
 <section id="development-errors">
 <h4><span class="section-number">4.7.6.4.1. </span>Development Errors<a class="headerlink" href="#development-errors" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
@@ -813,85 +723,101 @@ In case incorrect channel ID is passed a DET error occur</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>API service used without module initialization</p></td>
+<tr class="row-even"><td><p>No errors</p></td>
+<td><p>CDD_I2C_E_NO_ERROR</p></td>
+<td><p>0x00</p></td>
+</tr>
+<tr class="row-odd"><td><p>API service used without module initialization</p></td>
 <td><p>CDD_I2C_E_UNINIT</p></td>
 <td><p>0x01</p></td>
 </tr>
-<tr class="row-odd"><td><p>Init service called twice without DeInit</p></td>
+<tr class="row-even"><td><p>Init service called twice without DeInit</p></td>
 <td><p>CDD_I2C_E_ALREADY_INITIALIZED</p></td>
 <td><p>0x02</p></td>
 </tr>
-<tr class="row-even"><td><p>API service called during ongoing process</p></td>
+<tr class="row-odd"><td><p>API service called during ongoing process</p></td>
 <td><p>CDD_I2C_E_BUSY</p></td>
 <td><p>0x03</p></td>
 </tr>
-<tr class="row-odd"><td><p>Channel out of bounds, exceeds the maximum number of configured channels</p></td>
+<tr class="row-even"><td><p>Channel out of bounds, exceeds the maximum number of configured channels</p></td>
 <td><p>CDD_I2C_E_PARAM_CHANNEL</p></td>
 <td><p>0x04</p></td>
 </tr>
-<tr class="row-even"><td><p>Sequence out of bounds, exceeds the maximum number of configured sequences</p></td>
+<tr class="row-odd"><td><p>Sequence out of bounds, exceeds the maximum number of configured sequences</p></td>
 <td><p>CDD_I2C_E_PARAM_SEQUENCE</p></td>
 <td><p>0x05</p></td>
 </tr>
-<tr class="row-odd"><td><p>Length out of bounds – a zero length is not accepted.<br> The total length is limited to 65535</p></td>
+<tr class="row-even"><td><p>Length out of bounds – a zero length is not accepted. The total length is limited to 65535</p></td>
 <td><p>CDD_I2C_E_PARAM_LENGTH</p></td>
 <td><p>0x06</p></td>
 </tr>
-<tr class="row-even"><td><p>An invalid version info pointer has been passed (a NULL_PTR)</p></td>
+<tr class="row-odd"><td><p>An invalid version info pointer has been passed (a NULL_PTR)</p></td>
 <td><p>CDD_I2C_E_PARAM_VINFO_PTR</p></td>
 <td><p>0x07</p></td>
 </tr>
-<tr class="row-odd"><td><p>An invalid configuration has been passed (a non NULL_PTR)</p></td>
+<tr class="row-even"><td><p>An invalid configuration has been passed (a non NULL_PTR)</p></td>
 <td><p>CDD_I2C_E_PARAM_CONFIG</p></td>
 <td><p>0x08</p></td>
 </tr>
-<tr class="row-even"><td><p>Two in-valid transmission buffers have been passed (no NULL_PTR/ or both NULL_PTR)</p></td>
+<tr class="row-odd"><td><p>Two invalid transmission buffers have been passed (no NULL_PTR/ or both NULL_PTR)</p></td>
 <td><p>CDD_I2C_E_PARAM_TRANS_BUFFER</p></td>
 <td><p>0x09</p></td>
 </tr>
-<tr class="row-odd"><td><p>Address out of bounds, exceeds the limit of the configured address range</p></td>
+<tr class="row-even"><td><p>Address out of bounds, exceeds the limit of the configured address range</p></td>
 <td><p>CDD_I2C_E_PARAM_ADDRESS</p></td>
 <td><p>0x0A</p></td>
 </tr>
-<tr class="row-even"><td><p>Buffer direction conflicts with channel direction set via EB</p></td>
+<tr class="row-odd"><td><p>Buffer direction conflicts with channel direction set via EB</p></td>
 <td><p>CDD_I2C_E_PARAM_DIRECTION</p></td>
 <td><p>0x0B</p></td>
 </tr>
-<tr class="row-odd"><td><p>Notify callback functions passed as NULL_PTR</p></td>
+<tr class="row-even"><td><p>Notify callback functions passed as NULL_PTR</p></td>
 <td><p>CDD_I2C_E_PARAM_NOTIFY_CALLBACK</p></td>
 <td><p>0x0C</p></td>
 </tr>
-<tr class="row-even"><td><p>Bus error encountered during transmission or reception</p></td>
+<tr class="row-odd"><td><p>Bus error encountered during transmission or reception</p></td>
 <td><p>CDD_I2C_E_PARAM_TRANSMISSION_ERROR</p></td>
 <td><p>0x0D</p></td>
 </tr>
-<tr class="row-odd"><td><p>Queue full</p></td>
+<tr class="row-even"><td><p>Queue full</p></td>
 <td><p>CDD_I2C_E_PARAM_QUEUE_FULL</p></td>
 <td><p>0x0E</p></td>
 </tr>
-<tr class="row-even"><td><p>Timeout error</p></td>
+<tr class="row-odd"><td><p>Timeout error</p></td>
 <td><p>CDD_I2C_E_PARAM_TIMEOUT</p></td>
 <td><p>0x0F</p></td>
 </tr>
-<tr class="row-odd"><td><p>Hardware unit busy</p></td>
+<tr class="row-even"><td><p>Hardware unit busy</p></td>
 <td><p>CDD_I2C_E_HW_UNIT_BUSY</p></td>
 <td><p>0x10</p></td>
 </tr>
-<tr class="row-even"><td><p>Channel unit busy</p></td>
+<tr class="row-odd"><td><p>Channel unit busy</p></td>
 <td><p>CDD_I2C_E_CHANNEL_BUSY</p></td>
 <td><p>0x11</p></td>
 </tr>
-<tr class="row-odd"><td><p>Arbitration Loss</p></td>
+<tr class="row-even"><td><p>Arbitration Loss</p></td>
 <td><p>CDD_I2C_E_ARBITRATION_LOSS</p></td>
 <td><p>0x12</p></td>
 </tr>
-<tr class="row-even"><td><p>Nack</p></td>
+<tr class="row-odd"><td><p>Nack</p></td>
 <td><p>CDD_I2C_E_NACK</p></td>
 <td><p>0x13</p></td>
 </tr>
-<tr class="row-odd"><td><p>Receive shift register full</p></td>
+<tr class="row-even"><td><p>Receive shift register full</p></td>
 <td><p>CDD_I2C_E_RECEIVE_SHIFT_REGISTER_FULL</p></td>
 <td><p>0x14</p></td>
+</tr>
+<tr class="row-odd"><td><p>API service called with invalid data buffer pointer</p></td>
+<td><p>CDD_I2C_E_PARAM_POINTER</p></td>
+<td><p>0x15</p></td>
+</tr>
+<tr class="row-even"><td><p>API service called with invalid HW unit ID</p></td>
+<td><p>CDD_I2C_E_PARAM_HWUNIT</p></td>
+<td><p>0x16</p></td>
+</tr>
+<tr class="row-odd"><td><p>API service called with sequence is busy</p></td>
+<td><p>CDD_I2C_E_SEQ_BUSY</p></td>
+<td><p>0x17</p></td>
 </tr>
 </tbody>
 </table>
@@ -899,15 +825,15 @@ In case incorrect channel ID is passed a DET error occur</p>
 </section>
 </section>
 <section id="used-resources">
-<h2><span class="section-number">4.7.7. </span>Used resources<a class="headerlink" href="#used-resources" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.7.7. </span>Used Resources<a class="headerlink" href="#used-resources" title="Link to this heading"></a></h2>
 <section id="interrupt-handling">
 <h3><span class="section-number">4.7.7.1. </span>Interrupt Handling<a class="headerlink" href="#interrupt-handling" title="Link to this heading"></a></h3>
-<p>Interrupt routines are provided by the CDD I2C driver is Cdd_I2c_Isr_Handler(). Basically, the ISR’s are in the file Cdd_I2c_priv.c. User might edit it for adapting for the suitable OS.</p>
-<p>Interrupt handler shall be provided for each instance of the CDD I2C driver. e.g. If the SoC has 4 instances of CDD I2C Driver, four ISR</p>
-<p>The corresponding CDD I2C Interrupt numbers are:</p>
+<p>Interrupt routines are provided by the CDD I2C driver is Cdd_I2c_Isr_Handler(). Basically, the ISR’s are in the file Cdd_I2c_Irq.c. User might edit it for adapting for the suitable OS.
+Interrupt handler shall be provided for each instance of the CDD I2C driver.
+The corresponding CDD I2C Interrupt numbers are:</p>
 <table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Hardware Units</p></th>
+<tr class="row-odd"><th class="head"><p>Hardware Unit</p></th>
 <th class="head"><p>ISR Handler Mapped</p></th>
 <th class="head"><p>Interrupt Number</p></th>
 </tr>
@@ -934,9 +860,9 @@ In case incorrect channel ID is passed a DET error occur</p>
 </section>
 </section>
 <section id="integration-description">
-<h2><span class="section-number">4.7.8. </span>Integration description<a class="headerlink" href="#integration-description" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.7.8. </span>Integration Description<a class="headerlink" href="#integration-description" title="Link to this heading"></a></h2>
 <section id="dependent-modules">
-<h3><span class="section-number">4.7.8.1. </span>Dependent modules<a class="headerlink" href="#dependent-modules" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.8.1. </span>Dependent Modules<a class="headerlink" href="#dependent-modules" title="Link to this heading"></a></h3>
 <section id="det">
 <h4><span class="section-number">4.7.8.1.1. </span>DET<a class="headerlink" href="#det" title="Link to this heading"></a></h4>
 <p>The module I2C depends on the DET (by default) in order to report development errors. Detection and reporting of development errors can be enabled or disabled by the switch “Enable Development Error Detection” on the “General” container within the module I2C. The DET can be replaced optionally by an equivalent component which is responsible to recognize development errors, if no DET component is available.</p>
@@ -963,8 +889,8 @@ In case incorrect channel ID is passed a DET error occur</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>I2C_EXCLUSIVE_AREA_0</p></td>
-<td><p>Cdd_I2c_AsyncTransmit_PollingONcheckchannelconfigure<br>Cdd_I2c_AsyncTransmit_PollingOFF<br>Cdd_I2c_AsyncTransmit_PollingOFFsequencecheck</p></td>
+<tr class="row-even"><td><p>CDD_I2C_EXCLUSIVE_AREA_0</p></td>
+<td><p>Cdd_I2c_SetupEB() <br>Cdd_I2c_SetupEBDynamic() <br>Cdd_I2c_AsyncTransmit() <br>Cdd_I2c_Cancel() <br>Cdd_I2c_MainFunction()</p></td>
 <td><p>To protect against multiple access for shared resources</p></td>
 <td><p><strong>ALL_INTERRUPT_BLOCKING</strong> : All interrupts should be blocked as this API’s can be called in the interrupts</p></td>
 </tr>
@@ -972,41 +898,36 @@ In case incorrect channel ID is passed a DET error occur</p>
 </table>
 </section>
 <section id="configurable-callback-functions">
-<h4><span class="section-number">4.7.8.1.5. </span>Configurable callback functions<a class="headerlink" href="#configurable-callback-functions" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.7.8.1.5. </span>Configurable Callback Functions<a class="headerlink" href="#configurable-callback-functions" title="Link to this heading"></a></h4>
 <section id="notifications">
 <h5><span class="section-number">4.7.8.1.5.1. </span>Notifications<a class="headerlink" href="#notifications" title="Link to this heading"></a></h5>
 <p>At its configurable interfaces the I2C defines notifications that can be mapped to callback functions in case completion of a sequence or failure of a sequence. The mapping is not statically defined by the I2C but can be performed at configuration time.</p>
 </section>
-<section id="i2c-sequencecompletenotification">
-<h5><span class="section-number">4.7.8.1.5.2. </span>I2c_SequenceCompleteNotification<a class="headerlink" href="#i2c-sequencecompletenotification" title="Link to this heading"></a></h5>
-<p>Sequence transfer successful notification function. Can be configured in the configuration tool.</p>
-<p>Particularities and Limitations: It is advised to keep the code execution in the notification function as short as possible.</p>
-<p>Call context: Interrupt as well as polling</p>
+<section id="cdd-i2c-sequenceendnotification">
+<h5><span class="section-number">4.7.8.1.5.2. </span>Cdd_I2c_SequenceEndNotification<a class="headerlink" href="#cdd-i2c-sequenceendnotification" title="Link to this heading"></a></h5>
+<p>Sequence transfer successful notification function. Can be configured in the configuration tool.
+Particularities and Limitations: It is advised to keep the code execution in the notification function as short as possible.
+Call context: Interrupt as well as polling</p>
 </section>
-<section id="i2c-sequenceerrornotification">
-<h5><span class="section-number">4.7.8.1.5.3. </span>I2c_SequenceErrorNotification<a class="headerlink" href="#i2c-sequenceerrornotification" title="Link to this heading"></a></h5>
-<p>Sequence transfer error notification function. If the I2c detects an error, this function notifies the application about a communication failure. Can be configured in the configuration tool.</p>
-<p>Particularities and Limitations: It is advised to keep the code execution in the notification function as short as possible.</p>
-<p>Call context: Interrupt as well as polling</p>
+<section id="cdd-i2c-sequenceerrornotification">
+<h5><span class="section-number">4.7.8.1.5.3. </span>Cdd_I2c_SequenceErrorNotification<a class="headerlink" href="#cdd-i2c-sequenceerrornotification" title="Link to this heading"></a></h5>
+<p>Sequence transfer error notification function. If the I2c detects an error, this function notifies the application about a communication failure. Can be configured in the configuration tool.
+Particularities and Limitations: It is advised to keep the code execution in the notification function as short as possible.
+Call context: Interrupt as well as polling</p>
 <p>For the Following API’s it is possible to be called from the sequence notifications:</p>
 <ol class="arabic simple">
-<li><p>Cdd_I2c_DeInit</p></li>
 <li><p>Cdd_I2c_GetVersionInfo</p></li>
 <li><p>Cdd_I2c_SetupEB</p></li>
 <li><p>Cdd_I2c_SetupEBDynamic</p></li>
-<li><p>Cdd_I2c_AsyncTransmit</p></li>
-<li><p>CDD_I2c_Cancel</p></li>
 <li><p>Cdd_I2c_GetResult</p></li>
 <li><p>Cdd_I2c_GetSequenceResult</p></li>
-<li><p>Cdd_I2c_MainFunction</p></li>
-<li><p>Cdd_I2c_PollingModeProcessing</p></li>
 <li><p>Cdd_I2c_GetStatus</p></li>
 </ol>
 </section>
 </section>
 </section>
 <section id="multi-core-support">
-<h3><span class="section-number">4.7.8.2. </span>Multi-core support<a class="headerlink" href="#multi-core-support" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.8.2. </span>Multi-core Support<a class="headerlink" href="#multi-core-support" title="Link to this heading"></a></h3>
 <p>Not Supported</p>
 </section>
 </section>
@@ -1692,12 +1613,10 @@ In case incorrect channel ID is passed a DET error occur</p>
 <ul>
 <li><p>Initialize clock using Mcu_Init()</p></li>
 <li><p>Initializes pins as I2C SDA and SCL using Port_Init()</p></li>
-<li><p>Configure interrupt using Cdd_I2c_InterruptConfig()</p></li>
 <li><p>Get I2C version using Cdd_I2c_GetVersionInfo()</p></li>
 <li><p>Initialize I2c module using Cdd_I2c_Init()</p></li>
-<li><p>Set up channels using I2c_Buffer_Setup()</p></li>
-<li><p>Write data to Temperature sensor and EEPROM</p></li>
-<li><p>Write dummy data to EEPROM to reset address pointer</p></li>
+<li><p>Set up channels using Cdd_I2c_SetupEBDynamic()</p></li>
+<li><p>Write data to target device</p></li>
 <li><p>Receive and process data</p></li>
 <li><p>De-initialize I2c module using Cdd_I2c_DeInit()</p></li>
 </ul>
@@ -1705,13 +1624,18 @@ In case incorrect channel ID is passed a DET error occur</p>
 </ul>
 </section>
 <section id="setup-required-to-run-example">
-<h3><span class="section-number">4.7.10.2. </span>Setup required to run example<a class="headerlink" href="#setup-required-to-run-example" title="Link to this heading"></a></h3>
-<p>None</p>
+<h3><span class="section-number">4.7.10.2. </span>Setup Required to Run Example<a class="headerlink" href="#setup-required-to-run-example" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Install Code Composer Studio(CCS) latest version</p></li>
+<li><p>Install latest C29 compiler</p></li>
+<li><p>Connect the hardware and power up</p></li>
+<li><p>Connect the uart and set up the baudrate to check the log on serial console</p></li>
+</ul>
 </section>
 <section id="how-to-run-examples">
-<h3><span class="section-number">4.7.10.3. </span>How to run examples<a class="headerlink" href="#how-to-run-examples" title="Link to this heading"></a></h3>
-<p>I2C example application demonstrating the MCAL I2C driver features is in folder &lt;MCAL_ROOT&gt;/examples /I2C.</p>
-<p>This application can be built from the root folder by giving “gmake -s i2c_app PLATFORM=am263”.</p>
+<h3><span class="section-number">4.7.10.3. </span>How to Run Examples<a class="headerlink" href="#how-to-run-examples" title="Link to this heading"></a></h3>
+<p>I2C example application demonstrating the MCAL I2C driver features is in folder &lt;MCAL_ROOT&gt;/examples/I2c.
+This application can be built from the root folder by giving “gmake -s i2c_app PLATFORM=am263”.</p>
 </section>
 <section id="sample-log">
 <h3><span class="section-number">4.7.10.4. </span>Sample Log<a class="headerlink" href="#sample-log" title="Link to this heading"></a></h3>
