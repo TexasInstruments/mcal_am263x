@@ -223,6 +223,8 @@ extern "C" {
 [!ENDIF!][!//
 [!ENDIF!][!//
 
+#define FLS_OSPI_PHY_ENABLE                   (STD_OFF)
+
 /* @} */
 
 /**
