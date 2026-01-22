@@ -1,0 +1,1118 @@
+## PORT Module
+
+### Acronyms and Definitions
+
+|Abbreviation/Term|Explanation|
+|------|------|
+|AUTOSAR|Automotive Open System Architecture|
+|RTE|Runtime Environment|
+|BSW|Basic Software|
+|GPIO|General Purpose Input Output|
+|ADC| Analogue Digital Converter|
+|MCU|Micro Controller Unit|
+|OS|Operating System|
+|API|Application Programming Interface|
+|HW|Hardware|
+|SW|Software|
+
+### Introduction
+
+This document describes MCAL **PORT Driver** functionality, its application interfaces and configuration details as per AUTOSAR version **4.3.1**  
+
+| | |
+|------|------|
+|**Supported AUTOSAR Release**| 4.3.1|
+|**Supported Configuration Variants**|Pre-Compile, Post-build|
+|**Vendor ID**|PORT_VENDOR_ID (44)|
+|**Module ID**|PORT_MODULE_ID (124)|
+| **Supported Platform**             |   AM263x|
+
+### Functional Overview
+
+The Port driver module is an I/O driver in AUTOSAR Basic Software (BSW) layer. PORT driver provide the services for initializing the whole PORT structure of the microcontroller.
+It is used to assign various functionalities to Port and port pins (e.g. GPIOs, ADC, SPI and other peripheral modes)
+
+#### PORT Driver Architecture
+
+The following figure shows where the PORT is located in the AUTOSAR architecture
+
+```{figure} Assets/images/port/port_image1.jpg
+:alt: PORT in AUTOSAR architecture
+:align: center
+
+
+PORT in AUTOSAR architecture
+```
+
+#### Initialization
+
+Port_Init API initializes the PORT driver and does pin configuration of specified PORT PIN Id's. Port_Init also enables all pins for specified module selected in the config structure passed to Port_Init.
+
+#### States
+
+No state is maintained in the PORT driver.
+
+#### Assumptions
+
+None
+
+#### Limitations
+
+The Pins which are configured as GPIO, the parameter "PortInputOverrideCtrl" and "PortOutputOverrideCtrl" should be as disabled.
+
+```{figure} Assets/images/port/port_image2.jpg
+:alt: Configuration settings
+:align: center
+
+
+Configuration settings
+```
+
+#### Design overview
+
+Please refer **SITARA MCU MCAL Architecture Document** and **AM26x MCAL: PORT Detailed Design Document** provided as part of CSP.
+
+### Hardware Features
+
+#### IP Supported Features
+
+* Configuring the pins for rising and/or falling edge, specified for each GPIO pin.
+* Configuring the GPIO signal conditioning chain
+   1. Invert/Non-invert
+
+   2. Signal Qualification:
+  * Asynchronous input
+  * Synchronize to SYSCLK
+  * Qualification using sampling window
+
+* Enabling all pins of specified peripheral for given mode of operation. This option provides a way configuring all pins for a peripheral for required mode of operation.
+* GPIO Channel/Bank Interrupt notification is supported for Rising, Falling and Both edge interrupts.
+
+#### AUTOSAR Supported Features
+
+* The PORT Driver module shall initialize the whole port structure of the microcontroller.
+* The PORT Driver module shall allow the configuration of different functionality for each port and port pin.
+e.g. ADC, SPI, DIO etc.
+* The PORT Driver module shall provide additional configurations for the MCU port/port pins:
+
+  1. Pin direction (input/output)
+
+  2. Pin level initial value
+
+  3. Pin direction changeable during runtime (yes/no)
+
+  4. Port mode changeable during runtime
+
+* The PORT Driver module shall provide a number of optional configurations for the MCU ports and port pins (if supported by hardware):
+
+  1. Slew rate control
+
+  2. Activation of internal pull-ups
+
+  3. Type of Readback support (pin level,output register value)
+
+#### Not Supported Features
+
+None
+
+### Source files
+
+Description of static files is provided below:
+
+📦AM263x\
+ ┣ 📂build\
+ ┣ 📂mcal\
+ ┃ ┣ 📂**Port**\
+ ┃ ┃ ┣ 📂**include**\
+ ┃ ┃ ┃ ┗ 📜**Port.h** : *Contains the API’s of the PORT driver to be used by upper layers*\
+ ┃ ┃ ┣ 📂**src**\
+ ┃ ┃ ┃ ┗ 📜**Port.c** : *Contains the implementation of the API’s for PORT driver*\
+ ┃ ┃ ┣ 📂**V0**\
+ ┃ ┃ ┃ ┣ 📜**Port_Irq.h** : *Contains ISR function declaration*\
+ ┃ ┃ ┃ ┣ 📜**Port_Irq.c** : *Contains ISR function definitions*\
+ ┃ ┃ ┃ ┣ 📜**Port_Priv.c** : *Contains Internal functions definition of PORT driver*\
+ ┃ ┃ ┃ ┗ 📜**Port_Priv.h** : *Contains Internal functions declaration of PORT driver*\
+ ┃ ┃ ┗ 📜Makefile\
+ ┣ 📂mcal_config\
+ ┣ 📂mcal_docs\
+ ┗ 📜README.txt
+
+Description of generated files is provided below:
+
+|**Plugin Files**|Descriptions|
+|----------|----------|
+|**Port_Cfg.h** |Contains the Precompile switches, Symbolic names of PortPin|
+|**Port_PBcfg.c**|Contains all pins Post-Build Configured parameters|
+|**Port_Cfg.c**|Contains all pins Pre-Compile Configured parameters|
+
+```{figure} Assets/images/port/port_image3.jpg
+:alt: PORT header file include structure
+:align: center
+
+
+PORT header file include structure
+```
+
+### Module requirements
+
+Please refer **Software Product Specification** document provided as part of CSP.
+
+#### Memory Mapping
+
+|Memory Mapping Sections|PORT_CODE|PORT_VAR_ZERO_INIT|PORT_PBCFG|
+|-----------------------|--------|------------|---------------|
+|PORT_START_SEC_VAR_INIT_UNSPECIFIED (.data)|   | x |   |
+|PORT_STOP_SEC_VAR_INIT_UNSPECIFIED|   | x |   |
+|PORT_START_SEC_CODE (.bss)| x |  |   |
+|PORT_STOP_SEC_CODE| x |   |   |
+|PORT_START_SEC_CONFIG_DATA (.data)|   |   | x |
+|PORT_STOP_SEC_CONFIG_DATA|   |   |  x |
+|PORT_START_SEC_ISR_CODE (.bss) | x |   |   |
+|PORT_STOP_SEC_ISR_CODE| x  |   |   |
+
+#### Scheduling
+
+There is no scheduling functions in PORT.
+
+#### Error handling
+
+##### Development Error Reporting
+
+The module PORT depends on the DET (by default) in order to report development errors. Detection and reporting of development errors can be enabled or disabled by the switch
+PORT_DEV_ERROR_DETECT = STD_ON in the Port_Cfg.h
+
+AUTOSAR requires that API functions shall check the validity of their respective parameters.
+These checks are for development error reporting and can be enabled or disabled.
+
+#### Error Code
+
+##### Development Errors
+
+The errors reported to DET module are described in the following table:
+
+|Type of Error|Related Error code|Value (Hex)|
+|----|-----|-------|
+|Invalid Port Pin ID requested.|PORT_E_PARAM_PIN|0x0A|
+|Port Pin not configured as changeable.|PORT_E_DIRECTION_UNCHANGEABLE|0x0B|  
+|API Port_Init service called with wrong parameter.|PORT_E_INIT_FAILED|0x0C|
+|API Port_SetPinMode service called when mode is unchangeable.Invalid Mode Passed|PORT_E_PARAM_INVALID_MODE|0x0D|
+|API Port_SetPinMode service called when mode is unchangeable|PORT_E_MODE_UNCHANGEABLE|0x0E|
+|API service called without module initialization.|PORT_E_UNINIT|0x0F|
+|API called with a Null Pointer.|PORT_E_PARAM_POINTER|0x10|
+
+
+##### DEM Errors
+
+The extended production errors reported to DEM module are described in the following table:
+
+| |Error Code|Description|
+|----|-----|-------|
+|Assigned by DEM|PORT_E_HARDWARE_ERROR|This error is raised when register write failure occurs.(Hardware Failure)|
+
+
+### Used resources
+
+#### Interrupt Handling
+
+##### GPIO Interrupts
+
+**Individual channel Interrupt** can be configured with particular channel and it's being used to detect the rising/falling/both edge occurred on configured channel.
+
+```{figure} Assets/images/port/port_image6.jpg
+:align: center
+
+
+```
+
+**Bank channel Interrupt** are the interrupt that can be configured with particular bank and it's being used to detect the rising/falling/both edge occurred on all channels in configured bank.
+
+```{figure} Assets/images/port/port_image7.jpg
+:align: center
+
+
+```
+
+Below are the four GPIO XBAR interrupts available.
+
+|GPIO Interrupt|
+|--------------|
+|GPIO XBAROUT14 INTR|
+|GPIO XBAROUT15 INTR|
+|GPIO XBAROUT16 INTR|
+|GPIO XBAROUT17 INTR|
+
+The above mentioned 4 GPIO XBAR interrupts should be mapped to Software ISR's mentioned below:
+
+For Individual Channel Interrupt: **Port_Ch\<n>Isr** , here **\<n>** is between 0 to 138.
+
+For Bank Interrupt: **Port_Bnk\<m>Isr** , here **\<m>** is between 0 to 8.
+
+**These all four GPIO cross bar interrupt source can be configured either Individual channel Interrupt or Bank interrupt**.
+
+Each GPIO pin is interrupt capable and can be configured in **PortDioConfig** container in PORT Plugins as shown below.
+
+```{figure} Assets/images/port/port_image5.jpg
+:align: center
+
+
+```
+
+The PORT module depends on MCU module for the configuration of Channel/Bank Interrupt.
+All above 4 GPIO interrupts should be configured by MCU driver before usage.
+**McuGpioXbarIntrConfiguration** container from MCU plugins can be used to do to the same.
+
+```{figure} Assets/images/port/port_image4.jpg
+:align: center
+
+
+```
+
+**GPIO interrupt API's:**
+
+|APIs|Description|
+|----|-----------|
+|Port_PinEnableIntrNotification|This function is Non- Autosar based and is used to enable bank/channel GPIO Interrupts for particular channel|
+|Port_PinDisableIntrNotification|This function is Non- Autosar based and is used to disable bank/channel GPIO Interrupts for particular channel|
+|Port_GetInterruptStatus|This function is Non- Autosar based and is used to collect interrupt register value for each GPIO bank|
+|Port_ClearInterruptStatus|This function is Non- Autosar based and is used to clear interrupt register for each GPIO bank|
+
+```{Note}
+  Mcu Plugins should be added with Port Plugins while Port configuration files generation.
+
+   Each used channel in **PortDioConfig** container should be configured as a **GPIO** with **INPUT** direction. 
+   
+   Please refer **PORT Example Application** to know more about **GPIO Interrupt feature** configuration and its usage.
+
+```
+
+##### Hardware - Software - ISR API name mapping
+
+For interrupt notification, ISR is provided in PORT driver.
+The following interrupt is generated by PORT module.
+The supported ISR is a part of the Port_Irq.h file.
+
+Following are PORT module ISR's:
+
+For Individual Channel Interrupt: **Port_Ch<\n>Isr** , here **\<n>** is between 0 to 138.
+
+For Bank Interrupt: **Port_Bnk\<m>Isr** , here **\<m>** is between 0 to 8.
+
+#### Hardware-Software Mapping
+
+##### GPIO Channels Mapping
+
+AM263x have total 139 GPIO pins available​ which allocated from Bank A(Bank 0) to Bank I(Bank 8).
+Each Bank contains 16 channels except Bank I​(Bank 8).
+
+Bank I​ contains the 11 channels.
+
+|GPIO Banks| GPIO Channels|
+|----|-----|
+|BankA / Bank0|Channel 0 to channel 15|
+|BankB / Bank1|Channel 16 to channel 31|
+|BankC / Bank2|Channel 32 to channel 47|
+|BankD / Bank3|Channel 48 to channel 63|
+|BankE / Bank4|Channel 64 to channel 79|
+|BankF / Bank5|Channel 80 to channel 95|
+|BankG / Bank6|Channel 96 to channel 111|
+|BankH / Bank7|Channel 112 to channel 127|
+|BankI / Bank8|Channel 128 to channel 138|
+
+### Integration description
+
+#### Dependent modules
+
+##### DET
+
+This implementation depends on the DET in order to report development errors. The detection of development errors is configurable (ON / OFF). The switch PORT_DEV_ERROR_DETECT will activate or deactivate the detection of all development errors.
+
+##### DEM
+
+```{Note}
+Dem Event is enable only if *$(Module_Name)DemEventParameterRefs* is enabled. 
+
+```
+
+##### SchM
+
+If multiple AUTOSAR runnables have access to the same Data Store Memory block, the exported AUTOSAR specification enforces data consistency by using an AUTOSAR exclusive area. With this specification, the runnables have mutually exclusive access to the per-instance memory global data, which prevents data corruption. Beside the OS, the BSW Scheduler provides functions that PORT module calls at begin and end of critical sections. This implementation requires 1 level of exclusive access to guard critical sections.
+
+The data consistency mechanism that has to be applied to an ExclusiveArea might be domain, ECU or even project specific. The decision which mechanism has to be applied by RTE / Basic Software Scheduler is taken during ECU integration by setting the Exclusive Area configuration parameter RteExclusiveAreaImplMechanism. This parameter is an input for RTE generator.
+
+For PORT Module, data consistency and exclusive access to critical sections are required for the following sections as shown in the table below:
+
+| Exclusive Area Functions used | PORT Function calling Exclusive Area | Need for Exclusive Area | Recommended Exclusive Area Mapping |
+|-------|-------|-------|-------|
+|PORT_EXCLUSIVE_AREA_0 | Port_SetPinDirection<br>Port_SetPinMode | To protect against multiple access for shared resources|**ALL_INTERRUPT_BLOCKING** : All interrupts should be blocked as this API's can be called in the interrupts |
+
+##### Callback Notification
+
+**Notifications:**
+
+As it is a configurable interface, the PORT defines notifications that can be mapped to callback functions provided by other modules. The mapping is not statically defined by the PORT but can be performed at configuration time. The function prototypes that can be used for the
+configuration have to match the appropriate function prototype signatures, described below:
+
+**PortDioInterruptNotification:**
+
+This is of type Port_IsrNotificationType which is defined in Port_Cfg.h file. This is called to notify the group about the completion of the requested conversion and availability of the conversion results.
+
+#### Multi-core support
+
+Not Supported
+
+### Configuration
+
+
+
+#### PortConfigSet
+This container contains the multiple configuration set and sub containers of the AUTOSAR Port module
+
+##### PortContainer
+Container collecting the PortPins.
+
+###### PortNumberOfPortPins
+
+| Item ||
+|--------|---------------|
+| **Name** | PortNumberOfPortPins |
+| **Description** | The number of specified PortPins in this PortContainer. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 147 |
+| **Max-value** | 65535 |
+| **Min-value** | 1 |
+
+##### PortPin
+Configuration of the individual port pins.
+
+###### PortPinPeripheral
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinPeripheral |
+| **Description** | Select peripheral of interest to narron down list of pins of interest |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Range** | CPTS0<br>EPWM0<br>EPWM1<br>EPWM2<br>EPWM3<br>EPWM4<br>EPWM5<br>EPWM6<br>EPWM7<br>EPWM8<br>EPWM9<br>EPWM10<br>EPWM11<br>EPWM12<br>EPWM13<br>EPWM14<br>EPWM15<br>EPWM16<br>EPWM17<br>EPWM18<br>EPWM19<br>EPWM20<br>EPWM21<br>EPWM22<br>EPWM23<br>EPWM24<br>EPWM25<br>EPWM26<br>EPWM27<br>EPWM28<br>EPWM29<br>EPWM30<br>EPWM31<br>EQEP0<br>EQEP1<br>EQEP2<br>FSIRX0<br>FSIRX1<br>FSIRX2<br>FSIRX3<br>FSITX0<br>FSITX1<br>FSITX2<br>FSITX3<br>GPMC0<br>I2C0<br>I2C1<br>I2C2<br>I2C3<br>MDIO0<br>ECAP0<br>PR0_MDIO0<br>PRU0_GIO<br>PRU1_GIO<br>PR0_IEP0<br>PR0_UART0<br>UART0<br>UART1<br>UART2<br>UART3<br>UART4<br>UART5<br>JTAG<br>LIN0<br>LIN1<br>LIN2<br>LIN3<br>LIN4<br>MCAN0<br>MCAN1<br>MCAN2<br>MCAN3<br>MII<br>MMC0<br>XBAROUT<br>QSPI0<br>RMII1<br>RMII2<br>RGMII1<br>RGMII2<br>SDFM0<br>SDFM1<br>SPI0<br>SPI1<br>SPI2<br>SPI3<br>SPI4<br>CLKOUT<br>EXT_REFCLK<br>GPIOAB<br>GPIOCD<br>GPIOEF<br>GPIOGH<br>GPIOI<br>TRC |
+
+###### PortPinPeripheralSignal
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinPeripheralSignal |
+| **Description** | Select specific peripheral signal pin of interest |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Range** | CPTS0_TS_SYNC<br>EPWM0_A<br>EPWM0_B<br>EPWM1_A<br>EPWM1_B<br>EPWM2_A<br>EPWM2_B<br>EPWM3_A<br>EPWM3_B<br>EPWM4_A<br>EPWM4_B<br>EPWM5_A<br>EPWM5_B<br>EPWM6_A<br>EPWM6_B<br>EPWM7_A<br>EPWM7_B<br>EPWM8_A<br>EPWM8_B<br>EPWM9_A<br>EPWM9_B<br>EPWM10_A<br>EPWM10_B<br>EPWM11_A<br>EPWM11_B<br>EPWM12_A<br>EPWM12_B<br>EPWM13_A<br>EPWM13_B<br>EPWM14_A<br>EPWM14_B<br>EPWM15_A<br>EPWM15_B<br>EPWM16_A<br>EPWM16_B<br>EPWM17_A<br>EPWM17_B<br>EPWM18_A<br>EPWM18_B<br>EPWM19_A<br>EPWM19_B<br>EPWM20_A<br>EPWM20_B<br>EPWM21_A<br>EPWM21_B<br>EPWM22_A<br>EPWM22_B<br>EPWM23_A<br>EPWM23_B<br>EPWM24_A<br>EPWM24_B<br>EPWM25_A<br>EPWM25_B<br>EPWM26_A<br>EPWM26_B<br>EPWM27_A<br>EPWM27_B<br>EPWM28_A<br>EPWM28_B<br>EPWM29_A<br>EPWM29_B<br>EPWM30_A<br>EPWM30_B<br>EPWM31_A<br>EPWM31_B<br>EQEP0_A<br>EQEP0_B<br>EQEP0_I<br>EQEP0_S<br>EQEP1_A<br>EQEP1_B<br>EQEP1_I<br>EQEP1_S<br>EQEP2_A<br>EQEP2_B<br>EQEP2_I<br>EQEP2_S<br>FSIRX0_CLK<br>FSIRX0_DATA0<br>FSIRX0_DATA1<br>FSIRX1_CLK<br>FSIRX1_DATA0<br>FSIRX1_DATA1<br>FSIRX2_CLK<br>FSIRX2_DATA0<br>FSIRX2_DATA1<br>FSIRX3_CLK<br>FSIRX3_DATA0<br>FSIRX3_DATA1<br>FSITX0_CLK<br>FSITX0_DATA0<br>FSITX0_DATA1<br>FSITX1_CLK<br>FSITX1_DATA0<br>FSITX1_DATA1<br>FSITX2_CLK<br>FSITX2_DATA0<br>FSITX2_DATA1<br>FSITX3_CLK<br>FSITX3_DATA0<br>FSITX3_DATA1<br>GPMC0_A0<br>GPMC0_A1<br>GPMC0_A10<br>GPMC0_A11<br>GPMC0_A12<br>GPMC0_A13<br>GPMC0_A14<br>GPMC0_A15<br>GPMC0_A16<br>GPMC0_A17<br>GPMC0_A18<br>GPMC0_A19<br>GPMC0_A2<br>GPMC0_A20<br>GPMC0_A21<br>GPMC0_A3<br>GPMC0_A4<br>GPMC0_A5<br>GPMC0_A6<br>GPMC0_A7<br>GPMC0_A8<br>GPMC0_A9<br>GPMC0_AD0<br>GPMC0_AD1<br>GPMC0_AD10<br>GPMC0_AD11<br>GPMC0_AD12<br>GPMC0_AD13<br>GPMC0_AD14<br>GPMC0_AD15<br>GPMC0_AD2<br>GPMC0_AD3<br>GPMC0_AD4<br>GPMC0_AD5<br>GPMC0_AD6<br>GPMC0_AD7<br>GPMC0_AD8<br>GPMC0_AD9<br>GPMC0_ADVn_ALE<br>GPMC0_BE0n_CLE<br>GPMC0_BE1n<br>GPMC0_CLK<br>GPMC0_CLKLB<br>GPMC0_CSn0<br>GPMC0_CSn1<br>GPMC0_CSn2<br>GPMC0_CSn3<br>GPMC0_DIR<br>GPMC0_OEn_REn<br>GPMC0_WAIT0<br>GPMC0_WAIT1<br>GPMC0_WEn<br>GPMC0_WPn<br>I2C0_SCL<br>I2C0_SDA<br>I2C1_SCL<br>I2C1_SDA<br>I2C2_SCL<br>I2C2_SDA<br>I2C3_SCL<br>I2C3_SDA<br>ECAP0_APWM_OUT<br>MDIO0_MDC<br>MDIO0_MDIO<br>PR0_MDIO0_MDC<br>PR0_MDIO0_MDIO<br>PRU0_GIO0<br>PRU0_GIO1<br>PRU0_GIO10<br>PRU0_GIO11<br>PRU0_GIO12<br>PRU0_GIO13<br>PRU0_GIO14<br>PRU0_GIO15<br>PRU0_GIO16<br>PRU0_GIO2<br>PRU0_GIO3<br>PRU0_GIO4<br>PRU0_GIO5<br>PRU0_GIO6<br>PRU0_GIO8<br>PRU0_GIO9<br>PRU1_GIO0<br>PRU1_GIO1<br>PRU1_GIO10<br>PRU1_GIO11<br>PRU1_GIO12<br>PRU1_GIO13<br>PRU1_GIO14<br>PRU1_GIO15<br>PRU1_GIO16<br>PRU1_GIO17<br>PRU1_GIO18<br>PRU1_GIO19<br>PRU1_GIO2<br>PRU1_GIO3<br>PRU1_GIO4<br>PRU1_GIO5<br>PRU1_GIO6<br>PRU1_GIO7<br>PRU1_GIO8<br>PRU1_GIO9<br>PR0_IEP0_EDC_SYNC_OUT0<br>PR0_IEP0_EDC_SYNC_OUT1<br>PR0_IEP0_EDIO_DATA_IN_OUT30<br>PR0_IEP0_EDIO_DATA_IN_OUT31<br>PR0_UART0_CTSn<br>PR0_UART0_RTSn<br>PR0_UART0_RXD<br>PR0_UART0_TXD<br>UART0_CTSn<br>UART0_RTSn<br>UART0_RXD<br>UART0_TXD<br>UART1_CTSn<br>UART1_DCDn<br>UART1_DSRn<br>UART1_DTRn<br>UART1_RIn<br>UART1_RTSn<br>UART1_RXD<br>UART1_TXD<br>UART2_CTSn<br>UART2_RTSn<br>UART2_RXD<br>UART2_TXD<br>UART3_CTSn<br>UART3_RTSn<br>UART3_RXD<br>UART3_TXD<br>UART4_CTSn<br>UART4_RTSn<br>UART4_RXD<br>UART4_TXD<br>UART5_CTSn<br>UART5_RTSn<br>UART5_RXD<br>UART5_TXD<br>TCK<br>TDI<br>TDO<br>TMS<br>LIN0_RXD<br>LIN0_TXD<br>LIN1_RXD<br>LIN1_TXD<br>LIN2_RXD<br>LIN2_TXD<br>LIN3_RXD<br>LIN3_TXD<br>LIN4_RXD<br>LIN4_TXD<br>MCAN0_RX<br>MCAN0_TX<br>MCAN1_RX<br>MCAN1_TX<br>MCAN2_RX<br>MCAN2_TX<br>MCAN3_RX<br>MCAN3_TX<br>MII1_COL<br>MII1_CRS<br>MII1_RX_ER<br>MII1_RXCLK<br>MII1_RXD0<br>MII1_RXD1<br>MII1_RXD2<br>MII1_RXD3<br>MII1_RXDV<br>MII1_TX_EN<br>MII1_TXCLK<br>MII1_TXD0<br>MII1_TXD1<br>MII1_TXD2<br>MII1_TXD3<br>MII2_COL<br>MII2_CRS<br>MII2_RX_ER<br>MII2_RXCLK<br>MII2_RXD0<br>MII2_RXD1<br>MII2_RXD2<br>MII2_RXD3<br>MII2_RXDV<br>MII2_TX_EN<br>MII2_TXCLK<br>MII2_TXD0<br>MII2_TXD1<br>MII2_TXD2<br>MII2_TXD3<br>MMC0_CD<br>MMC0_CLK<br>MMC0_CMD<br>MMC0_D0<br>MMC0_D1<br>MMC0_D2<br>MMC0_D3<br>MMC0_WP<br>XBAROUT0<br>XBAROUT1<br>XBAROUT10<br>XBAROUT11<br>XBAROUT12<br>XBAROUT13<br>XBAROUT14<br>XBAROUT15<br>XBAROUT2<br>XBAROUT3<br>XBAROUT4<br>XBAROUT5<br>XBAROUT6<br>XBAROUT7<br>XBAROUT8<br>XBAROUT9<br>QSPI0_CLK<br>QSPI0_CLKLB<br>QSPI0_CSn0<br>QSPI0_CSn1<br>QSPI0_D0<br>QSPI0_D1<br>QSPI0_D2<br>QSPI0_D3<br>RGMII1_RD0<br>RGMII1_RD1<br>RGMII1_RD2<br>RGMII1_RD3<br>RGMII1_RX_CTL<br>RGMII1_RXC<br>RGMII1_TD0<br>RGMII1_TD1<br>RGMII1_TD2<br>RGMII1_TD3<br>RGMII1_TX_CTL<br>RGMII1_TXC<br>RGMII2_RD0<br>RGMII2_RD1<br>RGMII2_RD2<br>RGMII2_RD3<br>RGMII2_RX_CTL<br>RGMII2_RXC<br>RGMII2_TD0<br>RGMII2_TD1<br>RGMII2_TD2<br>RGMII2_TD3<br>RGMII2_TX_CTL<br>RGMII2_TXC<br>RMII1_CRS_DV<br>RMII1_REF_CLK<br>RMII1_RX_ER<br>RMII1_RXD0<br>RMII1_RXD1<br>RMII1_TX_EN<br>RMII1_TXD0<br>RMII1_TXD1<br>RMII2_CRS_DV<br>RMII2_REF_CLK<br>RMII2_RX_ER<br>RMII2_RXD0<br>RMII2_RXD1<br>RMII2_TX_EN<br>RMII2_TXD0<br>RMII2_TXD1<br>SDFM0_CLK0<br>SDFM0_CLK1<br>SDFM0_CLK2<br>SDFM0_CLK3<br>SDFM0_D0<br>SDFM0_D1<br>SDFM0_D2<br>SDFM0_D3<br>SDFM1_CLK0<br>SDFM1_CLK1<br>SDFM1_CLK2<br>SDFM1_CLK3<br>SDFM1_D0<br>SDFM1_D1<br>SDFM1_D2<br>SDFM1_D3<br>SPI0_CLK<br>SPI0_CS0<br>SPI0_CS1<br>SPI0_D0<br>SPI0_D1<br>SPI1_CLK<br>SPI1_CS0<br>SPI1_D0<br>SPI1_D1<br>SPI2_CLK<br>SPI2_CS0<br>SPI2_D0<br>SPI2_D1<br>SPI3_CLK<br>SPI3_CS0<br>SPI3_D0<br>SPI3_D1<br>SPI4_CLK<br>SPI4_CS0<br>SPI4_CS1<br>SPI4_D0<br>SPI4_D1<br>CLKOUT0<br>CLKOUT1<br>EXT_REFCLK0<br>GPIOAB_0<br>GPIOAB_1<br>GPIOAB_10<br>GPIOAB_11<br>GPIOAB_12<br>GPIOAB_13<br>GPIOAB_14<br>GPIOAB_15<br>GPIOAB_16<br>GPIOAB_17<br>GPIOAB_18<br>GPIOAB_19<br>GPIOAB_2<br>GPIOAB_20<br>GPIOAB_21<br>GPIOAB_22<br>GPIOAB_23<br>GPIOAB_24<br>GPIOAB_25<br>GPIOAB_26<br>GPIOAB_27<br>GPIOAB_28<br>GPIOAB_29<br>GPIOAB_3<br>GPIOAB_30<br>GPIOAB_31<br>GPIOAB_4<br>GPIOAB_5<br>GPIOAB_6<br>GPIOAB_7<br>GPIOAB_8<br>GPIOAB_9<br>GPIOCD_32<br>GPIOCD_33<br>GPIOCD_34<br>GPIOCD_35<br>GPIOCD_36<br>GPIOCD_37<br>GPIOCD_38<br>GPIOCD_39<br>GPIOCD_40<br>GPIOCD_41<br>GPIOCD_42<br>GPIOCD_43<br>GPIOCD_44<br>GPIOCD_45<br>GPIOCD_46<br>GPIOCD_47<br>GPIOCD_48<br>GPIOCD_49<br>GPIOCD_50<br>GPIOCD_51<br>GPIOCD_52<br>GPIOCD_53<br>GPIOCD_54<br>GPIOCD_55<br>GPIOCD_56<br>GPIOCD_57<br>GPIOCD_58<br>GPIOCD_59<br>GPIOCD_60<br>GPIOCD_61<br>GPIOCD_62<br>GPIOCD_63<br>GPIOEF_64<br>GPIOEF_65<br>GPIOEF_66<br>GPIOEF_67<br>GPIOEF_68<br>GPIOEF_69<br>GPIOEF_70<br>GPIOEF_71<br>GPIOEF_72<br>GPIOEF_73<br>GPIOEF_74<br>GPIOEF_75<br>GPIOEF_76<br>GPIOEF_77<br>GPIOEF_78<br>GPIOEF_79<br>GPIOEF_80<br>GPIOEF_81<br>GPIOEF_82<br>GPIOEF_83<br>GPIOEF_84<br>GPIOEF_85<br>GPIOEF_86<br>GPIOEF_87<br>GPIOEF_88<br>GPIOEF_89<br>GPIOEF_90<br>GPIOEF_91<br>GPIOEF_92<br>GPIOEF_93<br>GPIOEF_94<br>GPIOEF_95<br>GPIOGH_100<br>GPIOGH_101<br>GPIOGH_102<br>GPIOGH_103<br>GPIOGH_104<br>GPIOGH_105<br>GPIOGH_106<br>GPIOGH_107<br>GPIOGH_108<br>GPIOGH_109<br>GPIOGH_110<br>GPIOGH_111<br>GPIOGH_112<br>GPIOGH_113<br>GPIOGH_114<br>GPIOGH_115<br>GPIOGH_116<br>GPIOGH_117<br>GPIOGH_118<br>GPIOGH_119<br>GPIOGH_120<br>GPIOGH_121<br>GPIOGH_122<br>GPIOGH_123<br>GPIOGH_124<br>GPIOGH_125<br>GPIOGH_126<br>GPIOGH_127<br>GPIOGH_96<br>GPIOGH_97<br>GPIOGH_98<br>GPIOGH_99<br>GPIOI_128<br>GPIOI_129<br>GPIOI_130<br>GPIOI_131<br>GPIOI_132<br>GPIOI_133<br>GPIOI_134<br>GPIOI_135<br>GPIOI_136<br>GPIOI_137<br>GPIOI_138<br>TRC_CLK<br>TRC_CTL<br>TRC_DATA0<br>TRC_DATA1<br>TRC_DATA10<br>TRC_DATA11<br>TRC_DATA12<br>TRC_DATA13<br>TRC_DATA14<br>TRC_DATA15<br>TRC_DATA2<br>TRC_DATA3<br>TRC_DATA4<br>TRC_DATA5<br>TRC_DATA6<br>TRC_DATA7<br>TRC_DATA8<br>TRC_DATA9 |
+
+###### PortPinName
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinName |
+| **Description** | PAD IO name of the selected pin |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Range** | PIN_A10<br>PIN_A11<br>PIN_A12<br>PIN_A13<br>PIN_A14<br>PIN_A15<br>PIN_A16<br>PIN_A17<br>PIN_A2<br>PIN_A3<br>PIN_A4<br>PIN_A5<br>PIN_A6<br>PIN_A7<br>PIN_A8<br>PIN_A9<br>PIN_B1<br>PIN_B10<br>PIN_B11<br>PIN_B12<br>PIN_B13<br>PIN_B14<br>PIN_B15<br>PIN_B16<br>PIN_B17<br>PIN_B18<br>PIN_B2<br>PIN_B3<br>PIN_B4<br>PIN_B5<br>PIN_B6<br>PIN_B7<br>PIN_B8<br>PIN_B9<br>PIN_C1<br>PIN_C10<br>PIN_C11<br>PIN_C12<br>PIN_C13<br>PIN_C14<br>PIN_C15<br>PIN_C16<br>PIN_C17<br>PIN_C18<br>PIN_C2<br>PIN_C4<br>PIN_C5<br>PIN_C6<br>PIN_C7<br>PIN_C8<br>PIN_C9<br>PIN_D1<br>PIN_D11<br>PIN_D13<br>PIN_D14<br>PIN_D15<br>PIN_D16<br>PIN_D17<br>PIN_D18<br>PIN_D2<br>PIN_D3<br>PIN_D5<br>PIN_D7<br>PIN_D9<br>PIN_E1<br>PIN_E16<br>PIN_E17<br>PIN_E18<br>PIN_E2<br>PIN_E3<br>PIN_E4<br>PIN_F1<br>PIN_F15<br>PIN_F16<br>PIN_F17<br>PIN_F18<br>PIN_F2<br>PIN_F3<br>PIN_F4<br>PIN_G1<br>PIN_G15<br>PIN_G16<br>PIN_G17<br>PIN_G18<br>PIN_G2<br>PIN_G3<br>PIN_G4<br>PIN_H1<br>PIN_H16<br>PIN_H17<br>PIN_H18<br>PIN_H2<br>PIN_J1<br>PIN_J17<br>PIN_J18<br>PIN_J2<br>PIN_J3<br>PIN_J4<br>PIN_K1<br>PIN_K15<br>PIN_K16<br>PIN_K17<br>PIN_K18<br>PIN_K2<br>PIN_K3<br>PIN_K4<br>PIN_L1<br>PIN_L16<br>PIN_L17<br>PIN_L18<br>PIN_L2<br>PIN_L3<br>PIN_LB<br>PIN_M1<br>PIN_M15<br>PIN_M16<br>PIN_M17<br>PIN_M18<br>PIN_M2<br>PIN_M3<br>PIN_M4<br>PIN_N1<br>PIN_N16<br>PIN_N17<br>PIN_N18<br>PIN_N2<br>PIN_N4<br>PIN_P1<br>PIN_P15<br>PIN_P16<br>PIN_P17<br>PIN_P18<br>PIN_P2<br>PIN_P3<br>PIN_R16<br>PIN_R17<br>PIN_R18<br>PIN_R3<br>PIN_T16<br>PIN_T17<br>PIN_T18<br>PIN_U17<br>PIN_U18<br>PIN_V17 |
+
+###### PortPinId
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinId |
+| **Description** | Pin Id of the port pin. This value will be assigned to the symbolic name derived from the port pin container short name. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 1 |
+
+###### PortPinIdAddr
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinIdAddr |
+| **Description** | Pin Id of the port pin. This value will be assigned to the symbolic name derived from the port pin container short name. |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 1 |
+
+###### PortPinDirection
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinDirection |
+| **Description** | The initial direction of the pin (IN or OUT). If the direction is not changeable, the value configured here is fixed. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | PORT_PIN_DEFAULT |
+| **Range** | PORT_PIN_IN<br>PORT_PIN_OUT<br>PORT_PIN_DEFAULT |
+
+###### PortPinDirectionChangeable
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinDirectionChangeable |
+| **Description** | Parameter to indicate if the direction is changeable on a port pin during runtime. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | false |
+
+###### PortPinInitialMode
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinInitialMode |
+| **Description** | Port pin mode from mode list for use with Port_Init() function. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | CPTS0 |
+| **Range** | CPTS0<br>EPWM0<br>EPWM1<br>EPWM2<br>EPWM3<br>EPWM4<br>EPWM5<br>EPWM6<br>EPWM7<br>EPWM8<br>EPWM9<br>EPWM10<br>EPWM11<br>EPWM12<br>EPWM13<br>EPWM14<br>EPWM15<br>EPWM16<br>EPWM17<br>EPWM18<br>EPWM19<br>EPWM20<br>EPWM21<br>EPWM22<br>EPWM23<br>EPWM24<br>EPWM25<br>EPWM26<br>EPWM27<br>EPWM28<br>EPWM29<br>EPWM30<br>EPWM31<br>EQEP0<br>EQEP1<br>EQEP2<br>FSIRX0<br>FSIRX1<br>FSIRX2<br>FSIRX3<br>FSITX0<br>FSITX1<br>FSITX2<br>FSITX3<br>GPMC0<br>I2C0<br>I2C1<br>I2C2<br>I2C3<br>MDIO0<br>ECAP0<br>PR0_MDIO0<br>PRU0_GIO<br>PRU1_GIO<br>PR0_IEP0<br>PR0_UART0<br>UART0<br>UART1<br>UART2<br>UART3<br>UART4<br>UART5<br>JTAG<br>LIN0<br>LIN1<br>LIN2<br>LIN3<br>LIN4<br>MCAN0<br>MCAN1<br>MCAN2<br>MCAN3<br>MII<br>MMC0<br>XBAROUT<br>QSPI0<br>RMII1<br>RMII2<br>RGMII1<br>RGMII2<br>SDFM0<br>SDFM1<br>SPI0<br>SPI1<br>SPI2<br>SPI3<br>SPI4<br>CLKOUT<br>EXT_REFCLK<br>GPIOAB<br>GPIOCD<br>GPIOEF<br>GPIOGH<br>GPIOI<br>TRC |
+
+###### PortPinInitialGpioMuxmode
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinInitialGpioMuxmode |
+| **Description** | Port pin gpio muxmode from mode list for use with Port_Init() function. |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | TCK_MUXMODE_0 |
+| **Range** | TCK_MUXMODE_0<br>TMS_MUXMODE_0<br>CPTS0_TS_SYNC_MUXMODE_1<br>EPWM0_A_MUXMODE_0<br>EPWM0_B_MUXMODE_0<br>EPWM1_A_MUXMODE_0<br>EPWM1_B_MUXMODE_0<br>EPWM10_A_MUXMODE_0<br>EPWM10_B_MUXMODE_0<br>EPWM11_A_MUXMODE_0<br>EPWM11_B_MUXMODE_0<br>EPWM12_A_MUXMODE_0<br>EPWM12_B_MUXMODE_0<br>CLKOUT0_MUXMODE_0<br>EPWM13_A_MUXMODE_0<br>EPWM13_B_MUXMODE_0<br>EPWM14_A_MUXMODE_0<br>EPWM14_B_MUXMODE_0<br>EPWM15_A_MUXMODE_0<br>EPWM15_B_MUXMODE_0<br>EPWM16_A_MUXMODE_5<br>EPWM16_B_MUXMODE_5<br>EPWM17_A_MUXMODE_5<br>EPWM17_B_MUXMODE_5<br>EPWM18_A_MUXMODE_5<br>EPWM18_B_MUXMODE_5<br>EPWM19_A_MUXMODE_5<br>EPWM19_B_MUXMODE_5<br>EPWM2_A_MUXMODE_0<br>EPWM2_B_MUXMODE_0<br>EPWM20_A_MUXMODE_5<br>EPWM20_B_MUXMODE_5<br>EPWM21_A_MUXMODE_5<br>EPWM21_B_MUXMODE_5<br>EPWM22_A_MUXMODE_5<br>EPWM22_B_MUXMODE_5<br>EPWM23_A_MUXMODE_5<br>EPWM23_B_MUXMODE_5<br>EPWM3_A_MUXMODE_0<br>EPWM3_B_MUXMODE_0<br>EPWM4_A_MUXMODE_0<br>EPWM4_B_MUXMODE_0<br>EPWM5_A_MUXMODE_0<br>EPWM5_B_MUXMODE_0<br>EPWM6_A_MUXMODE_0<br>EPWM6_B_MUXMODE_0<br>EPWM7_A_MUXMODE_0<br>EPWM7_B_MUXMODE_0<br>EPWM8_A_MUXMODE_0<br>EPWM8_B_MUXMODE_0<br>EPWM9_A_MUXMODE_0<br>EPWM9_B_MUXMODE_0<br>EQEP0_A_MUXMODE_8<br>EQEP0_B_MUXMODE_8<br>MII1_RXD0_MUXMODE_2<br>MII1_TXD3_MUXMODE_2<br>MII1_TXCLK_MUXMODE_2<br>MII1_RXD2_MUXMODE_2<br>EQEP0_I_MUXMODE_8<br>EQEP0_S_MUXMODE_8<br>EQEP1_A_MUXMODE_8<br>EQEP1_A_MUXMODE_9<br>EQEP1_B_MUXMODE_8<br>EQEP1_B_MUXMODE_9<br>EQEP1_I_MUXMODE_8<br>MII1_TX_EN_MUXMODE_2<br>EQEP1_I_MUXMODE_9<br>MII1_TXD1_MUXMODE_2<br>MII1_TXD2_MUXMODE_2<br>EQEP1_S_MUXMODE_8<br>EQEP1_S_MUXMODE_9<br>EQEP2_A_MUXMODE_8<br>EQEP2_B_MUXMODE_8<br>EQEP2_I_MUXMODE_8<br>EQEP2_S_MUXMODE_8<br>MII1_CRS_MUXMODE_2<br>MII1_RXCLK_MUXMODE_2<br>MII1_RX_ER_MUXMODE_2<br>MII1_RXD3_MUXMODE_2<br>MII1_RXD1_MUXMODE_2<br>MII1_RXDV_MUXMODE_2<br>PR0_IEP0_EDIO_DATA_IN_OUT31_MUXMODE_3<br>LIN4_RXD_MUXMODE_2<br>FSIRX0_CLK_MUXMODE_6<br>FSIRX0_DATA0_MUXMODE_6<br>FSIRX0_DATA1_MUXMODE_6<br>FSIRX1_CLK_MUXMODE_6<br>FSIRX1_DATA0_MUXMODE_6<br>FSIRX1_DATA1_MUXMODE_6<br>FSIRX2_CLK_MUXMODE_3<br>FSIRX2_CLK_MUXMODE_6<br>FSIRX2_DATA0_MUXMODE_3<br>FSIRX2_DATA0_MUXMODE_6<br>FSIRX2_DATA1_MUXMODE_3<br>FSIRX2_DATA1_MUXMODE_6<br>FSIRX3_CLK_MUXMODE_3<br>FSIRX3_DATA0_MUXMODE_3<br>FSIRX3_DATA1_MUXMODE_3<br>FSITX0_CLK_MUXMODE_6<br>FSITX0_DATA0_MUXMODE_6<br>FSITX0_DATA1_MUXMODE_6<br>FSITX1_CLK_MUXMODE_6<br>FSITX1_DATA0_MUXMODE_6<br>FSITX1_DATA1_MUXMODE_6<br>FSITX2_CLK_MUXMODE_3<br>FSITX2_CLK_MUXMODE_6<br>FSITX2_DATA0_MUXMODE_3<br>FSITX2_DATA0_MUXMODE_6<br>FSITX2_DATA1_MUXMODE_3<br>FSITX2_DATA1_MUXMODE_6<br>FSITX3_CLK_MUXMODE_3<br>FSITX3_DATA0_MUXMODE_3<br>FSITX3_DATA1_MUXMODE_3<br>LIN4_TXD_MUXMODE_2<br>GPIOAB_0_MUXMODE_7<br>GPIOAB_1_MUXMODE_7<br>GPIOAB_10_MUXMODE_7<br>GPIOAB_11_MUXMODE_7<br>GPIOAB_12_MUXMODE_7<br>GPIOAB_13_MUXMODE_7<br>GPIOAB_14_MUXMODE_7<br>GPIOAB_15_MUXMODE_7<br>GPIOAB_16_MUXMODE_7<br>GPIOAB_17_MUXMODE_7<br>GPIOAB_18_MUXMODE_7<br>GPIOAB_19_MUXMODE_7<br>GPIOAB_2_MUXMODE_7<br>GPIOAB_20_MUXMODE_7<br>GPIOAB_21_MUXMODE_7<br>GPIOAB_22_MUXMODE_7<br>GPIOAB_23_MUXMODE_7<br>GPIOAB_24_MUXMODE_7<br>GPIOAB_25_MUXMODE_7<br>GPIOAB_26_MUXMODE_7<br>GPIOAB_27_MUXMODE_7<br>GPIOAB_28_MUXMODE_7<br>GPIOAB_29_MUXMODE_7<br>GPIOAB_3_MUXMODE_7<br>GPIOAB_30_MUXMODE_7<br>GPIOAB_31_MUXMODE_7<br>GPIOAB_4_MUXMODE_7<br>EPWM28_B_MUXMODE_5<br>EPWM28_A_MUXMODE_5<br>GPIOAB_5_MUXMODE_7<br>GPIOAB_6_MUXMODE_7<br>GPIOAB_7_MUXMODE_7<br>GPIOAB_8_MUXMODE_7<br>GPIOAB_9_MUXMODE_7<br>GPIOCD_32_MUXMODE_7<br>GPIOCD_33_MUXMODE_7<br>GPIOCD_34_MUXMODE_7<br>GPIOCD_35_MUXMODE_7<br>GPIOCD_36_MUXMODE_7<br>GPIOCD_37_MUXMODE_7<br>GPIOCD_38_MUXMODE_7<br>GPIOCD_39_MUXMODE_7<br>GPIOCD_40_MUXMODE_7<br>GPIOCD_41_MUXMODE_7<br>GPIOCD_42_MUXMODE_7<br>GPIOCD_43_MUXMODE_7<br>GPIOCD_44_MUXMODE_7<br>GPIOCD_45_MUXMODE_7<br>GPIOCD_46_MUXMODE_7<br>GPIOCD_47_MUXMODE_7<br>GPIOCD_48_MUXMODE_7<br>GPIOCD_49_MUXMODE_7<br>GPIOCD_50_MUXMODE_7<br>GPIOCD_51_MUXMODE_7<br>GPIOCD_52_MUXMODE_7<br>GPIOCD_53_MUXMODE_7<br>GPIOCD_54_MUXMODE_7<br>GPIOCD_55_MUXMODE_7<br>GPIOCD_56_MUXMODE_7<br>GPIOCD_57_MUXMODE_7<br>GPIOCD_58_MUXMODE_7<br>GPIOCD_59_MUXMODE_7<br>GPIOCD_60_MUXMODE_7<br>GPIOCD_61_MUXMODE_7<br>GPIOCD_62_MUXMODE_7<br>GPIOCD_63_MUXMODE_7<br>GPIOEF_64_MUXMODE_7<br>GPIOEF_65_MUXMODE_7<br>GPIOEF_66_MUXMODE_7<br>GPIOEF_67_MUXMODE_7<br>GPIOEF_68_MUXMODE_7<br>GPIOEF_69_MUXMODE_7<br>GPIOEF_70_MUXMODE_7<br>GPIOEF_71_MUXMODE_7<br>GPIOEF_72_MUXMODE_7<br>GPIOEF_73_MUXMODE_7<br>GPIOEF_74_MUXMODE_7<br>GPIOEF_75_MUXMODE_7<br>GPIOEF_76_MUXMODE_7<br>GPIOEF_77_MUXMODE_7<br>GPIOEF_78_MUXMODE_7<br>GPIOEF_79_MUXMODE_7<br>MII1_COL_MUXMODE_2<br>MII2_RX_ER_MUXMODE_4<br>RMII2_RX_ER_MUXMODE_2<br>GPIOEF_80_MUXMODE_7<br>GPIOEF_81_MUXMODE_7<br>GPIOEF_82_MUXMODE_7<br>GPIOEF_83_MUXMODE_7<br>GPIOEF_84_MUXMODE_7<br>GPIOEF_85_MUXMODE_7<br>RMII2_CRS_DV_MUXMODE_2<br>MII2_CRS_MUXMODE_4<br>GPIOEF_86_MUXMODE_7<br>MII2_COL_MUXMODE_4<br>GPIOEF_87_MUXMODE_7<br>RMII2_RXD0_MUXMODE_2<br>RMII2_RXD1_MUXMODE_2<br>MII2_RXD0_MUXMODE_4<br>MII2_RXD1_MUXMODE_4<br>GPIOEF_88_MUXMODE_7<br>GPIOEF_89_MUXMODE_7<br>GPIOEF_90_MUXMODE_7<br>GPIOEF_91_MUXMODE_7<br>GPIOEF_92_MUXMODE_7<br>GPIOEF_93_MUXMODE_7<br>GPIOEF_94_MUXMODE_7<br>MII2_TXD2_MUXMODE_4<br>MII2_TXCLK_MUXMODE_4<br>MII2_TXD3_MUXMODE_4<br>GPIOEF_95_MUXMODE_7<br>GPIOGH_100_MUXMODE_7<br>GPIOGH_101_MUXMODE_7<br>GPIOGH_102_MUXMODE_7<br>GPIOGH_103_MUXMODE_7<br>GPIOGH_104_MUXMODE_7<br>GPIOGH_105_MUXMODE_7<br>GPIOGH_106_MUXMODE_7<br>GPIOGH_107_MUXMODE_7<br>GPIOGH_108_MUXMODE_7<br>GPIOGH_109_MUXMODE_7<br>GPIOGH_110_MUXMODE_7<br>GPIOGH_111_MUXMODE_7<br>GPIOGH_112_MUXMODE_7<br>GPIOGH_113_MUXMODE_7<br>GPIOGH_114_MUXMODE_7<br>GPIOGH_115_MUXMODE_7<br>GPIOGH_116_MUXMODE_7<br>GPIOGH_117_MUXMODE_7<br>GPIOGH_118_MUXMODE_7<br>GPIOGH_119_MUXMODE_7<br>GPIOGH_120_MUXMODE_7<br>GPIOGH_121_MUXMODE_7<br>GPIOGH_122_MUXMODE_7<br>GPIOGH_123_MUXMODE_7<br>GPIOGH_124_MUXMODE_7<br>GPIOGH_125_MUXMODE_7<br>MII2_RXD3_MUXMODE_4<br>MII2_RXD2_MUXMODE_4<br>MII2_TXD1_MUXMODE_4<br>GPIOGH_126_MUXMODE_7<br>GPIOGH_127_MUXMODE_7<br>GPIOGH_96_MUXMODE_7<br>GPIOGH_97_MUXMODE_7<br>MII2_TX_EN_MUXMODE_4<br>GPIOGH_98_MUXMODE_7<br>GPIOGH_99_MUXMODE_7<br>RMII2_TX_EN_MUXMODE_2<br>GPIOI_128_MUXMODE_7<br>GPIOI_130_MUXMODE_7<br>GPIOI_131_MUXMODE_7<br>GPIOI_132_MUXMODE_7<br>GPIOI_133_MUXMODE_7<br>GPIOI_134_MUXMODE_7<br>GPIOI_135_MUXMODE_7<br>GPIOI_136_MUXMODE_7<br>GPIOI_137_MUXMODE_7<br>GPIOI_138_MUXMODE_7<br>MII2_TXD0_MUXMODE_4<br>RMII2_TXD1_MUXMODE_2<br>RMII2_TXD0_MUXMODE_2<br>TDO_MUXMODE_0<br>TDI_MUXMODE_0<br>GPMC0_A0_MUXMODE_6<br>GPMC0_A1_MUXMODE_6<br>GPMC0_A10_MUXMODE_6<br>GPMC0_A11_MUXMODE_6<br>GPMC0_A12_MUXMODE_6<br>GPMC0_A13_MUXMODE_6<br>GPMC0_A14_MUXMODE_6<br>GPMC0_A15_MUXMODE_6<br>GPMC0_A16_MUXMODE_6<br>GPMC0_A17_MUXMODE_6<br>GPMC0_A18_MUXMODE_6<br>GPMC0_A19_MUXMODE_6<br>GPMC0_A2_MUXMODE_6<br>GPMC0_A20_MUXMODE_6<br>GPMC0_A21_MUXMODE_6<br>GPMC0_A3_MUXMODE_6<br>GPMC0_A4_MUXMODE_6<br>GPMC0_A5_MUXMODE_6<br>GPMC0_A6_MUXMODE_6<br>GPMC0_A7_MUXMODE_6<br>GPMC0_A8_MUXMODE_6<br>GPMC0_A9_MUXMODE_6<br>GPMC0_AD0_MUXMODE_6<br>GPMC0_AD1_MUXMODE_6<br>GPMC0_AD10_MUXMODE_6<br>GPMC0_AD11_MUXMODE_6<br>GPMC0_AD12_MUXMODE_6<br>GPMC0_AD13_MUXMODE_6<br>GPMC0_AD14_MUXMODE_6<br>GPMC0_AD15_MUXMODE_6<br>GPMC0_AD2_MUXMODE_6<br>GPMC0_AD3_MUXMODE_6<br>GPMC0_AD4_MUXMODE_6<br>GPMC0_AD5_MUXMODE_6<br>GPMC0_AD6_MUXMODE_6<br>GPMC0_AD7_MUXMODE_6<br>GPMC0_AD8_MUXMODE_6<br>GPMC0_AD9_MUXMODE_6<br>GPMC0_ADVn_ALE_MUXMODE_6<br>GPMC0_BE0n_CLE_MUXMODE_6<br>GPMC0_BE1n_MUXMODE_6<br>GPMC0_CLK_MUXMODE_6<br>GPMC0_CLKLB_MUXMODE_6<br>GPMC0_CSn0_MUXMODE_6<br>GPMC0_CSn1_MUXMODE_6<br>GPMC0_CSn2_MUXMODE_6<br>GPMC0_CSn3_MUXMODE_6<br>GPMC0_DIR_MUXMODE_6<br>GPMC0_OEn_REn_MUXMODE_6<br>GPMC0_WAIT0_MUXMODE_6<br>GPMC0_WAIT1_MUXMODE_6<br>GPMC0_WEn_MUXMODE_6<br>GPMC0_WPn_MUXMODE_6<br>I2C0_SCL_MUXMODE_0<br>I2C0_SDA_MUXMODE_0<br>I2C1_SCL_MUXMODE_0<br>I2C1_SCL_MUXMODE_2<br>I2C1_SDA_MUXMODE_0<br>I2C1_SDA_MUXMODE_2<br>I2C2_SCL_MUXMODE_1<br>I2C2_SCL_MUXMODE_2<br>I2C2_SDA_MUXMODE_1<br>I2C2_SDA_MUXMODE_2<br>I2C3_SCL_MUXMODE_2<br>I2C3_SCL_MUXMODE_5<br>I2C3_SDA_MUXMODE_2<br>I2C3_SDA_MUXMODE_5<br>LIN0_RXD_MUXMODE_1<br>LIN0_RXD_MUXMODE_2<br>LIN0_TXD_MUXMODE_1<br>LIN0_TXD_MUXMODE_2<br>LIN1_RXD_MUXMODE_0<br>LIN1_RXD_MUXMODE_1<br>LIN1_TXD_MUXMODE_0<br>LIN1_TXD_MUXMODE_1<br>LIN2_RXD_MUXMODE_0<br>LIN2_TXD_MUXMODE_0<br>LIN3_RXD_MUXMODE_2<br>LIN3_TXD_MUXMODE_2<br>MCAN0_RX_MUXMODE_0<br>MCAN0_TX_MUXMODE_0<br>MCAN1_RX_MUXMODE_0<br>MCAN1_TX_MUXMODE_0<br>MCAN2_RX_MUXMODE_0<br>MCAN2_TX_MUXMODE_0<br>MCAN3_RX_MUXMODE_0<br>MCAN3_RX_MUXMODE_3<br>MCAN3_TX_MUXMODE_0<br>MCAN3_TX_MUXMODE_3<br>MMC0_CD_MUXMODE_0<br>MMC0_CLK_MUXMODE_0<br>MMC0_CMD_MUXMODE_0<br>MMC0_D0_MUXMODE_0<br>MMC0_D1_MUXMODE_0<br>MMC0_D2_MUXMODE_0<br>MMC0_D3_MUXMODE_0<br>MMC0_WP_MUXMODE_0<br>EPWM30_B_MUXMODE_5<br>ECAP0_APWM_OUT_MUXMODE_0<br>TRC_CLK_MUXMODE_4<br>XBAROUT13_MUXMODE_5<br>PR0_IEP0_EDC_SYNC_OUT0_MUXMODE_3<br>PR0_IEP0_EDC_SYNC_OUT1_MUXMODE_3<br>PR0_MDIO0_MDC_MUXMODE_0<br>PR0_MDIO0_MDIO_MUXMODE_0<br>PR0_UART0_CTSn_MUXMODE_3<br>PR0_UART0_RTSn_MUXMODE_3<br>PR0_UART0_RXD_MUXMODE_3<br>PR0_UART0_TXD_MUXMODE_3<br>EPWM29_A_MUXMODE_5<br>EPWM27_A_MUXMODE_5<br>EPWM29_B_MUXMODE_5<br>EPWM31_A_MUXMODE_5<br>PRU0_GIO0_MUXMODE_0<br>PRU0_GIO1_MUXMODE_0<br>PRU0_GIO10_MUXMODE_0<br>PRU0_GIO11_MUXMODE_0<br>PRU0_GIO12_MUXMODE_0<br>EPWM27_B_MUXMODE_5<br>PRU0_GIO13_MUXMODE_0<br>PRU0_GIO14_MUXMODE_0<br>PRU0_GIO15_MUXMODE_0<br>PRU0_GIO16_MUXMODE_0<br>PRU0_GIO2_MUXMODE_0<br>EPWM26_B_MUXMODE_5<br>PRU0_GIO3_MUXMODE_0<br>PRU0_GIO4_MUXMODE_0<br>PRU0_GIO5_MUXMODE_0<br>PRU0_GIO6_MUXMODE_0<br>PRU0_GIO8_MUXMODE_0<br>PRU0_GIO9_MUXMODE_0<br>PRU1_GIO0_MUXMODE_0<br>PRU1_GIO1_MUXMODE_0<br>PRU1_GIO10_MUXMODE_0<br>PRU1_GIO11_MUXMODE_0<br>PRU1_GIO12_MUXMODE_0<br>EPWM30_A_MUXMODE_5<br>PRU1_GIO13_MUXMODE_0<br>PRU1_GIO14_MUXMODE_0<br>PRU1_GIO15_MUXMODE_0<br>PRU1_GIO16_MUXMODE_0<br>PRU1_GIO17_MUXMODE_0<br>PRU1_GIO18_MUXMODE_0<br>PRU1_GIO19_MUXMODE_0<br>PRU1_GIO2_MUXMODE_0<br>PRU1_GIO3_MUXMODE_0<br>PRU1_GIO4_MUXMODE_0<br>PRU1_GIO5_MUXMODE_0<br>EPWM31_B_MUXMODE_5<br>PRU1_GIO6_MUXMODE_0<br>PRU1_GIO7_MUXMODE_0<br>PRU1_GIO8_MUXMODE_0<br>PRU1_GIO9_MUXMODE_0<br>QSPI0_CLK_MUXMODE_0<br>QSPI0_CLKLB_MUXMODE_0<br>QSPI0_CSn0_MUXMODE_0<br>QSPI0_CSn1_MUXMODE_0<br>QSPI0_D0_MUXMODE_0<br>QSPI0_D1_MUXMODE_0<br>QSPI0_D2_MUXMODE_0<br>QSPI0_D3_MUXMODE_0<br>RGMII1_RD0_MUXMODE_0<br>RGMII1_RD1_MUXMODE_0<br>RGMII1_RD2_MUXMODE_0<br>RGMII1_RD3_MUXMODE_0<br>EPWM25_A_MUXMODE_5<br>EPWM25_B_MUXMODE_5<br>RGMII1_RX_CTL_MUXMODE_0<br>RGMII1_RXC_MUXMODE_0<br>RGMII1_TD0_MUXMODE_0<br>RGMII1_TD1_MUXMODE_0<br>RGMII1_TD2_MUXMODE_0<br>RGMII1_TD3_MUXMODE_0<br>EPWM24_B_MUXMODE_5<br>EPWM24_A_MUXMODE_5<br>RMII2_REF_CLK_MUXMODE_2<br>MII2_RXCLK_MUXMODE_4<br>MII2_RXDV_MUXMODE_4<br>RGMII1_TX_CTL_MUXMODE_0<br>RGMII1_TXC_MUXMODE_0<br>RGMII2_RD0_MUXMODE_3<br>EPWM26_A_MUXMODE_5<br>RGMII2_RD1_MUXMODE_3<br>RGMII2_RD2_MUXMODE_3<br>RGMII2_RD3_MUXMODE_3<br>RGMII2_RX_CTL_MUXMODE_3<br>RGMII2_RXC_MUXMODE_3<br>RGMII2_TD0_MUXMODE_3<br>RGMII2_TD1_MUXMODE_3<br>RGMII2_TD2_MUXMODE_3<br>RGMII2_TD3_MUXMODE_3<br>RGMII2_TX_CTL_MUXMODE_3<br>RGMII2_TXC_MUXMODE_3<br>RMII1_CRS_DV_MUXMODE_1<br>RMII1_REF_CLK_MUXMODE_1<br>RMII1_RX_ER_MUXMODE_1<br>RMII1_RXD0_MUXMODE_1<br>RMII1_RXD1_MUXMODE_1<br>RMII1_TX_EN_MUXMODE_1<br>RMII1_TXD0_MUXMODE_1<br>RMII1_TXD1_MUXMODE_1<br>SDFM0_CLK0_MUXMODE_8<br>SDFM0_CLK1_MUXMODE_8<br>LIN4_TXD_MUXMODE_1<br>PR0_IEP0_EDIO_DATA_IN_OUT30_MUXMODE_3<br>SDFM0_CLK2_MUXMODE_8<br>CLKOUT1_MUXMODE_0<br>SDFM0_CLK3_MUXMODE_8<br>SDFM0_D0_MUXMODE_8<br>GPIOI_129_MUXMODE_7<br>SDFM0_D1_MUXMODE_8<br>SDFM0_D2_MUXMODE_8<br>SDFM0_D3_MUXMODE_8<br>SDFM1_CLK0_MUXMODE_8<br>SDFM1_CLK0_MUXMODE_9<br>SDFM1_CLK1_MUXMODE_8<br>SDFM1_CLK1_MUXMODE_9<br>SDFM1_CLK2_MUXMODE_8<br>SDFM1_CLK2_MUXMODE_9<br>SDFM1_CLK3_MUXMODE_8<br>SDFM1_CLK3_MUXMODE_9<br>SDFM1_D0_MUXMODE_8<br>LIN4_RXD_MUXMODE_1<br>SDFM1_D0_MUXMODE_9<br>SDFM1_D1_MUXMODE_8<br>SDFM1_D1_MUXMODE_9<br>SDFM1_D2_MUXMODE_8<br>SDFM1_D2_MUXMODE_9<br>SDFM1_D3_MUXMODE_8<br>SDFM1_D3_MUXMODE_9<br>SPI0_CLK_MUXMODE_0<br>SPI0_CS0_MUXMODE_0<br>SPI0_CS1_MUXMODE_4<br>SPI0_D0_MUXMODE_0<br>SPI0_D1_MUXMODE_0<br>SPI1_CLK_MUXMODE_0<br>SPI1_CS0_MUXMODE_0<br>SPI1_D0_MUXMODE_0<br>SPI1_D1_MUXMODE_0<br>SPI2_CLK_MUXMODE_2<br>SPI2_CS0_MUXMODE_2<br>SPI2_D0_MUXMODE_2<br>SPI2_D1_MUXMODE_2<br>SPI3_CLK_MUXMODE_2<br>SPI3_CS0_MUXMODE_2<br>SPI3_D0_MUXMODE_2<br>SPI3_D1_MUXMODE_2<br>SPI4_CLK_MUXMODE_1<br>SPI4_CLK_MUXMODE_3<br>SPI4_CS0_MUXMODE_1<br>SPI4_CS0_MUXMODE_3<br>SPI4_CS1_MUXMODE_2<br>SPI4_D0_MUXMODE_1<br>SPI4_D0_MUXMODE_3<br>SPI4_D1_MUXMODE_1<br>SPI4_D1_MUXMODE_3<br>TRC_CTL_MUXMODE_4<br>TRC_DATA0_MUXMODE_4<br>TRC_DATA1_MUXMODE_4<br>TRC_DATA10_MUXMODE_4<br>TRC_DATA11_MUXMODE_4<br>TRC_DATA12_MUXMODE_4<br>TRC_DATA13_MUXMODE_4<br>TRC_DATA14_MUXMODE_4<br>TRC_DATA15_MUXMODE_4<br>TRC_DATA2_MUXMODE_4<br>TRC_DATA3_MUXMODE_4<br>TRC_DATA4_MUXMODE_4<br>TRC_DATA5_MUXMODE_4<br>TRC_DATA6_MUXMODE_4<br>TRC_DATA7_MUXMODE_4<br>TRC_DATA8_MUXMODE_4<br>TRC_DATA9_MUXMODE_4<br>UART0_CTSn_MUXMODE_0<br>UART0_CTSn_MUXMODE_1<br>UART0_RTSn_MUXMODE_0<br>UART0_RTSn_MUXMODE_1<br>UART0_RXD_MUXMODE_0<br>UART0_RXD_MUXMODE_1<br>EXT_REFCLK0_MUXMODE_0<br>UART0_TXD_MUXMODE_0<br>UART0_TXD_MUXMODE_1<br>UART1_CTSn_MUXMODE_1<br>UART1_DCDn_MUXMODE_1<br>UART1_DSRn_MUXMODE_1<br>UART1_DTRn_MUXMODE_1<br>UART1_RIn_MUXMODE_1<br>UART1_RTSn_MUXMODE_1<br>UART1_RXD_MUXMODE_0<br>UART1_RXD_MUXMODE_1<br>UART1_TXD_MUXMODE_0<br>UART1_TXD_MUXMODE_1<br>UART2_CTSn_MUXMODE_1<br>UART2_RTSn_MUXMODE_1<br>UART2_RXD_MUXMODE_1<br>UART2_TXD_MUXMODE_1<br>UART3_CTSn_MUXMODE_1<br>UART3_RTSn_MUXMODE_1<br>UART3_RXD_MUXMODE_1<br>UART3_RXD_MUXMODE_2<br>UART3_TXD_MUXMODE_1<br>UART3_TXD_MUXMODE_2<br>UART4_CTSn_MUXMODE_0<br>UART4_RTSn_MUXMODE_0<br>UART4_RXD_MUXMODE_0<br>UART4_RXD_MUXMODE_1<br>UART4_TXD_MUXMODE_0<br>UART4_TXD_MUXMODE_1<br>UART5_CTSn_MUXMODE_2<br>UART5_RTSn_MUXMODE_2<br>UART5_RXD_MUXMODE_0<br>UART5_RXD_MUXMODE_1<br>UART5_TXD_MUXMODE_0<br>UART5_TXD_MUXMODE_1<br>XBAROUT0_MUXMODE_5<br>XBAROUT1_MUXMODE_5<br>XBAROUT10_MUXMODE_5<br>XBAROUT11_MUXMODE_5<br>XBAROUT12_MUXMODE_5<br>XBAROUT14_MUXMODE_5<br>XBAROUT15_MUXMODE_5<br>XBAROUT2_MUXMODE_5<br>XBAROUT3_MUXMODE_5<br>XBAROUT4_MUXMODE_5<br>XBAROUT5_MUXMODE_5<br>XBAROUT6_MUXMODE_5<br>XBAROUT7_MUXMODE_5<br>XBAROUT8_MUXMODE_5<br>XBAROUT9_MUXMODE_5<br>MII1_TXD0_MUXMODE_2<br>MDIO0_MDC_MUXMODE_0<br>MDIO0_MDIO_MUXMODE_0 |
+
+###### PortPinLevelValue
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinLevelValue |
+| **Description** | Port Pin Level value from Port pin list. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | PORT_PIN_LEVEL_HIGH |
+| **Range** | PORT_PIN_LEVEL_HIGH<br>PORT_PIN_LEVEL_LOW |
+
+###### PortPinMode
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinMode |
+| **Description** | Port pin mode from mode list. |
+| **Multiplicity-Configuration-Class** | -- |
+| Post-Build Time | VARIANT-POST-BUILD |
+| Pre-Compile Time | VARIANT-PRE-COMPILE |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-build-variant-multiplicity** | false |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | TCK_MUXMODE_0 |
+| **Range** | TCK_MUXMODE_0<br>TMS_MUXMODE_0<br>CPTS0_TS_SYNC_MUXMODE_1<br>EPWM0_A_MUXMODE_0<br>EPWM0_B_MUXMODE_0<br>EPWM1_A_MUXMODE_0<br>EPWM1_B_MUXMODE_0<br>EPWM10_A_MUXMODE_0<br>EPWM10_B_MUXMODE_0<br>EPWM11_A_MUXMODE_0<br>EPWM11_B_MUXMODE_0<br>EPWM12_A_MUXMODE_0<br>EPWM12_B_MUXMODE_0<br>CLKOUT0_MUXMODE_0<br>EPWM13_A_MUXMODE_0<br>EPWM13_B_MUXMODE_0<br>EPWM14_A_MUXMODE_0<br>EPWM14_B_MUXMODE_0<br>EPWM15_A_MUXMODE_0<br>EPWM15_B_MUXMODE_0<br>EPWM16_A_MUXMODE_5<br>EPWM16_B_MUXMODE_5<br>EPWM17_A_MUXMODE_5<br>EPWM17_B_MUXMODE_5<br>EPWM18_A_MUXMODE_5<br>EPWM18_B_MUXMODE_5<br>EPWM19_A_MUXMODE_5<br>EPWM19_B_MUXMODE_5<br>EPWM2_A_MUXMODE_0<br>EPWM2_B_MUXMODE_0<br>EPWM20_A_MUXMODE_5<br>EPWM20_B_MUXMODE_5<br>EPWM21_A_MUXMODE_5<br>EPWM21_B_MUXMODE_5<br>EPWM22_A_MUXMODE_5<br>EPWM22_B_MUXMODE_5<br>EPWM23_A_MUXMODE_5<br>EPWM23_B_MUXMODE_5<br>EPWM3_A_MUXMODE_0<br>EPWM3_B_MUXMODE_0<br>EPWM4_A_MUXMODE_0<br>EPWM4_B_MUXMODE_0<br>EPWM5_A_MUXMODE_0<br>EPWM5_B_MUXMODE_0<br>EPWM6_A_MUXMODE_0<br>EPWM6_B_MUXMODE_0<br>EPWM7_A_MUXMODE_0<br>EPWM7_B_MUXMODE_0<br>EPWM8_A_MUXMODE_0<br>EPWM8_B_MUXMODE_0<br>EPWM9_A_MUXMODE_0<br>EPWM9_B_MUXMODE_0<br>EQEP0_A_MUXMODE_8<br>EQEP0_B_MUXMODE_8<br>MII1_RXD0_MUXMODE_2<br>MII1_TXD3_MUXMODE_2<br>MII1_TXCLK_MUXMODE_2<br>MII1_RXD2_MUXMODE_2<br>EQEP0_I_MUXMODE_8<br>EQEP0_S_MUXMODE_8<br>EQEP1_A_MUXMODE_8<br>EQEP1_A_MUXMODE_9<br>EQEP1_B_MUXMODE_8<br>EQEP1_B_MUXMODE_9<br>EQEP1_I_MUXMODE_8<br>MII1_TX_EN_MUXMODE_2<br>EQEP1_I_MUXMODE_9<br>MII1_TXD1_MUXMODE_2<br>MII1_TXD2_MUXMODE_2<br>EQEP1_S_MUXMODE_8<br>EQEP1_S_MUXMODE_9<br>EQEP2_A_MUXMODE_8<br>EQEP2_B_MUXMODE_8<br>EQEP2_I_MUXMODE_8<br>EQEP2_S_MUXMODE_8<br>MII1_CRS_MUXMODE_2<br>MII1_RXCLK_MUXMODE_2<br>MII1_RX_ER_MUXMODE_2<br>MII1_RXD3_MUXMODE_2<br>MII1_RXD1_MUXMODE_2<br>MII1_RXDV_MUXMODE_2<br>PR0_IEP0_EDIO_DATA_IN_OUT31_MUXMODE_3<br>LIN4_RXD_MUXMODE_2<br>FSIRX0_CLK_MUXMODE_6<br>FSIRX0_DATA0_MUXMODE_6<br>FSIRX0_DATA1_MUXMODE_6<br>FSIRX1_CLK_MUXMODE_6<br>FSIRX1_DATA0_MUXMODE_6<br>FSIRX1_DATA1_MUXMODE_6<br>FSIRX2_CLK_MUXMODE_3<br>FSIRX2_CLK_MUXMODE_6<br>FSIRX2_DATA0_MUXMODE_3<br>FSIRX2_DATA0_MUXMODE_6<br>FSIRX2_DATA1_MUXMODE_3<br>FSIRX2_DATA1_MUXMODE_6<br>FSIRX3_CLK_MUXMODE_3<br>FSIRX3_DATA0_MUXMODE_3<br>FSIRX3_DATA1_MUXMODE_3<br>FSITX0_CLK_MUXMODE_6<br>FSITX0_DATA0_MUXMODE_6<br>FSITX0_DATA1_MUXMODE_6<br>FSITX1_CLK_MUXMODE_6<br>FSITX1_DATA0_MUXMODE_6<br>FSITX1_DATA1_MUXMODE_6<br>FSITX2_CLK_MUXMODE_3<br>FSITX2_CLK_MUXMODE_6<br>FSITX2_DATA0_MUXMODE_3<br>FSITX2_DATA0_MUXMODE_6<br>FSITX2_DATA1_MUXMODE_3<br>FSITX2_DATA1_MUXMODE_6<br>FSITX3_CLK_MUXMODE_3<br>FSITX3_DATA0_MUXMODE_3<br>FSITX3_DATA1_MUXMODE_3<br>LIN4_TXD_MUXMODE_2<br>GPIOAB_0_MUXMODE_7<br>GPIOAB_1_MUXMODE_7<br>GPIOAB_10_MUXMODE_7<br>GPIOAB_11_MUXMODE_7<br>GPIOAB_12_MUXMODE_7<br>GPIOAB_13_MUXMODE_7<br>GPIOAB_14_MUXMODE_7<br>GPIOAB_15_MUXMODE_7<br>GPIOAB_16_MUXMODE_7<br>GPIOAB_17_MUXMODE_7<br>GPIOAB_18_MUXMODE_7<br>GPIOAB_19_MUXMODE_7<br>GPIOAB_2_MUXMODE_7<br>GPIOAB_20_MUXMODE_7<br>GPIOAB_21_MUXMODE_7<br>GPIOAB_22_MUXMODE_7<br>GPIOAB_23_MUXMODE_7<br>GPIOAB_24_MUXMODE_7<br>GPIOAB_25_MUXMODE_7<br>GPIOAB_26_MUXMODE_7<br>GPIOAB_27_MUXMODE_7<br>GPIOAB_28_MUXMODE_7<br>GPIOAB_29_MUXMODE_7<br>GPIOAB_3_MUXMODE_7<br>GPIOAB_30_MUXMODE_7<br>GPIOAB_31_MUXMODE_7<br>GPIOAB_4_MUXMODE_7<br>EPWM28_B_MUXMODE_5<br>EPWM28_A_MUXMODE_5<br>GPIOAB_5_MUXMODE_7<br>GPIOAB_6_MUXMODE_7<br>GPIOAB_7_MUXMODE_7<br>GPIOAB_8_MUXMODE_7<br>GPIOAB_9_MUXMODE_7<br>GPIOCD_32_MUXMODE_7<br>GPIOCD_33_MUXMODE_7<br>GPIOCD_34_MUXMODE_7<br>GPIOCD_35_MUXMODE_7<br>GPIOCD_36_MUXMODE_7<br>GPIOCD_37_MUXMODE_7<br>GPIOCD_38_MUXMODE_7<br>GPIOCD_39_MUXMODE_7<br>GPIOCD_40_MUXMODE_7<br>GPIOCD_41_MUXMODE_7<br>GPIOCD_42_MUXMODE_7<br>GPIOCD_43_MUXMODE_7<br>GPIOCD_44_MUXMODE_7<br>GPIOCD_45_MUXMODE_7<br>GPIOCD_46_MUXMODE_7<br>GPIOCD_47_MUXMODE_7<br>GPIOCD_48_MUXMODE_7<br>GPIOCD_49_MUXMODE_7<br>GPIOCD_50_MUXMODE_7<br>GPIOCD_51_MUXMODE_7<br>GPIOCD_52_MUXMODE_7<br>GPIOCD_53_MUXMODE_7<br>GPIOCD_54_MUXMODE_7<br>GPIOCD_55_MUXMODE_7<br>GPIOCD_56_MUXMODE_7<br>GPIOCD_57_MUXMODE_7<br>GPIOCD_58_MUXMODE_7<br>GPIOCD_59_MUXMODE_7<br>GPIOCD_60_MUXMODE_7<br>GPIOCD_61_MUXMODE_7<br>GPIOCD_62_MUXMODE_7<br>GPIOCD_63_MUXMODE_7<br>GPIOEF_64_MUXMODE_7<br>GPIOEF_65_MUXMODE_7<br>GPIOEF_66_MUXMODE_7<br>GPIOEF_67_MUXMODE_7<br>GPIOEF_68_MUXMODE_7<br>GPIOEF_69_MUXMODE_7<br>GPIOEF_70_MUXMODE_7<br>GPIOEF_71_MUXMODE_7<br>GPIOEF_72_MUXMODE_7<br>GPIOEF_73_MUXMODE_7<br>GPIOEF_74_MUXMODE_7<br>GPIOEF_75_MUXMODE_7<br>GPIOEF_76_MUXMODE_7<br>GPIOEF_77_MUXMODE_7<br>GPIOEF_78_MUXMODE_7<br>GPIOEF_79_MUXMODE_7<br>MII1_COL_MUXMODE_2<br>MII2_RX_ER_MUXMODE_4<br>RMII2_RX_ER_MUXMODE_2<br>GPIOEF_80_MUXMODE_7<br>GPIOEF_81_MUXMODE_7<br>GPIOEF_82_MUXMODE_7<br>GPIOEF_83_MUXMODE_7<br>GPIOEF_84_MUXMODE_7<br>GPIOEF_85_MUXMODE_7<br>RMII2_CRS_DV_MUXMODE_2<br>MII2_CRS_MUXMODE_4<br>GPIOEF_86_MUXMODE_7<br>MII2_COL_MUXMODE_4<br>GPIOEF_87_MUXMODE_7<br>RMII2_RXD0_MUXMODE_2<br>RMII2_RXD1_MUXMODE_2<br>MII2_RXD0_MUXMODE_4<br>MII2_RXD1_MUXMODE_4<br>GPIOEF_88_MUXMODE_7<br>GPIOEF_89_MUXMODE_7<br>GPIOEF_90_MUXMODE_7<br>GPIOEF_91_MUXMODE_7<br>GPIOEF_92_MUXMODE_7<br>GPIOEF_93_MUXMODE_7<br>GPIOEF_94_MUXMODE_7<br>MII2_TXD2_MUXMODE_4<br>MII2_TXCLK_MUXMODE_4<br>MII2_TXD3_MUXMODE_4<br>GPIOEF_95_MUXMODE_7<br>GPIOGH_100_MUXMODE_7<br>GPIOGH_101_MUXMODE_7<br>GPIOGH_102_MUXMODE_7<br>GPIOGH_103_MUXMODE_7<br>GPIOGH_104_MUXMODE_7<br>GPIOGH_105_MUXMODE_7<br>GPIOGH_106_MUXMODE_7<br>GPIOGH_107_MUXMODE_7<br>GPIOGH_108_MUXMODE_7<br>GPIOGH_109_MUXMODE_7<br>GPIOGH_110_MUXMODE_7<br>GPIOGH_111_MUXMODE_7<br>GPIOGH_112_MUXMODE_7<br>GPIOGH_113_MUXMODE_7<br>GPIOGH_114_MUXMODE_7<br>GPIOGH_115_MUXMODE_7<br>GPIOGH_116_MUXMODE_7<br>GPIOGH_117_MUXMODE_7<br>GPIOGH_118_MUXMODE_7<br>GPIOGH_119_MUXMODE_7<br>GPIOGH_120_MUXMODE_7<br>GPIOGH_121_MUXMODE_7<br>GPIOGH_122_MUXMODE_7<br>GPIOGH_123_MUXMODE_7<br>GPIOGH_124_MUXMODE_7<br>GPIOGH_125_MUXMODE_7<br>MII2_RXD3_MUXMODE_4<br>MII2_RXD2_MUXMODE_4<br>MII2_TXD1_MUXMODE_4<br>GPIOGH_126_MUXMODE_7<br>GPIOGH_127_MUXMODE_7<br>GPIOGH_96_MUXMODE_7<br>GPIOGH_97_MUXMODE_7<br>MII2_TX_EN_MUXMODE_4<br>GPIOGH_98_MUXMODE_7<br>GPIOGH_99_MUXMODE_7<br>RMII2_TX_EN_MUXMODE_2<br>GPIOI_128_MUXMODE_7<br>GPIOI_130_MUXMODE_7<br>GPIOI_131_MUXMODE_7<br>GPIOI_132_MUXMODE_7<br>GPIOI_133_MUXMODE_7<br>GPIOI_134_MUXMODE_7<br>GPIOI_135_MUXMODE_7<br>GPIOI_136_MUXMODE_7<br>GPIOI_137_MUXMODE_7<br>GPIOI_138_MUXMODE_7<br>MII2_TXD0_MUXMODE_4<br>RMII2_TXD1_MUXMODE_2<br>RMII2_TXD0_MUXMODE_2<br>TDO_MUXMODE_0<br>TDI_MUXMODE_0<br>GPMC0_A0_MUXMODE_6<br>GPMC0_A1_MUXMODE_6<br>GPMC0_A10_MUXMODE_6<br>GPMC0_A11_MUXMODE_6<br>GPMC0_A12_MUXMODE_6<br>GPMC0_A13_MUXMODE_6<br>GPMC0_A14_MUXMODE_6<br>GPMC0_A15_MUXMODE_6<br>GPMC0_A16_MUXMODE_6<br>GPMC0_A17_MUXMODE_6<br>GPMC0_A18_MUXMODE_6<br>GPMC0_A19_MUXMODE_6<br>GPMC0_A2_MUXMODE_6<br>GPMC0_A20_MUXMODE_6<br>GPMC0_A21_MUXMODE_6<br>GPMC0_A3_MUXMODE_6<br>GPMC0_A4_MUXMODE_6<br>GPMC0_A5_MUXMODE_6<br>GPMC0_A6_MUXMODE_6<br>GPMC0_A7_MUXMODE_6<br>GPMC0_A8_MUXMODE_6<br>GPMC0_A9_MUXMODE_6<br>GPMC0_AD0_MUXMODE_6<br>GPMC0_AD1_MUXMODE_6<br>GPMC0_AD10_MUXMODE_6<br>GPMC0_AD11_MUXMODE_6<br>GPMC0_AD12_MUXMODE_6<br>GPMC0_AD13_MUXMODE_6<br>GPMC0_AD14_MUXMODE_6<br>GPMC0_AD15_MUXMODE_6<br>GPMC0_AD2_MUXMODE_6<br>GPMC0_AD3_MUXMODE_6<br>GPMC0_AD4_MUXMODE_6<br>GPMC0_AD5_MUXMODE_6<br>GPMC0_AD6_MUXMODE_6<br>GPMC0_AD7_MUXMODE_6<br>GPMC0_AD8_MUXMODE_6<br>GPMC0_AD9_MUXMODE_6<br>GPMC0_ADVn_ALE_MUXMODE_6<br>GPMC0_BE0n_CLE_MUXMODE_6<br>GPMC0_BE1n_MUXMODE_6<br>GPMC0_CLK_MUXMODE_6<br>GPMC0_CLKLB_MUXMODE_6<br>GPMC0_CSn0_MUXMODE_6<br>GPMC0_CSn1_MUXMODE_6<br>GPMC0_CSn2_MUXMODE_6<br>GPMC0_CSn3_MUXMODE_6<br>GPMC0_DIR_MUXMODE_6<br>GPMC0_OEn_REn_MUXMODE_6<br>GPMC0_WAIT0_MUXMODE_6<br>GPMC0_WAIT1_MUXMODE_6<br>GPMC0_WEn_MUXMODE_6<br>GPMC0_WPn_MUXMODE_6<br>I2C0_SCL_MUXMODE_0<br>I2C0_SDA_MUXMODE_0<br>I2C1_SCL_MUXMODE_0<br>I2C1_SCL_MUXMODE_2<br>I2C1_SDA_MUXMODE_0<br>I2C1_SDA_MUXMODE_2<br>I2C2_SCL_MUXMODE_1<br>I2C2_SCL_MUXMODE_2<br>I2C2_SDA_MUXMODE_1<br>I2C2_SDA_MUXMODE_2<br>I2C3_SCL_MUXMODE_2<br>I2C3_SCL_MUXMODE_5<br>I2C3_SDA_MUXMODE_2<br>I2C3_SDA_MUXMODE_5<br>LIN0_RXD_MUXMODE_1<br>LIN0_RXD_MUXMODE_2<br>LIN0_TXD_MUXMODE_1<br>LIN0_TXD_MUXMODE_2<br>LIN1_RXD_MUXMODE_0<br>LIN1_RXD_MUXMODE_1<br>LIN1_TXD_MUXMODE_0<br>LIN1_TXD_MUXMODE_1<br>LIN2_RXD_MUXMODE_0<br>LIN2_TXD_MUXMODE_0<br>LIN3_RXD_MUXMODE_2<br>LIN3_TXD_MUXMODE_2<br>MCAN0_RX_MUXMODE_0<br>MCAN0_TX_MUXMODE_0<br>MCAN1_RX_MUXMODE_0<br>MCAN1_TX_MUXMODE_0<br>MCAN2_RX_MUXMODE_0<br>MCAN2_TX_MUXMODE_0<br>MCAN3_RX_MUXMODE_0<br>MCAN3_RX_MUXMODE_3<br>MCAN3_TX_MUXMODE_0<br>MCAN3_TX_MUXMODE_3<br>MMC0_CD_MUXMODE_0<br>MMC0_CLK_MUXMODE_0<br>MMC0_CMD_MUXMODE_0<br>MMC0_D0_MUXMODE_0<br>MMC0_D1_MUXMODE_0<br>MMC0_D2_MUXMODE_0<br>MMC0_D3_MUXMODE_0<br>MMC0_WP_MUXMODE_0<br>EPWM30_B_MUXMODE_5<br>ECAP0_APWM_OUT_MUXMODE_0<br>TRC_CLK_MUXMODE_4<br>XBAROUT13_MUXMODE_5<br>PR0_IEP0_EDC_SYNC_OUT0_MUXMODE_3<br>PR0_IEP0_EDC_SYNC_OUT1_MUXMODE_3<br>PR0_MDIO0_MDC_MUXMODE_0<br>PR0_MDIO0_MDIO_MUXMODE_0<br>PR0_UART0_CTSn_MUXMODE_3<br>PR0_UART0_RTSn_MUXMODE_3<br>PR0_UART0_RXD_MUXMODE_3<br>PR0_UART0_TXD_MUXMODE_3<br>EPWM29_A_MUXMODE_5<br>EPWM27_A_MUXMODE_5<br>EPWM29_B_MUXMODE_5<br>EPWM31_A_MUXMODE_5<br>PRU0_GIO0_MUXMODE_0<br>PRU0_GIO1_MUXMODE_0<br>PRU0_GIO10_MUXMODE_0<br>PRU0_GIO11_MUXMODE_0<br>PRU0_GIO12_MUXMODE_0<br>EPWM27_B_MUXMODE_5<br>PRU0_GIO13_MUXMODE_0<br>PRU0_GIO14_MUXMODE_0<br>PRU0_GIO15_MUXMODE_0<br>PRU0_GIO16_MUXMODE_0<br>PRU0_GIO2_MUXMODE_0<br>EPWM26_B_MUXMODE_5<br>PRU0_GIO3_MUXMODE_0<br>PRU0_GIO4_MUXMODE_0<br>PRU0_GIO5_MUXMODE_0<br>PRU0_GIO6_MUXMODE_0<br>PRU0_GIO8_MUXMODE_0<br>PRU0_GIO9_MUXMODE_0<br>PRU1_GIO0_MUXMODE_0<br>PRU1_GIO1_MUXMODE_0<br>PRU1_GIO10_MUXMODE_0<br>PRU1_GIO11_MUXMODE_0<br>PRU1_GIO12_MUXMODE_0<br>EPWM30_A_MUXMODE_5<br>PRU1_GIO13_MUXMODE_0<br>PRU1_GIO14_MUXMODE_0<br>PRU1_GIO15_MUXMODE_0<br>PRU1_GIO16_MUXMODE_0<br>PRU1_GIO17_MUXMODE_0<br>PRU1_GIO18_MUXMODE_0<br>PRU1_GIO19_MUXMODE_0<br>PRU1_GIO2_MUXMODE_0<br>PRU1_GIO3_MUXMODE_0<br>PRU1_GIO4_MUXMODE_0<br>PRU1_GIO5_MUXMODE_0<br>EPWM31_B_MUXMODE_5<br>PRU1_GIO6_MUXMODE_0<br>PRU1_GIO7_MUXMODE_0<br>PRU1_GIO8_MUXMODE_0<br>PRU1_GIO9_MUXMODE_0<br>QSPI0_CLK_MUXMODE_0<br>QSPI0_CLKLB_MUXMODE_0<br>QSPI0_CSn0_MUXMODE_0<br>QSPI0_CSn1_MUXMODE_0<br>QSPI0_D0_MUXMODE_0<br>QSPI0_D1_MUXMODE_0<br>QSPI0_D2_MUXMODE_0<br>QSPI0_D3_MUXMODE_0<br>RGMII1_RD0_MUXMODE_0<br>RGMII1_RD1_MUXMODE_0<br>RGMII1_RD2_MUXMODE_0<br>RGMII1_RD3_MUXMODE_0<br>EPWM25_A_MUXMODE_5<br>EPWM25_B_MUXMODE_5<br>RGMII1_RX_CTL_MUXMODE_0<br>RGMII1_RXC_MUXMODE_0<br>RGMII1_TD0_MUXMODE_0<br>RGMII1_TD1_MUXMODE_0<br>RGMII1_TD2_MUXMODE_0<br>RGMII1_TD3_MUXMODE_0<br>EPWM24_B_MUXMODE_5<br>EPWM24_A_MUXMODE_5<br>RMII2_REF_CLK_MUXMODE_2<br>MII2_RXCLK_MUXMODE_4<br>MII2_RXDV_MUXMODE_4<br>RGMII1_TX_CTL_MUXMODE_0<br>RGMII1_TXC_MUXMODE_0<br>RGMII2_RD0_MUXMODE_3<br>EPWM26_A_MUXMODE_5<br>RGMII2_RD1_MUXMODE_3<br>RGMII2_RD2_MUXMODE_3<br>RGMII2_RD3_MUXMODE_3<br>RGMII2_RX_CTL_MUXMODE_3<br>RGMII2_RXC_MUXMODE_3<br>RGMII2_TD0_MUXMODE_3<br>RGMII2_TD1_MUXMODE_3<br>RGMII2_TD2_MUXMODE_3<br>RGMII2_TD3_MUXMODE_3<br>RGMII2_TX_CTL_MUXMODE_3<br>RGMII2_TXC_MUXMODE_3<br>RMII1_CRS_DV_MUXMODE_1<br>RMII1_REF_CLK_MUXMODE_1<br>RMII1_RX_ER_MUXMODE_1<br>RMII1_RXD0_MUXMODE_1<br>RMII1_RXD1_MUXMODE_1<br>RMII1_TX_EN_MUXMODE_1<br>RMII1_TXD0_MUXMODE_1<br>RMII1_TXD1_MUXMODE_1<br>SDFM0_CLK0_MUXMODE_8<br>SDFM0_CLK1_MUXMODE_8<br>LIN4_TXD_MUXMODE_1<br>PR0_IEP0_EDIO_DATA_IN_OUT30_MUXMODE_3<br>SDFM0_CLK2_MUXMODE_8<br>CLKOUT1_MUXMODE_0<br>SDFM0_CLK3_MUXMODE_8<br>SDFM0_D0_MUXMODE_8<br>GPIOI_129_MUXMODE_7<br>SDFM0_D1_MUXMODE_8<br>SDFM0_D2_MUXMODE_8<br>SDFM0_D3_MUXMODE_8<br>SDFM1_CLK0_MUXMODE_8<br>SDFM1_CLK0_MUXMODE_9<br>SDFM1_CLK1_MUXMODE_8<br>SDFM1_CLK1_MUXMODE_9<br>SDFM1_CLK2_MUXMODE_8<br>SDFM1_CLK2_MUXMODE_9<br>SDFM1_CLK3_MUXMODE_8<br>SDFM1_CLK3_MUXMODE_9<br>SDFM1_D0_MUXMODE_8<br>LIN4_RXD_MUXMODE_1<br>SDFM1_D0_MUXMODE_9<br>SDFM1_D1_MUXMODE_8<br>SDFM1_D1_MUXMODE_9<br>SDFM1_D2_MUXMODE_8<br>SDFM1_D2_MUXMODE_9<br>SDFM1_D3_MUXMODE_8<br>SDFM1_D3_MUXMODE_9<br>SPI0_CLK_MUXMODE_0<br>SPI0_CS0_MUXMODE_0<br>SPI0_CS1_MUXMODE_4<br>SPI0_D0_MUXMODE_0<br>SPI0_D1_MUXMODE_0<br>SPI1_CLK_MUXMODE_0<br>SPI1_CS0_MUXMODE_0<br>SPI1_D0_MUXMODE_0<br>SPI1_D1_MUXMODE_0<br>SPI2_CLK_MUXMODE_2<br>SPI2_CS0_MUXMODE_2<br>SPI2_D0_MUXMODE_2<br>SPI2_D1_MUXMODE_2<br>SPI3_CLK_MUXMODE_2<br>SPI3_CS0_MUXMODE_2<br>SPI3_D0_MUXMODE_2<br>SPI3_D1_MUXMODE_2<br>SPI4_CLK_MUXMODE_1<br>SPI4_CLK_MUXMODE_3<br>SPI4_CS0_MUXMODE_1<br>SPI4_CS0_MUXMODE_3<br>SPI4_CS1_MUXMODE_2<br>SPI4_D0_MUXMODE_1<br>SPI4_D0_MUXMODE_3<br>SPI4_D1_MUXMODE_1<br>SPI4_D1_MUXMODE_3<br>TRC_CTL_MUXMODE_4<br>TRC_DATA0_MUXMODE_4<br>TRC_DATA1_MUXMODE_4<br>TRC_DATA10_MUXMODE_4<br>TRC_DATA11_MUXMODE_4<br>TRC_DATA12_MUXMODE_4<br>TRC_DATA13_MUXMODE_4<br>TRC_DATA14_MUXMODE_4<br>TRC_DATA15_MUXMODE_4<br>TRC_DATA2_MUXMODE_4<br>TRC_DATA3_MUXMODE_4<br>TRC_DATA4_MUXMODE_4<br>TRC_DATA5_MUXMODE_4<br>TRC_DATA6_MUXMODE_4<br>TRC_DATA7_MUXMODE_4<br>TRC_DATA8_MUXMODE_4<br>TRC_DATA9_MUXMODE_4<br>UART0_CTSn_MUXMODE_0<br>UART0_CTSn_MUXMODE_1<br>UART0_RTSn_MUXMODE_0<br>UART0_RTSn_MUXMODE_1<br>UART0_RXD_MUXMODE_0<br>UART0_RXD_MUXMODE_1<br>EXT_REFCLK0_MUXMODE_0<br>UART0_TXD_MUXMODE_0<br>UART0_TXD_MUXMODE_1<br>UART1_CTSn_MUXMODE_1<br>UART1_DCDn_MUXMODE_1<br>UART1_DSRn_MUXMODE_1<br>UART1_DTRn_MUXMODE_1<br>UART1_RIn_MUXMODE_1<br>UART1_RTSn_MUXMODE_1<br>UART1_RXD_MUXMODE_0<br>UART1_RXD_MUXMODE_1<br>UART1_TXD_MUXMODE_0<br>UART1_TXD_MUXMODE_1<br>UART2_CTSn_MUXMODE_1<br>UART2_RTSn_MUXMODE_1<br>UART2_RXD_MUXMODE_1<br>UART2_TXD_MUXMODE_1<br>UART3_CTSn_MUXMODE_1<br>UART3_RTSn_MUXMODE_1<br>UART3_RXD_MUXMODE_1<br>UART3_RXD_MUXMODE_2<br>UART3_TXD_MUXMODE_1<br>UART3_TXD_MUXMODE_2<br>UART4_CTSn_MUXMODE_0<br>UART4_RTSn_MUXMODE_0<br>UART4_RXD_MUXMODE_0<br>UART4_RXD_MUXMODE_1<br>UART4_TXD_MUXMODE_0<br>UART4_TXD_MUXMODE_1<br>UART5_CTSn_MUXMODE_2<br>UART5_RTSn_MUXMODE_2<br>UART5_RXD_MUXMODE_0<br>UART5_RXD_MUXMODE_1<br>UART5_TXD_MUXMODE_0<br>UART5_TXD_MUXMODE_1<br>XBAROUT0_MUXMODE_5<br>XBAROUT1_MUXMODE_5<br>XBAROUT10_MUXMODE_5<br>XBAROUT11_MUXMODE_5<br>XBAROUT12_MUXMODE_5<br>XBAROUT14_MUXMODE_5<br>XBAROUT15_MUXMODE_5<br>XBAROUT2_MUXMODE_5<br>XBAROUT3_MUXMODE_5<br>XBAROUT4_MUXMODE_5<br>XBAROUT5_MUXMODE_5<br>XBAROUT6_MUXMODE_5<br>XBAROUT7_MUXMODE_5<br>XBAROUT8_MUXMODE_5<br>XBAROUT9_MUXMODE_5<br>MII1_TXD0_MUXMODE_2<br>MDIO0_MDC_MUXMODE_0<br>MDIO0_MDIO_MUXMODE_0 |
+
+###### PortPinModeChangeable
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinModeChangeable |
+| **Description** | Parameter to indicate if the mode is changeable on a port pin during runtime. True: Port Pin mode changeable allowed. False: Port Pin mode changeable not permitted. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | false |
+
+###### PortPinInhibitEnable
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinInhibitEnable |
+| **Description** | The port pin inhibit enable. |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | PORT_PIN_PULL_INHIBIT_DISABLE |
+| **Range** | PORT_PIN_PULL_INHIBIT_ENABLE<br>PORT_PIN_PULL_INHIBIT_DISABLE<br>PORT_PIN_PULL_INHIBIT_DEFAULT |
+
+###### PortPullTypeSelect
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPullTypeSelect |
+| **Description** | Type of PULL U/D selection  |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | PORT_PIN_PULLTYPE_PULLDOWN |
+| **Range** | PORT_PIN_PULLTYPE_PULLDOWN<br>PORT_PIN_PULLTYPE_PULLUP<br>PORT_PIN_PULLTYPE_DEFAULT |
+
+###### PortPinHSmasterEnable
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinHSmasterEnable |
+| **Description** | Parameter to enable HSMASTER |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | false |
+
+###### PortPinHSmodeEnable
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinHSmodeEnable |
+| **Description** | Parameter to enable HSMODE |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | false |
+
+###### PortInputInversionSelect
+
+| Item ||
+|--------|---------------|
+| **Name** | PortInputInversionSelect |
+| **Description** | Parameter to select port pin inversion (select value for chosing inverted version of PAD input for chip) |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | PORT_INVTYPE_DEFAULT |
+| **Range** | PORT_INV<br>PORT_NONINV<br>PORT_INVTYPE_DEFAULT |
+
+###### PortQualifierTypeSelect
+
+| Item ||
+|--------|---------------|
+| **Name** | PortQualifierTypeSelect |
+| **Description** | Parameter to select port Qualifier Type (select value for chosing input qualifer type for PAD.) |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | PORT_QUALTYPE_DEFAULT |
+| **Range** | PORT_SYNC_QUAL<br>PORT_THREE_SAMPLE_QUAL<br>PORT_SIX_SAMPLE_QUAL<br>PORT_ASYNC_QUAL<br>PORT_QUALTYPE_DEFAULT |
+
+###### PortSlewControlSelect
+
+| Item ||
+|--------|---------------|
+| **Name** | PortSlewControlSelect |
+| **Description** | Slew control configuration  |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | PORT_PIN_SLEWCONTROL_FAST_SLEW |
+| **Range** | PORT_PIN_SLEWCONTROL_FAST_SLEW<br>PORT_PIN_SLEWCONTROL_SLOW_SLEW<br>PORT_PIN_SLEWCONTROL_DEFAULT |
+
+###### PortInputOverrideCtrl
+
+| Item ||
+|--------|---------------|
+| **Name** | PortInputOverrideCtrl |
+| **Description** | Port inputOverride control (Keep these value as PORT_PIN_DISABLE_INPUT_OVERRIDE while configuring pin as a GPIO) |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | PORT_PIN_INPUT_RETAIN_HW_CTRL |
+| **Range** | PORT_PIN_DISABLE_INPUT_OVERRIDE<br>PORT_PIN_ENABLE_INPUT_OVERRIDE<br>PORT_PIN_INPUT_RETAIN_HW_CTRL |
+
+###### PortOutputOverrideCtrl
+
+| Item ||
+|--------|---------------|
+| **Name** | PortOutputOverrideCtrl |
+| **Description** | Port OutputOverride control (Keep these value as PORT_PIN_DISABLE_OUTPUT_OVERRIDE while configuring pin as a GPIO) |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | PORT_PIN_OUTPUT_RETAIN_HW_CTRL |
+| **Range** | PORT_PIN_DISABLE_OUTPUT_OVERRIDE<br>PORT_PIN_ENABLE_OUTPUT_OVERRIDE<br>PORT_PIN_OUTPUT_RETAIN_HW_CTRL |
+
+###### PortGpioOwnerCore
+
+| Item ||
+|--------|---------------|
+| **Name** | PortGpioOwnerCore |
+| **Description** | PIN ownership of GPIO. 0 - R5FSS0 Core0, 1 - R5FSS0 Core1, 2 - R5FSS1 Core0, 3 - R5FSS1 Core1 |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 0 |
+| **Max-value** | 3 |
+| **Min-value** | 0 |
+
+##### PortDioConfig
+Structure for GPIO Interrupt configuration
+
+###### PortDioPinNumber
+
+| Item ||
+|--------|---------------|
+| **Name** | PortDioPinNumber |
+| **Description** | Port GPIO Pin Numbers (0 to 138) |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | 0 |
+| **Max-value** | 9223372036854775807 |
+| **Min-value** | -9223372036854775808 |
+
+###### PortPinSelectEdgeTrigger
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinSelectEdgeTrigger |
+| **Description** | Type of EdgeTrigger selection  |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | PORT_RISING_EDGE |
+| **Range** | PORT_RISING_EDGE<br>PORT_FALLING_EDGE<br>PORT_BOTH_EDGE |
+
+###### PortPinSelectInterruptType
+
+| Item ||
+|--------|---------------|
+| **Name** | PortPinSelectInterruptType |
+| **Description** | Select Interrupt type  |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | PORT_BANK_INTR |
+| **Range** | PORT_CHANNEL_INTR<br>PORT_BANK_INTR |
+
+###### PortDioInterruptNotification
+
+| Item ||
+|--------|---------------|
+| **Name** | PortDioInterruptNotification |
+| **Description** | Definition of the Callback function. |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | NULL_PTR |
+
+###### PortMcuGpioXbarReference
+
+| Item ||
+|--------|---------------|
+| **Name** | PortMcuGpioXbarReference |
+| **Description** | Reference to the McuGpioXbarIntrConfiguration container |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+
+#### PortGeneral
+Module wide configuration parameters of the PORT driver.
+
+##### PortDevErrorDetect
+
+| Item ||
+|--------|---------------|
+| **Name** | PortDevErrorDetect |
+| **Description** | Switches the Development Error Detection and Notification on or off. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | true |
+
+##### PortDeviceVariant
+
+| Item ||
+|--------|---------------|
+| **Name** | PortDeviceVariant |
+| **Description** | Select SOC variant .This parameter shall be used by driver to impose device specific constraints. The user guide shall detail the device specific constraints  |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | AM263x |
+| **Range** | TPR12<br>AM263x |
+
+##### PortSetPinDirectionApi
+
+| Item ||
+|--------|---------------|
+| **Name** | PortSetPinDirectionApi |
+| **Description** | Pre-processor switch to enable / disable the use of the function Port_SetPinDirection(). |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | true |
+
+##### PortSetPinModeApi
+
+| Item ||
+|--------|---------------|
+| **Name** | PortSetPinModeApi |
+| **Description** | Pre-processor switch to enable / disable the use of the function Port_SetPinMode(). |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | true |
+
+##### PortVersionInfoApi
+
+| Item ||
+|--------|---------------|
+| **Name** | PortVersionInfoApi |
+| **Description** | Pre-processor switch to enable / disable the API to read out the modules version information. |
+| **Origin** | AUTOSAR_ECUC |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | true |
+
+##### PortRefreshPortDirectionApi
+
+| Item ||
+|--------|---------------|
+| **Name** | PortRefreshPortDirectionApi |
+| **Description** | Pre-processor switch to enable / disable the API to refresh the port direction. |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| **Default-value** | true |
+
+##### PortDefaultOSCounterId
+
+| Item ||
+|--------|---------------|
+| **Name** | PortDefaultOSCounterId |
+| **Description** | Default Os Counter Id if node reference to OsCounter ref PortOsCounterRef is not set |
+| **Multiplicity-Configuration-Class** | -- |
+| Post-Build Time | VARIANT-POST-BUILD |
+| Pre-Compile Time | VARIANT-PRE-COMPILE |
+| **Origin** | Texas Instruments |
+| **Post-build-variant-multiplicity** | false |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 0 |
+| **Max-value** | 16 |
+| **Min-value** | 0 |
+
+##### PortSafeTIApi
+
+| Item ||
+|--------|---------------|
+| **Name** | PortSafeTIApi |
+| **Description** | Enable/Disable SAFETI Configuration register readback. |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | true |
+
+##### PortEnableIntrApi
+
+| Item ||
+|--------|---------------|
+| **Name** | PortEnableIntrApi |
+| **Description** | Pre-processor switch to enable / disable the use of Interrupt Functionality |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | true |
+
+##### PortGetIntrStatusApi
+
+| Item ||
+|--------|---------------|
+| **Name** | PortGetIntrStatusApi |
+| **Description** | Pre-processor switch to enable / disable the use of Port_GetInterruptStatus API |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | true |
+
+##### PortClearIntrStatusApi
+
+| Item ||
+|--------|---------------|
+| **Name** | PortClearIntrStatusApi |
+| **Description** | Pre-processor switch to enable / disable the use of Port_ClearInterruptStatus API |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | true |
+
+##### PortTimeoutDuration
+
+| Item ||
+|--------|---------------|
+| **Name** | PortTimeoutDuration |
+| **Description** | PORT timeout - used in PORT busy wait |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 32000 |
+| **Max-value** | 4294967295 |
+| **Min-value** | 1 |
+
+##### PortTypeofInterruptFunction
+
+| Item ||
+|--------|---------------|
+| **Name** | PortTypeofInterruptFunction |
+| **Description** | Type of ISR function |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | PORT_ISR_CAT1 |
+| **Range** | PORT_ISR_VOID<br>PORT_ISR_CAT1<br>PORT_ISR_CAT2 |
+
+##### PortGpioHostCoreId
+
+| Item ||
+|--------|---------------|
+| **Name** | PortGpioHostCoreId |
+| **Description** | R5F CPU ownership of GPIO. 0 - R5FSS0 Core0, 1 - R5FSS0 Core1, 2 - R5FSS1 Core0, 3 - R5FSS1 Core1 |
+| **Origin** | Texas Instruments |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 0 |
+| **Max-value** | 3 |
+| **Min-value** | 0 |
+
+##### PortOsCounterRef
+
+| Item ||
+|--------|---------------|
+| **Name** | PortOsCounterRef |
+| **Description** | This parameter contains a reference to the OsCounter, which is used by the PORT driver. |
+| **Multiplicity-Configuration-Class** | -- |
+| Post-Build Time | VARIANT-POST-BUILD |
+| Pre-Compile Time | VARIANT-PRE-COMPILE |
+| **Origin** | Texas Instruments |
+| **Post-build-variant-multiplicity** | false |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Post-Build-Time | VARIANT-POST-BUILD |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+
+
+
+```{Note}
+
+GPIO usage for the cores other than R5F0_0
+  If AUTOSAR MCAL is running on cores other than R5F0_0, user need to take care of following configuration
+   
+   R5F CPU ownership of GPIO.
+   
+    0 -> R5FSS0 Core0 
+    1 -> R5FSS0 Core1 
+    2 -> R5FSS1 Core0 
+    3 -> R5FSS1 Core1
+
+```{figure} Assets/images/port/port_image8.jpg
+:align: center
+
+
+```
+
+
+```{Note}
+ **PortDioConfig** container is specifically used only to configure the GPIO interrupt feature parameters. 
+   
+   To use the GPIO interrupt feature, user should configure the required GPIO channels in **PortDioConfig** container.
+
+```
+
+#### Steps To Configure Port Module
+
+1. Open EB Tresos configurator tool and Select the Config Variant ( Precompile/Post-Build) and Device Variant ( Pin Package ) parameters
+2. Go to Port Container tab and create a new container
+3. Open the created container and go to PortPin container to create a portPin configuration. ( Multiple PortPin configurations can be created )
+4. Open the created Port pin, and configure the pin parameters
+5. Select the Port pin peripheral instance ( Mode ) which needs to be configured and accordingly select the Peripheral Signal. As per selected Signal, physical pin ID needs to be selected from the list
+6. Configure the other parameters as per pin usage.
+7. Open Port pin Mode tab and add the default port pin mode ( at least one mode is required for this field ). Other supported modes for that pin can also be configured if user needs to change the mode for the pin afterwards.
+8. Configure the number of port pins in port container general tab
+9. Save the configuration and generate the configuration.
+
+### Examples
+
+The example application demonstrates use of Port module, the list below identifies key steps performed in the example.
+
+#### Overview
+
+* Port Example:
+  * Initialize clock using Mcu_Init()
+  * Initialize port using Port_Init()
+  * Configure Gpio Interrupt
+  * Test Port Interrupt Functionality
+  * Set Port pin direction of GPIOGH_120 to PORT_PIN_OUT using Port_SetPinDirection()
+  * Read the Port pin channel level using Dio_ReadChannel()
+  * Toggle the channel level using Dio_FlipChannel()
+  * Verify the read result
+
+#### Setup required to run example
+
+PORT module is tested using CC board (PROC111E2).
+
+#### How to run examples
+
+##### Steps to build and run example
+
+PORT example application demonstrating the MCAL PORT driver features is in folder *<MCAL_ROOT>/examples/Port*.
+
+This application can be built from the root folder by giving *gmake –s port_app PLATFORM=am263*.
+
+Once the build is completed we get a binary file, which is loaded in our controller and executed.
+
+##### Configuration used to test this example
+
+Pin configurations :
+Following pins are configured as a GPIO and used in example application to test.
+
+|Pin Ball Number|Pin Signal Name|
+|---------------|---------------|
+|C15|GPIOGH_120|
+|B8|GPIOAB_21|
+
+#### Sample Log
+
+
+```{code-block}
+CLANG compiled : portApp: Sample Application - STARTS !!!
+Port Driver version info:9.0.1
+Port Driver Module/Driver:124.44 
+
+[GPIO INTR verification] => Press SW1 switch on board to trigger the interrupt 
+
+Interrupt -- Bank Number : 1 GpioChannelNum : 255  Edge : 1
+
+Pin Value for channel 120 : 1 
+
+Dio_FlipChannel(channel_120)
+Pin Value for channel 120 : 0 
+
+Dio_FlipChannel(channel_120)
+Pin Value for channel 120 : 1 
+
+Pin Value for channel 120 : 1 
+Dio_FlipChannel(channel_120)
+Pin Value for channel 120 : 1 
+
+PORT Test Passed!!!
+
+```
+
+
+
+#### File Structure
+
+📦AM263x\
+ ┣ 📂build\
+ ┣ 📂mcal\
+ ┃ ┣ 📂**examples**\
+ ┃ ┃ ┣ 📂**Port**\
+ ┃ ┃ ┃ ┣ 📂**soc**\
+ ┃ ┃ ┃ ┣ 📜**Portapp.c** : *Contains Port test example*\
+ ┃ ┃ ┃ ┗ 📜Makefile\
+ ┃ ┣ 📂**examples_config**\
+ ┃ ┃ ┣ 📂**Port_Demo_Cfg**\
+ ┃ ┃ ┃ ┗ 📂**soc**\
+ ┃ ┃ ┃ ┃ ┣ 📂**am263**\
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂**r5f0_0**\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂include\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗📜**Port_Cfg.h** : *Contains the configuration parameters*\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂src\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣📜**Port_Cfg.c** : *Contains all Pre-Compile Configured parameters*\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣📜**Port_PBcfg.c** : *contains all Post build configured parameters*\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣📜**Port_PBcfg_Intr.c** : *Contains all Post Build Configured parameters*\
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗📜**Port_PBcfg_UART0.c** : *contains all Post Build configured parameters*\
+ ┃ 📂mcal_config\
+ ┃ 📂mcal_docs\
+ ┗ 📜README.txt
+
+
+### References
+
+[AUTOSAR_SWS_PortDriver](<https://www.autosar.org/fileadmin/standards/R4.3.1/CP/AUTOSAR_SWS_PortDriver.pdf>)\
+[Technical Reference Manual](<https://www.ti.com/am263>)
