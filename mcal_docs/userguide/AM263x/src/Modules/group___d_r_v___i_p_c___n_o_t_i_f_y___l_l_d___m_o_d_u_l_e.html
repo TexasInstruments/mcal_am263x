@@ -166,6 +166,9 @@
 <tr class="row-odd"><td><p><strong><a class="reference internal" href="../Classes/struct_ipc_notify___object.html"><span class="std std-doc">IpcNotify_Object</span></a></strong></p></td>
 <td><p>IPC Notify driver object.</p></td>
 </tr>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="../Classes/struct_ipc_notify___msg_params.html"><span class="std std-doc">IpcNotify_MsgParams</span></a></strong></p></td>
+<td><p>Structure to hold message parameters for IPC Notify send operations.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -215,7 +218,7 @@
 <td><p>De-initialize IPC Notify module.</p></td>
 </tr>
 <tr class="row-even"><td><p>sint32</p></td>
-<td><p><strong><a class="reference internal" href="#function-ipcnotify-lld-sendmsg"><span class="std std-ref">IpcNotify_lld_sendMsg</span></a></strong>(<a class="reference internal" href="../Classes/struct_ipc_notify___object.html"><span class="std std-doc">IpcNotify_Handle</span></a> hIpcNotify, uint32 remoteCoreId, uint16 remoteClientId, uint32 messageValue, uint32 waitForFifoNotFull, uint32 timeout)</p></td>
+<td><p><strong><a class="reference internal" href="#function-ipcnotify-lld-sendmsg"><span class="std std-ref">IpcNotify_lld_sendMsg</span></a></strong>(<a class="reference internal" href="../Classes/struct_ipc_notify___object.html"><span class="std std-doc">IpcNotify_Handle</span></a> hIpcNotify, const <a class="reference internal" href="../Classes/struct_ipc_notify___msg_params.html"><span class="std std-doc">IpcNotify_MsgParams</span></a> * msgParams)</p></td>
 <td><p>Send message to a specific remote core and specific client ID on that remote core.</p></td>
 </tr>
 <tr class="row-odd"><td><p>sint32</p></td>
@@ -284,11 +287,7 @@ De-initialize IPC Notify module.</p>
 <h3>function IpcNotify_lld_sendMsg<a class="headerlink" href="#function-ipcnotify-lld-sendmsg" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sint32</span><span class="w"> </span><span class="n">IpcNotify_lld_sendMsg</span><span class="p">(</span>
 <span class="w">    </span><span class="n">IpcNotify_Handle</span><span class="w"> </span><span class="n">hIpcNotify</span><span class="p">,</span>
-<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">remoteCoreId</span><span class="p">,</span>
-<span class="w">    </span><span class="n">uint16</span><span class="w"> </span><span class="n">remoteClientId</span><span class="p">,</span>
-<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">messageValue</span><span class="p">,</span>
-<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">waitForFifoNotFull</span><span class="p">,</span>
-<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">timeout</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">IpcNotify_MsgParams</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">msgParams</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -297,11 +296,7 @@ Send message to a specific remote core and specific client ID on that remote cor
 <p><strong>Parameters</strong>:</p>
 <ul class="simple">
 <li><p><strong>hIpcNotify</strong> IPC Notify LLD handle</p></li>
-<li><p><strong>remoteCoreId</strong> [in] Remote core to sent message to, see CSL_CoreID for valid values.</p></li>
-<li><p><strong>remoteClientId</strong> [in] Remote core client ID to send message to, MUST be &lt; <a class="reference internal" href="#define-ipc_notify_client_id_max"><span class="std std-ref">IPC_NOTIFY_CLIENT_ID_MAX</span></a></p></li>
-<li><p><strong>msgValue</strong> [in] Message value to send, MUST be &lt; IPC_NOTIFY_MSG_VALUE_MAX</p></li>
-<li><p><strong>waitForFifoNotFull</strong> [in] 1: wait for message to be inserted into HW or SW FIFO, 0: if FIFO is full, dont send message and return with error.</p></li>
-<li><p><strong>timeout</strong> [in] Amount of time in units of ticks to wait until timeout</p></li>
+<li><p><strong>msgParams</strong> [in] message specific structure parameter</p></li>
 </ul>
 <p><strong>Return</strong>:</p>
 <ul class="simple">
@@ -438,7 +433,7 @@ Check if a core is enabled for IPC.</p>
 
   <div role="contentinfo">
     <p>&#169; <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">Copyright</a>  2026, Texas Instruments Incorporated.
-          <span class="lastupdated" >Last updated on Jan 22, 2026.
+          <span class="lastupdated" >Last updated on Feb 10, 2026.
       </span><br>
         <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a> <br>
 

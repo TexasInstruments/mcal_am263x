@@ -138,7 +138,7 @@ Performance Result through MCSPI with Dma are as follows:
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| adc   | 5514    | 4    | 3020    |
+| adc   | 5508    | 4    | 3020    |
  
 ### CAN
 
@@ -162,13 +162,13 @@ Performance Result through MCSPI with Dma are as follows:
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| dma   | 4896    | 16786    | 528    |
+| dma   | 4940    | 16786    | 528    |
  
 ### EPWM
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| epwm   | 15037    | 7    | 51096    |
+| epwm   | 15029    | 7    | 51096    |
  
 ### ETH
 
@@ -225,19 +225,19 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| i2c   | 4276    | 1    | 2052    |
+| i2c   | 4298    | 1    | 2052    |
  
 ### ICU
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| icu   | 3870    | 1    | 920    |
+| icu   | 3884    | 1    | 920    |
  
 ### IPC
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| ipc   | 5666    | 429    | 1656    |
+| ipc   | 5714    | 429    | 1656    |
  
 ### LIN
 
@@ -255,7 +255,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| port   | 3122    | 1    | 176    |
+| port   | 3140    | 1    | 176    |
      
 ### PWM
 

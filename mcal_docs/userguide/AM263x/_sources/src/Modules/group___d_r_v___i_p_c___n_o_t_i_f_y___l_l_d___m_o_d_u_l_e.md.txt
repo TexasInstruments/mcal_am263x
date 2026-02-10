@@ -58,6 +58,7 @@ typedef IpcNotify_Object* IpcNotify_Handle;
 | **[IpcNotify_InterruptConfig](../Classes/struct_ipc_notify___interrupt_config.md)** | This structure describes the information related to one interrupt that is setup for receiving mailbox messages.  |
 | **[IpcNotify_InitObject](../Classes/struct_ipc_notify___init_object.md)** | IPC Notify driver initialization object.  |
 | **[IpcNotify_Object](../Classes/struct_ipc_notify___object.md)** | IPC Notify driver object.  |
+| **[IpcNotify_MsgParams](../Classes/struct_ipc_notify___msg_params.md)** | Structure to hold message parameters for IPC Notify send operations.  |
 
 
 
@@ -78,7 +79,7 @@ typedef IpcNotify_Object* IpcNotify_Handle;
 | -------------- | ----------------------- | ----------------- |
 | sint32 | **[IpcNotify_lld_init](../Modules/group___d_r_v___i_p_c___n_o_t_i_f_y___l_l_d___m_o_d_u_l_e.md#function-ipcnotify_lld_init)**([IpcNotify_Handle](../Classes/struct_ipc_notify___object.md) hIpcNotify)| Initialize IPC Notify module.  |
 | sint32 | **[IpcNotify_lld_deInit](../Modules/group___d_r_v___i_p_c___n_o_t_i_f_y___l_l_d___m_o_d_u_l_e.md#function-ipcnotify_lld_deinit)**([IpcNotify_Handle](../Classes/struct_ipc_notify___object.md) hIpcNotify)| De-initialize IPC Notify module.  |
-| sint32 | **[IpcNotify_lld_sendMsg](../Modules/group___d_r_v___i_p_c___n_o_t_i_f_y___l_l_d___m_o_d_u_l_e.md#function-ipcnotify_lld_sendmsg)**([IpcNotify_Handle](../Classes/struct_ipc_notify___object.md) hIpcNotify, uint32 remoteCoreId, uint16 remoteClientId, uint32 messageValue, uint32 waitForFifoNotFull, uint32 timeout)| Send message to a specific remote core and specific client ID on that remote core.  |
+| sint32 | **[IpcNotify_lld_sendMsg](../Modules/group___d_r_v___i_p_c___n_o_t_i_f_y___l_l_d___m_o_d_u_l_e.md#function-ipcnotify_lld_sendmsg)**([IpcNotify_Handle](../Classes/struct_ipc_notify___object.md) hIpcNotify, const [IpcNotify_MsgParams](../Classes/struct_ipc_notify___msg_params.md) * msgParams)| Send message to a specific remote core and specific client ID on that remote core.  |
 | sint32 | **[IpcNotify_lld_registerClient](../Modules/group___d_r_v___i_p_c___n_o_t_i_f_y___l_l_d___m_o_d_u_l_e.md#function-ipcnotify_lld_registerclient)**([IpcNotify_Handle](../Classes/struct_ipc_notify___object.md) hIpcNotify, uint16 localClientId, IpcNotify_FxnCallback msgCallback, void * args)| Register a callback to handle messages received from a specific remote core and for a specific local client ID.  |
 | sint32 | **[IpcNotify_lld_unregisterClient](../Modules/group___d_r_v___i_p_c___n_o_t_i_f_y___l_l_d___m_o_d_u_l_e.md#function-ipcnotify_lld_unregisterclient)**([IpcNotify_Handle](../Classes/struct_ipc_notify___object.md) hIpcNotify, uint16 localClientId)| Un-register a previously registered callback.  |
 | | **[__attribute__](../Modules/group___d_r_v___i_p_c___n_o_t_i_f_y___l_l_d___m_o_d_u_l_e.md#function-__attribute__)**((weak) )| IPC Notify LLD ISR which can be registered in the application.  |
@@ -140,11 +141,7 @@ This API will de-initialize the HW used for IPC.
 ```
 sint32 IpcNotify_lld_sendMsg(
     IpcNotify_Handle hIpcNotify,
-    uint32 remoteCoreId,
-    uint16 remoteClientId,
-    uint32 messageValue,
-    uint32 waitForFifoNotFull,
-    uint32 timeout
+    const IpcNotify_MsgParams * msgParams
 )
 ```
 
@@ -157,15 +154,7 @@ Send message to a specific remote core and specific client ID on that remote cor
   
 * **hIpcNotify** IPC Notify LLD handle 
   
-* **remoteCoreId** [in] Remote core to sent message to, see CSL_CoreID for valid values. 
-  
-* **remoteClientId** [in] Remote core client ID to send message to, MUST be < [IPC_NOTIFY_CLIENT_ID_MAX](../Modules/group___d_r_v___i_p_c___n_o_t_i_f_y___l_l_d___m_o_d_u_l_e.md#define-ipc_notify_client_id_max)
-  
-* **msgValue** [in] Message value to send, MUST be < IPC_NOTIFY_MSG_VALUE_MAX 
-  
-* **waitForFifoNotFull** [in] 1: wait for message to be inserted into HW or SW FIFO, 0: if FIFO is full, dont send message and return with error. 
-  
-* **timeout** [in] Amount of time in units of ticks to wait until timeout
+* **msgParams** [in] message specific structure parameter
 
 
 **Return**: 

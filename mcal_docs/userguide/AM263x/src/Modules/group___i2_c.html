@@ -248,11 +248,6 @@ This is an enum containing the possible restart modes. The default mode is CDD_I
 </div>
 <p><strong>Brief</strong>:
 Callback routine provided by the user for each Sequence to notify the caller that a Sequence has been finished.</p>
-<p><strong>Parameters</strong>:</p>
-<ul class="simple">
-<li><p><strong>sequenceId</strong> Sequence which is finished</p></li>
-<li><p><strong>result</strong> Status of currently executed sequence</p></li>
-</ul>
 </section>
 <section id="typedef-cdd-i2c-sequenceerrornotification">
 <h3>typedef Cdd_I2c_SequenceErrorNotification<a class="headerlink" href="#typedef-cdd-i2c-sequenceerrornotification" title="Link to this heading"></a></h3>
@@ -711,7 +706,7 @@ Service for CDD_I2C initialization.</p>
 <p>Service ID[hex] - CDD_I2C_SID_INIT Sync/Async - Synchronous Reentrancy - Non Reentrant</p>
 <p><strong>Parameters</strong>:</p>
 <ul class="simple">
-<li><p><strong>ConfigPtr</strong> Pointer to CDD_I2C Driver configuration set</p></li>
+<li><p><strong>configPtr</strong> Pointer to CDD_I2C Driver configuration set</p></li>
 </ul>
 </section>
 <section id="function-cdd-i2c-deinit">
@@ -739,7 +734,7 @@ Service that returns the version information of the module.</p>
 <p>Service ID[hex] - CDD_I2C_SID_GET_VERSION_INFO Sync/Async - Synchronous Reentrancy - Reentrant</p>
 <p><strong>Parameters</strong>:</p>
 <ul class="simple">
-<li><p><strong>VersionInfo</strong> Pointer to where to store the version information of this module</p></li>
+<li><p><strong>versionInfo</strong> Pointer to where to store the version information of this module</p></li>
 </ul>
 </section>
 <section id="function-cdd-i2c-setupeb">
@@ -917,7 +912,7 @@ This service reads the key I2C registers and returns their value.</p>
 
   <div role="contentinfo">
     <p>&#169; <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">Copyright</a>  2026, Texas Instruments Incorporated.
-          <span class="lastupdated" >Last updated on Jan 22, 2026.
+          <span class="lastupdated" >Last updated on Feb 10, 2026.
       </span><br>
         <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a> <br>
 

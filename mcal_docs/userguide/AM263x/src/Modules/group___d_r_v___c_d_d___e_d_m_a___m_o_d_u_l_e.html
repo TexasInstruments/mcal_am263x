@@ -227,19 +227,22 @@ EDMA interrupt callback function prototype.</p>
 <tr class="row-odd"><td><p><strong><a class="reference internal" href="../Classes/struct_cdd___dma___resource_object.html"><span class="std std-doc">Cdd_Dma_ResourceObject</span></a></strong></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><strong><a class="reference internal" href="../Classes/struct_cdd___dma___init_handle_type.html"><span class="std std-doc">Cdd_Dma_InitHandleType</span></a></strong></p></td>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="../Classes/struct_cdd___dma___channel_config_type.html"><span class="std std-doc">Cdd_Dma_ChannelConfigType</span></a></strong></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong><a class="reference internal" href="../Classes/struct_cdd___dma___register_readback_type.html"><span class="std std-doc">Cdd_Dma_RegisterReadbackType</span></a></strong></p></td>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="../Classes/struct_cdd___dma___init_handle_type.html"><span class="std std-doc">Cdd_Dma_InitHandleType</span></a></strong></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><strong><a class="reference internal" href="../Classes/struct_cdd___dma___handler.html"><span class="std std-doc">Cdd_Dma_Handler</span></a></strong></p></td>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="../Classes/struct_cdd___dma___register_readback_type.html"><span class="std std-doc">Cdd_Dma_RegisterReadbackType</span></a></strong></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong><a class="reference internal" href="../Classes/struct_cdd___dma___config_type.html"><span class="std std-doc">Cdd_Dma_ConfigType</span></a></strong></p></td>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="../Classes/struct_cdd___dma___handler.html"><span class="std std-doc">Cdd_Dma_Handler</span></a></strong></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><strong><a class="reference internal" href="../Classes/struct_cdd___dma___csl___mss___ctrl_regs.html"><span class="std std-doc">Cdd_Dma_Csl_Mss_CtrlRegs</span></a></strong></p></td>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="../Classes/struct_cdd___dma___config_type.html"><span class="std std-doc">Cdd_Dma_ConfigType</span></a></strong></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="../Classes/struct_cdd___dma___csl___mss___ctrl_regs.html"><span class="std std-doc">Cdd_Dma_Csl_Mss_CtrlRegs</span></a></strong></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -539,11 +542,11 @@ EDMA interrupt callback function prototype.</p>
 <td><p>Copy the user specified PaRAM Set onto the PaRAM Set associated with the logical channel (DMA/Link).</p></td>
 </tr>
 <tr class="row-odd"><td><p>uint32</p></td>
-<td><p><strong><a class="reference internal" href="#function-cdd-edma-lld-configurechannelregion"><span class="std std-ref">CDD_EDMA_lld_configureChannelRegion</span></a></strong>(uint32 baseAddr, uint32 regionId, uint32 chType, uint32 chNum, uint32 tccNum, uint32 paramId, uint32 evtQNum)</p></td>
+<td><p><strong><a class="reference internal" href="#function-cdd-edma-lld-configurechannelregion"><span class="std std-ref">CDD_EDMA_lld_configureChannelRegion</span></a></strong>(uint32 baseAddr, uint32 regionId, const Cdd_Dma_ChannelConfigType * chConfig)</p></td>
 <td><p>Request a DMA/QDMA/Link channel.</p></td>
 </tr>
 <tr class="row-even"><td><p>uint32</p></td>
-<td><p><strong><a class="reference internal" href="#function-cdd-edma-lld-freechannelregion"><span class="std std-ref">CDD_EDMA_lld_freeChannelRegion</span></a></strong>(uint32 baseAddr, uint32 regionId, uint32 chType, uint32 chNum, uint32 trigMode, uint32 tccNum, uint32 evtQNum)</p></td>
+<td><p><strong><a class="reference internal" href="#function-cdd-edma-lld-freechannelregion"><span class="std std-ref">CDD_EDMA_lld_freeChannelRegion</span></a></strong>(uint32 baseAddr, uint32 regionId, uint32 chType, uint32 chNum, uint32 trigMode)</p></td>
 <td><p>Free the specified channel (DMA/QDMA/Link) and its associated resources (PaRAM Set, TCC etc) and removes various mappings.</p></td>
 </tr>
 <tr class="row-odd"><td><p>uint32</p></td>
@@ -997,11 +1000,7 @@ Copy the user specified PaRAM Set onto the PaRAM Set associated with the logical
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">uint32</span><span class="w"> </span><span class="n">CDD_EDMA_lld_configureChannelRegion</span><span class="p">(</span>
 <span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">baseAddr</span><span class="p">,</span>
 <span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">regionId</span><span class="p">,</span>
-<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">chType</span><span class="p">,</span>
-<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">chNum</span><span class="p">,</span>
-<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">tccNum</span><span class="p">,</span>
-<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">paramId</span><span class="p">,</span>
-<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">evtQNum</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Cdd_Dma_ChannelConfigType</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">chConfig</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1032,9 +1031,7 @@ Request a DMA/QDMA/Link channel.</p>
 <span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">regionId</span><span class="p">,</span>
 <span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">chType</span><span class="p">,</span>
 <span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">chNum</span><span class="p">,</span>
-<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">trigMode</span><span class="p">,</span>
-<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">tccNum</span><span class="p">,</span>
-<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">evtQNum</span>
+<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="n">trigMode</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1408,7 +1405,7 @@ Function used for register read back.</p>
 
   <div role="contentinfo">
     <p>&#169; <a href="https://www.ti.com/corp/docs/legal/copyright.shtml">Copyright</a>  2026, Texas Instruments Incorporated.
-          <span class="lastupdated" >Last updated on Jan 22, 2026.
+          <span class="lastupdated" >Last updated on Feb 10, 2026.
       </span><br>
         <a href="https://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="https://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="https://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="https://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a> <br>
 

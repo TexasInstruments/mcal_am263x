@@ -74,14 +74,6 @@ typedef void(* Cdd_I2c_SequenceEndNotification) (void);
 **Brief**: 
 Callback routine provided by the user for each Sequence to notify the caller that a Sequence has been finished. 
 
-**Parameters**: 
-
-  
-* **sequenceId** Sequence which is finished 
-  
-* **result** Status of currently executed sequence 
-
-
 
 
 ### typedef Cdd_I2c_SequenceErrorNotification
@@ -367,7 +359,7 @@ Service ID[hex] - CDD_I2C_SID_INIT Sync/Async - Synchronous Reentrancy - Non Ree
 **Parameters**: 
 
   
-* **ConfigPtr** Pointer to CDD_I2C Driver configuration set 
+* **configPtr** Pointer to CDD_I2C Driver configuration set 
 
 
 ### function Cdd_I2c_DeInit
@@ -407,7 +399,7 @@ Service ID[hex] - CDD_I2C_SID_GET_VERSION_INFO Sync/Async - Synchronous Reentran
 **Parameters**: 
 
   
-* **VersionInfo** Pointer to where to store the version information of this module 
+* **versionInfo** Pointer to where to store the version information of this module 
 
 
 ### function Cdd_I2c_SetupEB

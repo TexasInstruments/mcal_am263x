@@ -60,11 +60,11 @@
             [!ENDIF!]
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Fls_TI_AM263x/Fls_ModuleEntry/Fls_SetEraseType</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>                        
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsSetModeApi = 'true'"!]
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Fls_TI_AM263x/Fls_ModuleEntry/Fls_SetMode</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL> 
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!]
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Fls_TI_AM263x/Fls_ModuleEntry/Fls_Write</BSW-MODULE-ENTRY-REF>
@@ -92,7 +92,6 @@
               </TARGET-MODULE-REFS>
             </BSW-MODULE-DEPENDENCY>
             [!ENDIF!]
-          </BSW-MODULE-DEPENDENCYS>
           <INTERNAL-BEHAVIORS>
             <BSW-INTERNAL-BEHAVIOR UUID="dd6765d7-3996-40da-b7fd-f9e50b74661d">
               <SHORT-NAME>Fls_Behavior</SHORT-NAME>
@@ -222,6 +221,7 @@
                   [!ELSE!]
                   <INTERRUPT-CATEGORY>CAT-1</INTERRUPT-CATEGORY>
                   [!ENDIF!]
+                  <INTERRUPT-SOURCE>Hardware</INTERRUPT-SOURCE>
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-CALLED-ENTITY UUID="19a650c1-5b4f-48ec-b2ac-c5163704e755">
                   <SHORT-NAME>Fls_Init</SHORT-NAME>
@@ -414,7 +414,7 @@
                   <SHORT-LABEL>generate::src::Fls_PBcfg.c</SHORT-LABEL>
                   <CATEGORY>SWSRC</CATEGORY>
                 </AUTOSAR-ENGINEERING-OBJECT>
-              </ARTIFACT-DESCRIPTORS>             
+              </ARTIFACT-DESCRIPTORS>
             </CODE>
           </CODE-DESCRIPTORS>
           <COMPILERS>
@@ -497,7 +497,7 @@
           <BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/Fls_TI_AM263x/Fls/Fls_Behavior</BEHAVIOR-REF>
           <VENDOR-SPECIFIC-MODULE-DEF-REFS>
             <VENDOR-SPECIFIC-MODULE-DEF-REF DEST="ECUC-MODULE-DEF">/TI_AM263x/Fls</VENDOR-SPECIFIC-MODULE-DEF-REF>
-          </VENDOR-SPECIFIC-MODULE-DEF-REFS>        
+          </VENDOR-SPECIFIC-MODULE-DEF-REFS>
         </BSW-IMPLEMENTATION>
       </ELEMENTS>
       <AR-PACKAGES>
@@ -518,7 +518,7 @@
               <SHORT-NAME>Fls_Cancel</SHORT-NAME>
               <SERVICE-ID>3</SERVICE-ID>
               <IS-REENTRANT>false</IS-REENTRANT>
-              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>              
+              <IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
               <CALL-TYPE>REGULAR</CALL-TYPE>
               <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
               <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
@@ -528,7 +528,7 @@
               <SHORT-NAME>Fls_Compare</SHORT-NAME>
               <SERVICE-ID>8</SERVICE-ID>
               <IS-REENTRANT>false</IS-REENTRANT>
-              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS> 
+              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
               <CALL-TYPE>REGULAR</CALL-TYPE>
               <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
               <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
@@ -538,7 +538,7 @@
               <SHORT-NAME>Fls_Erase</SHORT-NAME>
               <SERVICE-ID>1</SERVICE-ID>
               <IS-REENTRANT>false</IS-REENTRANT>
-              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS> 
+              <IS-SYNCHRONOUS>false</IS-SYNCHRONOUS>
               <CALL-TYPE>REGULAR</CALL-TYPE>
               <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
               <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
@@ -636,7 +636,7 @@
               <EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
               <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
               <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
-            </BSW-MODULE-ENTRY>             
+            </BSW-MODULE-ENTRY>
             <BSW-MODULE-ENTRY UUID="3f8e3955-a0c8-4442-a914-ab48243cfd71">
               <SHORT-NAME>Fls_SetMode</SHORT-NAME>
               <SERVICE-ID>9</SERVICE-ID>

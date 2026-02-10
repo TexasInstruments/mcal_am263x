@@ -73,6 +73,7 @@ EDMA interrupt callback function prototype.
 | **[Cdd_Dma_ParamSets](../Classes/struct_cdd___dma___param_sets.md)** |  |
 | **[Cdd_Dma_ChannelGroup](../Classes/struct_cdd___dma___channel_group.md)** |  |
 | **[Cdd_Dma_ResourceObject](../Classes/struct_cdd___dma___resource_object.md)** |  |
+| **[Cdd_Dma_ChannelConfigType](../Classes/struct_cdd___dma___channel_config_type.md)** |  |
 | **[Cdd_Dma_InitHandleType](../Classes/struct_cdd___dma___init_handle_type.md)** |  |
 | **[Cdd_Dma_RegisterReadbackType](../Classes/struct_cdd___dma___register_readback_type.md)** |  |
 | **[Cdd_Dma_Handler](../Classes/struct_cdd___dma___handler.md)** |  |
@@ -175,8 +176,8 @@ EDMA interrupt callback function prototype.
 | void | **[CDD_EDMA_lld_clrIntrRegion](../Modules/group___d_r_v___c_d_d___e_d_m_a___m_o_d_u_l_e.md#function-cdd_edma_lld_clrintrregion)**(uint32 baseAddr, uint32 regionId, uint32 value)| Enables the user to Clear an Interrupt.  |
 | void | **[CDD_EDMA_lld_getPaRAM](../Modules/group___d_r_v___c_d_d___e_d_m_a___m_o_d_u_l_e.md#function-cdd_edma_lld_getparam)**(uint32 baseAddr, uint32 paRAMId, CDD_EDMACCEDMACCPaRAMEntry * currPaRAM)| Retrieve existing PaRAM set associated with specified logical channel (DMA/Link).  |
 | void | **[CDD_EDMA_lld_setPaRAM](../Modules/group___d_r_v___c_d_d___e_d_m_a___m_o_d_u_l_e.md#function-cdd_edma_lld_setparam)**(uint32 baseAddr, uint32 paRAMId, const CDD_EDMACCEDMACCPaRAMEntry * newPaRAM)| Copy the user specified PaRAM Set onto the PaRAM Set associated with the logical channel (DMA/Link).  |
-| uint32 | **[CDD_EDMA_lld_configureChannelRegion](../Modules/group___d_r_v___c_d_d___e_d_m_a___m_o_d_u_l_e.md#function-cdd_edma_lld_configurechannelregion)**(uint32 baseAddr, uint32 regionId, uint32 chType, uint32 chNum, uint32 tccNum, uint32 paramId, uint32 evtQNum)| Request a DMA/QDMA/Link channel.  |
-| uint32 | **[CDD_EDMA_lld_freeChannelRegion](../Modules/group___d_r_v___c_d_d___e_d_m_a___m_o_d_u_l_e.md#function-cdd_edma_lld_freechannelregion)**(uint32 baseAddr, uint32 regionId, uint32 chType, uint32 chNum, uint32 trigMode, uint32 tccNum, uint32 evtQNum)| Free the specified channel (DMA/QDMA/Link) and its associated resources (PaRAM Set, TCC etc) and removes various mappings.  |
+| uint32 | **[CDD_EDMA_lld_configureChannelRegion](../Modules/group___d_r_v___c_d_d___e_d_m_a___m_o_d_u_l_e.md#function-cdd_edma_lld_configurechannelregion)**(uint32 baseAddr, uint32 regionId, const Cdd_Dma_ChannelConfigType * chConfig)| Request a DMA/QDMA/Link channel.  |
+| uint32 | **[CDD_EDMA_lld_freeChannelRegion](../Modules/group___d_r_v___c_d_d___e_d_m_a___m_o_d_u_l_e.md#function-cdd_edma_lld_freechannelregion)**(uint32 baseAddr, uint32 regionId, uint32 chType, uint32 chNum, uint32 trigMode)| Free the specified channel (DMA/QDMA/Link) and its associated resources (PaRAM Set, TCC etc) and removes various mappings.  |
 | uint32 | **[CDD_EDMA_lld_enableTransferRegion](../Modules/group___d_r_v___c_d_d___e_d_m_a___m_o_d_u_l_e.md#function-cdd_edma_lld_enabletransferregion)**(uint32 baseAddr, uint32 regionId, uint32 chNum, uint32 trigMode)| Start EDMA transfer on the specified channel.  |
 | uint32 | **[CDD_EDMA_lld_disableTransferRegion](../Modules/group___d_r_v___c_d_d___e_d_m_a___m_o_d_u_l_e.md#function-cdd_edma_lld_disabletransferregion)**(uint32 baseAddr, uint32 regionId, uint32 chNum, uint32 trigMode)| Disable DMA transfer on the specified channel.  |
 | uint32 | **[CDD_EDMA_lld_intrStatusHighGetRegion](../Modules/group___d_r_v___c_d_d___e_d_m_a___m_o_d_u_l_e.md#function-cdd_edma_lld_intrstatushighgetregion)**(uint32 baseAddr, uint32 regionId)| This function returns interrupt status of those events which are greater than 32.  |
@@ -737,11 +738,7 @@ This API takes a PaRAM Set as input and copies it onto the actual PaRAM Set asso
 uint32 CDD_EDMA_lld_configureChannelRegion(
     uint32 baseAddr,
     uint32 regionId,
-    uint32 chType,
-    uint32 chNum,
-    uint32 tccNum,
-    uint32 paramId,
-    uint32 evtQNum
+    const Cdd_Dma_ChannelConfigType * chConfig
 )
 ```
 
@@ -790,9 +787,7 @@ uint32 CDD_EDMA_lld_freeChannelRegion(
     uint32 regionId,
     uint32 chType,
     uint32 chNum,
-    uint32 trigMode,
-    uint32 tccNum,
-    uint32 evtQNum
+    uint32 trigMode
 )
 ```
 

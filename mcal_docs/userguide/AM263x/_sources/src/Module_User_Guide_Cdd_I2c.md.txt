@@ -354,6 +354,23 @@ Not Supported
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
 
+##### CddI2cMainFunctionPeriod
+
+| Item ||
+|--------|---------------|
+| **Name** | CddI2cMainFunctionPeriod |
+| **Description** | This parameter describes the period for cyclic call to Cdd_I2c_MainFunction. Unit is seconds. |
+| **Multiplicity-Configuration-Class** | -- |
+| Pre-Compile Time | VARIANT-PRE-COMPILE |
+| **Origin** | Texas Instruments |
+| **Post-build-variant-multiplicity** | false |
+| **Post-Build-Variant-Value** | false |
+| **Value-Configuration-Class** | -- |
+| Pre-Compile-Time | VARIANT-PRE-COMPILE |
+| **Default-value** | 0.01 |
+| **Max-value** | INF |
+| **Min-value** | 0.0 |
+
 #### CddI2cHwConfig
 This container contains the HW unit initialization parameters
 

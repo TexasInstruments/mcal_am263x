@@ -12,22 +12,22 @@
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuWakeupFunctionalityApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_CheckWakeup</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuDeInitApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_Deinit</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEdgeCountApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_DisableEdgeCount</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEdgeDetectApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_DisableEdgeDetection</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_DisableNotification</BSW-MODULE-ENTRY-REF>
@@ -35,17 +35,17 @@
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuDisableWakeupApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_DisableWakeup</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEdgeCountApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_EnableEdgeCount</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEdgeDetectApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_EnableEdgeDetection</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_EnableNotification</BSW-MODULE-ENTRY-REF>
@@ -53,37 +53,37 @@
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEnableWakeupApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_EnableWakeup</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuGetDutyCycleValuesApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_GetDutyCycleValues</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEdgeCountApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_GetEdgeNumbers</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuGetInputStateApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_GetInputState</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuGetTimeElapsedApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_GetTimeElapsed</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuTimestampApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_GetTimestampIndex</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuGetVersionInfoApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_GetVersionInfo</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_Init</BSW-MODULE-ENTRY-REF>
@@ -94,12 +94,12 @@
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEnableRegisterReadbackApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_RegisterReadback</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEdgeCountApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_ResetEdgeCount</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_SetActivationCondition</BSW-MODULE-ENTRY-REF>
@@ -107,27 +107,27 @@
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuSetModeApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_SetMode</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuSignalMeasurementApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_StartSignalMeasurement</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuTimestampApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_StartTimestamp</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuSignalMeasurementApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_StopSignalMeasurement</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuTimestampApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_StopTimestamp</BSW-MODULE-ENTRY-REF>
-            </BSW-MODULE-ENTRY-REF-CONDITIONAL>  
+            </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             [!LOOP "as:modconf('Icu')[1]/IcuConfigSet"!][!//
             [!LOOP "IcuChannel/*"!][!/*Channel Loop */!][!//
@@ -180,7 +180,7 @@
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_ch9Notify</BSW-MODULE-ENTRY-REF>
             </BSW-MODULE-ENTRY-REF-CONDITIONAL>
-            [!ENDIF!][!//            
+            [!ENDIF!][!//
             [!ENDLOOP!][!//
             [!ENDLOOP!][!//
           </EXPECTED-ENTRYS>
@@ -207,11 +207,11 @@
               <ENTITYS>
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuWakeupFunctionalityApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="4b43ca2b-b0cd-4bed-8a49-25ee1015fe6a">
-                  <SHORT-NAME>Icu_CheckWakeup</SHORT-NAME>    
+                  <SHORT-NAME>Icu_CheckWakeup</SHORT-NAME>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_CheckWakeup</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuDeInitApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="92a9fa61-ed40-4d3c-92f2-34c25d56865c">
                   <SHORT-NAME>Icu_Deinit</SHORT-NAME>
@@ -226,10 +226,10 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_Deinit</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEdgeCountApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="61e29ce4-8ce3-455d-b1fd-b2758704fb0b">
-                  <SHORT-NAME>Icu_DisableEdgeCount</SHORT-NAME>    
+                  <SHORT-NAME>Icu_DisableEdgeCount</SHORT-NAME>
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Icu_TI_AM263x/Icu/Icu_Behavior/ICU_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
@@ -244,7 +244,7 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_DisableEdgeCount</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEdgeDetectApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="03b3d9e0-7246-4c8f-99ad-ace68a31755d">
                   <SHORT-NAME>Icu_DisableEdgeDetection</SHORT-NAME>
@@ -262,7 +262,7 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_DisableEdgeDetection</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 <BSW-CALLED-ENTITY UUID="651bbd50-7d63-4d59-965e-17dff3fd0f04">
                   <SHORT-NAME>Icu_DisableNotification</SHORT-NAME>
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
@@ -285,10 +285,10 @@
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_DisableWakeup</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEdgeCountApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="077420f2-90f2-4729-b2d5-22a33ff2cde3">
-                  <SHORT-NAME>Icu_EnableEdgeCount</SHORT-NAME>    
+                  <SHORT-NAME>Icu_EnableEdgeCount</SHORT-NAME>
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Icu_TI_AM263x/Icu/Icu_Behavior/ICU_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
@@ -303,10 +303,10 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_EnableEdgeCount</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEdgeDetectApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="f6d93200-8acb-4050-af35-943f76dc1e66">
-                  <SHORT-NAME>Icu_EnableEdgeDetection</SHORT-NAME>    
+                  <SHORT-NAME>Icu_EnableEdgeDetection</SHORT-NAME>
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Icu_TI_AM263x/Icu/Icu_Behavior/ICU_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
@@ -321,7 +321,7 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_EnableEdgeDetection</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 <BSW-CALLED-ENTITY UUID="5f68c0b9-a9f7-49e9-812c-02712a496b8e">
                   <SHORT-NAME>Icu_EnableNotification</SHORT-NAME>
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
@@ -344,7 +344,7 @@
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_EnableWakeup</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuGetDutyCycleValuesApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="baa43ae5-81e2-43af-8181-ec39e10fd449">
                   <SHORT-NAME>Icu_GetDutyCycleValues</SHORT-NAME>
@@ -362,10 +362,10 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_GetDutyCycleValues</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEdgeCountApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="df053cff-01bc-4cce-b79a-a971c0bb8a54">
-                  <SHORT-NAME>Icu_GetEdgeNumbers</SHORT-NAME>    
+                  <SHORT-NAME>Icu_GetEdgeNumbers</SHORT-NAME>
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Icu_TI_AM263x/Icu/Icu_Behavior/ICU_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
@@ -380,7 +380,7 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_GetEdgeNumbers</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuGetInputStateApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="6b3bc263-2543-4916-a469-99a8d5967050">
                   <SHORT-NAME>Icu_GetInputState</SHORT-NAME>
@@ -398,7 +398,7 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_GetInputState</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuGetTimeElapsedApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="5eadd01a-497c-407a-8e51-6cae225563b9">
                   <SHORT-NAME>Icu_GetTimeElapsed</SHORT-NAME>
@@ -416,7 +416,7 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_GetTimeElapsed</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuTimestampApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="00a012eb-6077-4f8c-bc6b-bd880428578c">
                   <SHORT-NAME>Icu_GetTimestampIndex</SHORT-NAME>
@@ -434,10 +434,10 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_GetTimestampIndex</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuGetVersionInfoApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="e3d5179a-4e95-4ba8-9aa3-fca2e37535ac">
-                  <SHORT-NAME>Icu_GetVersionInfo</SHORT-NAME>    
+                  <SHORT-NAME>Icu_GetVersionInfo</SHORT-NAME>
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Icu_TI_AM263x/Icu/Icu_Behavior/ICU_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
@@ -452,9 +452,9 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_GetVersionInfo</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 <BSW-CALLED-ENTITY UUID="75012fdc-54da-4612-a30b-6b0938ede4a9">
-                  <SHORT-NAME>Icu_Init</SHORT-NAME>    
+                  <SHORT-NAME>Icu_Init</SHORT-NAME>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Icu')[1]/IcuGeneral/IcuDevErrorDetect = 'true'"!][!//
@@ -467,7 +467,7 @@
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_Init</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="162521f3-cb9c-42c8-85e0-cfd54ab36414">
-                  <SHORT-NAME>Icu_IntISR_Fun</SHORT-NAME>    
+                  <SHORT-NAME>Icu_IntISR_Fun</SHORT-NAME>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Icu')[1]/IcuGeneral/IcuDevErrorDetect = 'true'"!][!//
@@ -483,10 +483,11 @@
                   [!ELSE!]
                   <INTERRUPT-CATEGORY>CAT-1</INTERRUPT-CATEGORY>
                   [!ENDIF!][!//
+                  <INTERRUPT-SOURCE>Hardware</INTERRUPT-SOURCE>
                 </BSW-INTERRUPT-ENTITY>
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEnableRegisterReadbackApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="7093e647-5bee-43ae-942f-7700c7d34aaf">
-                  <SHORT-NAME>Icu_RegisterReadback</SHORT-NAME>    
+                  <SHORT-NAME>Icu_RegisterReadback</SHORT-NAME>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Icu')[1]/IcuGeneral/IcuDevErrorDetect = 'true'"!][!//
@@ -498,10 +499,10 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_RegisterReadback</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuEdgeCountApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="40f41045-5dd6-4c59-9f3e-c513f68a1f82">
-                  <SHORT-NAME>Icu_ResetEdgeCount</SHORT-NAME>    
+                  <SHORT-NAME>Icu_ResetEdgeCount</SHORT-NAME>
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Icu_TI_AM263x/Icu/Icu_Behavior/ICU_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
@@ -516,7 +517,7 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_ResetEdgeCount</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 <BSW-CALLED-ENTITY UUID="a8cbabbd-922f-4766-be62-f44c6e00f9b6">
                   <SHORT-NAME>Icu_SetActivationCondition</SHORT-NAME>
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
@@ -539,7 +540,7 @@
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_SetMode</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuSignalMeasurementApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="19cb8d6d-dd14-4514-b0e0-88e7cce7ca47">
                   <SHORT-NAME>Icu_StartSignalMeasurement</SHORT-NAME>
@@ -557,7 +558,7 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_StartSignalMeasurement</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuTimestampApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="1f888f66-0a79-4305-ba02-888f021e7c0c">
                   <SHORT-NAME>Icu_StartTimestamp</SHORT-NAME>
@@ -575,7 +576,7 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_StartTimestamp</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuSignalMeasurementApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="701f5e00-29c5-46ef-90fa-da95a2dde915">
                   <SHORT-NAME>Icu_StopSignalMeasurement</SHORT-NAME>
@@ -593,7 +594,7 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_StopSignalMeasurement</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!IF "as:modconf('Icu')[1]/IcuOptionalApis/IcuTimestampApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="e4ef4c40-6dcc-4432-ad81-6deea5e476c9">
                   <SHORT-NAME>Icu_StopTimestamp</SHORT-NAME>
@@ -615,7 +616,7 @@
                   </CALL-POINTS>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Icu_TI_AM263x/Icu_ModuleEntry/Icu_StopTimestamp</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
-                [!ENDIF!][!// 
+                [!ENDIF!][!//
                 [!LOOP "as:modconf('Icu')[1]/IcuConfigSet"!][!//
                 [!LOOP "IcuChannel/*"!][!/*Channel Loop */!][!//
                 [!IF "IcuChannelId = '0'"!][!//
@@ -636,11 +637,12 @@
                   [!ELSE!]
                   <INTERRUPT-CATEGORY>CAT-1</INTERRUPT-CATEGORY>
                   [!ENDIF!][!//
-                </BSW-INTERRUPT-ENTITY>  
+                  <INTERRUPT-SOURCE>Hardware</INTERRUPT-SOURCE>
+                </BSW-INTERRUPT-ENTITY>
                 [!ENDIF!][!//
                 [!IF "IcuChannelId = '1'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="d47c04eb-7348-4ec0-81ff-59ac84a55617">
-                  <SHORT-NAME>Icu_ch1Notify</SHORT-NAME>    
+                  <SHORT-NAME>Icu_ch1Notify</SHORT-NAME>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Icu')[1]/IcuGeneral/IcuDevErrorDetect = 'true'"!][!//
@@ -656,11 +658,12 @@
                   [!ELSE!]
                   <INTERRUPT-CATEGORY>CAT-1</INTERRUPT-CATEGORY>
                   [!ENDIF!][!//
-                </BSW-INTERRUPT-ENTITY>  
+                  <INTERRUPT-SOURCE>Hardware</INTERRUPT-SOURCE>
+                </BSW-INTERRUPT-ENTITY>
                 [!ENDIF!][!//
                 [!IF "IcuChannelId = '2'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="5e5ce40f-c6d8-474e-bf98-899b16f23f48">
-                  <SHORT-NAME>Icu_ch2Notify</SHORT-NAME>    
+                  <SHORT-NAME>Icu_ch2Notify</SHORT-NAME>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Icu')[1]/IcuGeneral/IcuDevErrorDetect = 'true'"!][!//
@@ -676,11 +679,12 @@
                   [!ELSE!]
                   <INTERRUPT-CATEGORY>CAT-1</INTERRUPT-CATEGORY>
                   [!ENDIF!][!//
-                </BSW-INTERRUPT-ENTITY>  
+                  <INTERRUPT-SOURCE>Hardware</INTERRUPT-SOURCE>
+                </BSW-INTERRUPT-ENTITY>
                 [!ENDIF!][!//
                 [!IF "IcuChannelId = '3'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="29e42ab9-6ec3-4b95-9840-19fd97915752">
-                  <SHORT-NAME>Icu_ch3Notify</SHORT-NAME>    
+                  <SHORT-NAME>Icu_ch3Notify</SHORT-NAME>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Icu')[1]/IcuGeneral/IcuDevErrorDetect = 'true'"!][!//
@@ -696,11 +700,12 @@
                   [!ELSE!]
                   <INTERRUPT-CATEGORY>CAT-1</INTERRUPT-CATEGORY>
                   [!ENDIF!][!//
-                </BSW-INTERRUPT-ENTITY>  
+                  <INTERRUPT-SOURCE>Hardware</INTERRUPT-SOURCE>
+                </BSW-INTERRUPT-ENTITY>
                 [!ENDIF!][!//
                 [!IF "IcuChannelId = '4'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="bc7e7fa3-f05e-41cf-bb0a-4d01954fa92c">
-                  <SHORT-NAME>Icu_ch4Notify</SHORT-NAME>    
+                  <SHORT-NAME>Icu_ch4Notify</SHORT-NAME>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Icu')[1]/IcuGeneral/IcuDevErrorDetect = 'true'"!][!//
@@ -716,11 +721,12 @@
                   [!ELSE!]
                   <INTERRUPT-CATEGORY>CAT-1</INTERRUPT-CATEGORY>
                   [!ENDIF!][!//
-                </BSW-INTERRUPT-ENTITY>  
+                  <INTERRUPT-SOURCE>Hardware</INTERRUPT-SOURCE>
+                </BSW-INTERRUPT-ENTITY>
                 [!ENDIF!][!//
                 [!IF "IcuChannelId = '5'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="47d72db4-aeb3-4418-98f8-1d5afb494d2b">
-                  <SHORT-NAME>Icu_ch5Notify</SHORT-NAME>    
+                  <SHORT-NAME>Icu_ch5Notify</SHORT-NAME>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Icu')[1]/IcuGeneral/IcuDevErrorDetect = 'true'"!][!//
@@ -736,11 +742,12 @@
                   [!ELSE!]
                   <INTERRUPT-CATEGORY>CAT-1</INTERRUPT-CATEGORY>
                   [!ENDIF!][!//
-                </BSW-INTERRUPT-ENTITY>  
+                  <INTERRUPT-SOURCE>Hardware</INTERRUPT-SOURCE>
+                </BSW-INTERRUPT-ENTITY>
                 [!ENDIF!][!//
                 [!IF "IcuChannelId = '6'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="9f5ac732-4589-46d8-b76d-27d82ab55356">
-                  <SHORT-NAME>Icu_ch6Notify</SHORT-NAME>    
+                  <SHORT-NAME>Icu_ch6Notify</SHORT-NAME>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Icu')[1]/IcuGeneral/IcuDevErrorDetect = 'true'"!][!//
@@ -756,11 +763,12 @@
                   [!ELSE!]
                   <INTERRUPT-CATEGORY>CAT-1</INTERRUPT-CATEGORY>
                   [!ENDIF!][!//
-                </BSW-INTERRUPT-ENTITY>  
+                  <INTERRUPT-SOURCE>Hardware</INTERRUPT-SOURCE>
+                </BSW-INTERRUPT-ENTITY>
                 [!ENDIF!][!//
                 [!IF "IcuChannelId = '7'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="aad63099-dab2-42f9-9df6-391704d082cb">
-                  <SHORT-NAME>Icu_ch7Notify</SHORT-NAME>    
+                  <SHORT-NAME>Icu_ch7Notify</SHORT-NAME>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Icu')[1]/IcuGeneral/IcuDevErrorDetect = 'true'"!][!//
@@ -776,11 +784,12 @@
                   [!ELSE!]
                   <INTERRUPT-CATEGORY>CAT-1</INTERRUPT-CATEGORY>
                   [!ENDIF!][!//
-                </BSW-INTERRUPT-ENTITY>  
+                  <INTERRUPT-SOURCE>Hardware</INTERRUPT-SOURCE>
+                </BSW-INTERRUPT-ENTITY>
                 [!ENDIF!][!//
                 [!IF "IcuChannelId = '8'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="41873a95-d00b-48f6-bc1a-7fac5cea8de6">
-                  <SHORT-NAME>Icu_ch8Notify</SHORT-NAME>    
+                  <SHORT-NAME>Icu_ch8Notify</SHORT-NAME>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Icu')[1]/IcuGeneral/IcuDevErrorDetect = 'true'"!][!//
@@ -796,11 +805,12 @@
                   [!ELSE!]
                   <INTERRUPT-CATEGORY>CAT-1</INTERRUPT-CATEGORY>
                   [!ENDIF!][!//
-                </BSW-INTERRUPT-ENTITY>  
+                  <INTERRUPT-SOURCE>Hardware</INTERRUPT-SOURCE>
+                </BSW-INTERRUPT-ENTITY>
                 [!ENDIF!][!//
                 [!IF "IcuChannelId = '9'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="1abee337-eee7-426d-b556-772f88ba6ab4">
-                  <SHORT-NAME>Icu_ch9Notify</SHORT-NAME>    
+                  <SHORT-NAME>Icu_ch9Notify</SHORT-NAME>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Icu')[1]/IcuGeneral/IcuDevErrorDetect = 'true'"!][!//
@@ -816,8 +826,9 @@
                   [!ELSE!]
                   <INTERRUPT-CATEGORY>CAT-1</INTERRUPT-CATEGORY>
                   [!ENDIF!][!//
-                </BSW-INTERRUPT-ENTITY>  
-                [!ENDIF!][!//                
+                  <INTERRUPT-SOURCE>Hardware</INTERRUPT-SOURCE>
+                </BSW-INTERRUPT-ENTITY>
+                [!ENDIF!][!//
                 [!ENDLOOP!][!//
                 [!ENDLOOP!][!//
               </ENTITYS>
