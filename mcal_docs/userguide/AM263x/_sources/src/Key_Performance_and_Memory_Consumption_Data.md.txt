@@ -201,7 +201,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| fls   | 6486    | 118    | 8232    |
+| fls   | 6490    | 118    | 8232    |
  
 ### FSIRX
 
