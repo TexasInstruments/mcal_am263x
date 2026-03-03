@@ -130,6 +130,12 @@ typedef struct
 {
     uint32                 Fls_Mode;
     /* Set Flash Protocol*/
+    uint32                 currentprotocolMode;
+    /**< Protocol for OSPI reading/writing. 32 bit integer with
+     * byte0 -> data lines
+     * byte1 -> addr lines
+     * byte2 -> cmd lines
+     * byte3 -> STR/DTR (0 = STR, 1 = DTR)*/
     Fls_JobEndNotifyType   Fls_JobEndNotification;
     /**<    Mapped to the job end notification routine provided by some upper layer
      *      module, typically the Fee module. */
@@ -219,8 +225,8 @@ Std_ReturnType Nor_OspiWaitReady(OSPI_Handle handle, uint32 timeOut);
 Std_ReturnType Nor_OspiReadId(OSPI_Handle handle);
 Std_ReturnType Nor_OspiRead(OSPI_Handle handle, uint32 offset, uint8 *buf, uint32 len);
 Std_ReturnType Nor_OspiWrite(OSPI_Handle handle, uint32 offset, uint8 *buf, uint32 len);
-Std_ReturnType Fls_norBlockErase(OSPI_Handle handle, uint32 blkNum);
-Std_ReturnType Fls_norSectorErase(OSPI_Handle handle, uint32 sectorNum);
+Std_ReturnType Fls_norBlockErase(OSPI_Handle handle, uint32 offset);
+Std_ReturnType Fls_norSectorErase(OSPI_Handle handle, uint32 offset);
 Std_ReturnType Fls_norChipErase(OSPI_Handle handle, uint32 offset);
 Std_ReturnType Nor_OspiSetQeBit(OSPI_Handle handle, uint8 qeType);
 Std_ReturnType Nor_OspiSetOeBit(OSPI_Handle handle, uint8 oeType);

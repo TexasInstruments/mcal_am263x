@@ -138,7 +138,7 @@ Performance Result through MCSPI with Dma are as follows:
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| adc   | 5508    | 4    | 3020    |
+| adc   | 5504    | 4    | 3020    |
  
 ### CAN
 
@@ -267,7 +267,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| spi   | 6700    | 1    | 2676    |
+| spi   | 6708    | 1    | 2676    |
  
 ### UART
 
