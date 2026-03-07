@@ -1,3 +1,24 @@
+commit f054a23a09fe1eb6ffe2dc98060bc709e6eebdcb
+Author: Sivaraj R <sivaraj@ti.com>
+Date:   Fri Mar 6 21:53:28 2026 +0530
+
+    all: script: cicd improvements
+    
+    - make default branch as main for github repo
+    - we can use tags RC buils and _STABLE tags for STS/LTS release
+    - also added the github repo branch as input so that we can push to
+      release or custom branches
+    - updated manifest to 26.00.00 convention
+    
+    Fixes: MCAL-35884
+    
+    Signed-off-by: Sivaraj R <sivaraj@ti.com>
+
+ mcal_manifest.html                              | 14 +++++++-------
+ mcal_misc/scripts/windows/mcal_make_all.sh      |  8 +++++++-
+ mcal_misc/scripts/windows/mcal_release_build.sh |  9 +++++++--
+ 3 files changed, 21 insertions(+), 10 deletions(-)
+
 commit 71410daaa7ae90e0972bc0c4bf0ce51015658f79
 Author: Asha D <asha.d@ti.com>
 Date:   Fri Mar 6 16:04:22 2026 +0530
