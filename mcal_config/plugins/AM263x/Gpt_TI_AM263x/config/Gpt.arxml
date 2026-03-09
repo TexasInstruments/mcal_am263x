@@ -98,7 +98,7 @@
                         </ECUC-ENUMERATION-LITERAL-DEF>
                       </LITERALS>
                     </ECUC-ENUMERATION-PARAM-DEF>
-                    <ECUC-ENUMERATION-PARAM-DEF UUID="9fe555ad-f7e6-4a4b-a390-b9d56f0f9623">
+                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:eb0e9178-0366-46f0-9fb3-40b0b643ad29">
                       <SHORT-NAME>GptCounterBlkId</SHORT-NAME>
                       <DESC>
                         <L-2 L="EN">This is the Counter block ID for the RTI modules. Each RTI module has 2 counter blocks that are defined in this configuration parameter. </L-2>
@@ -583,7 +583,7 @@
                     </ECUC-ENUMERATION-LITERAL-DEF>
                   </LITERALS>
                 </ECUC-ENUMERATION-PARAM-DEF>
-                <ECUC-INTEGER-PARAM-DEF UUID="fbb4bf5b-168d-477d-b3f9-f7b0adc9421b">
+                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:10f9ba4d-363b-47d8-bb80-c1952c44e51c">
                   <SHORT-NAME>GptPrescaler</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Prescaler value defined to get the desired frequency.</L-2>
@@ -605,7 +605,7 @@
                   <MAX>2147483647</MAX>
                   <MIN>0</MIN>
                 </ECUC-INTEGER-PARAM-DEF>
-                <ECUC-INTEGER-PARAM-DEF UUID="1f2638ab-2a8d-4020-87b8-f98c6ab46737">
+                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:de25623c-34b4-42ee-b53a-72483ffd0a26">
                   <SHORT-NAME>GptModule0CounterBlk0Frequency</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Specifies the tick frequency of the timer channel in Hz.</L-2>
@@ -743,7 +743,7 @@
                   <MAX>2147483647</MAX>
                   <MIN>0</MIN>
                 </ECUC-INTEGER-PARAM-DEF>
-                <ECUC-INTEGER-PARAM-DEF UUID="1f2638ab-2a8d-4020-87b8-f98c6ab46741">
+                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:df0dc14e-3d97-4804-92d7-07ad89c08c88">
                   <SHORT-NAME>GptModule3CounterBlk0Frequency</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Specifies the tick frequency of the timer channel in Hz.</L-2>
@@ -766,7 +766,7 @@
                   <MAX>2147483647</MAX>
                   <MIN>0</MIN>
                 </ECUC-INTEGER-PARAM-DEF>
-                <ECUC-INTEGER-PARAM-DEF UUID="1f2638ab-2a8d-4020-87b8-f98c6ab46742">
+                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:a6a60aa7-2416-441a-b089-58319190cbd4">
                   <SHORT-NAME>GptModule3CounterBlk1Frequency</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Specifies the tick frequency of the timer channel in Hz.</L-2>
@@ -825,7 +825,7 @@
                   <MAX>16</MAX>
                   <MIN>0</MIN>
                 </ECUC-INTEGER-PARAM-DEF>
-                <ECUC-INTEGER-PARAM-DEF UUID="f3e7f7db-54f1-4a4a-9b08-253ec0d863a1">
+                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:588a793d-5d54-4373-ae76-479ad5162bc5">
                   <SHORT-NAME>GptTimeoutDuration</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">GPT timeout - used in GPT busy wait</L-2>

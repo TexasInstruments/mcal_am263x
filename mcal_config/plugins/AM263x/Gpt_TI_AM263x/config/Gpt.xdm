@@ -129,7 +129,7 @@
 												<a:a name="SCOPE" value="ECU"/>
 												<a:a name="SYMBOLICNAMEVALUE" value="false"/>
 												<a:a name="UUID"
-                           value="9fe555ad-f7e6-4a4b-a390-b9d56f0f9623"/>
+                           value="ECUC:eb0e9178-0366-46f0-9fb3-40b0b643ad29"/>
 												<a:da name="RANGE">
 													<a:v>GPT_RTI_COUNTER0</a:v>
 													<a:v>GPT_RTI_COUNTER1</a:v>
@@ -503,7 +503,7 @@
 									</a:a>
 									<a:a name="ORIGIN" value="Texas Instruments"/>
 									<a:a name="SYMBOLICNAMEVALUE" value="false"/>
-									<a:a name="UUID" value="fbb4bf5b-168d-477d-b3f9-f7b0adc9421b"/>
+									<a:a name="UUID" value="ECUC:10f9ba4d-363b-47d8-bb80-c1952c44e51c"/>
                                     <a:da name="INVALID" type="Range">
                                         <a:tst expr="&lt;=2147483647"/>
                                         <a:tst expr="&gt;=0"/>
@@ -524,7 +524,7 @@
 												<a:a name="SCOPE" value="ECU"/>
 												<a:a name="SYMBOLICNAMEVALUE" value="false"/>
 												<a:a name="UUID"
-                           value="1f2638ab-2a8d-4020-87b8-f98c6ab46737"/>
+                           value="ECUC:de25623c-34b4-42ee-b53a-72483ffd0a26"/>
 												<a:a name="DEFAULT" value="0"/>
 												<a:da name="INVALID" type="Range">
 													<a:tst expr="&lt;=2147483647"/>
@@ -658,7 +658,7 @@
 												<a:a name="SCOPE" value="ECU"/>
 												<a:a name="SYMBOLICNAMEVALUE" value="false"/>
 												<a:a name="UUID"
-                           value="1f2638ab-2a8d-4020-87b8-f98c6ab46741"/>
+                           value="ECUC:df0dc14e-3d97-4804-92d7-07ad89c08c88"/>
 												<a:a name="DEFAULT" value="0"/>
 												<a:da name="INVALID" type="Range">
 													<a:tst expr="&lt;=2147483647"/>
@@ -680,7 +680,7 @@
 												<a:a name="SCOPE" value="ECU"/>
 												<a:a name="SYMBOLICNAMEVALUE" value="false"/>
 												<a:a name="UUID"
-                           value="1f2638ab-2a8d-4020-87b8-f98c6ab46742"/>
+                           value="ECUC:a6a60aa7-2416-441a-b089-58319190cbd4"/>
 												<a:a name="DEFAULT" value="0"/>
 												<a:da name="INVALID" type="Range">
 													<a:tst expr="&lt;=2147483647"/>
@@ -758,7 +758,7 @@
 									<icc:v class="PreCompile">VariantPreCompile</icc:v>
 								  </a:a>
 								  <a:a name="ORIGIN" value="Texas Instruments"/>
-								  <a:a name="UUID" value="f3e7f7db-54f1-4a4a-9b08-253ec0d863a1"/>
+								  <a:a name="UUID" value="ECUC:588a793d-5d54-4373-ae76-479ad5162bc5"/>
 								  <a:da name="INVALID" type="Range">
 									<a:tst expr="&lt;=4294967295"/>
 									<a:tst expr="&gt;=1"/>

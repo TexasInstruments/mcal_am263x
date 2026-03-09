@@ -2647,7 +2647,7 @@
                     </ECUC-ENUMERATION-LITERAL-DEF>
                   </LITERALS>
                 </ECUC-ENUMERATION-PARAM-DEF>
-                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:dea3100e-9142-4ec6-a27c-8766ebf23d67">
+                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:dddec1ef-de79-4cb7-ab6f-c0489417dcf4">
                   <SHORT-NAME>CanRegisterReadbackAPI</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Enable/Disable configuration readback safe TI API.If this parameter is set to true the readback API shall be supported. Otherwise the API is not supported.</L-2>
@@ -2667,7 +2667,7 @@
                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
                   <DEFAULT-VALUE>true</DEFAULT-VALUE>
                 </ECUC-BOOLEAN-PARAM-DEF>
-                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:dddec1ef-de79-4cb7-ab6f-c0489417dcf4">
+                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:4efc3bf4-1082-4587-bfa2-64a5ea9f410c">
                   <SHORT-NAME>CanLoopBackTest_Enable</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Enable/Disable LoopBack test API.If this parameter is set to true the LoopBack mode shall be supported which is used for internal testing. Otherwise the API is not supported.</L-2>

@@ -337,7 +337,7 @@
                            value="ECUC:2730d1c3-ea87-4005-954c-fdcdd0b4ddb4"/>
                                                 <a:da name="REF"
                               value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig"/>
-													
+
                                             </v:ref>
                                             <!--Requirements: ECUC_Can_00313 -->
                                             <!--Design: MCAL-16891 -->
@@ -661,7 +661,7 @@
 																		type="IMPLEMENTATIONCONFIGCLASS">
 																		<icc:v class="PostBuild">VariantPostBuild</icc:v>
 																		<icc:v class="PreCompile">VariantPreCompile</icc:v>
-                                                                     </a:a> 
+                                                                     </a:a>
 																<!--	<a:a name="OPTIONAL" value="true"/> -->
 																	<a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
 																	<a:a name="SCOPE" value="LOCAL"/>
@@ -1882,7 +1882,7 @@
                                     <a:a name="OPTIONAL" value="true"/>
                                     <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
                                     <a:a name="SYMBOLICNAMEVALUE" value="false"/>
-                                    <a:a name="UUID" value="ECUC:62e504da-ae0b-4f91-b61b-c84208fd518e"/>                                    
+                                    <a:a name="UUID" value="ECUC:62e504da-ae0b-4f91-b61b-c84208fd518e"/>
                                     <a:da name="INVALID" type="Range">
                                         <a:tst expr="&lt;=65.535"/>
                                         <a:tst expr="&gt;=0.001"/>
@@ -1908,7 +1908,7 @@
                                     </a:da>
                                     <a:da name="DEFAULT" value="10.0"/>
                                 </v:var>
-								
+
                                  <v:var name="CanMainFunctionReadPeriod" type="FLOAT">
                                      <a:a name="DESC"
 						value="EN: This parameter describes the period for cyclic call to Can_MainFunction_Read. Unit is seconds."/>
@@ -1944,7 +1944,7 @@
                                          <a:da name="DEFAULT" value="0.0010"/>
                                      </a:da>
                                  </v:var>
-											
+
                                 <!--Requirements: ECUC_Can_00357 -->
                                 <v:var name="CanMainFunctionWakeupPeriod" type="FLOAT">
                                     <a:a name="DESC"
@@ -2205,7 +2205,7 @@
 								<icc:v vclass="PreCompile">VariantPreCompile</icc:v>
 								</a:a>
 								<a:a name="ORIGIN" value="Texas Instruments"/>
-								<a:a name="UUID" value="ECUC:dea3100e-9142-4ec6-a27c-8766ebf23d67"/>
+								<a:a name="UUID" value="ECUC:dddec1ef-de79-4cb7-ab6f-c0489417dcf4"/>
 								<a:a name="SYMBOLICNAMEVALUE" value="false"/>
 								<a:da name="DEFAULT" value="true"/>
 								</v:var>
@@ -2218,7 +2218,7 @@
 									<icc:v vclass="PreCompile">VariantPreCompile</icc:v>
 									</a:a>
 									<a:a name="ORIGIN" value="Texas Instruments"/>
-									<a:a name="UUID" value="ECUC:dddec1ef-de79-4cb7-ab6f-c0489417dcf4"/>
+									<a:a name="UUID" value="ECUC:4efc3bf4-1082-4587-bfa2-64a5ea9f410c"/>
 									<a:a name="SYMBOLICNAMEVALUE" value="false"/>
 									<a:da name="DEFAULT" value="true"/>
 								</v:var>
@@ -2260,7 +2260,7 @@
 									 value="EN: Additional published parameters not covered by &quot;Common&quot; Published Information. Note that these parameters have &quot;PUBLISHED-INFORMATION&quot; configuration class setting, since they are published information."/>
 								<a:a name="UUID"
 									 value="ECUC:03f52c10-8440-4280-94f9-f2c30bc12ef9"/>
-								
+
 								<v:var name="CanDeviceVariant" type="ENUMERATION">
 									<a:a name="DESC" value="EN: Select SOC variant .This parameter shall be used by driver to impose device specific constraints. The user guide shall detail the device specific constraints "/>
 									<a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
