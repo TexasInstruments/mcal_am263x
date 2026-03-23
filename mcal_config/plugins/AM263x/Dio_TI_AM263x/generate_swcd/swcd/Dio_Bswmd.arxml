@@ -8,7 +8,7 @@
       <ELEMENTS>
         <BSW-MODULE-DESCRIPTION UUID="c1c1c37c-da38-4de0-82ef-19c781ad62f2">
           <SHORT-NAME>Dio</SHORT-NAME>
-          <EXPECTED-ENTRYS>
+          <IMPLEMENTED-ENTRYS>
 [!IF "DioGeneral/DioFlipChannelApi = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Dio_TI_AM263x/BSWModuleEntry/Dio_FlipChannel</BSW-MODULE-ENTRY-REF>
@@ -37,7 +37,7 @@
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Dio_TI_AM263x/BSWModuleEntry/Dio_WritePort</BSW-MODULE-ENTRY-REF>
             </BSW-MODULE-ENTRY-REF-CONDITIONAL>
-          </EXPECTED-ENTRYS>
+          </IMPLEMENTED-ENTRYS>
           <MODULE-ID>120</MODULE-ID>
           <BSW-MODULE-DEPENDENCYS>
 [!IF "DioGeneral/DioDemEnable = 'true'"!][!//

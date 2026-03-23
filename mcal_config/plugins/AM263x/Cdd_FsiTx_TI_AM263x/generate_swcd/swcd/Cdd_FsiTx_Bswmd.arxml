@@ -8,7 +8,7 @@
         <BSW-MODULE-DESCRIPTION UUID="f10365d7-7bbc-479a-8d68-b489f92a46d9">
           <SHORT-NAME>Cdd_FsiTx</SHORT-NAME>
           <CATEGORY>BSW_MODULE</CATEGORY>
-          <EXPECTED-ENTRYS>
+          <IMPLEMENTED-ENTRYS>
             [!LOOP "as:modconf('Cdd_FsiTx')[1]/CddFsiTxConfigSet"!][!//
             [!LOOP "CddFsiTxHwUnit/*"!][!//
             [!IF "CddFsiTxHwUnitId = 'CDD_FSI_TX_HWUNIT_0'"!][!//
@@ -94,7 +94,7 @@
               <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_FsiTx_TI_AM263x/Cdd_FsiTx_ModuleEntry/Cdd_FsiTx_Transmit</BSW-MODULE-ENTRY-REF>
             </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
-          </EXPECTED-ENTRYS>
+          </IMPLEMENTED-ENTRYS>
           <MODULE-ID>255</MODULE-ID>
           <BSW-MODULE-DEPENDENCYS>
             <BSW-MODULE-DEPENDENCY UUID="921299a5-07e4-4bc5-a5e0-695e1b1c1ba5">
