@@ -313,10 +313,10 @@ Not supported
 
 
 
-#### EthTrcvConfigSet
+### EthTrcvConfigSet
 This container contains the configuration parameters and sub containers of the AUTOSAR EthTrcv module.
 
-##### EthTrcvConfig
+#### EthTrcvConfig
 Configuration of the individual transceiver
 
 ###### EthTrcvAutoNegotiationEnabled
@@ -595,7 +595,7 @@ Configuration of the individual transceiver
 | Item ||
 |--------|---------------|
 | **Name** | EthTrcvDemEventParameterRefs |
-| **Description** | Reference to the DemEventParameter which shall be issued when the error "Timeout on blocking API call occurs " has occurred. |
+| **Description** | Container for the references to DemEventParameter elements which shall be invoked using the API Dem_SetEventStatus in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter's DemEventId symbolic value. The standardized errors are provided in this container and can be extended by vendor-specific error references. |
 | **Post-build-variant-multiplicity** | false |
 | **Multiplicity-Configuration-Class** | -- |
 | Link Time | VARIANT-LINK-TIME |
@@ -738,10 +738,10 @@ Structure for MDIO configuration
 | **Default-value** | ETHERNET_ADV_CAPAB_100_FULL |
 | **Range** | ETHERNET_ADV_CAPAB_10_HALF<br>ETHERNET_ADV_CAPAB_10_FULL<br>ETHERNET_ADV_CAPAB_100_HALF<br>ETHERNET_ADV_CAPAB_100_FULL<br>ETHERNET_ADV_CAPAB_1000_HALF<br>ETHERNET_ADV_CAPAB_1000_FULL |
 
-#### EthTrcvGeneral
+### EthTrcvGeneral
 General configuration of Ethernet Transceiver Driver module
 
-##### EthTrcvAutoNegotiationWaitCountTicks
+###### EthTrcvAutoNegotiationWaitCountTicks
 
 | Item ||
 |--------|---------------|
@@ -757,7 +757,7 @@ General configuration of Ethernet Transceiver Driver module
 | **Max-value** | 4294967295 |
 | **Min-value** | 0 |
 
-##### EthTrcvDevErrorDetect
+###### EthTrcvDevErrorDetect
 
 | Item ||
 |--------|---------------|
@@ -771,7 +771,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | false |
 
-##### EthTrcvGetBaudRateApi
+###### EthTrcvGetBaudRateApi
 
 | Item ||
 |--------|---------------|
@@ -785,7 +785,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
 
-##### EthTrcvGetCableDiagnosticsResultApi
+###### EthTrcvGetCableDiagnosticsResultApi
 
 | Item ||
 |--------|---------------|
@@ -799,7 +799,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
 
-##### EthTrcvGetDuplexModeApi
+###### EthTrcvGetDuplexModeApi
 
 | Item ||
 |--------|---------------|
@@ -813,7 +813,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
 
-##### EthTrcvGetLinkStateApi
+###### EthTrcvGetLinkStateApi
 
 | Item ||
 |--------|---------------|
@@ -827,7 +827,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
 
-##### EthTrcvGetPhyIdentifierApi
+###### EthTrcvGetPhyIdentifierApi
 
 | Item ||
 |--------|---------------|
@@ -841,7 +841,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
 
-##### EthTrcvGetPhySignalQualityApi
+###### EthTrcvGetPhySignalQualityApi
 
 | Item ||
 |--------|---------------|
@@ -855,7 +855,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
 
-##### EthTrcvGetTransceiverModeApi
+###### EthTrcvGetTransceiverModeApi
 
 | Item ||
 |--------|---------------|
@@ -869,7 +869,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
 
-##### EthTrcvGetTransceiverWakeupModeApi
+###### EthTrcvGetTransceiverWakeupModeApi
 
 | Item ||
 |--------|---------------|
@@ -883,7 +883,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
 
-##### EthTrcvIndex
+###### EthTrcvIndex
 
 | Item ||
 |--------|---------------|
@@ -899,7 +899,7 @@ General configuration of Ethernet Transceiver Driver module
 | **Max-value** | 255 |
 | **Min-value** | 0 |
 
-##### EthTrcvLinkStatusWaitCountTicks
+###### EthTrcvLinkStatusWaitCountTicks
 
 | Item ||
 |--------|---------------|
@@ -915,7 +915,7 @@ General configuration of Ethernet Transceiver Driver module
 | **Max-value** | 4294967295 |
 | **Min-value** | 0 |
 
-##### EthTrcvMainFunctionPeriod
+###### EthTrcvMainFunctionPeriod
 
 | Item ||
 |--------|---------------|
@@ -936,7 +936,7 @@ General configuration of Ethernet Transceiver Driver module
 | **Max-value** | INF |
 | **Min-value** | 0.0 |
 
-##### EthTrcvMaxControllersSupported
+###### EthTrcvMaxControllersSupported
 
 | Item ||
 |--------|---------------|
@@ -951,7 +951,7 @@ General configuration of Ethernet Transceiver Driver module
 | **Max-value** | 2 |
 | **Min-value** | 0 |
 
-##### EthTrcvMaxTrcvConfigSupported
+###### EthTrcvMaxTrcvConfigSupported
 
 | Item ||
 |--------|---------------|
@@ -967,7 +967,7 @@ General configuration of Ethernet Transceiver Driver module
 | **Max-value** | 2 |
 | **Min-value** | 0 |
 
-##### EthTrcvMaxTrcvsSupported
+###### EthTrcvMaxTrcvsSupported
 
 | Item ||
 |--------|---------------|
@@ -982,7 +982,7 @@ General configuration of Ethernet Transceiver Driver module
 | **Max-value** | 255 |
 | **Min-value** | 0 |
 
-##### EthTrcvSetPhyTestModeApi
+###### EthTrcvSetPhyTestModeApi
 
 | Item ||
 |--------|---------------|
@@ -996,7 +996,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
 
-##### EthTrcv1000Mbps_speed
+###### EthTrcv1000Mbps_speed
 
 | Item ||
 |--------|---------------|
@@ -1011,7 +1011,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
 
-##### EthTrcvSetPhyTxModeApi
+###### EthTrcvSetPhyTxModeApi
 
 | Item ||
 |--------|---------------|
@@ -1025,7 +1025,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | false |
 
-##### EthTrcvSetTransceiverModeApi
+###### EthTrcvSetTransceiverModeApi
 
 | Item ||
 |--------|---------------|
@@ -1039,7 +1039,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
 
-##### EthTrcvStartAutoNegotiationApi
+###### EthTrcvStartAutoNegotiationApi
 
 | Item ||
 |--------|---------------|
@@ -1053,7 +1053,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | true |
 
-##### EthTrcvVersionInfoApi
+###### EthTrcvVersionInfoApi
 
 | Item ||
 |--------|---------------|
@@ -1067,7 +1067,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | false |
 
-##### EthTrcvVersionInfoApiMacro
+###### EthTrcvVersionInfoApiMacro
 
 | Item ||
 |--------|---------------|
@@ -1081,7 +1081,7 @@ General configuration of Ethernet Transceiver Driver module
 | Pre-Compile-Time | VARIANT-PRE-COMPILE |
 | **Default-value** | false |
 
-##### EthTrcvWakeUpSupport
+###### EthTrcvWakeUpSupport
 
 | Item ||
 |--------|---------------|
@@ -1096,7 +1096,7 @@ General configuration of Ethernet Transceiver Driver module
 | **Default-value** | ETHTRCV_WAKEUP_NOT_SUPPORTED |
 | **Range** | ETHTRCV_WAKEUP_BY_INTERRUPT<br>ETHTRCV_WAKEUP_BY_POLLING<br>ETHTRCV_WAKEUP_NOT_SUPPORTED |
 
-##### EthTrcvDefaultOSCounterId
+###### EthTrcvDefaultOSCounterId
 
 | Item ||
 |--------|---------------|
@@ -1115,7 +1115,7 @@ General configuration of Ethernet Transceiver Driver module
 | **Max-value** | 16 |
 | **Min-value** | 0 |
 
-##### EthTrcvTimeoutDuration
+###### EthTrcvTimeoutDuration
 
 | Item ||
 |--------|---------------|
@@ -1130,7 +1130,7 @@ General configuration of Ethernet Transceiver Driver module
 | **Max-value** | 4294967295 |
 | **Min-value** | 1 |
 
-##### EthTrcvInternalLoopbackMode
+###### EthTrcvInternalLoopbackMode
 
 | Item ||
 |--------|---------------|
@@ -1145,7 +1145,7 @@ General configuration of Ethernet Transceiver Driver module
 | **Default-value** | ETHTRCV_PHYLOOPBACK_INTERNAL_ANALOG |
 | **Range** | ETHTRCV_PHYLOOPBACK_INTERNAL_ANALOG<br>ETHTRCV_PHYLOOPBACK_INTERNAL_DIGITAL |
 
-##### EthTrcvOsCounterRef
+###### EthTrcvOsCounterRef
 
 | Item ||
 |--------|---------------|

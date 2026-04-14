@@ -168,7 +168,7 @@ Performance Result through MCSPI with Dma are as follows:
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| epwm   | 15265    | 7    | 50584    |
+| epwm   | 15327    | 7    | 49048    |
  
 ### ETH
 
@@ -195,7 +195,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| ethtrcv   | 3740    | 17    | 78    |
+| ethtrcv   | 3722    | 17    | 78    |
  
 ### FLS
 
@@ -219,7 +219,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| gpt   | 2818    | 72    | 776    |
+| gpt   | 2822    | 72    | 776    |
  
 ### I2C
 
@@ -243,7 +243,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| lin   | 2240    | 9    | 10    |
+| lin   | 2224    | 9    | 10    |
  
 ### MCU
 
@@ -255,7 +255,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| port   | 3132    | 1    | 176    |
+| port   | 3134    | 1    | 176    |
      
 ### PWM
 
@@ -267,7 +267,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| spi   | 6658    | 1    | 2676    |
+| spi   | 6654    | 1    | 2676    |
  
 ### UART
 
