@@ -1082,6 +1082,7 @@
                                         <v:ctr name="CanHardwareObject" type="IDENTIFIABLE">
                                             <a:a name="DESC"
                            value="EN: This container contains the configuration (parameters) of CAN Hardware Objects."/>
+                                            <a:a name="REQUIRES-INDEX" value="true"/>
                                             <a:a name="UUID"
                            value="ECUC:fb9b8bfa-3adb-4d25-8b74-99eb91278298"/>
                                             <!--Requirements: ECUC_Can_00485 -->
