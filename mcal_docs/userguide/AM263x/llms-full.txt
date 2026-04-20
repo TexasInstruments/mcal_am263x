@@ -9488,6 +9488,29 @@ orphan: true
 ---
 
 ---
+title: Mcu_ResetMapType
+summary: Structure to map raw reset values to reset types. 
+
+---
+
+# Mcu_ResetMapType
+
+Structure to map raw reset values to reset types. 
+
+## Structure Members
+
+|  Member Type   | Member name    | Brief |
+| -------------- | -------------- | ----- |
+|  uint32 | rawValue |  |
+|  [Mcu_ResetType](../Modules/group___m_c_u.md#enum-mcu_resettype) | resetType |  |
+
+
+
+---
+orphan: true
+---
+
+---
 title: Mcu_ResetStatusMap
 
 ---
@@ -14386,7 +14409,7 @@ Performance Result through MCSPI with Dma are as follows:
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| can   | 9560    | 1    | 16008    |
+| can   | 9602    | 1    | 16008    |
  
 ### CMPSS
 
@@ -14449,7 +14472,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| fsirx   | 1674    | 3    | 202    |
+| fsirx   | 1628    | 3    | 202    |
  
 ### FSITX
 
@@ -14491,7 +14514,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| mcu   | 6486    | 6    | 0    |
+| mcu   | 6758    | 6    | 0    |
  
 ### PORT
 
@@ -50322,9 +50345,9 @@ QSPI driver object
 | Std_ReturnType | **[Fls_Qspi_WriteConfigMode](../Modules/group___f_l_s___q_s_p_i.md#function-fls_qspi_writeconfigmode)**([QSPI_Handle](../Modules/group___f_l_s___q_s_p_i.md#typedef-qspi_handle) handle, [QSPI_Transaction](../Classes/struct_q_s_p_i___transaction.md) * trans)| Function to perform writes to the flash in configuration mode.  |
 | Std_ReturnType | **[Fls_Qspi_ReadConfigMode](../Modules/group___f_l_s___q_s_p_i.md#function-fls_qspi_readconfigmode)**([QSPI_Handle](../Modules/group___f_l_s___q_s_p_i.md#typedef-qspi_handle) handle, [QSPI_Transaction](../Classes/struct_q_s_p_i___transaction.md) * trans)| Function to perform reads from the flash in configuration mode.  |
 | void | **[Fls_Qspi_TransactionInit](../Modules/group___f_l_s___q_s_p_i.md#function-fls_qspi_transactioninit)**([QSPI_Transaction](../Classes/struct_q_s_p_i___transaction.md) * trans)| Function to initialize the QSPI_Transaction structure.  |
-| Std_ReturnType | **[Fls_Qspi_ReadCmd](../Modules/group___f_l_s___q_s_p_i.md#function-fls_qspi_readcmd)**([QSPI_Handle](../Modules/group___f_l_s___q_s_p_i.md#typedef-qspi_handle) handle, QSPI_CmdParams * rdParams)| Function to send specific commands and receive related data from flash.  |
-| Std_ReturnType | **[Fls_Qspi_QuadReadData](../Modules/group___f_l_s___q_s_p_i.md#function-fls_qspi_quadreaddata)**([QSPI_Handle](../Modules/group___f_l_s___q_s_p_i.md#typedef-qspi_handle) handle, QSPI_CmdParams * rdParams)| Function to read data from flash.  |
-| Std_ReturnType | **[Fls_Qspi_WriteCmd](../Modules/group___f_l_s___q_s_p_i.md#function-fls_qspi_writecmd)**([QSPI_Handle](../Modules/group___f_l_s___q_s_p_i.md#typedef-qspi_handle) handle, QSPI_CmdParams * wrParams)| Function to send specific commands and related data to flash.  |
+| Std_ReturnType | **[Fls_Qspi_ReadCmd](../Modules/group___f_l_s___q_s_p_i.md#function-fls_qspi_readcmd)**([QSPI_Handle](../Modules/group___f_l_s___q_s_p_i.md#typedef-qspi_handle) handle, const QSPI_CmdParams * rdParams)| Function to send specific commands and receive related data from flash.  |
+| Std_ReturnType | **[Fls_Qspi_QuadReadData](../Modules/group___f_l_s___q_s_p_i.md#function-fls_qspi_quadreaddata)**([QSPI_Handle](../Modules/group___f_l_s___q_s_p_i.md#typedef-qspi_handle) handle, const QSPI_CmdParams * rdParams)| Function to read data from flash.  |
+| Std_ReturnType | **[Fls_Qspi_WriteCmd](../Modules/group___f_l_s___q_s_p_i.md#function-fls_qspi_writecmd)**([QSPI_Handle](../Modules/group___f_l_s___q_s_p_i.md#typedef-qspi_handle) handle, const QSPI_CmdParams * wrParams)| Function to send specific commands and related data to flash.  |
 | void | **[Fls_QspiIntEnable](../Modules/group___f_l_s___q_s_p_i.md#function-fls_qspiintenable)**(uint32 intFlag)| This function is used to enable word or frame complete interrupt.  |
 | void | **[Fls_QspiIntDisable](../Modules/group___f_l_s___q_s_p_i.md#function-fls_qspiintdisable)**(uint32 intFlag)| This function is used to disable word or frame complete interrupt.  |
 | void | **[Fls_QspiIntClear](../Modules/group___f_l_s___q_s_p_i.md#function-fls_qspiintclear)**(uint32 intFlag)| This function is used to clear word or frame complete interrupt.  |
@@ -50531,7 +50554,7 @@ Function to initialize the QSPI_Transaction structure
 ```
 Std_ReturnType Fls_Qspi_ReadCmd(
     QSPI_Handle handle,
-    QSPI_CmdParams * rdParams
+    const QSPI_CmdParams * rdParams
 )
 ```
 
@@ -50558,7 +50581,7 @@ Function to send specific commands and receive related data from flash
 ```
 Std_ReturnType Fls_Qspi_QuadReadData(
     QSPI_Handle handle,
-    QSPI_CmdParams * rdParams
+    const QSPI_CmdParams * rdParams
 )
 ```
 
@@ -50585,7 +50608,7 @@ Function to read data from external flash
 ```
 Std_ReturnType Fls_Qspi_WriteCmd(
     QSPI_Handle handle,
-    QSPI_CmdParams * wrParams
+    const QSPI_CmdParams * wrParams
 )
 ```
 
