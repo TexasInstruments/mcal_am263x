@@ -1,3 +1,102 @@
+commit 025e808727eb7c4b993924235eb6a667a94e3df5
+Author: Swathi G Bhat <s-bhat2@ti.com>
+Date:   Tue Apr 21 23:52:19 2026 +0530
+
+    all: Wdg: Updated Wdg_SetMode with DetRuntime in usermode
+    
+    Fixes: MCAL-36588, MCAL-36832
+    
+    Signed-off-by: Swathi G Bhat
+
+ mcal/Wdg/V0/Wdg_Priv.c                             |  60 +++++++----
+ mcal/Wdg/V0/Wdg_Priv.h                             |   3 +-
+ mcal/Wdg/include/Wdg.h                             |   2 +
+ mcal/examples/Utils/am261/app_utils.c              |  17 +++
+ mcal/examples/Utils/am261/app_utils.h              |   2 +
+ mcal/examples/Utils/am263/app_utils.c              |  17 +++
+ mcal/examples/Utils/am263/app_utils.h              |   2 +
+ mcal/examples/Utils/am263px/app_utils.c            |  17 +++
+ mcal/examples/Utils/am263px/app_utils.h            |   2 +
+ mcal/examples/Wdg/wdg_app/WdgApp.c                 |  10 +-
+ .../soc/am261/tresos/output/swcd/Wdg_Bswmd.arxml   |   4 +
+ .../soc/am263/tresos/output/swcd/Wdg_Bswmd.arxml   |   4 +
+ .../soc/am263px/tresos/output/swcd/Wdg_Bswmd.arxml |   4 +
+ .../soc/am261/r5f0_0/swcd/Wdg_Bswmd.arxml          |   4 +
+ .../soc/am263/r5f0_0/swcd/Wdg_Bswmd.arxml          |   4 +
+ .../soc/am263px/r5f0_0/swcd/Wdg_Bswmd.arxml        |   4 +
+ .../generate_swcd/swcd/Wdg_Bswmd.arxml             |   8 +-
+ .../generate_swcd/swcd/Wdg_Bswmd.arxml             |   8 +-
+ .../generate_swcd/swcd/Wdg_Bswmd.arxml             |   8 +-
+ .../epwm_test/testLib/cddPwmTestMainTestCase.c     |   2 +-
+ .../config_1/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_2/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_3/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_4/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_5/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_7/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_91/tresos/output/swcd/Wdg_Bswmd.arxml   |   4 +
+ .../config_92/tresos/output/swcd/Wdg_Bswmd.arxml   |   4 +
+ .../config_93/tresos/output/swcd/Wdg_Bswmd.arxml   |   4 +
+ .../config_94/tresos/output/swcd/Wdg_Bswmd.arxml   |   4 +
+ .../config_1/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_2/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_3/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_4/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_5/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_6/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_7/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_91/tresos/output/swcd/Wdg_Bswmd.arxml   |   4 +
+ .../config_92/tresos/output/swcd/Wdg_Bswmd.arxml   |   4 +
+ .../config_93/tresos/output/swcd/Wdg_Bswmd.arxml   |   4 +
+ .../config_94/tresos/output/swcd/Wdg_Bswmd.arxml   |   4 +
+ .../config_1/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_2/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_3/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_4/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_5/tresos/output/swcd/Wdg_Bswmd.arxml    |   4 +
+ .../config_91/tresos/output/swcd/Wdg_Bswmd.arxml   |   4 +
+ .../config_92/tresos/output/swcd/Wdg_Bswmd.arxml   |   4 +
+ .../config_93/tresos/output/swcd/Wdg_Bswmd.arxml   |   4 +
+ .../config_94/tresos/output/swcd/Wdg_Bswmd.arxml   |   4 +
+ .../wdg_test/testLib/wdgTestNegativeTestCase.c     | 120 +++++++++++++++++++++
+ 51 files changed, 391 insertions(+), 31 deletions(-)
+
+commit 849486848931c36b4e1c89fcaaa74866f83dd84f
+Author: Swathi G Bhat <s-bhat2@ti.com>
+Date:   Mon Apr 20 10:36:34 2026 +0530
+
+    am263px/1x: Fls: Improved coverage and added gap comments
+    
+    Fixes: MCAL-35541
+    
+    Signed-off-by: Swathi G Bhat
+
+ mcal/Fls/V2/Fls_Brd_Nor_Ospi.c                     | 317 +++++++++++++--------
+ mcal/Fls/V2/Fls_Ospi.c                             | 192 ++++++++++---
+ mcal/Fls/V2/Fls_Ospi_Phy.c                         | 162 ++++++++++-
+ mcal/Fls/src/Fls.c                                 |  18 +-
+ .../coverage/DynamicAnalysisReportTemplate.xlsx    | Bin 42797 -> 31530 bytes
+ mcal_test/coverage/covReportGen.py                 |  38 ++-
+ mcal_test/fls_test/build/makefile                  |   4 +-
+ mcal_test/fls_test/testLib/flsTest.h               |   6 +
+ .../fls_test/testLib/flsTestNegativeTestCase.c     | 127 +++++++++
+ mcal_test/makefile                                 |   4 +-
+ 10 files changed, 685 insertions(+), 183 deletions(-)
+
+commit deb6e6291ab3944dd9c271eab566809dbce11313
+Author: Asha D <asha.d@ti.com>
+Date:   Tue Apr 21 11:43:23 2026 +0530
+
+    am263px:EPWM: Added Coverage Gap for EPWM module
+    
+    Fixes: MCAL-36770, MCAL-35527
+    
+    Signed-off-by: Asha D <asha.d@ti.com>
+
+ mcal/Epwm/V0/Cdd_Pwm_Priv.c                        |  4 +++
+ .../epwm_test/testLib/cddPwmTestMainTestCase.c     | 36 +++++-----------------
+ 2 files changed, 12 insertions(+), 28 deletions(-)
+
 commit 2852efde54d1bb2b14ccd0a9da748ee19703e1c8
 Author: Swathi G Bhat <s-bhat2@ti.com>
 Date:   Mon Apr 20 11:29:06 2026 +0530
