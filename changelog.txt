@@ -1,3 +1,54 @@
+commit 2125b83231be01d9721629f0ba5eb54956440b97
+Author: Akash <a-verma3@ti.com>
+Date:   Mon Apr 27 14:34:06 2026 +0530
+
+    am263px:Spi: DMA interrupt Handling is wrong when both TX and RX are selected.
+    
+    - Addressing the issue of MCAL-29488(bug) and MCAL-32248(config 8 stuck) in this fix
+    
+    - TX ISR handler was incorrectly gated to  mode only -> MCAL-29488
+    
+    Fixes: MCAL-29488
+    
+    Signed-off-by: Akash Verma
+
+ mcal/Spi/V0/Spi_Dma.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+commit 3951e037ce403f1bf5966f23114c9b62e98c85a5
+Author: Swathi G Bhat <s-bhat2@ti.com>
+Date:   Mon Apr 27 15:29:47 2026 +0530
+
+    all: all: Release notes, static and test report updates
+    
+    Fixes: MCAL-35550
+    
+    Signed-off-by: Swathi G Bhat
+
+ .../csp/am261x/mcal_static_analysis_report.xlsx    | Bin 876406 -> 896680 bytes
+ mcal_docs/csp/am261x/mcal_test_report.xlsx         | Bin 212706 -> 191159 bytes
+ .../csp/am263px/mcal_static_analysis_report.xlsx   | Bin 1070039 -> 1015811 bytes
+ mcal_docs/csp/am263px/mcal_test_report.xlsx        | Bin 254469 -> 229563 bytes
+ .../csp/am263x/mcal_static_analysis_report.xlsx    | Bin 887743 -> 913363 bytes
+ mcal_docs/csp/am263x/mcal_test_report.xlsx         | Bin 283390 -> 254786 bytes
+ release_notes.md                                   |  80 ++++++++++++++-------
+ 7 files changed, 56 insertions(+), 24 deletions(-)
+
+commit 745cfef8d96ed63ec86acc5211f40c77e8967c82
+Author: Akash <a-verma3@ti.com>
+Date:   Mon Apr 27 00:04:04 2026 +0530
+
+    Can: Klockwork fixes.
+    
+    Fixes: MCAL-37339
+    
+    Signed-off-by: Akash Verma
+
+ mcal/Can/V0/Can_Mcan.c               | 3 ---
+ mcal/Ipc/src/ipc_rpmsg_lld.c         | 1 +
+ mcal/include/hw/am263px/sys_common.h | 2 +-
+ 3 files changed, 2 insertions(+), 4 deletions(-)
+
 commit f65b78ce7c11e63e99935ec80bbcbecc240aceae
 Author: Swathi G Bhat <s-bhat2@ti.com>
 Date:   Sun Apr 26 22:13:50 2026 +0530
