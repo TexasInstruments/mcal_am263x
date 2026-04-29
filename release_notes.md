@@ -1,6 +1,6 @@
 # Introduction
 
-This is the release notes for MCAL AM26xx 26.00.00 done on 28-Apr-2026.
+This is the release notes for MCAL AM26xx 26.00.00.05 done on 29-Apr-2026.
 The MCAL package consists of MCAL Driver & Applications for AM26xx family of devices. The MCAL modules are compliant to AUTOSAR specification versioned **4.3.1**.
 
 ## Licensing
@@ -467,6 +467,14 @@ Internal Files are organized in V0, V1, V2 and V3 folders. The below table lists
       <td>Updated NULL in Non EB xdm and corresponding arxml</td>
     </tr>
     <tr>
+      <td>MCAL-37350</td>
+      <td>AM261x Xbar uses AM263x macros for Xbar interrupt ID</td>
+      <td>Port</td>
+      <td>Minor</td>
+      <td>AM261x</td>
+      <td>All INTRXBAR_OUT macros for am261 are now corrected</td>
+    </tr>
+    <tr>
       <td>MCAL-36790</td>
       <td>Missing WDG exclusive area reference inside APIs in bswmd arxml </td>
       <td>WDG</td>
@@ -524,14 +532,6 @@ Internal Files are organized in V0, V1, V2 and V3 folders. The below table lists
   </thead>
   <tbody>
     <tr>
-      <td>MCAL-25969</td>
-      <td>Connecting Multiple Interrupt sources to single Interrupt Xbar line is not supported</td>
-      <td>MCU</td>
-      <td>Minor(Limitation)</td>
-      <td>AM263x, AM263Px, AM261x</td>
-      <td>Use single interrupt source to a XBar</td>
-    </tr>
-    <tr>
       <td>MCAL-13434</td>
       <td>DMA mode is not working with Cache Writeback enabled</td>
       <td>SPI</td>
@@ -576,6 +576,15 @@ Internal Files are organized in V0, V1, V2 and V3 folders. The below table lists
       <td>ADC</td>
       <td>AM263Px</td>
       <td>NA</td>
+      <td>NA</td>
+    </tr>
+    <tr>
+      <td>Multiple Interrupt sources to single Interrupt Xbar line not supported</td>
+      <td>Connecting Multiple Interrupt sources to single Interrupt Xbar line is not supported</td>
+      <td>MCU</td>
+      <td>Minor(Limitation)</td>
+      <td>AM263x, AM263Px, AM261x</td>
+      <td>Use single interrupt source to a XBar</td>
       <td>NA</td>
     </tr>
   </tbody>
