@@ -75,6 +75,7 @@
 [!IF "DioGeneral/DioFlipChannelApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="8d9ff6e7-3fa5-4141-b4c1-843c927bcdc5">
                   <SHORT-NAME>Dio_FlipChannel</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
 [!IF "DioGeneral/DioDevErrorDetect = 'true'"!][!//
@@ -90,6 +91,7 @@
 [!IF "DioGeneral/DioVersionInfoApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="653d4df6-6a1a-4946-8bbb-ed8b8e62ec3b">
                   <SHORT-NAME>Dio_GetVersionInfo</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
 [!IF "DioGeneral/DioDevErrorDetect = 'true'"!][!//
@@ -104,6 +106,7 @@
 [!ENDIF!][!//
                 <BSW-CALLED-ENTITY UUID="56ca795e-a3f6-40b4-8ac3-95fb82f593a9">
                   <SHORT-NAME>Dio_ReadChannel</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
 [!IF "DioGeneral/DioDevErrorDetect = 'true'"!][!//
@@ -117,6 +120,7 @@
                 </BSW-CALLED-ENTITY>
                 <BSW-CALLED-ENTITY UUID="de846fb3-9f2d-4dfe-b4cd-74e64f31a3ac">
                   <SHORT-NAME>Dio_ReadChannelGroup</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
 [!IF "DioGeneral/DioDevErrorDetect = 'true'"!][!//
@@ -130,6 +134,7 @@
                 </BSW-CALLED-ENTITY>
                 <BSW-CALLED-ENTITY UUID="8bd4cd8d-0ebd-4cfe-8991-304edd2b9a6e">
                   <SHORT-NAME>Dio_ReadPort</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
 [!IF "DioGeneral/DioDevErrorDetect = 'true'"!][!//
@@ -146,6 +151,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Dio_TI_AM263x/Dio/Dio_Behaviour/DIO_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
 [!IF "DioGeneral/DioDemEnable = 'true'"!][!//
@@ -168,6 +174,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Dio_TI_AM263x/Dio/Dio_Behaviour/DIO_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
 [!IF "DioGeneral/DioDevErrorDetect = 'true'"!][!//
@@ -184,6 +191,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Dio_TI_AM263x/Dio/Dio_Behaviour/DIO_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
 [!IF "DioGeneral/DioDemEnable = 'true'"!][!//

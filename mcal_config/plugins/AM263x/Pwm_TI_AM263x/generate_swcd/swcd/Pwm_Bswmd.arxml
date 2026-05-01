@@ -727,6 +727,7 @@
                 [!IF "PwmChannelId = '0'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="36f34213-1fad-4610-a13d-4e73fd10bded">
                   <SHORT-NAME>Pwm_Ch0Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch0Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -740,6 +741,7 @@
                 [!IF "PwmChannelId = '100'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="686c8a00-0f2f-4f5e-9ebf-9a1dcf1a45c9">
                   <SHORT-NAME>Pwm_Ch100Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch100Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -753,6 +755,7 @@
                 [!IF "PwmChannelId = '101'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="266c95c4-12f7-4b74-95e9-f041cb220054">
                   <SHORT-NAME>Pwm_Ch101Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch101Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -766,6 +769,7 @@
                 [!IF "PwmChannelId = '102'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="6163324e-1d94-4290-92d9-1b93387a3a79">
                   <SHORT-NAME>Pwm_Ch102Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch102Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -779,6 +783,7 @@
                 [!IF "PwmChannelId = '103'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="a21b3320-64e9-403a-b648-8e4cab0991f0">
                   <SHORT-NAME>Pwm_Ch103Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch103Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -792,6 +797,7 @@
                 [!IF "PwmChannelId = '104'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="78723bb8-89b1-4419-8cd9-275a9c723e55">
                   <SHORT-NAME>Pwm_Ch104Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch104Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -805,6 +811,7 @@
                 [!IF "PwmChannelId = '105'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="36ca78ad-1353-4dff-b594-838673c1e2f5">
                   <SHORT-NAME>Pwm_Ch105Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch105Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -818,6 +825,7 @@
                 [!IF "PwmChannelId = '106'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="f374e891-e6bf-4f09-b6f0-adb1782a69d0">
                   <SHORT-NAME>Pwm_Ch106Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch106Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -831,6 +839,7 @@
                 [!IF "PwmChannelId = '107'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="4047f927-8563-4967-ba22-4b4dc4ab1b7a">
                   <SHORT-NAME>Pwm_Ch107Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch107Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -844,6 +853,7 @@
                 [!IF "PwmChannelId = '108'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="76d1dfbf-6192-4597-9f74-c9107b3edad4">
                   <SHORT-NAME>Pwm_Ch108Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch108Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -857,6 +867,7 @@
                 [!IF "PwmChannelId = '109'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="f68529cf-8567-405a-ae03-5a042bf8dbf3">
                   <SHORT-NAME>Pwm_Ch109Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch109Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -870,6 +881,7 @@
                 [!IF "PwmChannelId = '10'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="79b20962-ac2b-4730-a58d-7a91b957de2f">
                   <SHORT-NAME>Pwm_Ch10Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch10Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -883,6 +895,7 @@
                 [!IF "PwmChannelId = '110'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="108cab08-db6e-466b-a95c-99b77624807c">
                   <SHORT-NAME>Pwm_Ch110Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch110Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -896,6 +909,7 @@
                 [!IF "PwmChannelId = '111'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="abda9736-a7a4-4cbc-92b3-7857e7e78bb7">
                   <SHORT-NAME>Pwm_Ch111Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch111Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -909,6 +923,7 @@
                 [!IF "PwmChannelId = '112'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="2d58ee66-a3e4-4d7c-af75-469ac08c902b">
                   <SHORT-NAME>Pwm_Ch112Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch112Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -922,6 +937,7 @@
                 [!IF "PwmChannelId = '113'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="e5145c3e-74c1-422d-b431-0892321f2f17">
                   <SHORT-NAME>Pwm_Ch113Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch113Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -935,6 +951,7 @@
                 [!IF "PwmChannelId = '114'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="cb339b66-1527-475b-84d0-d5d2ecc451d2">
                   <SHORT-NAME>Pwm_Ch114Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch114Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -948,6 +965,7 @@
                 [!IF "PwmChannelId = '115'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="3fbe1d8c-5324-47ed-aef2-9e16f8f57a06">
                   <SHORT-NAME>Pwm_Ch115Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch115Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -961,6 +979,7 @@
                 [!IF "PwmChannelId = '116'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="46120000-d5c1-406f-8408-58201f028379">
                   <SHORT-NAME>Pwm_Ch116Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch116Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -974,6 +993,7 @@
                 [!IF "PwmChannelId = '117'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="046ab5e4-6f97-4e91-9474-b28830108203">
                   <SHORT-NAME>Pwm_Ch117Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch117Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -987,6 +1007,7 @@
                 [!IF "PwmChannelId = '118'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="166f93f7-b78b-4dca-9ec9-265d7a190747">
                   <SHORT-NAME>Pwm_Ch118Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch118Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1000,6 +1021,7 @@
                 [!IF "PwmChannelId = '119'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="0f49729b-eea7-4254-87d6-da04776a958d">
                   <SHORT-NAME>Pwm_Ch119Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch119Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1013,6 +1035,7 @@
                 [!IF "PwmChannelId = '11'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="66413175-ce3c-43b8-9627-d3e0936b7802">
                   <SHORT-NAME>Pwm_Ch11Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch11Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1026,6 +1049,7 @@
                 [!IF "PwmChannelId = '120'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="d4d7028f-b74e-4830-a872-8c2f33b7b681">
                   <SHORT-NAME>Pwm_Ch120Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch120Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1039,6 +1063,7 @@
                 [!IF "PwmChannelId = '121'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="fe258c45-c097-403c-9097-9d0350e906e7">
                   <SHORT-NAME>Pwm_Ch121Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch121Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1052,6 +1077,7 @@
                 [!IF "PwmChannelId = '122'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="271fe841-43e7-4c73-9e71-40154e3aa11b">
                   <SHORT-NAME>Pwm_Ch122Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch122Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1065,6 +1091,7 @@
                 [!IF "PwmChannelId = '123'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="57011726-a00b-4c34-883f-f819cb6fccc5">
                   <SHORT-NAME>Pwm_Ch123Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch123Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1078,6 +1105,7 @@
                 [!IF "PwmChannelId = '124'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="658f1b1a-6f50-420c-b6a8-868b4a6fdb3e">
                   <SHORT-NAME>Pwm_Ch124Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch124Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1091,6 +1119,7 @@
                 [!IF "PwmChannelId = '125'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="dc14b36a-d453-4ef8-ad15-54e2f4cd0fe9">
                   <SHORT-NAME>Pwm_Ch125Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch125Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1104,6 +1133,7 @@
                 [!IF "PwmChannelId = '126'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="1bd7eac0-a8e8-4fa0-96c5-aed5ba2a5c3c">
                   <SHORT-NAME>Pwm_Ch126Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch126Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1117,6 +1147,7 @@
                 [!IF "PwmChannelId = '127'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="431e2564-238a-406d-b4f2-010f0f575461">
                   <SHORT-NAME>Pwm_Ch127Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch127Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1130,6 +1161,7 @@
                 [!IF "PwmChannelId = '12'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="3e5457fd-3b2f-487e-af6d-4b30c288761f">
                   <SHORT-NAME>Pwm_Ch12Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch12Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1143,6 +1175,7 @@
                 [!IF "PwmChannelId = '13'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="9baf4a09-7efd-4418-bc96-b795d16881b6">
                   <SHORT-NAME>Pwm_Ch13Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch13Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1156,6 +1189,7 @@
                 [!IF "PwmChannelId = '14'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="4d4e2bee-2bf4-4edd-ae88-fe007b57e5e0">
                   <SHORT-NAME>Pwm_Ch14Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch14Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1169,6 +1203,7 @@
                 [!IF "PwmChannelId = '15'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="57dfff4c-d0f1-4f13-8c42-4727da1df56b">
                   <SHORT-NAME>Pwm_Ch15Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch15Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1182,6 +1217,7 @@
                 [!IF "PwmChannelId = '16'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="bf37ea0d-bef0-424b-9a40-f6c90fd1ef59">
                   <SHORT-NAME>Pwm_Ch16Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch16Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1195,6 +1231,7 @@
                 [!IF "PwmChannelId = '17'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="926c3b64-7948-45b6-ba02-f7b698f0f2fa">
                   <SHORT-NAME>Pwm_Ch17Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch17Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1208,6 +1245,7 @@
                 [!IF "PwmChannelId = '18'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="cdbf2c52-c3f7-44fa-b5a6-1b7e1fd6b6e9">
                   <SHORT-NAME>Pwm_Ch18Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch18Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1221,6 +1259,7 @@
                 [!IF "PwmChannelId = '19'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="a1bb1ad3-248e-404f-baae-68c2cb78a6ac">
                   <SHORT-NAME>Pwm_Ch19Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch19Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1234,6 +1273,7 @@
                 [!IF "PwmChannelId = '1'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="fae1ccc4-7f8e-4a8e-a834-4b1049aa1575">
                   <SHORT-NAME>Pwm_Ch1Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch1Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1247,6 +1287,7 @@
                 [!IF "PwmChannelId = '20'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="12be16fa-0414-4d27-82b8-56495f1c1d67">
                   <SHORT-NAME>Pwm_Ch20Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch20Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1260,6 +1301,7 @@
                 [!IF "PwmChannelId = '21'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="bf86fa34-40b1-415e-82e9-d9fa3fbac108">
                   <SHORT-NAME>Pwm_Ch21Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch21Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1273,6 +1315,7 @@
                 [!IF "PwmChannelId = '22'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="78ea0f4d-da70-422a-9c35-5485d4af3cb7">
                   <SHORT-NAME>Pwm_Ch22Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch22Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1286,6 +1329,7 @@
                 [!IF "PwmChannelId = '23'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="201c9ef8-2af0-41a7-af78-85bd1d71c425">
                   <SHORT-NAME>Pwm_Ch23Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch23Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1299,6 +1343,7 @@
                 [!IF "PwmChannelId = '24'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="b0c2b2df-09e0-404b-a071-c3704134c3dd">
                   <SHORT-NAME>Pwm_Ch24Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch24Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1312,6 +1357,7 @@
                 [!IF "PwmChannelId = '25'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="d9a4e293-bf3c-49bb-9bb8-29cebee507db">
                   <SHORT-NAME>Pwm_Ch25Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch25Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1325,6 +1371,7 @@
                 [!IF "PwmChannelId = '26'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="8e4a3158-1979-4bcf-9976-a18572c51836">
                   <SHORT-NAME>Pwm_Ch26Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch26Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1338,6 +1385,7 @@
                 [!IF "PwmChannelId = '27'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="e029ea69-16b9-45e2-811f-7579be93bf77">
                   <SHORT-NAME>Pwm_Ch27Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch27Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1351,6 +1399,7 @@
                 [!IF "PwmChannelId = '28'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="6d9a70e7-a429-4ac5-80d8-2ba3ec805b04">
                   <SHORT-NAME>Pwm_Ch28Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch28Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1364,6 +1413,7 @@
                 [!IF "PwmChannelId = '29'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="b3b6e851-3b7f-4a90-aab2-de5788cc0d78">
                   <SHORT-NAME>Pwm_Ch29Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch29Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1377,6 +1427,7 @@
                 [!IF "PwmChannelId = '2'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="eaa08a7d-511b-4554-80af-388b520ec483">
                   <SHORT-NAME>Pwm_Ch2Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch2Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1390,6 +1441,7 @@
                 [!IF "PwmChannelId = '30'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="8ff5d8be-5a60-4f73-bfa2-6bd0d9944fb4">
                   <SHORT-NAME>Pwm_Ch30Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch30Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1403,6 +1455,7 @@
                 [!IF "PwmChannelId = '31'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="44c0460c-4e66-4039-9ce3-ee0c5971aa18">
                   <SHORT-NAME>Pwm_Ch31Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch31Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1416,6 +1469,7 @@
                 [!IF "PwmChannelId = '32'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="dcc8e937-f6f7-47e0-84e1-f454ab27aebd">
                   <SHORT-NAME>Pwm_Ch32Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch32Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1429,6 +1483,7 @@
                 [!IF "PwmChannelId = '33'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="c9b37983-d234-4ef4-8bb4-e146dec4fe33">
                   <SHORT-NAME>Pwm_Ch33Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch33Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1442,6 +1497,7 @@
                 [!IF "PwmChannelId = '34'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="14145d82-e587-4e56-979e-55ea79f5082e">
                   <SHORT-NAME>Pwm_Ch34Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch34Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1455,6 +1511,7 @@
                 [!IF "PwmChannelId = '35'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="0e1bcb4d-87ea-4169-ac97-242f45f2f398">
                   <SHORT-NAME>Pwm_Ch35Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch35Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1468,6 +1525,7 @@
                 [!IF "PwmChannelId = '36'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="56e66363-def5-4133-8eda-19c201b4c264">
                   <SHORT-NAME>Pwm_Ch36Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch36Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1481,6 +1539,7 @@
                 [!IF "PwmChannelId = '37'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="028a37c1-d752-421a-b474-eb6308d88c76">
                   <SHORT-NAME>Pwm_Ch37Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch37Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1494,6 +1553,7 @@
                 [!IF "PwmChannelId = '38'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="7afc7bc3-b023-44c7-9245-36d80434462b">
                   <SHORT-NAME>Pwm_Ch38Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch38Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1507,6 +1567,7 @@
                 [!IF "PwmChannelId = '39'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="1b82173c-44f9-4bdb-aa8c-6facb5b49938">
                   <SHORT-NAME>Pwm_Ch39Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch39Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1520,6 +1581,7 @@
                 [!IF "PwmChannelId = '3'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="f3f29a6f-7499-4a3f-9b91-a3558770052f">
                   <SHORT-NAME>Pwm_Ch3Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch3Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1533,6 +1595,7 @@
                 [!IF "PwmChannelId = '40'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="5af2db20-4f76-4681-a84e-bd5636b93ff8">
                   <SHORT-NAME>Pwm_Ch40Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch40Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1546,6 +1609,7 @@
                 [!IF "PwmChannelId = '41'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="059dbb0e-58c0-4c50-8686-aa099565624f">
                   <SHORT-NAME>Pwm_Ch41Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch41Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1559,6 +1623,7 @@
                 [!IF "PwmChannelId = '42'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="bde09c0f-5df0-4354-a92e-b2212fb1d700">
                   <SHORT-NAME>Pwm_Ch42Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch42Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1572,6 +1637,7 @@
                 [!IF "PwmChannelId = '43'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="4410bf38-dc7f-4a56-a986-823b1f5f72cb">
                   <SHORT-NAME>Pwm_Ch43Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch43Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1585,6 +1651,7 @@
                 [!IF "PwmChannelId = '44'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="f3c3b320-8ecc-48ee-af21-159fbc73a0cb">
                   <SHORT-NAME>Pwm_Ch44Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch44Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1598,6 +1665,7 @@
                 [!IF "PwmChannelId = '45'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="308e38a8-88a4-424e-9dda-f28fc6bfb97f">
                   <SHORT-NAME>Pwm_Ch45Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch45Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1611,6 +1679,7 @@
                 [!IF "PwmChannelId = '46'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="6b7910f1-24dc-45c9-8d8a-01a77eac73fe">
                   <SHORT-NAME>Pwm_Ch46Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch46Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1624,6 +1693,7 @@
                 [!IF "PwmChannelId = '47'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="8783776f-a20a-40a4-99a0-dbe0821c6b79">
                   <SHORT-NAME>Pwm_Ch47Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch47Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1637,6 +1707,7 @@
                 [!IF "PwmChannelId = '48'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="12cc45d9-de62-4130-9a2d-529125a51160">
                   <SHORT-NAME>Pwm_Ch48Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch48Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1650,6 +1721,7 @@
                 [!IF "PwmChannelId = '49'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="05a8b1ac-ae88-4c75-b676-04abf1da3b16">
                   <SHORT-NAME>Pwm_Ch49Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch49Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1663,6 +1735,7 @@
                 [!IF "PwmChannelId = '4'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="4f0e7fb5-f272-4603-bc6f-148cd8bd511b">
                   <SHORT-NAME>Pwm_Ch4Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch4Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1676,6 +1749,7 @@
                 [!IF "PwmChannelId = '50'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="6dcab4ae-864b-4f5f-bbbb-f0ff658d8883">
                   <SHORT-NAME>Pwm_Ch50Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch50Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1689,6 +1763,7 @@
                 [!IF "PwmChannelId = '51'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="f57543c1-c151-4f96-ae2c-1d2c8d05ed99">
                   <SHORT-NAME>Pwm_Ch51Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch51Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1702,6 +1777,7 @@
                 [!IF "PwmChannelId = '52'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="5f636731-b927-4339-901b-fa9100bb6e48">
                   <SHORT-NAME>Pwm_Ch52Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch52Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1715,6 +1791,7 @@
                 [!IF "PwmChannelId = '53'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="714a7715-da25-45c6-834f-291098859ece">
                   <SHORT-NAME>Pwm_Ch53Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch53Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1728,6 +1805,7 @@
                 [!IF "PwmChannelId = '54'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="e3437f12-6842-4075-9eb5-d587267482d9">
                   <SHORT-NAME>Pwm_Ch54Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch54Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1741,6 +1819,7 @@
                 [!IF "PwmChannelId = '55'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="c35bd679-bca1-42eb-b6fa-a762a47cedff">
                   <SHORT-NAME>Pwm_Ch55Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch55Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1754,6 +1833,7 @@
                 [!IF "PwmChannelId = '56'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="e888b0d9-1388-4478-8360-b36930b4b348">
                   <SHORT-NAME>Pwm_Ch56Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch56Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1767,6 +1847,7 @@
                 [!IF "PwmChannelId = '57'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="27a71c8e-5190-4728-930c-ed0656f4eb1e">
                   <SHORT-NAME>Pwm_Ch57Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch57Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1780,6 +1861,7 @@
                 [!IF "PwmChannelId = '58'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="4ba2c390-ddbf-4e37-83da-d1961bb61696">
                   <SHORT-NAME>Pwm_Ch58Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch58Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1793,6 +1875,7 @@
                 [!IF "PwmChannelId = '59'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="49d07725-c905-414b-9325-acc6cda0a2aa">
                   <SHORT-NAME>Pwm_Ch59Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch59Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1806,6 +1889,7 @@
                 [!IF "PwmChannelId = '5'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="95abf4ce-9dfa-48dd-a78c-ff19720080b7">
                   <SHORT-NAME>Pwm_Ch5Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch5Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1819,6 +1903,7 @@
                 [!IF "PwmChannelId = '60'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="7f451d9c-c4b7-4ea8-ad53-6e8b4f93c74f">
                   <SHORT-NAME>Pwm_Ch60Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch60Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1832,6 +1917,7 @@
                 [!IF "PwmChannelId = '61'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="b7dc7c99-f2c0-4d9d-9ce7-63605b63feeb">
                   <SHORT-NAME>Pwm_Ch61Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch61Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1845,6 +1931,7 @@
                 [!IF "PwmChannelId = '62'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="5743684c-4e9b-452e-9df0-481136285fd8">
                   <SHORT-NAME>Pwm_Ch62Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch62Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1858,6 +1945,7 @@
                 [!IF "PwmChannelId = '63'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="f4cb5484-910c-4286-910a-8207ac3ee845">
                   <SHORT-NAME>Pwm_Ch63Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch63Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1871,6 +1959,7 @@
                 [!IF "PwmChannelId = '64'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="6f2026d7-0941-48c0-b245-1ad111d16a33">
                   <SHORT-NAME>Pwm_Ch64Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch64Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1884,6 +1973,7 @@
                 [!IF "PwmChannelId = '65'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="6b167275-7813-452a-bc09-ec9355e1f1e8">
                   <SHORT-NAME>Pwm_Ch65Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch65Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1897,6 +1987,7 @@
                 [!IF "PwmChannelId = '66'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="c67fe667-5d2d-4d5c-88fc-f4a06a90680c">
                   <SHORT-NAME>Pwm_Ch66Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch66Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1910,6 +2001,7 @@
                 [!IF "PwmChannelId = '67'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="b65086a5-c10e-4aa9-8114-766bbd371d73">
                   <SHORT-NAME>Pwm_Ch67Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch67Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1923,6 +2015,7 @@
                 [!IF "PwmChannelId = '68'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="ed597205-94ae-4d3d-b683-a2a46d530d3b">
                   <SHORT-NAME>Pwm_Ch68Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch68Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1936,6 +2029,7 @@
                 [!IF "PwmChannelId = '69'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="91756d89-2715-4f55-b07a-d3d5705244c1">
                   <SHORT-NAME>Pwm_Ch69Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch69Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1949,6 +2043,7 @@
                 [!IF "PwmChannelId = '6'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="906e3d4d-3116-4a66-8727-9cfa884d7507">
                   <SHORT-NAME>Pwm_Ch6Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch6Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1962,6 +2057,7 @@
                 [!IF "PwmChannelId = '70'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="e5094f99-a27e-4d24-ad5b-85ee34ace176">
                   <SHORT-NAME>Pwm_Ch70Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch70Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1975,6 +2071,7 @@
                 [!IF "PwmChannelId = '71'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="ebe1881b-03a6-4875-b7d3-6b82c34121fd">
                   <SHORT-NAME>Pwm_Ch71Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch71Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -1988,6 +2085,7 @@
                 [!IF "PwmChannelId = '72'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="ec4e8243-16c3-406b-8222-dc56330dcac4">
                   <SHORT-NAME>Pwm_Ch72Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch72Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2001,6 +2099,7 @@
                 [!IF "PwmChannelId = '73'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="bc7e69c3-5bbc-4acf-b935-9c1272e72bb7">
                   <SHORT-NAME>Pwm_Ch73Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch73Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2014,6 +2113,7 @@
                 [!IF "PwmChannelId = '74'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="cfd32299-a793-4a03-bc0c-7554d78b4c25">
                   <SHORT-NAME>Pwm_Ch74Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch74Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2027,6 +2127,7 @@
                 [!IF "PwmChannelId = '75'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="2d242b44-c0ed-418d-806e-5abd6f44cf59">
                   <SHORT-NAME>Pwm_Ch75Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch75Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2040,6 +2141,7 @@
                 [!IF "PwmChannelId = '76'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="da708650-7e56-469e-adc1-631d962dd882">
                   <SHORT-NAME>Pwm_Ch76Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch76Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2053,6 +2155,7 @@
                 [!IF "PwmChannelId = '77'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="32f0b65f-2c84-42bf-a5c8-ae57c7d27644">
                   <SHORT-NAME>Pwm_Ch77Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch77Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2066,6 +2169,7 @@
                 [!IF "PwmChannelId = '78'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="21f4a308-1295-4cfa-8a55-fd6d1f3b63a1">
                   <SHORT-NAME>Pwm_Ch78Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch78Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2079,6 +2183,7 @@
                 [!IF "PwmChannelId = '79'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="8f4af406-c286-4e8b-ab0b-95de692be429">
                   <SHORT-NAME>Pwm_Ch79Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch79Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2092,6 +2197,7 @@
                 [!IF "PwmChannelId = '7'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="340675d6-f5fc-40e2-b147-d86cc59c9c50">
                   <SHORT-NAME>Pwm_Ch7Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch7Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2105,6 +2211,7 @@
                 [!IF "PwmChannelId = '80'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="9f96f68e-dd93-4281-8fbb-e2c9ce211fb2">
                   <SHORT-NAME>Pwm_Ch80Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch80Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2118,6 +2225,7 @@
                 [!IF "PwmChannelId = '81'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="cc3a89af-6048-494f-bee6-1587a0055274">
                   <SHORT-NAME>Pwm_Ch81Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch81Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2131,6 +2239,7 @@
                 [!IF "PwmChannelId = '82'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="b3df3dad-2503-4b09-9a5a-cef62854c5c7">
                   <SHORT-NAME>Pwm_Ch82Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch82Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2144,6 +2253,7 @@
                 [!IF "PwmChannelId = '83'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="2485b0bc-d379-4e67-8a69-43936e47c300">
                   <SHORT-NAME>Pwm_Ch83Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch83Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2157,6 +2267,7 @@
                 [!IF "PwmChannelId = '84'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="467b5d7f-72ab-4a1e-aa6f-eb0fa57bb01f">
                   <SHORT-NAME>Pwm_Ch84Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch84Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2170,6 +2281,7 @@
                 [!IF "PwmChannelId = '85'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="87460e5c-32b7-4338-bb05-b68f9f880d67">
                   <SHORT-NAME>Pwm_Ch85Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch85Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2183,6 +2295,7 @@
                 [!IF "PwmChannelId = '86'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="f9b98cf4-3e2b-45a7-b0dd-c253322477d5">
                   <SHORT-NAME>Pwm_Ch86Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch86Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2196,6 +2309,7 @@
                 [!IF "PwmChannelId = '87'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="eaf049d0-2269-410b-b39c-4c71a8ca14e0">
                   <SHORT-NAME>Pwm_Ch87Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch87Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2209,6 +2323,7 @@
                 [!IF "PwmChannelId = '88'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="8336d17e-911b-42cf-92fb-6ac28fac070f">
                   <SHORT-NAME>Pwm_Ch88Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch88Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2222,6 +2337,7 @@
                 [!IF "PwmChannelId = '89'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="55368489-cace-46ce-9a6e-c12cf3a6f78b">
                   <SHORT-NAME>Pwm_Ch89Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch89Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2235,6 +2351,7 @@
                 [!IF "PwmChannelId = '8'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="27dd3823-722f-40f6-819e-0acbf8d6bb5a">
                   <SHORT-NAME>Pwm_Ch8Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch8Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2248,6 +2365,7 @@
                 [!IF "PwmChannelId = '90'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="0e84cf7d-6e3b-4f06-83c5-3814d9fe683a">
                   <SHORT-NAME>Pwm_Ch90Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch90Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2261,6 +2379,7 @@
                 [!IF "PwmChannelId = '91'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="dd0639a9-c5d5-4630-a509-0b910f7d1772">
                   <SHORT-NAME>Pwm_Ch91Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch91Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2274,6 +2393,7 @@
                 [!IF "PwmChannelId = '92'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="5515cf66-da7a-49ef-8f30-e743c7bea6c6">
                   <SHORT-NAME>Pwm_Ch92Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch92Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2287,6 +2407,7 @@
                 [!IF "PwmChannelId = '93'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="a4c5267d-8381-474c-9a9a-afb4786a7f26">
                   <SHORT-NAME>Pwm_Ch93Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch93Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2300,6 +2421,7 @@
                 [!IF "PwmChannelId = '94'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="56368bd6-476f-42b4-b52a-40f62f3a1b31">
                   <SHORT-NAME>Pwm_Ch94Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch94Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2313,6 +2435,7 @@
                 [!IF "PwmChannelId = '95'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="e06602f0-5554-44b4-88a1-4d0033dc083f">
                   <SHORT-NAME>Pwm_Ch95Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch95Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2326,6 +2449,7 @@
                 [!IF "PwmChannelId = '96'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="bc399c74-1257-4be5-abff-d2dc48cbd5c8">
                   <SHORT-NAME>Pwm_Ch96Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch96Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2339,6 +2463,7 @@
                 [!IF "PwmChannelId = '97'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="facbb5ed-9e85-461f-911f-172af8b31ee5">
                   <SHORT-NAME>Pwm_Ch97Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch97Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2352,6 +2477,7 @@
                 [!IF "PwmChannelId = '98'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="594188a4-127d-475c-82d7-f200ea1791c9">
                   <SHORT-NAME>Pwm_Ch98Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch98Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2365,6 +2491,7 @@
                 [!IF "PwmChannelId = '99'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="33977708-8ffd-4a97-a949-8021fa6b5967">
                   <SHORT-NAME>Pwm_Ch99Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch99Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2378,6 +2505,7 @@
                 [!IF "PwmChannelId = '9'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="ee08f50a-cb21-402d-bf88-f92506e3807e">
                   <SHORT-NAME>Pwm_Ch9Isr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_Ch9Isr</IMPLEMENTED-ENTRY-REF>
                   [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmTypeofInterruptFunction = 'PWM_ISR_CAT2'"!][!//
@@ -2392,6 +2520,7 @@
                 [!IF "as:modconf('Pwm')[1]/PwmConfigurationOfOptApiServices/PwmDeInitApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="03b3d9e0-7246-4c8f-99ad-ace68a31755d">
                   <SHORT-NAME>Pwm_DeInit</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmDevErrorDetect = 'true'"!][!//
@@ -2410,6 +2539,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Pwm_TI_AM263x/Pwm/Pwm_Behavior/PWM_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmDevErrorDetect = 'true'"!][!//
@@ -2428,6 +2558,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Pwm_TI_AM263x/Pwm/Pwm_Behavior/PWM_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmDevErrorDetect = 'true'"!][!//
@@ -2443,6 +2574,7 @@
                 [!IF "as:modconf('Pwm')[1]/PwmConfigurationOfOptApiServices/PwmGetOutputState = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="12cf18e0-9183-4e55-839b-57fe386a0627">
                   <SHORT-NAME>Pwm_GetOutputState</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_GetOutputState</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
@@ -2450,6 +2582,7 @@
                 [!IF "as:modconf('Pwm')[1]/PwmConfigurationOfOptApiServices/PwmVersionInfoApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="077420f2-90f2-4729-b2d5-22a33ff2cde3">
                   <SHORT-NAME>Pwm_GetVersionInfo</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmDevErrorDetect = 'true'"!][!//
@@ -2464,6 +2597,7 @@
                 [!ENDIF!][!//
                 <BSW-CALLED-ENTITY UUID="92a9fa61-ed40-4d3c-92f2-34c25d56865c">
                   <SHORT-NAME>Pwm_Init</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmDevErrorDetect = 'true'"!][!//
@@ -2478,6 +2612,7 @@
                 [!IF "as:modconf('Pwm')[1]/PwmConfigurationOfOptApiServices/PwmEnableRegisterReadbackApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="baa43ae5-81e2-43af-8181-ec39e10fd449">
                   <SHORT-NAME>Pwm_RegisterReadback</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmDevErrorDetect = 'true'"!][!//
@@ -2496,6 +2631,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Pwm_TI_AM263x/Pwm/Pwm_Behavior/PWM_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Pwm_TI_AM263x/Pwm_ModuleEntry/Pwm_SetDutyCycle</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
@@ -2506,6 +2642,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Pwm_TI_AM263x/Pwm/Pwm_Behavior/PWM_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmDevErrorDetect = 'true'"!][!//
@@ -2524,6 +2661,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Pwm_TI_AM263x/Pwm/Pwm_Behavior/PWM_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Pwm')[1]/PwmGeneral/PwmDevErrorDetect = 'true'"!][!//

@@ -104,6 +104,7 @@
                 [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsBlankCheckApi = 'true'"!]
                 <BSW-CALLED-ENTITY UUID="fb1ef05a-5eac-4be4-9a0e-e5fbe4a9e063">
                   <SHORT-NAME>Fls_BlankCheck</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsDevErrorDetect = 'true'"!]
                   <CALL-POINTS>
@@ -119,6 +120,7 @@
                 [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsCancelApi = 'true'"!]
                 <BSW-CALLED-ENTITY UUID="481bb0e6-c906-43d5-bbc6-7d41e8afba2b">
                   <SHORT-NAME>Fls_Cancel</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsDevErrorDetect = 'true'"!]
                   <CALL-POINTS>
@@ -134,6 +136,7 @@
                 [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsCompareApi = 'true'"!]
                 <BSW-CALLED-ENTITY UUID="78855013-e49e-4e96-a2ad-6b522911af04">
                   <SHORT-NAME>Fls_Compare</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsDevErrorDetect = 'true'"!]
                   <CALL-POINTS>
@@ -148,6 +151,7 @@
                 [!ENDIF!]
                 <BSW-CALLED-ENTITY UUID="56d25860-faea-4f8f-8576-616f4ed1f0f1">
                   <SHORT-NAME>Fls_Erase</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsDevErrorDetect = 'true'"!]
                   <CALL-POINTS>
@@ -162,6 +166,7 @@
                 [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsGetJobResultApi = 'true'"!]
                 <BSW-CALLED-ENTITY UUID="a7a6e4ca-9c54-486d-b356-f0aa34d002cc">
                   <SHORT-NAME>Fls_GetJobResult</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsDevErrorDetect = 'true'"!]
                   <CALL-POINTS>
@@ -177,6 +182,7 @@
                 [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsGetStatusApi = 'true'"!]
                 <BSW-CALLED-ENTITY UUID="6938fcba-8ce2-4f8a-916b-d015d00f2003">
                   <SHORT-NAME>Fls_GetStatus</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Fls_TI_AM263x/Fls_ModuleEntry/Fls_GetStatus</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
@@ -184,6 +190,7 @@
                 [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsVersionInfoApi = 'true'"!]
                 <BSW-CALLED-ENTITY UUID="05bafd61-4dae-4e9a-b448-f509e59ff7c3">
                   <SHORT-NAME>Fls_GetVersionInfo</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsDevErrorDetect = 'true'"!]
                   <CALL-POINTS>
@@ -198,6 +205,7 @@
                 [!ENDIF!]
                 <BSW-INTERRUPT-ENTITY UUID="c57ee964-41dd-4cde-ae1e-c57fa25a7627">
                   <SHORT-NAME>Fls_Hdlr</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Fls')[1]/FlsConfigSet/FlsEnableDMA = 'true'"!]
                   <CALL-POINTS>
@@ -225,6 +233,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-CALLED-ENTITY UUID="19a650c1-5b4f-48ec-b2ac-c5163704e755">
                   <SHORT-NAME>Fls_Init</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsDevErrorDetect = 'true'"!]
@@ -251,6 +260,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Fls_TI_AM263x/Fls/Fls_Behavior/FLS_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsDevErrorDetect = 'true'"!]
@@ -282,6 +292,7 @@
                 </BSW-SCHEDULABLE-ENTITY>
                 <BSW-CALLED-ENTITY UUID="c15ce6c9-c329-4578-84b7-7ec3fdd7f5a3">
                   <SHORT-NAME>Fls_Read</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsDevErrorDetect = 'true'"!]
                   <CALL-POINTS>
@@ -296,6 +307,7 @@
                 [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsEnableRegisterReadbackApi = 'true'"!]
                 <BSW-CALLED-ENTITY UUID="a0370c27-658e-4397-9a8f-3254f1eed320">
                   <SHORT-NAME>Fls_RegisterReadback</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsDevErrorDetect = 'true'"!]
                   <CALL-POINTS>
@@ -310,18 +322,21 @@
                 [!ENDIF!]
                 <BSW-CALLED-ENTITY UUID="2e855fcd-eb87-4b44-9439-6c46f0f8499c">
                   <SHORT-NAME>Fls_SetEraseType</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Fls_TI_AM263x/Fls_ModuleEntry/Fls_SetEraseType</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
                 [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsSetModeApi = 'true'"!]
                 <BSW-CALLED-ENTITY UUID="dd84c604-9cfc-49b4-96d7-c95a43654b8e">
                   <SHORT-NAME>Fls_SetMode</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Fls_TI_AM263x/Fls_ModuleEntry/Fls_SetMode</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
                 [!ENDIF!]
                 <BSW-CALLED-ENTITY UUID="76d787f9-e454-4ac5-ab87-6ce9fd2a2fd7">
                   <SHORT-NAME>Fls_Write</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsDevErrorDetect = 'true'"!]
                   <CALL-POINTS>

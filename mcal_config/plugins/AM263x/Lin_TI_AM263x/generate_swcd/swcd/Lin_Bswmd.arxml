@@ -123,6 +123,7 @@
                 [!IF "LinInterruptLineSelect = 'LIN_INTERRUPT_LINE_NUM_0' and LinInstance = 'LIN_INSTANCE_0'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="36f34213-1fad-4610-a13d-4e73fd10bded">
                   <SHORT-NAME>Lin_0_Int0ISR</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Lin_TI_AM263x/Lin_ModuleEntry/Lin_0_Int0ISR</IMPLEMENTED-ENTRY-REF>
                   [!IF "LinISRType = 'LIN_ISR_CAT2'"!][!//
@@ -136,6 +137,7 @@
                 [!IF "LinInterruptLineSelect = 'LIN_INTERRUPT_LINE_NUM_1' and LinInstance = 'LIN_INSTANCE_0'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="60923fb8-693c-45a5-8b10-f4e8ae5a9d43">
                   <SHORT-NAME>Lin_0_Int1ISR</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Lin_TI_AM263x/Lin_ModuleEntry/Lin_0_Int1ISR</IMPLEMENTED-ENTRY-REF>
                   [!IF "LinISRType = 'LIN_ISR_CAT2'"!][!//
@@ -149,6 +151,7 @@
                 [!IF "LinInterruptLineSelect = 'LIN_INTERRUPT_LINE_NUM_0'  and LinInstance = 'LIN_INSTANCE_1'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="064980e1-b412-4a61-953a-7e010503e664">
                   <SHORT-NAME>Lin_1_Int0ISR</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Lin_TI_AM263x/Lin_ModuleEntry/Lin_1_Int0ISR</IMPLEMENTED-ENTRY-REF>
                   [!IF "LinISRType = 'LIN_ISR_CAT2'"!][!//
@@ -162,6 +165,7 @@
                 [!IF "LinInterruptLineSelect = 'LIN_INTERRUPT_LINE_NUM_1'  and LinInstance = 'LIN_INSTANCE_1'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="69f47805-d5cc-4caf-958b-a57512e07ae8">
                   <SHORT-NAME>Lin_1_Int1ISR</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Lin_TI_AM263x/Lin_ModuleEntry/Lin_1_Int1ISR</IMPLEMENTED-ENTRY-REF>
                   [!IF "LinISRType = 'LIN_ISR_CAT2'"!][!//
@@ -175,6 +179,7 @@
                 [!IF "LinInterruptLineSelect = 'LIN_INTERRUPT_LINE_NUM_0' and LinInstance = 'LIN_INSTANCE_2'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="04c42e24-2079-4bbd-bc74-44b188e2ea75">
                   <SHORT-NAME>Lin_2_Int0ISR</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Lin_TI_AM263x/Lin_ModuleEntry/Lin_2_Int0ISR</IMPLEMENTED-ENTRY-REF>
                   [!IF "LinISRType = 'LIN_ISR_CAT2'"!][!//
@@ -188,6 +193,7 @@
                 [!IF "LinInterruptLineSelect = 'LIN_INTERRUPT_LINE_NUM_1' and LinInstance = 'LIN_INSTANCE_2'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="d54c9776-e06d-48cb-871b-3d04a5823754">
                   <SHORT-NAME>Lin_2_Int1ISR</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Lin_TI_AM263x/Lin_ModuleEntry/Lin_2_Int1ISR</IMPLEMENTED-ENTRY-REF>
                   [!IF "LinISRType = 'LIN_ISR_CAT2'"!][!//
@@ -201,6 +207,7 @@
                 [!IF "LinInterruptLineSelect = 'LIN_INTERRUPT_LINE_NUM_0' and LinInstance = 'LIN_INSTANCE_3'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="111db180-aa71-4282-915e-d845c17c232b">
                   <SHORT-NAME>Lin_3_Int0ISR</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Lin_TI_AM263x/Lin_ModuleEntry/Lin_3_Int0ISR</IMPLEMENTED-ENTRY-REF>
                   [!IF "LinISRType = 'LIN_ISR_CAT2'"!][!//
@@ -214,6 +221,7 @@
                 [!IF "LinInterruptLineSelect = 'LIN_INTERRUPT_LINE_NUM_1' and LinInstance = 'LIN_INSTANCE_3'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="d47c04eb-7348-4ec0-81ff-59ac84a55617">
                   <SHORT-NAME>Lin_3_Int1ISR</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Lin_TI_AM263x/Lin_ModuleEntry/Lin_3_Int1ISR</IMPLEMENTED-ENTRY-REF>
                   [!IF "LinISRType = 'LIN_ISR_CAT2'"!][!//
@@ -227,6 +235,7 @@
                 [!IF "LinInterruptLineSelect = 'LIN_INTERRUPT_LINE_NUM_0' and LinInstance = 'LIN_INSTANCE_4'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="5e5ce40f-c6d8-474e-bf98-899b16f23f48">
                   <SHORT-NAME>Lin_4_Int0ISR</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Lin_TI_AM263x/Lin_ModuleEntry/Lin_4_Int0ISR</IMPLEMENTED-ENTRY-REF>
                   [!IF "LinISRType = 'LIN_ISR_CAT2'"!][!//
@@ -240,6 +249,7 @@
                 [!IF "LinInterruptLineSelect = 'LIN_INTERRUPT_LINE_NUM_1' and LinInstance = 'LIN_INSTANCE_4'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="29e42ab9-6ec3-4b95-9840-19fd97915752">
                   <SHORT-NAME>Lin_4_Int1ISR</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Lin_TI_AM263x/Lin_ModuleEntry/Lin_4_Int1ISR</IMPLEMENTED-ENTRY-REF>
                   [!IF "LinISRType = 'LIN_ISR_CAT2'"!][!//
@@ -253,6 +263,7 @@
                 [!ENDLOOP!][!//
                 <BSW-CALLED-ENTITY UUID="03b3d9e0-7246-4c8f-99ad-ace68a31755d">
                   <SHORT-NAME>Lin_CheckWakeup</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Lin')[1]/LinGeneral/LinDevErrorDetect = 'true'"!][!//
@@ -269,6 +280,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Lin_TI_AM263x/Lin/Lin_Behavior/LIN_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Lin')[1]/LinGeneral/LinDevErrorDetect = 'true'"!][!//
@@ -283,6 +295,7 @@
                 [!IF "as:modconf('Lin')[1]/LinGeneral/LinVersionInfoApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="4b43ca2b-b0cd-4bed-8a49-25ee1015fe6a">
                   <SHORT-NAME>Lin_GetVersionInfo</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Lin')[1]/LinGeneral/LinDevErrorDetect = 'true'"!][!//
@@ -300,6 +313,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Lin_TI_AM263x/Lin/Lin_Behavior/LIN_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Lin')[1]/LinGeneral/LinDevErrorDetect = 'true'"!][!//
@@ -316,6 +330,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Lin_TI_AM263x/Lin/Lin_Behavior/LIN_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Lin')[1]/LinGeneral/LinDevErrorDetect = 'true'"!][!//
@@ -329,6 +344,7 @@
                 </BSW-CALLED-ENTITY>
                 <BSW-CALLED-ENTITY UUID="92a9fa61-ed40-4d3c-92f2-34c25d56865c">
                   <SHORT-NAME>Lin_Init</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Lin')[1]/LinGeneral/LinDevErrorDetect = 'true'"!][!//
@@ -343,6 +359,7 @@
                 [!IF "as:modconf('Lin')[1]/LinGeneral/LinEnableRegisterReadbackApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="baa43ae5-81e2-43af-8181-ec39e10fd449">
                   <SHORT-NAME>Lin_RegisterReadback</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Lin')[1]/LinGeneral/LinDevErrorDetect = 'true'"!][!//
@@ -360,6 +377,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Lin_TI_AM263x/Lin/Lin_Behavior/LIN_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Lin')[1]/LinGeneral/LinDevErrorDetect = 'true'"!][!//
@@ -376,6 +394,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Lin_TI_AM263x/Lin/Lin_Behavior/LIN_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Lin')[1]/LinGeneral/LinDevErrorDetect = 'true'"!][!//
@@ -392,6 +411,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Lin_TI_AM263x/Lin/Lin_Behavior/LIN_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Lin')[1]/LinGeneral/LinDevErrorDetect = 'true'"!][!//

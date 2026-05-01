@@ -71,6 +71,7 @@
                 [!IF "as:modconf('Wdg')[as:path(node:dtos(.))='/TI_AM263x/Wdg']/WdgGeneral/WdgVersionInfoApi = 'true'"!]
                 <BSW-CALLED-ENTITY UUID="d7071e31-3553-4986-82fe-8da061b009cd">
                   <SHORT-NAME>Wdg_GetVersionInfo</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Wdg')[as:path(node:dtos(.))='/TI_AM263x/Wdg']/WdgGeneral/WdgDevErrorDetect = 'true'"!]
                   <CALL-POINTS>
@@ -85,6 +86,7 @@
                 [!ENDIF!]
                 <BSW-CALLED-ENTITY UUID="8ac1bf12-6cb8-4e05-a37d-bbae27823c03">
                   <SHORT-NAME>Wdg_Init</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "((as:modconf('Wdg')[as:path(node:dtos(.))='/TI_AM263x/Wdg']/WdgGeneral/WdgDevErrorDetect = 'true') or (not(node:empty(as:modconf('Wdg')[as:path(node:dtos(.))='/TI_AM263x/Wdg']/WdgDemEventParameterRefs/*)) = 'true'))"!]
                   <CALL-POINTS>
@@ -107,6 +109,7 @@
                 [!IF "as:modconf('Wdg')[as:path(node:dtos(.))='/TI_AM263x/Wdg']/WdgGeneral/WdgRegisterReadbackApi = 'true'"!]
                 <BSW-CALLED-ENTITY UUID="c96bd596-5b1a-4d71-827d-a3c2a5b49575">
                   <SHORT-NAME>Wdg_RegisterReadback</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Wdg_TI_AM263x/Wdg_ModuleEntry/Wdg_RegisterReadback</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
@@ -116,6 +119,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Wdg_TI_AM263x/Wdg/Wdg_Behavior/WDG_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "((as:modconf('Wdg')[as:path(node:dtos(.))='/TI_AM263x/Wdg']/WdgGeneral/WdgDevErrorDetect = 'true') or (not(node:empty(as:modconf('Wdg')[as:path(node:dtos(.))='/TI_AM263x/Wdg']/WdgDemEventParameterRefs/WDG_E_MODE_FAILED)) = 'true') or (not(node:empty(as:modconf('Wdg')[as:path(node:dtos(.))='/TI_AM263x/Wdg']/WdgDemEventParameterRefs/WDG_E_DISABLE_REJECTED))='true'))"!]
@@ -144,6 +148,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Wdg_TI_AM263x/Wdg/Wdg_Behavior/WDG_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Wdg')[as:path(node:dtos(.))='/TI_AM263x/Wdg']/WdgGeneral/WdgDevErrorDetect = 'true'"!]
                   <CALL-POINTS>
@@ -157,6 +162,7 @@
                 </BSW-CALLED-ENTITY>
                 <BSW-CALLED-ENTITY UUID="4c2fa0e6-38d1-404a-9ca0-4a2001696cc8">
                   <SHORT-NAME>Wdg_Trigger</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Wdg')[as:path(node:dtos(.))='/TI_AM263x/Wdg']/WdgGeneral/WdgDevErrorDetect = 'true'"!]
                   <CALL-POINTS>

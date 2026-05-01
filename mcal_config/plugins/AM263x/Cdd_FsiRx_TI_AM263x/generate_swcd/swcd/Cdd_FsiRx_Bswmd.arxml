@@ -129,6 +129,7 @@
               [!IF "CddFsiRxHwUnitId = 'CDD_FSI_RX_HWUNIT_0'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="a2c45016-7717-4ca3-bdd1-35037de66daf">
                   <SHORT-NAME>CddFsiRx_FSIINT1_IrqUnit0</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDMAEnable = 'true'"!][!//
@@ -172,6 +173,7 @@
                 [!IF "CddFsiRxHwUnitId = 'CDD_FSI_RX_HWUNIT_1'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="41873a95-d00b-48f6-bc1a-7fac5cea8de6">
                   <SHORT-NAME>CddFsiRx_FSIINT1_IrqUnit1</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDMAEnable = 'true'"!][!//
@@ -215,6 +217,7 @@
                 [!IF "CddFsiRxHwUnitId = 'CDD_FSI_RX_HWUNIT_2'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="100810cb-b931-47aa-a5e0-f0e4391c5421">
                   <SHORT-NAME>CddFsiRx_FSIINT1_IrqUnit2</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDMAEnable = 'true'"!][!//
@@ -258,6 +261,7 @@
                 [!IF "CddFsiRxHwUnitId = 'CDD_FSI_RX_HWUNIT_3'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="27ea42f7-c5ea-4423-b1ba-797aab85b360">
                   <SHORT-NAME>CddFsiRx_FSIINT1_IrqUnit3</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDMAEnable = 'true'"!][!//
@@ -301,6 +305,7 @@
                 [!IF "CddFsiRxHwUnitId = 'CDD_FSI_RX_HWUNIT_0'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="6e81150d-4167-46a0-8ebe-3ae8210e9ba9">
                   <SHORT-NAME>CddFsiRx_FSIINT2_IrqUnit0</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDMAEnable = 'true'"!][!//
@@ -344,6 +349,7 @@
                 [!IF "CddFsiRxHwUnitId = 'CDD_FSI_RX_HWUNIT_1'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="6d730ce7-e98b-441f-bd9d-eb394a589739">
                   <SHORT-NAME>CddFsiRx_FSIINT2_IrqUnit1</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDMAEnable = 'true'"!][!//
@@ -387,6 +393,7 @@
                 [!IF "CddFsiRxHwUnitId = 'CDD_FSI_RX_HWUNIT_2'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="7c014ad8-f6c9-46d2-baff-ea6dccd50813">
                   <SHORT-NAME>CddFsiRx_FSIINT2_IrqUnit2</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDMAEnable = 'true'"!][!//
@@ -430,6 +437,7 @@
                 [!IF "CddFsiRxHwUnitId = 'CDD_FSI_RX_HWUNIT_3'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="fcb60478-4c9a-47da-93ca-fac545a48406">
                   <SHORT-NAME>CddFsiRx_FSIINT2_IrqUnit3</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDMAEnable = 'true'"!][!//
@@ -474,12 +482,14 @@
                 [!ENDLOOP!][!//
                 <BSW-CALLED-ENTITY UUID="22b574ad-51da-4567-bfe3-0639a985f25e">
                   <SHORT-NAME>CddFsiRx_GetStatus</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_FsiRx_TI_AM263x/Cdd_FsiRx_ModuleEntry/CddFsiRx_GetStatus</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
                 [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDeInitApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="651bbd50-7d63-4d59-965e-17dff3fd0f04">
                   <SHORT-NAME>Cdd_FsiRx_DeInit</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDevErrorDetectApi = 'true'"!][!//
                   <CALL-POINTS>
@@ -495,6 +505,7 @@
                 [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxGetVersionInfoApi = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="12cf18e0-9183-4e55-839b-57fe386a0627">
                   <SHORT-NAME>Cdd_FsiRx_GetVersionInfo</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDevErrorDetectApi = 'true'"!][!//
                   <CALL-POINTS>
@@ -509,6 +520,7 @@
                 [!ENDIF!][!//
                 <BSW-CALLED-ENTITY UUID="08bd6605-9162-4248-b0c7-bf7ddd98d4ed">
                   <SHORT-NAME>Cdd_FsiRx_Init</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDevErrorDetectApi = 'true'"!][!//
                   <CALL-POINTS>
@@ -531,6 +543,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Cdd_FsiRx_TI_AM263x/Cdd_FsiRx/Cdd_Fsi_Rx_Behavior/FSI_RX_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                     [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDMAEnable = 'true'"!][!//
@@ -564,6 +577,7 @@
                 [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxResetDriver = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="ad08af1d-2dd8-4551-a036-3dd706a08933">
                   <SHORT-NAME>Cdd_FsiRx_Reset</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDevErrorDetectApi = 'true'"!][!//
                   <CALL-POINTS>
@@ -581,6 +595,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Cdd_FsiRx_TI_AM263x/Cdd_FsiRx/Cdd_Fsi_Rx_Behavior/FSI_RX_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxDevErrorDetectApi = 'true'"!][!//
                   <CALL-POINTS>

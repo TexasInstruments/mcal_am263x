@@ -186,6 +186,7 @@
               [!IF "AdcHwUnitId = 'ADC_HWUNIT_0'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="6e81150d-4167-46a0-8ebe-3ae8210e9ba1">
                   <SHORT-NAME>Adc_ADCINT1_IrqUnit0</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -217,6 +218,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="ac14fa3b-a94f-4fcc-97ce-afe493122c21">
                   <SHORT-NAME>Adc_ADCINT2_IrqUnit0</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -248,6 +250,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="32fdacd4-223c-401d-9c48-02a701a26916">
                   <SHORT-NAME>Adc_ADCINT3_IrqUnit0</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -279,6 +282,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="6e272686-e112-422a-a1ad-682919b2631b">
                   <SHORT-NAME>Adc_ADCINT4_IrqUnit0</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -312,6 +316,7 @@
               [!IF "AdcHwUnitId = 'ADC_HWUNIT_1'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="6e81150d-4167-46a0-8ebe-3ae8210e9ba9">
                   <SHORT-NAME>Adc_ADCINT1_IrqUnit1</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -343,6 +348,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="ac14fa3b-a94f-4fcc-97ce-afe493122c22">
                   <SHORT-NAME>Adc_ADCINT2_IrqUnit1</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -374,6 +380,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="32fdacd4-223c-401d-9c48-02a701a26926">
                   <SHORT-NAME>Adc_ADCINT3_IrqUnit1</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -405,6 +412,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="6e272686-e112-422a-a1ad-682919b2637b">
                   <SHORT-NAME>Adc_ADCINT4_IrqUnit1</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -438,6 +446,7 @@
               [!IF "AdcHwUnitId = 'ADC_HWUNIT_2'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="6e81150d-4167-46a0-8ebe-3ae8210e8ba9">
                   <SHORT-NAME>Adc_ADCINT1_IrqUnit2</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -469,6 +478,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="ac14fa3b-a94f-4fcc-97ce-afe493120c22">
                   <SHORT-NAME>Adc_ADCINT2_IrqUnit2</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -500,6 +510,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="32fdacd4-223c-401d-9c48-02a701a96926">
                   <SHORT-NAME>Adc_ADCINT3_IrqUnit2</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -531,6 +542,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="6e272686-e112-422a-a1ad-682919b2437b">
                   <SHORT-NAME>Adc_ADCINT4_IrqUnit2</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -564,6 +576,7 @@
               [!IF "AdcHwUnitId = 'ADC_HWUNIT_3'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="6e81150d-4167-46a0-8ebe-1ae8210e9ba9">
                   <SHORT-NAME>Adc_ADCINT1_IrqUnit3</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -595,6 +608,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="ac14fa3b-a94f-4fcc-97ce-afe493142c22">
                   <SHORT-NAME>Adc_ADCINT2_IrqUnit3</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -626,6 +640,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="32fdacd4-223c-401d-9c48-02a701a25926">
                   <SHORT-NAME>Adc_ADCINT3_IrqUnit3</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -657,6 +672,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="6e272686-e112-422a-a1ad-682919b1637b">
                   <SHORT-NAME>Adc_ADCINT4_IrqUnit3</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -690,6 +706,7 @@
               [!IF "AdcHwUnitId = 'ADC_HWUNIT_4'"!][!//
                 <BSW-INTERRUPT-ENTITY UUID="6e81150d-4167-46a0-8ebe-3ae8210e7ba9">
                   <SHORT-NAME>Adc_ADCINT1_IrqUnit4</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -721,6 +738,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="ac14fa3b-a94f-4fcc-97ce-afe493128c22">
                   <SHORT-NAME>Adc_ADCINT2_IrqUnit4</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -752,6 +770,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="32fdacd4-223c-401d-9c48-02a771a26926">
                   <SHORT-NAME>Adc_ADCINT3_IrqUnit4</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -783,6 +802,7 @@
                 </BSW-INTERRUPT-ENTITY>
                 <BSW-INTERRUPT-ENTITY UUID="6e272686-e112-422a-a1ad-682919b2537b">
                   <SHORT-NAME>Adc_ADCINT4_IrqUnit4</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -821,6 +841,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Adc_TI_AM263x/Adc/Adc_Behavior/ADC_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDevErrorDetect   = 'true'"!][!//
@@ -843,6 +864,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Adc_TI_AM263x/Adc/Adc_Behavior/ADC_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDevErrorDetect   = 'true'"!][!//
@@ -861,6 +883,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Adc_TI_AM263x/Adc/Adc_Behavior/ADC_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -897,6 +920,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Adc_TI_AM263x/Adc/Adc_Behavior/ADC_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDevErrorDetect   = 'true'"!][!//
@@ -915,6 +939,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Adc_TI_AM263x/Adc/Adc_Behavior/ADC_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -950,6 +975,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Adc_TI_AM263x/Adc/Adc_Behavior/ADC_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDevErrorDetect   = 'true'"!][!//
@@ -966,6 +992,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Adc_TI_AM263x/Adc/Adc_Behavior/ADC_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDevErrorDetect   = 'true'"!][!//
@@ -984,6 +1011,7 @@
               [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcVersionInfoApi  = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="ff8af45f-9327-43ec-a2c3-d836794c5dfa">
                   <SHORT-NAME>Adc_GetVersionInfo</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDevErrorDetect   = 'true'"!][!//
@@ -998,6 +1026,7 @@
               [!ENDIF!][!//
                 <BSW-CALLED-ENTITY UUID="b408a098-acf2-44a0-a0d9-7568d9678b62">
                   <SHORT-NAME>Adc_Init</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDevErrorDetect   = 'true'"!][!//
@@ -1015,6 +1044,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Adc_TI_AM263x/Adc/Adc_Behavior/ADC_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -1045,6 +1075,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Adc_TI_AM263x/Adc/Adc_Behavior/ADC_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDevErrorDetect   = 'true'"!][!//
@@ -1064,6 +1095,7 @@
               [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcEnableRegisterReadbackApi   = 'true'"!][!//
                 <BSW-CALLED-ENTITY UUID="b7e65624-4264-42b7-bb2d-30488e58248e">
                   <SHORT-NAME>Adc_RegisterReadback</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDevErrorDetect   = 'true'"!][!//
@@ -1081,6 +1113,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Adc_TI_AM263x/Adc/Adc_Behavior/ADC_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDevErrorDetect   = 'true'"!][!//
@@ -1102,6 +1135,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Adc_TI_AM263x/Adc/Adc_Behavior/ADC_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
@@ -1136,6 +1170,7 @@
                   <CAN-ENTER-EXCLUSIVE-AREA-REFS>
                     <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/Adc_TI_AM263x/Adc/Adc_Behavior/ADC_EXCLUSIVE_AREA_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
                   </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>SINGLE-CORE-REENTRANT</REENTRANCY-LEVEL>
                   <CALL-POINTS>
                   [!IF "as:modconf('Adc')[1]/AdcGeneral/AdcDMAEnable = 'true'"!][!//
