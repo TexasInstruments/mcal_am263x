@@ -1,3 +1,68 @@
+commit 32dba61f86d19c4aff75d3443929f1d8e58abbc7
+Author: Swathi G Bhat <s-bhat2@ti.com>
+Date:   Tue Jun 9 11:18:02 2026 +0530
+
+    all: Lin: Lint fixes
+    
+    Fixes: MCAL-35550
+    
+    Signed-off-by: Swathi G Bhat
+
+ mcal_test/lin_test/testInput/linTestCases.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 6f4085b803321a1a73025cca045743e16ad698a8
+Author: Swathi G Bhat <s-bhat2@ti.com>
+Date:   Mon Jun 8 17:05:33 2026 +0530
+
+    am263px: I2c: Correcting i2c plugin changes and reverting previous commit bswmd changes
+    
+    Fixes: MCAL-35550
+    
+    Signed-off-by: Swathi G Bhat
+
+ .../I2c/i2c_app/soc/am263px/tresos/output/swcd/Cdd_I2c_Bswmd.arxml | 7 +++++++
+ .../Cdd_I2c_TI_AM263Px/generate_swcd/swcd/Cdd_I2c_Bswmd.arxml      | 4 ++--
+ .../am263px/r5f0_0/config_1/tresos/output/swcd/Cdd_I2c_Bswmd.arxml | 7 +++++++
+ .../am263px/r5f0_0/config_3/tresos/output/swcd/Cdd_I2c_Bswmd.arxml | 7 +++++++
+ .../am263px/r5f0_0/config_5/tresos/output/swcd/Cdd_I2c_Bswmd.arxml | 7 +++++++
+ 5 files changed, 30 insertions(+), 2 deletions(-)
+
+commit 285eddeaf3db76cb21276359e777658fb69f2b19
+Author: Swathi G Bhat <s-bhat2@ti.com>
+Date:   Mon Jun 8 11:04:11 2026 +0530
+
+    all: all: Fixing i2c config build and adding script improvements
+    
+    Fixes: MCAL-35550
+    
+    Signed-off-by: Swathi G Bhat
+
+ .../am263px/tresos/output/swcd/Cdd_I2c_Bswmd.arxml |  7 ----
+ mcal_misc/scripts/windows/mcal_installer_test.sh   |  4 +-
+ mcal_misc/scripts/windows/mcal_release_build.sh    | 44 ++++++++++++++++++++--
+ .../tresos/output/swcd/Cdd_I2c_Bswmd.arxml         |  7 ----
+ .../tresos/output/swcd/Cdd_I2c_Bswmd.arxml         |  7 ----
+ .../tresos/output/swcd/Cdd_I2c_Bswmd.arxml         |  7 ----
+ 6 files changed, 43 insertions(+), 33 deletions(-)
+
+commit b5473a46b997941e773b54fb19d6c3f18b5e769a
+Author: Akash <a-verma3@ti.com>
+Date:   Fri Jun 5 15:45:20 2026 +0530
+
+    am26xx: Lin: Added test case for missing header detection.
+    
+    -Sending Slave response followed by Master response to detect missing header repeatedly.
+    
+    Fixes: MCAL-38812
+    
+    Signed-off-by: Akash Verma
+
+ mcal_test/lin_test/testInput/linTestCases.h      |  24 ++++
+ mcal_test/lin_test/testLib/linTest.h             |   1 +
+ mcal_test/lin_test/testLib/linTestMainTestCase.c | 153 +++++++++++++++++++++++
+ 3 files changed, 178 insertions(+)
+
 commit 031ad4a7402764f520ade287404a142db9c2d371
 Author: Swathi G Bhat <s-bhat2@ti.com>
 Date:   Wed May 27 12:04:22 2026 +0530
