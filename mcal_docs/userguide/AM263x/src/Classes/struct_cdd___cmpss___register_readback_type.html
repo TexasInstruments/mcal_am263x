@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fls_RegisterReadbackType &mdash; Documentation for AM263x</title>
+  <title>Cdd_Cmpss_RegisterReadbackType &mdash; Documentation for AM263x</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
@@ -82,7 +82,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Fls_RegisterReadbackType</li>
+      <li>Cdd_Cmpss_RegisterReadbackType</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -92,13 +92,13 @@
            <div itemprop="articleBody">
              
   <hr class="docutils" />
-<p>title: Fls_RegisterReadbackType
-summary: Register readback type.</p>
+<p>title: Cdd_Cmpss_RegisterReadbackType
+summary: CMPSS Register Readback type.</p>
 <hr class="docutils" />
-<section id="fls-registerreadbacktype">
-<h1>Fls_RegisterReadbackType<a class="headerlink" href="#fls-registerreadbacktype" title="Link to this heading"></a></h1>
-<p>Register readback type.</p>
-<p><code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;Fls.h&gt;</span></code></p>
+<section id="cdd-cmpss-registerreadbacktype">
+<h1>Cdd_Cmpss_RegisterReadbackType<a class="headerlink" href="#cdd-cmpss-registerreadbacktype" title="Link to this heading"></a></h1>
+<p>CMPSS Register Readback type.</p>
+<p><code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;Cdd_Cmpss.h&gt;</span></code></p>
 <section id="structure-members">
 <h2>Structure Members<a class="headerlink" href="#structure-members" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
@@ -109,9 +109,13 @@ summary: Register readback type.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>uint32</p></td>
-<td><p>reg</p></td>
-<td><p>Controller (QSPI/OSPI) PID/Module-ID register.</p></td>
+<tr class="row-even"><td><p>uint16</p></td>
+<td><p>compctl</p></td>
+<td><p>COMPCTL register value.</p></td>
+</tr>
+<tr class="row-odd"><td><p>uint16</p></td>
+<td><p>compdacctl</p></td>
+<td><p>COMPDACCTL register value.</p></td>
 </tr>
 </tbody>
 </table>

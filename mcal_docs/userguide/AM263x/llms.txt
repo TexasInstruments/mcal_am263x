@@ -45,6 +45,7 @@
 - [Can_MaskType](/_sources/src/Classes/struct_can___mask_type.md.txt)
 - [Can_RegisterReadbackType](/_sources/src/Classes/struct_can___register_readback_type.md.txt)
 - [Cdd_Cmpss_RampConfigType](/_sources/src/Classes/struct_cdd___cmpss___ramp_config_type.md.txt)
+- [Cdd_Cmpss_RegisterReadbackType](/_sources/src/Classes/struct_cdd___cmpss___register_readback_type.md.txt)
 - [Cdd_Dma_ChannelConfigType](/_sources/src/Classes/struct_cdd___dma___channel_config_type.md.txt)
 - [Cdd_Dma_ChannelGroup](/_sources/src/Classes/struct_cdd___dma___channel_group.md.txt)
 - [Cdd_Dma_ConfigType](/_sources/src/Classes/struct_cdd___dma___config_type.md.txt)

@@ -207,6 +207,8 @@ extern "C" {
 /** \brief Enable/disable Tx Frame Done Interrupt Event  */
 #define CDD_FSI_TX_FRAME_DONE_INTERRUPT           [!IF "as:modconf('Cdd_FsiTx')[1]/CddFsiTxGeneral/CddFsiTxFrameDoneInterrupt  = 'true'"!] (STD_ON)[!ELSE!](STD_OFF)[!ENDIF!]
 
+/** \brief Enable/Disable Cdd_FsiTx RegisterReadback API */
+#define CDD_FSI_TX_REGISTER_READBACK_API       ([!IF "as:modconf('Cdd_FsiTx')[1]/CddFsiTxGeneral/CddFsiTxEnableRegisterReadbackApi"!]STD_ON[!ELSE!]STD_OFF[!ENDIF!])
 
 /** \brief Enable/disable Multilane Transmission */
 #define CDD_FSI_TX_MULTI_LANE_ENABLE           [!IF "as:modconf('Cdd_FsiTx')[1]/CddFsiTxGeneral/CddFsiTxMultiLaneEnable  = 'true'"!] (STD_ON)[!ELSE!](STD_OFF)[!ENDIF!]
