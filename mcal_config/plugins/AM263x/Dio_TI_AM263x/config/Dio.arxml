@@ -315,7 +315,7 @@
                 </ECUC-BOOLEAN-PARAM-DEF>
               </PARAMETERS>
             </ECUC-PARAM-CONF-CONTAINER-DEF>
-            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:e435c52c-58b2-4506-ae6c-da9a9b76ad99">
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:1a726d10-f20e-40c3-b9bc-c58d0fba53ff">
               <SHORT-NAME>DioPublishedInformation</SHORT-NAME>
               <DESC>
                 <L-2 L="EN">Additional published parameters not covered by &quot;Common&quot; Published Information. Note that these parameters have &quot;PUBLISHED-INFORMATION&quot; configuration class setting, since they are published information.</L-2>

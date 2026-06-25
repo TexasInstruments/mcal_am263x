@@ -205,7 +205,7 @@
                   </a:a>
                   <a:a name="ORIGIN" value="Texas Instruments"/>
                   <a:a name="SYMBOLICNAMEVALUE" value="false"/>
-                  <a:a name="UUID" value="028001ee-dcc9-4098-b04e-0bbd514cbc5d"/>
+                  <a:a name="UUID" value="d6e84202-9e1a-46af-814b-8beb797d0aeb"/>
                   <a:da name="DEFAULT" value="false"/>
                 </v:var>
                 
@@ -219,7 +219,7 @@
                     </a:a>
                     <a:a name="ORIGIN" value="Texas Instruments"/>
                     <a:a name="UUID" 
-                         value="f3e7f7db-54f1-4a4a-9b08-253ec0d863a1"/>
+                         value="a18e0b7e-5e06-4f3f-b14f-16af5238a667"/>
                     <a:da name="DEFAULT" value="0"/>
                     <a:da name="INVALID" type="Range">
                       <a:tst expr="&lt;=16"/>
@@ -268,7 +268,7 @@
                     <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
                   </a:a>
                   <a:a name="ORIGIN" value="Texas Instruments"/>
-                  <a:a name="UUID" value="f3e7f7db-54f1-4a4a-9b08-253ec0d863a1"/>
+                  <a:a name="UUID" value="c9e0bc3f-a429-4df6-b318-89b7debc0bd6"/>
                   <a:da name="DEFAULT" value="0"/>
                   <a:da name="INVALID" type="Range">
                     <a:tst expr="&lt;=1"/>
@@ -284,7 +284,7 @@
                     <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
                   </a:a>
                   <a:a name="ORIGIN" value="Texas Instruments"/>
-                  <a:a name="UUID" value="f3e7f7db-54f1-4a4a-9b08-253ec0d863a1"/>
+                  <a:a name="UUID" value="9fee1041-ab1b-49d4-8d0f-0bc6b33378e7"/>
                   <a:da name="DEFAULT" value="0"/>
                   <a:da name="INVALID" type="Range">
                     <a:tst expr="&lt;=134217727"/>
@@ -300,7 +300,7 @@
                     <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
                   </a:a>
                   <a:a name="ORIGIN" value="Texas Instruments"/>
-                  <a:a name="UUID" value="f3e7f7db-54f1-4a4a-9b08-253ec0d863a1"/>
+                  <a:a name="UUID" value="7fb066e1-4d1b-4651-9ab3-2dee234efc26"/>
                   <a:da name="DEFAULT" value="0"/>
                   <a:da name="INVALID" type="Range">
                     <a:tst expr="&lt;=255"/>
@@ -316,7 +316,7 @@
                     <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
                   </a:a>
                   <a:a name="ORIGIN" value="Texas Instruments"/>
-                  <a:a name="UUID" value="f3e7f7db-54f1-4a4a-9b08-253ec0d863a1"/>
+                  <a:a name="UUID" value="f43dee34-c2ad-437f-9f39-00f6f4e83367"/>
                   <a:da name="DEFAULT" value="0"/>
                   <a:da name="INVALID" type="Range">
                     <a:tst expr="&lt;=255"/>
@@ -332,7 +332,7 @@
                     <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
                   </a:a>
                   <a:a name="ORIGIN" value="Texas Instruments"/>
-                  <a:a name="UUID" value="f3e7f7db-54f1-4a4a-9b08-253ec0d863a1"/>
+                  <a:a name="UUID" value="82229e95-b3e7-4266-b9f0-312c679837df"/>
                   <a:da name="DEFAULT" value="0"/>
                   <a:da name="INVALID" type="Range">
                     <a:tst expr="&lt;=1"/>
@@ -348,7 +348,7 @@
                     <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
                   </a:a>
                   <a:a name="ORIGIN" value="Texas Instruments"/>
-                  <a:a name="UUID" value="f3e7f7db-54f1-4a4a-9b08-253ec0d863a1"/>
+                  <a:a name="UUID" value="26031ea3-ecb4-455f-9a96-1139c370c702"/>
                   <a:da name="DEFAULT" value="0"/>
                   <a:da name="INVALID" type="Range">
                     <a:tst expr="&lt;=1"/>
@@ -370,7 +370,7 @@
 					<a:a name="ORIGIN" value="Texas Instruments"/>
                     <a:a name="SCOPE" value="LOCAL"/>
                     <a:a name="UUID" 
-                         value="26c9bdff-38cf-4f0b-8754-7472d0d41cb9"/>
+                         value="36e280c7-21a2-41ce-bffd-bf74fc9adfa2"/>
                     <a:da name="REF" 
                           value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Os/OsCounter"/>
                   </v:ref>
@@ -473,7 +473,7 @@
                   <a:a name="ORIGIN" value="Texas Instruments"/>
                   <a:a name="SCOPE" value="LOCAL"/>
                   <a:a name="SYMBOLICNAMEVALUE" value="false"/>
-                  <a:a name="UUID" value="4f815cf1-b16c-4054-bf58-9649ed0040da"/>
+                  <a:a name="UUID" value="0833a7f4-68f8-4cc1-8a13-032e5e0def71"/>
                   <a:da name="DEFAULT" value="MCU_PERFORM_RESET_MODE_WARM"/>
                   <a:da name="RANGE">
                     <a:v>MCU_PERFORM_RESET_MODE_WARM</a:v>
@@ -614,7 +614,7 @@
                       <a:a name="SCOPE" value="LOCAL"/>
                       <a:a name="SYMBOLICNAMEVALUE" value="false"/>
                       <a:a name="UUID" 
-                           value="2cb62012-292d-448f-b6a1-078270658e97"/>
+                           value="c500ad63-b704-4195-a4ba-132672e4fc83"/>
                       <a:da name="DEFAULT" value="true"/>
                     </v:var>
                     
@@ -654,7 +654,7 @@
                       <a:a name="DESC" 
                            value="EN: Supported clock sources  for different peripherals"/>
                       <a:a name="UUID" 
-                           value="b1cea778-9884-402b-9535-a819da9e6b7e"/>
+                           value="718d528d-1a0e-4c90-831b-5c349d0c5730"/>
                       <v:lst name="McuFRCClockSourceId">
                         <a:da name="MAX" value="1"/>
                         <v:var name="McuFRCClockSourceId" type="ENUMERATION">
@@ -671,7 +671,7 @@
                           <a:a name="SCOPE" value="LOCAL"/>
                           <a:a name="SYMBOLICNAMEVALUE" value="false"/>
                           <a:a name="UUID" 
-                               value="4f815cf1-b16c-4054-bf58-9649ed0040da"/>
+                               value="393cc0c8-6183-4836-9c3f-eef31db63f54"/>
                           <a:da name="DEFAULT" value="MCU_CLKSRC_0"/>
                           <a:da name="RANGE">
                             <a:v>MCU_CLKSRC_0</a:v>
@@ -701,7 +701,7 @@
                           <a:a name="SCOPE" value="LOCAL"/>
                           <a:a name="SYMBOLICNAMEVALUE" value="false"/>
                           <a:a name="UUID" 
-                               value="4f815cf1-b16c-4054-bf58-9649ed0040da"/>
+                               value="ea5672fd-70b3-45c8-b150-5fd3b8236f20"/>
                           <a:da name="DEFAULT" value="MCU_CLKSRC_2"/>
                           <a:da name="RANGE">
                             <a:v>MCU_CLKSRC_0</a:v>
@@ -730,7 +730,7 @@
                           <a:a name="SCOPE" value="LOCAL"/>
                           <a:a name="SYMBOLICNAMEVALUE" value="false"/>
                           <a:a name="UUID" 
-                               value="4f815cf1-b16c-4054-bf58-9649ed0040da"/>
+                               value="4b9ed344-a2ad-4988-85de-7ae19a528120"/>
                           <a:da name="DEFAULT" value="MCU_CLKSRC_2"/>
                           <a:da name="RANGE">
                             <a:v>MCU_CLKSRC_0</a:v>
@@ -759,7 +759,7 @@
                           <a:a name="SCOPE" value="LOCAL"/>
                           <a:a name="SYMBOLICNAMEVALUE" value="false"/>
                           <a:a name="UUID" 
-                               value="4f815cf1-b16c-4054-bf58-9649ed0040da"/>
+                               value="5e30026b-d37a-474b-8b5f-4b2ca8b948d6"/>
                           <a:da name="DEFAULT" value="MCU_CLKSRC_4"/>
                           <a:da name="RANGE">
                             <a:v>MCU_CLKSRC_0</a:v>
@@ -788,7 +788,7 @@
                           <a:a name="SCOPE" value="LOCAL"/>
                           <a:a name="SYMBOLICNAMEVALUE" value="false"/>
                           <a:a name="UUID" 
-                               value="4f815cf1-b16c-4054-bf58-9649ed0040da"/>
+                               value="b73dbc9c-9e64-4a71-97d3-998bc9a65235"/>
                           <a:da name="DEFAULT" value="MCU_CLKSRC_4"/>
                           <a:da name="RANGE">
                             <a:v>MCU_CLKSRC_0</a:v>
@@ -817,7 +817,7 @@
                           <a:a name="SCOPE" value="LOCAL"/>
                           <a:a name="SYMBOLICNAMEVALUE" value="false"/>
                           <a:a name="UUID" 
-                               value="4f815cf1-b16c-4054-bf58-9649ed0040da"/>
+                               value="23b145ff-2242-4e84-8076-5a3b9db4dd9d"/>
                           <a:da name="DEFAULT" value="MCU_CLKSRC_4"/>
                           <a:da name="RANGE">
                             <a:v>MCU_CLKSRC_0</a:v>
@@ -1572,7 +1572,7 @@
                         <a:a name="ORIGIN" value="Texas Instruments"/>
                         <a:a name="SCOPE" value="LOCAL"/>
                         <a:a name="UUID" 
-                             value="f4f8b845-61f2-40eb-8aa9-fd78fa11ebc5"/>
+                             value="1b5ee9ea-0c33-420b-86ad-d7c63e5d55bc"/>
                                             <a:da name="ENABLE" value="false"/>
                         <a:da name="REF" 
                               value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Pwm/PwmChannelConfigSet/PwmChannel"/>
@@ -1723,7 +1723,7 @@
                                             <a:a name="OPTIONAL" value="true"/>
                                             <a:a name="ORIGIN" value="Texas Instruments"/>
                                             <a:a name="SCOPE" value="LOCAL"/>
-                                            <a:a name="UUID" value="411e6847-ab1d-4d70-9175-f4166fba7fdf"/>
+                                            <a:a name="UUID" value="ad3750ea-877c-4096-8ed0-92cc8ca2f3ca"/>
                                             <a:da name="ENABLE" value="false"/>
                                             <a:da name="REF"
                                                         value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"/>
@@ -1915,7 +1915,7 @@
                           <icc:v vclass="PublishedInformation">VariantPostBuild</icc:v>
                         </a:a>
                         <a:a name="OPTIONAL" value="true"/>
-                        <a:a name="UUID" value="ECUC:4745b6cf-b46f-4fe4-8bfa-c1a47fdd7412"/>
+                        <a:a name="UUID" value="ECUC:ef55d44a-460d-459f-b79d-b85533cf8b42"/>
                         <a:a name="ORIGIN" value="Texas Instruments"/>
                         <a:a name="SCOPE" value="LOCAL"/>
                         <a:a name="SYMBOLICNAMEVALUE" value="false"/>

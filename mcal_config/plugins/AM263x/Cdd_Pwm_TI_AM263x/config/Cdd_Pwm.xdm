@@ -201,7 +201,7 @@
                                     <a:a name="ORIGIN" value="Texas Instruments"/>
                                     <a:a name="SCOPE" value="LOCAL"/>
                                     <a:a name="SYMBOLICNAMEVALUE" value="false"/>
-                                    <a:a name="UUID" value="ECUC:00000000-0000-0000-0000-000000000012"/>
+                                    <a:a name="UUID" value="ECUC:0a7b0cbc-e2af-46b2-9734-57a6ee636ad7"/>
                                     <a:da name="DEFAULT" value="true"/>
                                 </v:var>
 
@@ -252,7 +252,7 @@
 
                             <v:ctr name="CddPwmGeneral" type="IDENTIFIABLE">
                                 <a:a name="DESC" value="EN: This container contains the module-wide configuration parameters of the CDD PWM Driver"/>
-                                <a:a name="UUID" value="ECUC:00000000-0000-0000-0000-000000000023"/>
+                                <a:a name="UUID" value="ECUC:6200a5a1-81e3-4737-923e-81e7c080b90b"/>
 
                                 <!--Design: MCAL-23514-->
                                 <v:var name="CddPwmDevErrorDetect" type="BOOLEAN">
@@ -375,7 +375,7 @@
                                     <a:a name="ORIGIN" value="Texas Instruments"/>
                                     <a:a name="SCOPE" value="LOCAL"/>
                                     <a:a name="SYMBOLICNAMEVALUE" value="false"/>
-                                    <a:a name="UUID" value="ECUC:00000000-0000-0000-0000-000000000024"/>
+                                    <a:a name="UUID" value="ECUC:3714aa71-c768-4d01-9c40-01bacdd0dc28"/>
                                     <a:da name="DEFAULT" value="true"/>
                                 </v:var>
 
@@ -467,7 +467,7 @@
                                       <a:a name="ORIGIN" value="Texas Instruments"/>
                                       <a:a name="SCOPE" value="LOCAL"/>
                                       <a:a name="SYMBOLICNAMEVALUE" value="false"/>
-                                      <a:a name="UUID" value="ECUC:00000000-0000-0000-0000-000000000026"/>
+                                      <a:a name="UUID" value="ECUC:ded79089-27cd-4411-be71-12f7f9ccd071"/>
                                       <a:da name="DEFAULT" value="65536"/>                                                
                                       <a:da name="INVALID" type="Range">
                                         <a:tst expr="&gt;=0"/>
@@ -509,7 +509,7 @@
                                     </a:a>
                                     <a:a name="ORIGIN" value="Texas Instruments"/>
                                     <a:a name="SCOPE" value="LOCAL"/>
-                                    <a:a name="UUID" value="ECUC:00000000-0000-0000-0000-000000000030"/>
+                                    <a:a name="UUID" value="ECUC:93d9db24-0dc1-45a5-b42b-9b2529c3e7ca"/>
                                     <a:da name="DEFAULT" value="32"/>
                                     <a:da name="EDITABLE" value="false"/>
                                     <a:da name="READONLY" value="false"/>

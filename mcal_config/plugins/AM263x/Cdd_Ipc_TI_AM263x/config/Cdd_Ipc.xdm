@@ -31,7 +31,7 @@
                                    <a:a name="POSTBUILDVARIANTSUPPORT" value="false"/>
                                    <a:a name="RELEASE" value="asc:4.3.1"/>
                                    <a:a name="UPPER-MULTIPLICITY" value="*"/>
-                                   <a:a name="UUID" value="3cfdede8-066e-473b-9b4b-40b57a8ca632"/>
+                                   <a:a name="UUID" value="77b56d11-5b74-4300-a08d-cfd2ca17881a"/>
                                    <v:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION">
                                         <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
 
@@ -76,7 +76,7 @@
                                         <a:da name="MIN" value="1"/>
                                         <a:da name="MAX" value="3"/>
                                         <v:ctr name="CddIpcRemoteCoreList" type="IDENTIFIABLE">                                            <a:a name="DESC" value="EN: Refers to the list of coreId that are valid for the particular platform."/>
-                                            <a:a name="UUID" value="6a4113e1-75fa-4cac-a818-cce8010ab1e2"/>
+                                            <a:a name="UUID" value="66f5e197-1cc0-4d8e-ae4b-e02b80f0bbce"/>
                                             <v:var name="CddIpcRemoteCoreIdIndex" type="ENUMERATION">                                                <a:a name="DESC" value="EN: The cores that are participating the IPC message exchange (Exclude the local core from these)"/>
                                                 <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
 
@@ -86,7 +86,7 @@
                                                 <a:a name="ORIGIN" value="Texas Instruments"/>
                                                 <a:a name="SCOPE" value="LOCAL"/>
                                                 <a:a name="SYMBOLICNAMEVALUE" value="false"/>
-                                                <a:a name="UUID" value="0b4c064e-8dde-419a-8b44-42a4407dd983"/>
+                                                <a:a name="UUID" value="d7b04a38-c1fd-4626-8564-eb39bac5790e"/>
                                                 <a:da name="DEFAULT" value="CDD_IPC_R5FSS0_0_ID"/>
                                                 <a:da name="EDITABLE" value="true"/>
                                                 <a:da name="ENABLE" value="true"/>
@@ -153,7 +153,7 @@
                                                 <a:a name="ORIGIN" value="Texas Instruments"/>
                                                 <a:a name="SCOPE" value="LOCAL"/>
                                                 <a:a name="SYMBOLICNAMEVALUE" value="false"/>
-                                                <a:a name="UUID" value="354621cb-2f1c-4667-9bc1-a72ce7e28a06"/>
+                                                <a:a name="UUID" value="cdb7686b-5c37-429e-82de-b7362ddd8d32"/>
                                                 <a:da name="ENABLE" type = "XPath" expr = "as:modconf('Cdd_Ipc')[1]/CddIpcGeneral/CddIpcRpMsgEnable = 'true' and as:modconf('Cdd_Ipc')[1]/CddIpcGeneral/CddIpcRecvCallBackEnable = 'true'" />
                                                 <a:da name="DEFAULT" value="NULL_PTR"/>
                                             </v:var>
@@ -397,7 +397,7 @@
 
                                           </a:a>
                                           <a:a name="ORIGIN" value="Texas Instruments"/>
-                                          <a:a name="UUID" value="f3e7f7db-54f1-4a4a-9b08-253ec0d863a1"/>
+                                          <a:a name="UUID" value="754085db-5b0f-4ae3-adcb-f2e4af3c698c"/>
                                           <a:da name="INVALID" type="Range">
                                              <a:tst expr="&lt;=2147483648"/>
                                              <a:tst expr="&gt;=0"/>
@@ -472,7 +472,7 @@
                                              <a:a name="OPTIONAL" value="true"/>
                                              <a:a name="ORIGIN" value="Texas Instruments"/>
                                              <a:a name="SCOPE" value="LOCAL"/>
-                                             <a:a name="UUID" value="26c9bdff-38cf-4f0b-8754-7472d0d41cb9"/>
+                                             <a:a name="UUID" value="5990abf1-6cdb-4a1f-9b1c-d80766c9d747"/>
                                              <a:da name="REF"
                         value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Os/OsCounter"/>
                                              <a:da name="ENABLE" value="true"/>

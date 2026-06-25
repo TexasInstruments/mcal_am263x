@@ -291,7 +291,7 @@
 				<a:a name="DESC"
 				value="EN: Additional published parameters not covered by &quot;Common&quot; Published Information. Note that these parameters have &quot;PUBLISHED-INFORMATION&quot; configuration class setting, since they are published information."/>
 					<a:a name="UUID"
-						 value="ECUC:e435c52c-58b2-4506-ae6c-da9a9b76ad99"/>
+						 value="ECUC:1a726d10-f20e-40c3-b9bc-c58d0fba53ff"/>
                     <v:var name="DioDeviceVariant" type="ENUMERATION">
 						<a:a name="DESC" value="EN: Select SOC AM263x variant "/>
 						<a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">

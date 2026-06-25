@@ -2084,7 +2084,7 @@
                                     <a:a name="OPTIONAL" value="true"/>
                                     <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
                                     <a:a name="SCOPE" value="LOCAL"/>
-                                    <a:a name="UUID" value="ECUC:26c9bdff-38cf-4f0b-8754-7472d0d41cb9"/>
+                                    <a:a name="UUID" value="ECUC:6a1f7742-fb66-4274-bc51-12532b188495"/>
                                     <a:da name="REF"
                         value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Os/OsCounter"/>
                                     <a:da name="ENABLE" value="true"/>
@@ -2269,7 +2269,7 @@
 									  <icc:v vclass="PublishedInformation">VariantPostBuild</icc:v>
 									</a:a>
 									<a:a name="OPTIONAL" value="true"/>
-									<a:a name="UUID" value="ECUC:4745b6cf-b46f-4fe4-8bfa-c1a47fdd7412"/>
+									<a:a name="UUID" value="ECUC:a8995325-d407-4e45-afbd-c53283fba71a"/>
 									<a:a name="ORIGIN" value="Texas Instruments"/>
 									<a:a name="SCOPE" value="LOCAL"/>
 									<a:a name="SYMBOLICNAMEVALUE" value="false"/>

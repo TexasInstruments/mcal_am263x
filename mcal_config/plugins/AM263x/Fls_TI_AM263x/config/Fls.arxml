@@ -2629,7 +2629,7 @@
                   <MAX>4294967295</MAX>
                   <MIN>1</MIN>
                 </ECUC-INTEGER-PARAM-DEF>
-                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:24a348ed-2ff8-426c-a392-18f905c53c25">
+                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:20d97689-8988-4f71-a02c-0f227d3774f4">
                   <SHORT-NAME>FlsIrqType</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Type of Isr function:
@@ -2730,7 +2730,7 @@
                   </VALUE-CONFIG-CLASSES>
                   <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TI_AM263x/Fls/FlsConfigSet/FlsFlashConfigList/FlsFlashConfiguration</DESTINATION-REF>
                 </ECUC-REFERENCE-DEF>
-                <ECUC-REFERENCE-DEF UUID="ECUC:26c9bdff-38cf-4f0b-8754-7472d0d41cb9">
+                <ECUC-REFERENCE-DEF UUID="ECUC:b3b293f7-6b5b-4f9a-8e58-07840358f6a2">
                   <SHORT-NAME>FlsOsCounterRef</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">This parameter contains a reference to the OsCounter, which is used by the FLS driver.</L-2>

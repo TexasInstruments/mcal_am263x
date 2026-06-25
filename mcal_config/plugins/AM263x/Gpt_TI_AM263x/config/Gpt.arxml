@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00044.xsd">
   <AR-PACKAGES>
-    <AR-PACKAGE UUID="c3eaa465-4adf-4caa-8730-ce354b9379b2">
+    <AR-PACKAGE UUID="df3d6088-67e0-4889-93d0-33f2c3091df6">
       <SHORT-NAME>TI_AM263x</SHORT-NAME>
       <ELEMENTS>
         <ECUC-MODULE-DEF UUID="6ab52c9c-9a5d-48dd-a897-af608944d8a3">
@@ -200,7 +200,7 @@
                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
                       <DEFAULT-VALUE>false</DEFAULT-VALUE>
                     </ECUC-BOOLEAN-PARAM-DEF>
-                    <ECUC-FUNCTION-NAME-DEF UUID="354621cb-2f1c-4667-9bc1-a72ce7e28a06">
+                    <ECUC-FUNCTION-NAME-DEF UUID="a9d59e58-b9e5-4266-a5b4-7406060bc274">
                       <SHORT-NAME>GptNotification</SHORT-NAME>
                       <DESC>
                         <L-2 L="EN">Function pointer to callback function (for non-wakeup notification)</L-2>
@@ -789,7 +789,7 @@
                   <MAX>2147483647</MAX>
                   <MIN>0</MIN>
                 </ECUC-INTEGER-PARAM-DEF>
-                <ECUC-INTEGER-PARAM-DEF UUID="f3e7f7db-54f1-4a4a-9b08-253ec0d863a1">
+                <ECUC-INTEGER-PARAM-DEF UUID="cc72cd14-096b-4e48-ac26-af3cf9bfa9ea">
                   <SHORT-NAME>GptDefaultOSCounterId</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Default Os Counter Id if node reference to OsCounter ref GptOsCounterRef is not set</L-2>
@@ -848,7 +848,7 @@
                 </ECUC-INTEGER-PARAM-DEF>
               </PARAMETERS>
               <REFERENCES>
-                <ECUC-REFERENCE-DEF UUID="26c9bdff-38cf-4f0b-8754-7472d0d41cb9">
+                <ECUC-REFERENCE-DEF UUID="9c0270b1-4f7d-4556-a231-506467a7f6cd">
                   <SHORT-NAME>GptOsCounterRef</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">This parameter contains a reference to the OsCounter, which is used by the GPT driver.</L-2>
@@ -915,13 +915,13 @@
                 </ECUC-PARAM-CONF-CONTAINER-DEF>
               </SUB-CONTAINERS>
             </ECUC-PARAM-CONF-CONTAINER-DEF>
-            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:e435c52c-58b2-4506-ae6c-da9a9b76ad99">
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:1b449844-936c-47e8-bd77-179bb89f714a">
               <SHORT-NAME>GptPublishedInformation</SHORT-NAME>
               <DESC>
                 <L-2 L="EN">Additional published parameters not covered by &quot;Common&quot; Published Information. Note that these parameters have &quot;PUBLISHED-INFORMATION&quot; configuration class setting, since they are published information.</L-2>
               </DESC>
               <PARAMETERS>
-                <ECUC-ENUMERATION-PARAM-DEF UUID="4f815cf1-b16c-4054-bf58-9649ed0040da">
+                <ECUC-ENUMERATION-PARAM-DEF UUID="b33e1fca-465c-43db-8165-0a8e60121a0f">
                   <SHORT-NAME>GptDeviceVariant</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Select SOC AM263x variant </L-2>

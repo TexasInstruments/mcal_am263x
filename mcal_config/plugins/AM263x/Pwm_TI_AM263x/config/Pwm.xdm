@@ -159,7 +159,7 @@
                           <a:a name="SCOPE" value="LOCAL"/>
                           <a:a name="SYMBOLICNAMEVALUE" value="false"/>
                           <a:a name="UUID"
-                               value="ECUC:7cc25f83-b89c-4ba0-8766-7ba087185c98"/>
+                               value="ECUC:0d5a52ee-74f5-4a0d-99ee-9fbf683127e6"/>
                           <a:da name="DEFAULT" value="PWM_CONTROLSS_G0"/>
                           <a:da name="RANGE">
                             <a:v>PWM_CONTROLSS_G0</a:v>
@@ -301,7 +301,7 @@
                           <a:a name="SCOPE" value="LOCAL"/>
                           <a:a name="SYMBOLICNAMEVALUE" value="false"/>
                           <a:a name="UUID"
-                           value="ECUC:da8053d5-b4f7-45c6-a06c-ab873f15af81"/>
+                           value="ECUC:6c5a37b5-f824-473a-b0bb-6f61bf573fd6"/>
                         <a:da name="EDITABLE" value="true"/>
                         <a:da name="DEFAULT" value="19200000"/>
                      </v:var>
@@ -385,7 +385,7 @@
                       <a:a name="ORIGIN" value="Texas Instruments"/>
                       <a:a name="SCOPE" value="LOCAL"/>
                      <a:a name="UUID"
-                          value="ECUC:b1691bdf-e530-4ee3-83ff-c3c7c91432fd"/>
+                          value="ECUC:27655c44-cf85-453b-baa7-833d8e35c518"/>
                      <a:da name="EDITABLE" value="true"/>
                      <a:da name="ENABLE" value="true"/>
                      <a:da name="VISIBLE" value="true"/>
@@ -618,7 +618,7 @@
                       <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
                     </a:a>
                     <a:a name="ORIGIN" value="Texas Instruments"/>
-				  <a:a name="UUID" value="ECUC:32c56ea6-2b57-4968-83a2-357d467db908"/>
+				  <a:a name="UUID" value="ECUC:4ac2d7c9-0347-4a58-9e1d-1aacda7924a6"/>
                     <a:da name="INVALID" type="Range">
                       <a:tst expr="&lt;=16"/>
                       <a:tst expr="&gt;=0"/>
@@ -636,7 +636,7 @@
 					<a:a name="OPTIONAL" value="true"/>
 					<a:a name="ORIGIN" value="Texas Instruments"/>
 					<a:a name="SCOPE" value="LOCAL"/>
-					<a:a name="UUID" value="ECUC:26c9bdff-38cf-4f0b-8754-7472d0d41cb9"/>
+					<a:a name="UUID" value="ECUC:1c8d8ff2-7b5e-4e55-a1b9-2ad177eca89c"/>
 					<a:da name="REF"
 		value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Os/OsCounter"/>
 					<a:da name="ENABLE" value="true"/>
@@ -894,7 +894,7 @@
 								<a:a name="DESC"
 									 value="EN: Additional published parameters not covered by &quot;Common&quot; Published Information. Note that these parameters have &quot;PUBLISHED-INFORMATION&quot; configuration class setting, since they are published information."/>
 								<a:a name="UUID"
-									 value="ECUC:e435c52c-58b2-4506-ae6c-da9a9b76ad99"/>
+									 value="ECUC:7e3146ab-8e12-4edc-af35-2a1818b0175e"/>
                                 <v:var name="PwmDeviceVariant" type="ENUMERATION">
 									<a:a name="DESC" value="EN: Select SOC AM263x variant "/>
 									<a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
@@ -905,7 +905,7 @@
 									<a:a name="ORIGIN" value="Texas Instruments"/>
 									<a:a name="SCOPE" value="LOCAL"/>
 									<a:a name="SYMBOLICNAMEVALUE" value="false"/>
-									<a:a name="UUID" value="4f815cf1-b16c-4054-bf58-9649ed0040da"/>
+									<a:a name="UUID" value="24cc3ade-07d3-468c-923c-23b1880cb015"/>
 									<a:da name="ENABLE" value="true"/>
 									<a:da name="DEFAULT" value="AM263x"/>
 									<a:da name="RANGE">

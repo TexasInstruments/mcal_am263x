@@ -350,7 +350,7 @@
 														<a:a name="ORIGIN" value="Texas Instruments"/>
 														<a:a name="SCOPE" value="LOCAL"/>
 														<a:a name="SYMBOLICNAMEVALUE" value="false"/>
-														<a:a name="UUID" value="4f815cf1-b16c-4054-bf58-9649ed0040da"/>
+														<a:a name="UUID" value="bb62e378-60df-4a9c-89b0-0f674dff0530"/>
 														<a:da name="ENABLE" value="true"/>
 														<a:da name="DEFAULT" value="PORT_PIN_PULLTYPE_PULLDOWN"/>
 														<a:da name="RANGE">
@@ -524,7 +524,7 @@
 										<a:da name="MAX" value="138"/>
 										<a:da name="MIN" value="0"/>
 										<v:ctr name="PortDioConfig" type="IDENTIFIABLE">
-											<a:a name="UUID" value="986d7ce7-e9f2-4e1b-9a0e-c6a4e9c2a3ed"/>
+											<a:a name="UUID" value="312d953c-8452-4bcc-8528-8ab84f5aca73"/>
 											<a:a name="DESC" value="EN: Structure for GPIO Interrupt configuration"/>
 											<a:da name="ENABLE" value="true"/>
 											<v:var name="PortDioPinNumber" type="INTEGER">
@@ -703,7 +703,7 @@
 									<icc:v class="PreCompile">VariantPreCompile</icc:v>
 								  </a:a>
 								  <a:a name="ORIGIN" value="Texas Instruments"/>
-								  <a:a name="UUID" value="f3e7f7db-54f1-4a4a-9b08-253ec0d863a1"/>
+								  <a:a name="UUID" value="066559af-e6db-4e96-bfed-61de55f45147"/>
 								  <a:da name="INVALID" type="Range">
 									<a:tst expr="&lt;=16"/>
 									<a:tst expr="&gt;=0"/>
@@ -775,7 +775,7 @@
 									<a:a name="OPTIONAL" value="true"/>
 									<a:a name="ORIGIN" value="Texas Instruments"/>
 									<a:a name="SCOPE" value="LOCAL"/>
-									<a:a name="UUID" value="26c9bdff-38cf-4f0b-8754-7472d0d41cb9"/>
+									<a:a name="UUID" value="fbc981aa-23a2-4db4-b8c1-1618583f2382"/>
 									<a:da name="REF"
                                                     value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Os/OsCounter"/>
 									<a:da name="ENABLE" value="true"/>
@@ -824,7 +824,7 @@
 								<a:a name="ORIGIN" value="Texas Instruments"/>
 								<a:a name="SCOPE" value="LOCAL"/>
 								<a:a name="SYMBOLICNAMEVALUE" value="false"/>
-								<a:a name="UUID" value="0ed19202-7003-4135-bd0b-fb67e49f5991"/>
+								<a:a name="UUID" value="4234aecf-607a-4ed7-9b4f-0e142b912465"/>
 								<a:da name="DEFAULT" value="0"/>
 								<a:da name="INVALID" type="Range">
 									<a:tst expr="&lt;=3"/>
@@ -837,7 +837,7 @@
                                         value="EN: Container for the references to DemEventParameter elements which shall be invoked using the API Dem_ReportErrorStatus API in case the corresponding error occurs. The EventId is taken from the referenced DemEventParameter&apos;s DemEventId value. The standardized errors are provided in the container and can be extended by vendor specific error references."/>
                                 <a:a name="OPTIONAL" value="true"/>
                                 <a:a name="UUID"
-                            value="27920277-13ba-47db-9bd1-5631cadf9563"/>
+                            value="d04489ab-c5d1-4efb-a10c-e8876be888b7"/>
                                 <a:da name="ENABLE" value="false"/>
                                 <v:ref name="PORT_E_HARDWARE_ERROR"
                                     type="SYMBOLIC-NAME-REFERENCE">
@@ -852,7 +852,7 @@
                                     <a:a name="OPTIONAL" value="true"/>
                                     <a:a name="ORIGIN" value="Texas Instruments"/>
                                     <a:a name="SCOPE" value="LOCAL"/>
-                                    <a:a name="UUID" value="411e6847-ab1d-4d70-9175-f4166fba7fdf"/>
+                                    <a:a name="UUID" value="6c257881-d444-4d49-9db3-6976461865ab"/>
                                     <a:da name="ENABLE" value="false"/>
                                     <a:da name="REF"
                                     value="ASPathDataOfSchema:/AUTOSAR/EcucDefs/Dem/DemConfigSet/DemEventParameter"/>

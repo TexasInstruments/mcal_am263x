@@ -237,7 +237,7 @@
                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
                   <DEFAULT-VALUE>true</DEFAULT-VALUE>
                 </ECUC-BOOLEAN-PARAM-DEF>
-                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:00000000-0000-0000-0000-000000000012">
+                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:0a7b0cbc-e2af-46b2-9734-57a6ee636ad7">
                   <SHORT-NAME>CddPwmGetCounterStatus</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Switches the API Cdd_Pwm_GetCounterStatus.</L-2>
@@ -323,7 +323,7 @@
                 </ECUC-BOOLEAN-PARAM-DEF>
               </PARAMETERS>
             </ECUC-PARAM-CONF-CONTAINER-DEF>
-            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:00000000-0000-0000-0000-000000000023">
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:6200a5a1-81e3-4737-923e-81e7c080b90b">
               <SHORT-NAME>CddPwmGeneral</SHORT-NAME>
               <DESC>
                 <L-2 L="EN">This container contains the module-wide configuration parameters of the CDD PWM Driver</L-2>
@@ -497,7 +497,7 @@
                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
                   <DEFAULT-VALUE>true</DEFAULT-VALUE>
                 </ECUC-BOOLEAN-PARAM-DEF>
-                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:00000000-0000-0000-0000-000000000024">
+                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:3714aa71-c768-4d01-9c40-01bacdd0dc28">
                   <SHORT-NAME>CddPwmChannelHighResPwmEnable</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Switches the High Resolution PWM functionality ON or OFF.</L-2>
@@ -638,7 +638,7 @@
                   <MAX>200000000</MAX>
                   <MIN>0</MIN>
                 </ECUC-INTEGER-PARAM-DEF>
-                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:00000000-0000-0000-0000-000000000026">
+                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:ded79089-27cd-4411-be71-12f7f9ccd071">
                   <SHORT-NAME>CddPwmMaxDutyCycle</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">The physical hardware channel that is assigned to this logical channel.</L-2>
@@ -696,7 +696,7 @@
                     </ECUC-ENUMERATION-LITERAL-DEF>
                   </LITERALS>
                 </ECUC-ENUMERATION-PARAM-DEF>
-                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:00000000-0000-0000-0000-000000000030">
+                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:93d9db24-0dc1-45a5-b42b-9b2529c3e7ca">
                   <SHORT-NAME>CddPwmNumberofChannel</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Number of actual HW channels. This is of type published information and not editable</L-2>

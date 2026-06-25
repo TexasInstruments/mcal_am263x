@@ -6,7 +6,7 @@
     <AR-PACKAGE UUID="ECUC:AUTOSAR">
       <SHORT-NAME>TI_AM263x</SHORT-NAME>
       <ELEMENTS>
-        <ECUC-MODULE-DEF UUID="ECUC:c03234fe-4dca-445e-a47c-1bc11e6c1832">
+        <ECUC-MODULE-DEF UUID="ECUC:549d55dc-2095-47a5-a665-2d1414f9b5fb">
           <SHORT-NAME>Cdd_FsiTx</SHORT-NAME>
           <DESC>
             <L-2 L="EN">Configuration of the Cdd Fsi Tx (Fast serial Interface -Transmitter) module.</L-2>
@@ -33,7 +33,7 @@
                 <L-2 L="EN">This container contains the configuration parameters and sub containers of the AUTOSAR Cdd Fsi Tx module.</L-2>
               </DESC>
               <PARAMETERS>
-                <ECUC-FUNCTION-NAME-DEF UUID="ECUC:f43bffda-8d3a-4520-b424-b558fcbe752c">
+                <ECUC-FUNCTION-NAME-DEF UUID="ECUC:5a625bc4-91f4-4c9f-93db-a54f8e49f213">
                   <SHORT-NAME>CddFsiTxNotification</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Callback function for Transmission</L-2>
@@ -155,7 +155,7 @@
                 </ECUC-FUNCTION-NAME-DEF>
               </PARAMETERS>
               <SUB-CONTAINERS>
-                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:c67e7c58-3daf-457n-a213-95ae89b248d8">
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:a9e23023-9210-4150-9e32-c3271d669b0f">
                   <SHORT-NAME>CddFsiTxHwUnit</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">This container contains the Driver configuration (parameters) depending on which FSI Hw unit is get configured</L-2>
@@ -166,7 +166,7 @@
                   <!-- @CalculatedEnd -->
                   <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
                   <PARAMETERS>
-                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:7aa65640-e385-4037-v799-40ce3e785755">
+                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:3b1f9d44-1cf1-457b-ad33-bd86ab60ebf6">
                       <SHORT-NAME>CddFsiTxHwUnitId</SHORT-NAME>
                       <DESC>
                         <L-2 L="EN">Description: Numeric ID of the HW Unit. This symbolic name allows accessing Fsi Hw Unit data. Enumeration literals are defined vendor specific.                                                        Number of instances can vary depending on SOC variant.Corresponding error checks are added in template files</L-2>
@@ -256,7 +256,7 @@
                         </ECUC-ENUMERATION-LITERAL-DEF>
                       </LITERALS>
                     </ECUC-ENUMERATION-PARAM-DEF>
-                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:ea7f8f6a-5c34-4bc4-808e-dc02c4c233ac">
+                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:08931375-93ee-47e4-9c79-d1b70bfe260e">
                       <SHORT-NAME>CddFsiTxPingTimerTimeout</SHORT-NAME>
                       <DESC>
                         <L-2 L="EN">Timeout value for CddFsiTx Ping Timer.</L-2>
@@ -282,7 +282,7 @@
                       <MAX>4294967295</MAX>
                       <MIN>0</MIN>
                     </ECUC-INTEGER-PARAM-DEF>
-                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:1fb3e387-c03a-4a29-v5d2-f8d71778t6fc">
+                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:1fb3e387-c03a-4a29-a5d2-f8d71778a6fc">
                       <SHORT-NAME>CddFsiTxTriggerSrc</SHORT-NAME>
                       <DESC>
                         <L-2 L="EN">Type of source event that starts a transmission.</L-2>
@@ -313,7 +313,7 @@
                         </ECUC-ENUMERATION-LITERAL-DEF>
                       </LITERALS>
                     </ECUC-ENUMERATION-PARAM-DEF>
-                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:f348b1e4-aabc-46ee-a71a-02cc6e76tca6">
+                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:b80e962e-bef4-4736-9cd1-94e717677ddd">
                       <SHORT-NAME>CddFsiTxTransmissionMethod</SHORT-NAME>
                       <DESC>
                         <L-2 L="EN">Selects the method of frame transmission.</L-2>
@@ -849,7 +849,7 @@
                     </ECUC-ENUMERATION-PARAM-DEF>
                   </PARAMETERS>
                   <REFERENCES>
-                    <ECUC-REFERENCE-DEF UUID="0bc2d871-1004-44a2-8934-8fb46a095dqc">
+                    <ECUC-REFERENCE-DEF UUID="df49bfdc-ec13-4dad-b6de-0a93bdf3a578">
                       <SHORT-NAME>CddFsiTxDmaReference</SHORT-NAME>
                       <DESC>
                         <L-2 L="EN">Reference to the DMA Group Channel</L-2>
@@ -893,7 +893,7 @@
                 <L-2 L="EN">General configuration (parameters) of the Cdd Fsi Tx Driver software module.</L-2>
               </DESC>
               <PARAMETERS>
-                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:32c0e8fd-6160-4ffb-V4a0-0fa22757dbae">
+                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:3fd55403-be94-4f34-ab2d-92791124bccb">
                   <SHORT-NAME>CddFsiTxDeInitApi</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Adds / removes the service CddFsiTx_DeInit() from the code.</L-2>
@@ -956,7 +956,7 @@
                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
                   <DEFAULT-VALUE>true</DEFAULT-VALUE>
                 </ECUC-BOOLEAN-PARAM-DEF>
-                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:db321b92-871a-4a62-8778-09b8848d8f2c">
+                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:cb62113c-8f18-4915-8d94-c41d2a28c992">
                   <SHORT-NAME>CddFsiTxDevErrorDetectApi</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Switches the development error detection and notification on or off.</L-2>
@@ -1040,7 +1040,7 @@
                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
                   <DEFAULT-VALUE>true</DEFAULT-VALUE>
                 </ECUC-BOOLEAN-PARAM-DEF>
-                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:6fe4295d-06n9-4c34-b9f2-339S2df6bd58">
+                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:8eac788f-5c4c-4782-985d-628cc8bab840">
                   <SHORT-NAME>CddFsiTxResetDriver</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Adds / removes the service Cdd_FsiTx_ResetDriver() and from the code.</L-2>
@@ -1061,7 +1061,7 @@
                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
                   <DEFAULT-VALUE>true</DEFAULT-VALUE>
                 </ECUC-BOOLEAN-PARAM-DEF>
-                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:240a9eb6-7a1b-4f43-bfab-bb6a15457d0d">
+                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:b285f80e-12bb-4ffe-bed2-0f8084735685">
                   <SHORT-NAME>CddFsiTxTypeofInterruptFunction</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Type of ISR function</L-2>
@@ -1125,7 +1125,7 @@
                     </ECUC-ENUMERATION-LITERAL-DEF>
                   </LITERALS>
                 </ECUC-ENUMERATION-PARAM-DEF>
-                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:4745b6cf-b46f-4fe4-8bfa-c1a47fdd7412">
+                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:1b62c613-ff7a-4a23-9029-57ea24d30c71">
                   <SHORT-NAME>CddFsiTxDeviceVariant</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Select SOC variant .This parameter shall be used by driver to impose device specific constraints. The user guide shall detail the device specific constraints </L-2>
@@ -1152,7 +1152,7 @@
                     </ECUC-ENUMERATION-LITERAL-DEF>
                   </LITERALS>
                 </ECUC-ENUMERATION-PARAM-DEF>
-                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:ab0f7a27-9247-49c3-a48e-a8409ef7fd65">
+                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:a6968374-dfa9-4360-bd90-58c6e9d59d03">
                   <SHORT-NAME>CddFsiTxMaxHwUnitCount</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Maximum hw count across all hwunits configured</L-2>
@@ -1175,7 +1175,7 @@
                   <MAX>4</MAX>
                   <MIN>1</MIN>
                 </ECUC-INTEGER-PARAM-DEF>
-                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:b2cfcb7b-0a84-7r50-bebd-32ee405e4398">
+                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:c41b514c-9a42-4c03-93fe-c0c374a4ba7e">
                   <SHORT-NAME>CddFsiTxNotifyCapability</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Determines, if the notification mechanism (the functions to enable and disable the notifications) is available at runtime.</L-2>
@@ -1301,7 +1301,7 @@
                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
                   <DEFAULT-VALUE>true</DEFAULT-VALUE>
                 </ECUC-BOOLEAN-PARAM-DEF>
-                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:8ea4cb89-cf5e-4afc-95ce-cebac08ac0e6">
+                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:f011f659-aa2e-403a-84c8-690ef969428d">
                   <SHORT-NAME>CddFsiTxGetVersionInfoApi</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Adds / removes the service CddFsiTx_GetVersionInfo() from the code.</L-2>
@@ -1322,7 +1322,7 @@
                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
                   <DEFAULT-VALUE>true</DEFAULT-VALUE>
                 </ECUC-BOOLEAN-PARAM-DEF>
-                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:0217b971-6fd9-4486-bd96-94b91a14fedd">
+                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:b570ec29-7e88-4272-88ee-c8501d996104">
                   <SHORT-NAME>CddFsiTxDMAEnable</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Enables DMA Access method for CddFsiTx Transmission.</L-2>
@@ -1362,7 +1362,7 @@
                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
                   <DEFAULT-VALUE>false</DEFAULT-VALUE>
                 </ECUC-BOOLEAN-PARAM-DEF>
-                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:272c9c43-c3dc-45e3-88cd-2ab19c61dfea">
+                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:9f959ba1-816f-4639-aba6-a4fedc4aa4d6">
                   <SHORT-NAME>CddFsiTxMaxDmaChannelId</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Number of actual DMA channels. This is of type published information and not editable</L-2>
@@ -1382,7 +1382,7 @@
                   </VALUE-CONFIG-CLASSES>
                   <DEFAULT-VALUE>63</DEFAULT-VALUE>
                 </ECUC-INTEGER-PARAM-DEF>
-                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:6dc462ec-a924-4633-b6ac-2d00ef0d3965">
+                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:5f468302-4aad-400c-92e1-5202d5bcb42e">
                   <SHORT-NAME>CddFsiTxDefaultOSCounterId</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Default Os Counter Id if node reference to OsCounter ref CddFsiTxOsCounterRef is not set</L-2>
@@ -1405,7 +1405,7 @@
                 </ECUC-INTEGER-PARAM-DEF>
               </PARAMETERS>
               <REFERENCES>
-                <ECUC-REFERENCE-DEF UUID="ECUC:26c9bdff-38cf-4f0b-8754-7472d0d41cb9">
+                <ECUC-REFERENCE-DEF UUID="ECUC:80ec3d06-5b39-4c66-b9ac-b045afd7a591">
                   <SHORT-NAME>CddFsiTxOsCounterRef</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">This parameter contains a reference to the OsCounter, which is used by the CddFsiTx driver.</L-2>
@@ -1507,13 +1507,13 @@
                 </ECUC-SYMBOLIC-NAME-REFERENCE-DEF>
               </REFERENCES>
             </ECUC-PARAM-CONF-CONTAINER-DEF>
-            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:e435c51b-58b2-4506-ae6c-da9a9b76ad99">
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:8f5f9205-65e2-486e-8461-aa2631b9e564">
               <SHORT-NAME>CddFsiTxPublishedInformation</SHORT-NAME>
               <DESC>
                 <L-2 L="EN">Additional published parameters not covered by &quot;Common&quot; Published Information. Note that these parameters have &quot;PUBLISHED-INFORMATION&quot; configuration class setting, since they are published information.</L-2>
               </DESC>
               <PARAMETERS>
-                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:248e0e6d-94c7-4836-b879-b29edd1d9a90">
+                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:588aea80-3803-4749-8691-3eb1ab330ae7">
                   <SHORT-NAME>CddFsiTxMinPrescaleValue</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Minimum value of Prescalar value that can be selected for Cdd Fsi. This is of type published information and not editable.</L-2>
@@ -1553,7 +1553,7 @@
                   </VALUE-CONFIG-CLASSES>
                   <DEFAULT-VALUE>255</DEFAULT-VALUE>
                 </ECUC-INTEGER-PARAM-DEF>
-                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:179c2cda-8fn3-43ab-b973-6aa3d42d9g33">
+                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:db589938-0369-469b-aa7b-a0d345e01cce">
                   <SHORT-NAME>CddFsiTxMaxNumTxModules</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Number of Transmission modules in a FSI hw unit.This is a fixed value  and can&apos;t be changed. This is of type published information and not editable</L-2>
@@ -1593,7 +1593,7 @@
                   </VALUE-CONFIG-CLASSES>
                   <DEFAULT-VALUE>2</DEFAULT-VALUE>
                 </ECUC-INTEGER-PARAM-DEF>
-                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:31ce48fb-6756-41c0-80ea-cf17a4273hh9">
+                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:36eafcfd-f0f6-458f-be5a-27810858f75c">
                   <SHORT-NAME>CddFsiTxMinHwChannelId</SHORT-NAME>
                   <DESC>
                     <L-2 L="EN">Number of actual HW channels for each Tx module. This is of type published information and not editable</L-2>

@@ -82,7 +82,7 @@
               </TARGET-MODULE-REFS>
             </BSW-MODULE-DEPENDENCY>
             [!IF "as:modconf('Fls')[1]/FlsConfigSet/FlsEnableDMA = 'true'"!]
-            <BSW-MODULE-DEPENDENCY UUID="001f86df-035b-40db-8295-46ef7f9defe6">
+            <BSW-MODULE-DEPENDENCY UUID="b9ec65a1-1064-4f4c-b0e5-1d01126d9c8a">
               <SHORT-NAME>Cdd_Dma</SHORT-NAME>
               <TARGET-MODULE-ID>255</TARGET-MODULE-ID>
               <TARGET-MODULE-REFS>
@@ -327,7 +327,7 @@
                   <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Fls_TI_AM263x/Fls_ModuleEntry/Fls_SetEraseType</IMPLEMENTED-ENTRY-REF>
                 </BSW-CALLED-ENTITY>
                 [!IF "as:modconf('Fls')[1]/FlsGeneral/FlsSetModeApi = 'true'"!]
-                <BSW-CALLED-ENTITY UUID="dd84c604-9cfc-49b4-96d7-c95a43654b8e">
+                <BSW-CALLED-ENTITY UUID="9ab8c2d4-f8cf-4fb0-99fb-459fe7edb2cb">
                   <SHORT-NAME>Fls_SetMode</SHORT-NAME>
                   <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
                   <REENTRANCY-LEVEL>NON-REENTRANT</REENTRANCY-LEVEL>
@@ -581,7 +581,7 @@
               <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
               <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
             </BSW-MODULE-ENTRY>
-            <BSW-MODULE-ENTRY UUID="36f915ae-912a-470a-8e55-e876e10bcbbd">
+            <BSW-MODULE-ENTRY UUID="ff21005c-2f8b-47f7-959a-8a5224084f79">
               <SHORT-NAME>Fls_GetVersionInfo</SHORT-NAME>
               <SERVICE-ID>16</SERVICE-ID>
               <IS-REENTRANT>true</IS-REENTRANT>
@@ -634,7 +634,7 @@
               <SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
               <BSW-ENTRY-KIND>CONCRETE</BSW-ENTRY-KIND>
             </BSW-MODULE-ENTRY>
-            <BSW-MODULE-ENTRY UUID="ab8e2c34-8701-452f-a893-716e3da142c7">
+            <BSW-MODULE-ENTRY UUID="b68152e8-ded1-41ba-9176-3f232e0efcbc">
               <SHORT-NAME>Fls_RegisterReadback</SHORT-NAME>
               <SERVICE-ID>11</SERVICE-ID>
               <IS-REENTRANT>true</IS-REENTRANT>
