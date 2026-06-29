@@ -81,7 +81,7 @@
             [!ENDIF!][!//
             [!IF "as:modconf('Cdd_FsiRx')[1]/CddFsiRxGeneral/CddFsiRxEnableRegisterReadbackApi   = 'true'"!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
-              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_FsiRx_TI_AM263Px/Cdd_FsiRx_ModuleEntry/Cdd_FsiRx_RegisterReadback</BSW-MODULE-ENTRY-REF>
+              <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Cdd_FsiRx_TI_AM263x/Cdd_FsiRx_ModuleEntry/Cdd_FsiRx_RegisterReadback</BSW-MODULE-ENTRY-REF>
             </BSW-MODULE-ENTRY-REF-CONDITIONAL>
             [!ENDIF!][!//
             <BSW-MODULE-ENTRY-REF-CONDITIONAL>
