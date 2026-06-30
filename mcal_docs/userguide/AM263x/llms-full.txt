@@ -14540,7 +14540,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| mcu   | 6758    | 6    | 0    |
+| mcu   | 7204    | 6    | 0    |
  
 ### PORT
 
