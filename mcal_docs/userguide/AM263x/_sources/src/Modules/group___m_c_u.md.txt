@@ -348,7 +348,7 @@ Pointer to Eth CPSW Control configuration.
 | MCU_E_RUNTIME_ASSERT   | ERROR:Runtime assert failure.  |
 | MCU_PERFORM_RESET_MODE_WARM   | Initiate SW WARM RESET sequence.  |
 | MCU_ERRORRST_MASK   | Reset Reason Error Mask.  |
-| RESETREASON_NRESET   | Reset Reason  |
+| RESETREASON_NRESET   | Reset Reason.  |
 | MCU_RCM_MODULE_ID_FIRST   | ModuleId for First.  |
 | MCU_RCM_MODULE_ID_DCAN   | ModuleId for DCAN.  |
 | MCU_RCM_MODULE_ID_MIBSPI1   | ModuleId for MIBSPI1.  |
