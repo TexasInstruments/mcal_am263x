@@ -14429,7 +14429,7 @@ Performance Result through MCSPI with Dma are as follows:
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| adc   | 5834    | 4    | 3020    |
+| adc   | 5930    | 4    | 3020    |
  
 ### CAN
 
