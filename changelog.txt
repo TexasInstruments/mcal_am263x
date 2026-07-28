@@ -1,3 +1,24 @@
+commit f70b8ffc83b8ec95814d9074e1244a65f1ec0c70
+Author: Kalyan Vagvala <k-vagvala@ti.com>
+Date:   Wed Jul 15 09:53:44 2026 +0530
+
+    am26xxx: Eth: Add design JIRAs to source files
+    
+    - Add design JIRAs to source files
+    
+    Fixes: MCAL-40643
+    
+    Signed-off-by: Kalyan Vagvala <k-vagvala@ti.com>
+
+ mcal/Eth/include/Eth_Types.h            |  10 +++
+ mcal/Eth/src/Eth.c                      | 122 ++++++++++++++------------------
+ mcal/Eth/src/Eth_Irq.c                  |  10 ++-
+ mcal/Eth/src/cpsw/Cpsw_Cpts.c           |   5 +-
+ mcal/Eth/src/cpsw/Eth_Priv.c            |   2 +-
+ mcal/autosar_include/Dem.h              |  10 +++
+ mcal/autosar_include/Eth_GeneralTypes.h |   6 +-
+ 7 files changed, 92 insertions(+), 73 deletions(-)
+
 commit d03d967459f4eb9fcfa1e4759def7e6649c2531b
 Author: Rajesh Chinnasamy <rajesh.chinnasamy@ti.com>
 Date:   Fri Jul 24 12:57:45 2026 +0530
