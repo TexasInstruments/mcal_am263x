@@ -207,13 +207,13 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| fsirx   | 1700    | 3    | 202    |
+| fsirx   | 1706    | 3    | 202    |
  
 ### FSITX
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| fsitx   | 2216    | 10    | 180    |
+| fsitx   | 2214    | 10    | 180    |
  
 ### GPT
 
@@ -267,13 +267,13 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| spi   | 6700    | 1    | 2676    |
+| spi   | 6698    | 1    | 2676    |
  
 ### UART
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| uart   | 5808    | 1    | 196    |
+| uart   | 5856    | 1    | 196    |
  
 ### WDG
 
