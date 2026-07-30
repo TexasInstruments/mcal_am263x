@@ -14435,7 +14435,7 @@ Performance Result through MCSPI with Dma are as follows:
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| can   | 9602    | 1    | 16008    |
+| can   | 9590    | 1    | 16008    |
  
 ### CMPSS
 
