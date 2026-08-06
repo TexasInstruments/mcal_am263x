@@ -201,19 +201,19 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| fls   | 6524    | 118    | 8232    |
+| fls   | 6412    | 118    | 8232    |
  
 ### FSIRX
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| fsirx   | 1706    | 3    | 202    |
+| fsirx   | 1690    | 3    | 202    |
  
 ### FSITX
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| fsitx   | 2214    | 10    | 180    |
+| fsitx   | 2158    | 10    | 180    |
  
 ### GPT
 
@@ -249,7 +249,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| mcu   | 7204    | 6    | 0    |
+| mcu   | 7200    | 6    | 0    |
  
 ### PORT
 
@@ -267,7 +267,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| spi   | 6698    | 1    | 2676    |
+| spi   | 6698    | 1    | 2696    |
  
 ### UART
 

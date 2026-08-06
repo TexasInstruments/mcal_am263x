@@ -203,7 +203,7 @@ static void Mcu_updateGmiiField(const Mcu_EthConfigType *ethCfg);
 static void Mcu_controlModuleUnlockMMR(uint32 domainId, uint32 partition);
 static void Mcu_controlModuleLockMMR(uint32 domainId, uint32 partition);
 static void Mcu_SetupClock_Config(uint8 idx);
-static void Mcu_Timeoutevent(volatile uint32 *addr, uint32 Value, uint32 timeout);
+static void Mcu_Timeoutevent(volatile uint32 *addr, uint32 Value);
 
 static Std_ReturnType Mcu_ClockSetSourceMCAN(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId,
                                              uint32 clkDivId, boolean enable);
@@ -241,10 +241,13 @@ Mcu_PllStatusType Mcu_GetPllLockStatus(void)
     {
         Pll_Status = MCU_PLL_LOCKED;
     }
+    /* TI_COVERAGE_GAP_START [Statement/Branch] PLL unlocked condition indicates hardware failure or PLL lock timeout.
+       This abnormal condition cannot be reliably reproduced in test environment without hardware malfunction */
     else
     {
         Pll_Status = MCU_PLL_UNLOCKED;
     }
+    /* TI_COVERAGE_GAP_STOP */
 
     return (Pll_Status);
 }
@@ -282,6 +285,7 @@ Mcu_ResetType Mcu_GetPlatformResetReason(void)
     Reset_Read = Mcu_GetPlatformRawResetReason();
 
     /* Search lookup table for matching reset reason */
+    /* TI_COVERAGE_GAP_START - [Branch] The Index should be always (Size - 1) */
     for (idx = 0U; idx < MCU_RESET_MAP_SIZE; idx++)
     {
         if (Mcu_ResetReasonMap[idx].rawValue == Reset_Read)
@@ -290,6 +294,7 @@ Mcu_ResetType Mcu_GetPlatformResetReason(void)
             break;
         }
     }
+    /* TI_COVERAGE_GAP_STOP */
 
     return Reset_Type;
 }
@@ -371,13 +376,10 @@ FUNC(void, MCU_CODE) Mcu_SetupClock(void)
     return;
 }
 
-static void Mcu_Timeoutevent(volatile uint32 *addr, uint32 Value, uint32 timeout)
+static void Mcu_Timeoutevent(volatile uint32 *addr, uint32 Value)
 {
-    volatile uint32 tempCount = timeout;
-    if (timeout > 9U)
-    {
-        tempCount = timeout / 9U;
-    }
+    volatile uint32 tempCount = 100U / 9U;
+
     /* each unit of SW_delay equals to 9 clockcycle, so divided by 9U*/
     while (M_REG_READ32(addr) != Value)
     {
@@ -458,11 +460,10 @@ uint32 Mcu_getMultibitValue(uint32 clk_srcId)
 Mcu_ClkSourceIdType Mcu_ClockSetSourceCR5(Mcu_ClkSourceIdType clk_srcId)
 {
     VAR(uint32, MCU_VAR) clkSrcVal = 0, regWriteStatus = 0U;
-    TickType            timeout_duration = 100U;
-    Mcu_ClkSourceIdType multibitValue    = (Mcu_ClkSourceIdType)0;
-    uint32              r5ClkSrc         = M_REG_READ32(&toprcmREG->R5SS_CLK_SRC_SEL);
-    r5ClkSrc                             = ((r5ClkSrc >> 8) & (r5ClkSrc >> 4) & (r5ClkSrc));
-    multibitValue                        = (Mcu_ClkSourceIdType)r5ClkSrc;
+    Mcu_ClkSourceIdType multibitValue = (Mcu_ClkSourceIdType)0;
+    uint32              r5ClkSrc      = M_REG_READ32(&toprcmREG->R5SS_CLK_SRC_SEL);
+    r5ClkSrc                          = ((r5ClkSrc >> 8) & (r5ClkSrc >> 4) & (r5ClkSrc));
+    multibitValue                     = (Mcu_ClkSourceIdType)r5ClkSrc;
 
     clkSrcVal      = Mcu_getMultibitValue((uint32)clk_srcId);
     regWriteStatus = regWriteReadback(&toprcmREG->R5SS_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
@@ -472,7 +473,7 @@ Mcu_ClkSourceIdType Mcu_ClockSetSourceCR5(Mcu_ClkSourceIdType clk_srcId)
         (void)Dem_SetEventStatus((Dem_EventIdType)MCU_E_HARDWARE_ERROR, DEM_EVENT_STATUS_FAILED);
 #endif
     }
-    Mcu_Timeoutevent(&toprcmREG->R5SS_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&toprcmREG->R5SS_CLK_SRC_SEL, clkSrcVal);
 
     return multibitValue;
 }
@@ -498,18 +499,17 @@ Std_ReturnType Mcu_ClockSetSourceMCAN0(Mcu_ClkSourceIdType clk_srcId, uint32 clk
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_MCAN0_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN0_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN0_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_MCAN0_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN0_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN0_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -525,18 +525,17 @@ Std_ReturnType Mcu_ClockSetSourceMCAN1(Mcu_ClkSourceIdType clk_srcId, uint32 clk
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_MCAN1_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN1_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN1_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_MCAN1_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN1_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN1_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -552,18 +551,17 @@ Std_ReturnType Mcu_ClockSetSourceMCAN2(Mcu_ClkSourceIdType clk_srcId, uint32 clk
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_MCAN2_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN2_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN2_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_MCAN2_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN2_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN2_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -579,18 +577,17 @@ Std_ReturnType Mcu_ClockSetSourceMCAN3(Mcu_ClkSourceIdType clk_srcId, uint32 clk
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_MCAN3_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN3_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN3_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_MCAN3_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN3_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCAN3_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -606,18 +603,17 @@ Std_ReturnType Mcu_ClockSetSourceRTI0(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_RTI0_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI0_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI0_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_RTI0_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI0_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI0_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -633,18 +629,17 @@ Std_ReturnType Mcu_ClockSetSourceRTI1(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_RTI1_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI1_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI1_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_RTI1_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI1_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI1_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -660,18 +655,17 @@ Std_ReturnType Mcu_ClockSetSourceRTI2(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_RTI2_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI2_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI2_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_RTI2_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI2_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI2_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -687,18 +681,17 @@ Std_ReturnType Mcu_ClockSetSourceRTI3(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_RTI3_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI3_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI3_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_RTI3_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI3_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_RTI3_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -714,18 +707,17 @@ Std_ReturnType Mcu_ClockSetSourceWDT0(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_WDT0_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT0_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT0_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_WDT0_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT0_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT0_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -741,18 +733,17 @@ Std_ReturnType Mcu_ClockSetSourceWDT1(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_WDT1_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT1_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT1_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_WDT1_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT1_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT1_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -767,18 +758,17 @@ Std_ReturnType Mcu_ClockSetSourceWDT2(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_WDT2_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT2_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT2_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_WDT2_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT2_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT2_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -794,18 +784,17 @@ Std_ReturnType Mcu_ClockSetSourceWDT3(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_WDT3_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT3_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT3_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_WDT3_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT3_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_WDT3_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -821,18 +810,17 @@ Std_ReturnType Mcu_ClockSetSourceQSPI(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_QSPI0_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_QSPI0_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_QSPI0_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_QSPI0_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_QSPI0_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_QSPI0_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -848,18 +836,17 @@ Std_ReturnType Mcu_ClockSetSourceMCSPI0(Mcu_ClkSourceIdType clk_srcId, uint32 cl
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_MCSPI0_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI0_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI0_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_MCSPI0_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI0_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI0_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -875,18 +862,17 @@ Std_ReturnType Mcu_ClockSetSourceMCSPI1(Mcu_ClkSourceIdType clk_srcId, uint32 cl
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_MCSPI1_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI1_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI1_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_MCSPI1_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI1_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI1_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -902,18 +888,17 @@ Std_ReturnType Mcu_ClockSetSourceMCSPI2(Mcu_ClkSourceIdType clk_srcId, uint32 cl
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_MCSPI2_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI2_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI2_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_MCSPI2_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI2_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI2_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -929,18 +914,17 @@ Std_ReturnType Mcu_ClockSetSourceMCSPI3(Mcu_ClkSourceIdType clk_srcId, uint32 cl
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_MCSPI3_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI3_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI3_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_MCSPI3_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI3_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI3_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -956,18 +940,17 @@ Std_ReturnType Mcu_ClockSetSourceMCSPI4(Mcu_ClkSourceIdType clk_srcId, uint32 cl
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_MCSPI4_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI4_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI4_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_MCSPI4_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI4_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_MCSPI4_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -983,17 +966,16 @@ Std_ReturnType Mcu_ClockSetSourceI2C(Mcu_ClkSourceIdType clk_srcId, uint32 clk_d
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal      = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal      = Mcu_getMultibitValue(clk_divId);
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_I2C_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_I2C_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_I2C_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_I2C_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_I2C_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_I2C_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -1009,18 +991,17 @@ Std_ReturnType Mcu_ClockSetSourceSCI0(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_LIN0_UART0_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN0_UART0_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN0_UART0_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_LIN0_UART0_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN0_UART0_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN0_UART0_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -1036,18 +1017,17 @@ Std_ReturnType Mcu_ClockSetSourceSCI1(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_LIN1_UART1_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN1_UART1_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN1_UART1_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_LIN1_UART1_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN1_UART1_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN1_UART1_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -1063,18 +1043,17 @@ Std_ReturnType Mcu_ClockSetSourceSCI2(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_LIN2_UART2_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN2_UART2_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN2_UART2_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_LIN2_UART2_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN2_UART2_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN2_UART2_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -1090,18 +1069,17 @@ Std_ReturnType Mcu_ClockSetSourceSCI3(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_LIN3_UART3_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN3_UART3_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN3_UART3_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_LIN3_UART3_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN3_UART3_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN3_UART3_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -1117,18 +1095,17 @@ Std_ReturnType Mcu_ClockSetSourceSCI4(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_LIN4_UART4_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN4_UART4_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN4_UART4_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_LIN4_UART4_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN4_UART4_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN4_UART4_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -1144,18 +1121,17 @@ Std_ReturnType Mcu_ClockSetSourceSCI5(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_LIN5_UART5_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN5_UART5_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN5_UART5_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_LIN5_UART5_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN5_UART5_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_LIN5_UART5_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -1171,18 +1147,17 @@ Std_ReturnType Mcu_ClockSetSourceCPTS(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_CPTS_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_CPTS_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_CPTS_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_CPTS_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_CPTS_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_CPTS_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -1194,22 +1169,21 @@ Std_ReturnType Mcu_ClockSetSourceCPTS(Mcu_ClkSourceIdType clk_srcId, uint32 clk_
 
 Std_ReturnType Mcu_ClockSetSourceMcuClkout0(Mcu_ClkSourceIdType clk_srcId, uint32 clk_divId)
 {
-    Std_ReturnType retVal           = E_OK;
-    uint32         regWriteStatus   = 0U;
-    uint32         clkSrcVal        = 0;
-    uint32         clkDivVal        = 0;
-    TickType       timeout_duration = 100U;
+    Std_ReturnType retVal         = E_OK;
+    uint32         regWriteStatus = 0U;
+    uint32         clkSrcVal      = 0;
+    uint32         clkDivVal      = 0;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&toprcmREG->CLKOUT0_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&toprcmREG->CLKOUT0_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&toprcmREG->CLKOUT0_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&toprcmREG->CLKOUT0_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&toprcmREG->CLKOUT0_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&toprcmREG->CLKOUT0_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -1221,22 +1195,21 @@ Std_ReturnType Mcu_ClockSetSourceMcuClkout0(Mcu_ClkSourceIdType clk_srcId, uint3
 
 Std_ReturnType Mcu_ClockSetSourceMcuClkout1(Mcu_ClkSourceIdType clk_srcId, uint32 clk_divId)
 {
-    Std_ReturnType retVal           = E_OK;
-    uint32         regWriteStatus   = 0U;
-    uint32         clkSrcVal        = 0;
-    uint32         clkDivVal        = 0;
-    TickType       timeout_duration = 100U;
+    Std_ReturnType retVal         = E_OK;
+    uint32         regWriteStatus = 0U;
+    uint32         clkSrcVal      = 0;
+    uint32         clkDivVal      = 0;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&toprcmREG->CLKOUT1_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&toprcmREG->CLKOUT1_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&toprcmREG->CLKOUT1_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&toprcmREG->CLKOUT1_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&toprcmREG->CLKOUT1_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&toprcmREG->CLKOUT1_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -1249,15 +1222,14 @@ Std_ReturnType Mcu_ClockSetSourceMcuClkout1(Mcu_ClkSourceIdType clk_srcId, uint3
 Std_ReturnType Mcu_ClockSetSourceMII100Clk(Mcu_ClkSourceIdType clk_srcId, uint32 clk_divId)
 {
     /*Clk source is fixed to DPLL_CORE_HSDIV0_CLKOUT1*/
-    VAR(uint32, MCU_VAR) clkDivVal  = 0;
-    uint32         regWriteStatus   = 0U;
-    TickType       timeout_duration = 100U;
-    Std_ReturnType retVal           = E_OK;
+    VAR(uint32, MCU_VAR) clkDivVal = 0;
+    uint32         regWriteStatus  = 0U;
+    Std_ReturnType retVal          = E_OK;
 
     clkDivVal      = Mcu_getMultibitValue(clk_divId);
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_RGMII_50_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_RGMII_50_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_RGMII_50_CLK_DIV_VAL, clkDivVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -1269,15 +1241,14 @@ Std_ReturnType Mcu_ClockSetSourceMII100Clk(Mcu_ClkSourceIdType clk_srcId, uint32
 Std_ReturnType Mcu_ClockSetSourceMII10Clk(Mcu_ClkSourceIdType clk_srcId, uint32 clk_divId)
 {
     /*Clk source is fixed to DPLL_CORE_HSDIV0_CLKOUT1*/
-    VAR(uint32, MCU_VAR) clkDivVal  = 0;
-    uint32         regWriteStatus   = 0U;
-    TickType       timeout_duration = 100U;
-    Std_ReturnType retVal           = E_OK;
+    VAR(uint32, MCU_VAR) clkDivVal = 0;
+    uint32         regWriteStatus  = 0U;
+    Std_ReturnType retVal          = E_OK;
 
     clkDivVal      = (clk_divId << 16) | (clk_divId << 8) | (clk_divId);
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_RGMII_5_CLK_DIV_VAL, M_TWENTY_THREE, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_RGMII_5_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_RGMII_5_CLK_DIV_VAL, clkDivVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -1290,15 +1261,14 @@ Std_ReturnType Mcu_ClockSetSourceMII10Clk(Mcu_ClkSourceIdType clk_srcId, uint32 
 Std_ReturnType Mcu_ClockSetSourceRGMIClk(Mcu_ClkSourceIdType clk_srcId, uint32 clk_divId)
 {
     /*Clk source is fixed to DPLL_CORE_HSDIV0_CLKOUT1*/
-    VAR(uint32, MCU_VAR) clkDivVal  = 0;
-    TickType       timeout_duration = 100U;
-    uint32         regWriteStatus   = 0U;
-    Std_ReturnType retVal           = E_OK;
+    VAR(uint32, MCU_VAR) clkDivVal = 0;
+    uint32         regWriteStatus  = 0U;
+    Std_ReturnType retVal          = E_OK;
 
     clkDivVal      = Mcu_getMultibitValue(clk_divId);
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_RGMII_250_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_RGMII_250_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_RGMII_250_CLK_DIV_VAL, clkDivVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -1314,18 +1284,17 @@ Std_ReturnType Mcu_ClockSetSourceCONTROLSS(Mcu_ClkSourceIdType clk_srcId, uint32
     uint32         regWriteStatus  = 0U;
     VAR(uint32, MCU_VAR) clkSrcVal = 0;
     VAR(uint32, MCU_VAR) clkDivVal = 0;
-    TickType timeout_duration      = 100U;
 
     clkSrcVal = Mcu_getMultibitValue((uint32)clk_srcId);
     clkDivVal = Mcu_getMultibitValue(clk_divId);
 
     regWriteStatus = regWriteReadback(&mssrcmREG->RCM_CONTROLSS_PLL_CLK_DIV_VAL, M_ELEVEN, M_ZERO, clkDivVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_CONTROLSS_PLL_CLK_DIV_VAL, clkDivVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_CONTROLSS_PLL_CLK_DIV_VAL, clkDivVal);
 
     regWriteStatus |= regWriteReadback(&mssrcmREG->RCM_CONTROLSS_PLL_CLK_SRC_SEL, M_ELEVEN, M_ZERO, clkSrcVal);
 
-    Mcu_Timeoutevent(&mssrcmREG->RCM_CONTROLSS_PLL_CLK_SRC_SEL, clkSrcVal, timeout_duration);
+    Mcu_Timeoutevent(&mssrcmREG->RCM_CONTROLSS_PLL_CLK_SRC_SEL, clkSrcVal);
 
     if (regWriteStatus != (uint32)E_OK)
     {
@@ -1356,8 +1325,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCAN(Mcu_ClkModuleIdType moduleId, Mcu_C
             {
                 mssrcmREG->RCM_MCAN0_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCAN1:
         {
             if (enable == (boolean)TRUE)
@@ -1369,8 +1339,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCAN(Mcu_ClkModuleIdType moduleId, Mcu_C
             {
                 mssrcmREG->RCM_MCAN1_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCAN2:
         {
             if (enable == (boolean)TRUE)
@@ -1382,8 +1353,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCAN(Mcu_ClkModuleIdType moduleId, Mcu_C
             {
                 mssrcmREG->RCM_MCAN2_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCAN3:
         {
             if (enable == (boolean)TRUE)
@@ -1395,8 +1367,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCAN(Mcu_ClkModuleIdType moduleId, Mcu_C
             {
                 mssrcmREG->RCM_MCAN3_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         default:
             RetVal = (Std_ReturnType)E_NOT_OK;
             break;
@@ -1426,8 +1399,9 @@ static Std_ReturnType Mcu_ClockSetSourceRTI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_RTI0_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_RTI1:
         {
             if (enable == (boolean)TRUE)
@@ -1439,8 +1413,9 @@ static Std_ReturnType Mcu_ClockSetSourceRTI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_RTI1_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_RTI2:
         {
             if (enable == (boolean)TRUE)
@@ -1452,8 +1427,9 @@ static Std_ReturnType Mcu_ClockSetSourceRTI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_RTI2_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_RTI3:
         {
             if (enable == (boolean)TRUE)
@@ -1465,8 +1441,9 @@ static Std_ReturnType Mcu_ClockSetSourceRTI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_RTI3_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         default:
             RetVal = (Std_ReturnType)E_NOT_OK;
             break;
@@ -1496,8 +1473,9 @@ static Std_ReturnType Mcu_ClockSetSourceWDT(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_WDT0_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_WDT1:
         {
             if (enable == (boolean)TRUE)
@@ -1509,8 +1487,9 @@ static Std_ReturnType Mcu_ClockSetSourceWDT(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_WDT1_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_WDT2:
         {
             if (enable == (boolean)TRUE)
@@ -1522,9 +1501,9 @@ static Std_ReturnType Mcu_ClockSetSourceWDT(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_WDT2_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_WDT3:
         {
             if (enable == (boolean)TRUE)
@@ -1536,8 +1515,9 @@ static Std_ReturnType Mcu_ClockSetSourceWDT(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_WDT3_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         default:
             RetVal = (Std_ReturnType)E_NOT_OK;
             break;
@@ -1567,8 +1547,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCSPI(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_MCSPI0_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCSPI1:
         {
             if (enable == (boolean)TRUE)
@@ -1580,8 +1561,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCSPI(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_MCSPI1_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCSPI2:
         {
             if (enable == (boolean)TRUE)
@@ -1593,8 +1575,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCSPI(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_MCSPI2_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCSPI3:
         {
             if (enable == (boolean)TRUE)
@@ -1606,8 +1589,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCSPI(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_MCSPI3_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCSPI4:
         {
             if (enable == (boolean)TRUE)
@@ -1619,8 +1603,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCSPI(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_MCSPI4_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         default:
             RetVal = (Std_ReturnType)E_NOT_OK;
             break;
@@ -1652,8 +1637,9 @@ static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
                 mssrcmREG->RCM_UART0_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
                 mssrcmREG->RCM_LIN0_CLK_GATE  = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_SCI1:
         {
             if (enable == (boolean)TRUE)
@@ -1667,8 +1653,9 @@ static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
                 mssrcmREG->RCM_UART1_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
                 mssrcmREG->RCM_LIN1_CLK_GATE  = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_SCI2:
         {
             if (enable == (boolean)TRUE)
@@ -1682,8 +1669,9 @@ static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
                 mssrcmREG->RCM_UART2_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
                 mssrcmREG->RCM_LIN2_CLK_GATE  = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_SCI3:
         {
             if (enable == (boolean)TRUE)
@@ -1697,8 +1685,9 @@ static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
                 mssrcmREG->RCM_UART3_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
                 mssrcmREG->RCM_LIN3_CLK_GATE  = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_SCI4:
         {
             if (enable == (boolean)TRUE)
@@ -1712,8 +1701,9 @@ static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
                 mssrcmREG->RCM_UART4_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
                 mssrcmREG->RCM_LIN4_CLK_GATE  = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_SCI5:
         {
             if (enable == (boolean)TRUE)
@@ -1725,8 +1715,9 @@ static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_UART5_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         default:
             RetVal = (Std_ReturnType)E_NOT_OK;
             break;
@@ -1756,8 +1747,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_QSPI0_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_I2C:
         {
             if (enable == (boolean)TRUE)
@@ -1775,8 +1767,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
                 mssrcmREG->RCM_I2C2_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
                 mssrcmREG->RCM_I2C3_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_CPTS:
         {
             if (enable == (boolean)TRUE)
@@ -1788,8 +1781,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_CPTS_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCU_CLKOUT0:
         {
             if (enable == (boolean)TRUE)
@@ -1801,8 +1795,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 toprcmREG->CLKOUT0_CLK_GATE = TOP_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCU_CLKOUT1:
         {
             if (enable == (boolean)TRUE)
@@ -1814,8 +1809,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 toprcmREG->CLKOUT1_CLK_GATE = TOP_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MII100_CLK:
         {
             if (enable == (boolean)TRUE)
@@ -1828,8 +1824,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_RGMII_50_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MII10_CLK:
         {
             if (enable == (boolean)TRUE)
@@ -1842,8 +1839,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_RGMII_5_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_RGMI_CLK:
         {
             if (enable == (boolean)TRUE)
@@ -1856,8 +1854,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_RGMII_250_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_CONTROLSS_CLK:
         {
             if (enable == (boolean)TRUE)
@@ -1870,8 +1869,8 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_CONTROLSS_PLL_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
 
         default:
             RetVal = (Std_ReturnType)E_NOT_OK;
@@ -2102,7 +2101,8 @@ uint32 Mcu_corePllClkout(Mcu_PllClkDivType pllClk1)
     /* HSDIV-1 Settings
      * CLKOUT0_DIV[4:0] = D -- CLKOUT/(D+1)
      */
-
+    /* TI_COVERAGE_GAP_START [Branch] The else branch cannot be exercised in test without
+       triggering the if condition. Code is semantically correct but condition ensures else is unreachable */
     if (pllClk1.MCU_PLL_HSDIV0 != 0U) /* NON-ZERO => Enabled */
     {
         D               = (uint32)(pllClk1.MCU_PLL_CLKOUT / pllClk1.MCU_PLL_HSDIV0) - (uint32)1;
@@ -2118,6 +2118,7 @@ uint32 Mcu_corePllClkout(Mcu_PllClkDivType pllClk1)
         D               = (uint32)(pllClk1.MCU_PLL_CLKOUT / pllClk1.MCU_PLL_HSDIV2) - (uint32)1;
         regWriteStatus |= regWriteReadback(&toprcmREG->PLL_CORE_HSDIVIDER_CLKOUT2, M_FOUR, M_ZERO, D);
     }
+    /* TI_COVERAGE_GAP_STOP */
 
     return regWriteStatus;
 }
@@ -2130,6 +2131,8 @@ uint32 Mcu_perPllClkout(Mcu_PllClkDivType pllClk2)
     /* HSDIV-2 Settings
      * CLKOUT0_DIV[4:0] = D -- CLKOUT/(D+1)
      */
+    /* TI_COVERAGE_GAP_START [Branch] The else branch cannot be exercised in test without
+       triggering the if condition. Code is semantically correct but condition ensures else is unreachable */
     if (pllClk2.MCU_PLL_HSDIV0 != 0U)
     {
         D               = (uint32)(pllClk2.MCU_PLL_CLKOUT / pllClk2.MCU_PLL_HSDIV0) - (uint32)1;
@@ -2140,6 +2143,7 @@ uint32 Mcu_perPllClkout(Mcu_PllClkDivType pllClk2)
         D               = (uint32)(pllClk2.MCU_PLL_CLKOUT / pllClk2.MCU_PLL_HSDIV1) - (uint32)1;
         regWriteStatus |= regWriteReadback(&toprcmREG->PLL_PER_HSDIVIDER_CLKOUT1, M_FOUR, M_ZERO, D);
     }
+    /* TI_COVERAGE_GAP_STOP */
 
     return regWriteStatus;
 }
@@ -2148,6 +2152,8 @@ uint32 Mcu_corePllHsdivStat(Mcu_PllClkDivType pllClk1)
 {
     uint32 regWriteStatus = 0;
 
+    /* TI_COVERAGE_GAP_START [Branch] The else branch cannot be exercised in test without
+       triggering the if condition. Code is semantically correct but condition ensures else is unreachable */
     if (pllClk1.MCU_PLL_HSDIV0 != 0U)
     {
         regWriteStatus |= regWriteReadback(&toprcmREG->PLL_CORE_HSDIVIDER_CLKOUT0, M_EIGHT, M_EIGHT,
@@ -2163,6 +2169,7 @@ uint32 Mcu_corePllHsdivStat(Mcu_PllClkDivType pllClk1)
         regWriteStatus |= regWriteReadback(&toprcmREG->PLL_CORE_HSDIVIDER_CLKOUT2, M_EIGHT, M_EIGHT,
                                            M_ONE); /* +CLKOUT2_GATE[8] = 1 */
     }
+    /* TI_COVERAGE_GAP_STOP */
     return regWriteStatus;
 }
 
@@ -2170,6 +2177,8 @@ uint32 Mcu_perPllHsdivStat(Mcu_PllClkDivType pllClk2)
 {
     uint32 regWriteStatus = 0;
 
+    /* TI_COVERAGE_GAP_START [Branch] The else branch cannot be exercised in test without
+       triggering the if condition. Code is semantically correct but condition ensures else is unreachable */
     if (pllClk2.MCU_PLL_HSDIV0 != 0U)
     {
         regWriteStatus |=
@@ -2180,6 +2189,7 @@ uint32 Mcu_perPllHsdivStat(Mcu_PllClkDivType pllClk2)
         regWriteStatus |=
             regWriteReadback(&toprcmREG->PLL_PER_HSDIVIDER_CLKOUT1, M_EIGHT, M_EIGHT, M_ONE); /* +CLKOUT1_GATE[8] = 1 */
     }
+    /* TI_COVERAGE_GAP_STOP */
     return regWriteStatus;
 }
 #endif /* STD_OFF == MCU_NO_PLL */
@@ -2193,6 +2203,7 @@ uint32 Mcu_perPllHsdivStat(Mcu_PllClkDivType pllClk2)
  */
 static void Mcu_setEpwmTbClk(uint32 epwmInstance, uint32 enable)
 {
+    /* TI_COVERAGE_GAP_START - [Branch]: the Max Pwm Channnel allowed is 32U hence cannot be covered */
     if (epwmInstance < MCU_CSL_ETPWM_PER_CNT)
     {
         /* Time base clock enable register belongs to partition 1 of the CTRL MMR */
@@ -2221,6 +2232,7 @@ static void Mcu_setEpwmTbClk(uint32 epwmInstance, uint32 enable)
         /* Lock CONTROLSS_CTRL registers */
         Mcu_controlModuleLockMMR(0, MCU_CONTROLSS_CTRL_PARTITION0);
     }
+    /* TI_COVERAGE_GAP_STOP */
 }
 /**
  * \brief Configure the ePWM group
