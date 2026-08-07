@@ -1,3 +1,112 @@
+commit 6afd337045865a35d578d71493aeba2448740d77
+Author: Asha D <asha.d@ti.com>
+Date:   Fri Aug 7 17:05:28 2026 +0530
+
+    all: reverting the MCU for config changes
+    
+    Revert "otherPlatform"
+    
+    This reverts commit 84fab0a3f5825396282435809f936e3656d96c73.
+    
+    Revert "all:MCU: Coverage Improvement"
+    
+    This reverts commit ef5030f9709360411467f1dd52e507e47340b4ad.
+
+ mcal/Mcu/V0/Mcu_Priv.c                             |  326 ++-
+ mcal/Mcu/V2/Mcu_Priv.c                             |  341 +--
+ mcal/Mcu/V3/Mcu_Priv.c                             |  293 ++-
+ mcal/Mcu/src/Mcu.c                                 |   17 +-
+ mcal_test/mcu_test/Mcu_CCOV_ReadMe.txt             |   20 +
+ mcal_test/mcu_test/Readme_ConfigDetails.txt        |   81 +-
+ mcal_test/mcu_test/build/makefile                  |   12 +-
+ mcal_test/mcu_test/testInput/mcuTestCases.h        |  425 +++-
+ mcal_test/mcu_test/testLib/mcuTest.h               |   26 +-
+ mcal_test/mcu_test/testLib/mcuTestMainTestCase.c   |  498 ++++-
+ .../mcu_test/testLib/mcuTestNegativeTestCase.c     |  138 +-
+ mcal_test/ut_config/Mcu/makefile                   |    2 +-
+ .../config_10/tresos/.prefs/pref_general.xdm       |  139 --
+ .../Mcu/soc/am261/r5f0_0/config_10/tresos/.project |   13 -
+ .../am261/r5f0_0/config_10/tresos/config/Adc.xdm   |  813 -------
+ .../am261/r5f0_0/config_10/tresos/config/Dem.xdm   | 2329 --------------------
+ .../am261/r5f0_0/config_10/tresos/config/Mcu.xdm   | 1394 ------------
+ .../am261/r5f0_0/config_10/tresos/config/Os.xdm    |  112 -
+ .../am261/r5f0_0/config_10/tresos/config/Pwm.xdm   |  198 --
+ .../config_10/tresos/config/SystemModel2.tdb       |  Bin 3723264 -> 0 bytes
+ .../am261/r5f0_0/config_10/tresos/config/Wdg.xdm   |  145 --
+ .../config_10/tresos/output/include/Adc_Cfg.h      |  379 ----
+ .../config_10/tresos/output/include/Mcu_Cfg.h      |  796 -------
+ .../config_10/tresos/output/include/Pwm_Cfg.h      |  368 ----
+ .../config_10/tresos/output/include/Wdg_Cfg.h      |  193 --
+ .../r5f0_0/config_10/tresos/output/src/Adc_Cfg.c   |   58 -
+ .../r5f0_0/config_10/tresos/output/src/Adc_PBcfg.c |  317 ---
+ .../r5f0_0/config_10/tresos/output/src/Mcu_Cfg.c   |    3 -
+ .../r5f0_0/config_10/tresos/output/src/Mcu_PBcfg.c |  458 ----
+ .../r5f0_0/config_10/tresos/output/src/Pwm_Cfg.c   |   57 -
+ .../r5f0_0/config_10/tresos/output/src/Pwm_PBcfg.c |  140 --
+ .../r5f0_0/config_10/tresos/output/src/Wdg_Cfg.c   |   56 -
+ .../r5f0_0/config_10/tresos/output/src/Wdg_Lcfg.c  |   56 -
+ .../r5f0_0/config_10/tresos/output/src/Wdg_PBcfg.c |  154 --
+ .../config_10/tresos/output/swcd/Adc_Bswmd.arxml   |  805 -------
+ .../config_10/tresos/output/swcd/Mcu_Bswmd.arxml   |  502 -----
+ .../config_10/tresos/output/swcd/Pwm_Bswmd.arxml   |  610 -----
+ .../config_10/tresos/output/swcd/Wdg_Bswmd.arxml   |  311 ---
+ .../config_10/tresos/.prefs/pref_general.xdm       |  139 --
+ .../Mcu/soc/am263/r5f0_0/config_10/tresos/.project |   13 -
+ .../am263/r5f0_0/config_10/tresos/config/Adc.xdm   | 1334 -----------
+ .../am263/r5f0_0/config_10/tresos/config/Dem.xdm   | 2329 --------------------
+ .../am263/r5f0_0/config_10/tresos/config/Mcu.xdm   | 2156 ------------------
+ .../am263/r5f0_0/config_10/tresos/config/Os.xdm    |  112 -
+ .../am263/r5f0_0/config_10/tresos/config/Pwm.xdm   | 2039 -----------------
+ .../config_10/tresos/config/SystemModel2.tdb       |  Bin 3723264 -> 0 bytes
+ .../am263/r5f0_0/config_10/tresos/config/Wdg.xdm   |  144 --
+ .../config_10/tresos/output/include/Adc_Cfg.h      |  439 ----
+ .../config_10/tresos/output/include/Mcu_Cfg.h      |  799 -------
+ .../config_10/tresos/output/include/Pwm_Cfg.h      |  511 -----
+ .../config_10/tresos/output/include/Wdg_Cfg.h      |  210 --
+ .../r5f0_0/config_10/tresos/output/src/Adc_Cfg.c   |   58 -
+ .../r5f0_0/config_10/tresos/output/src/Adc_PBcfg.c |  501 -----
+ .../r5f0_0/config_10/tresos/output/src/Mcu_Cfg.c   |    3 -
+ .../r5f0_0/config_10/tresos/output/src/Mcu_PBcfg.c |  675 ------
+ .../r5f0_0/config_10/tresos/output/src/Pwm_Cfg.c   |  324 ---
+ .../r5f0_0/config_10/tresos/output/src/Pwm_PBcfg.c |  664 ------
+ .../r5f0_0/config_10/tresos/output/src/Wdg_Cfg.c   |    3 -
+ .../r5f0_0/config_10/tresos/output/src/Wdg_Lcfg.c  |    3 -
+ .../r5f0_0/config_10/tresos/output/src/Wdg_PBcfg.c |  157 --
+ .../config_10/tresos/output/swcd/Adc_Bswmd.arxml   | 1150 ----------
+ .../config_10/tresos/output/swcd/Mcu_Bswmd.arxml   |  502 -----
+ .../config_10/tresos/output/swcd/Pwm_Bswmd.arxml   | 1945 ----------------
+ .../config_10/tresos/output/swcd/Wdg_Bswmd.arxml   |  320 ---
+ .../config_95/tresos/.prefs/pref_general.xdm       |  195 --
+ .../soc/am263px/r5f0_0/config_95/tresos/.project   |   13 -
+ .../am263px/r5f0_0/config_95/tresos/config/Adc.xdm |  870 --------
+ .../r5f0_0/config_95/tresos/config/Compiler.xdm    |   77 -
+ .../am263px/r5f0_0/config_95/tresos/config/Dem.xdm | 2329 --------------------
+ .../am263px/r5f0_0/config_95/tresos/config/Mcu.xdm | 1985 -----------------
+ .../am263px/r5f0_0/config_95/tresos/config/Os.xdm  |  112 -
+ .../am263px/r5f0_0/config_95/tresos/config/Pwm.xdm |  245 --
+ .../config_95/tresos/config/SystemModel2.tdb       |  Bin 3723264 -> 0 bytes
+ .../am263px/r5f0_0/config_95/tresos/config/Wdg.xdm |  145 --
+ .../config_95/tresos/output/include/Adc_Cfg.h      |  400 ----
+ .../tresos/output/include/Compiler_CfgExtMcal.h    |   21 -
+ .../tresos/output/include/Compiler_CfgInt.h        |   21 -
+ .../config_95/tresos/output/include/Mcu_Cfg.h      |  867 --------
+ .../config_95/tresos/output/include/Pwm_Cfg.h      |  370 ----
+ .../config_95/tresos/output/include/Wdg_Cfg.h      |  193 --
+ .../r5f0_0/config_95/tresos/output/src/Adc_Cfg.c   |  339 ---
+ .../r5f0_0/config_95/tresos/output/src/Adc_PBcfg.c |   58 -
+ .../r5f0_0/config_95/tresos/output/src/Mcu_Cfg.c   |  588 -----
+ .../r5f0_0/config_95/tresos/output/src/Mcu_PBcfg.c |    3 -
+ .../r5f0_0/config_95/tresos/output/src/Pwm_Cfg.c   |  129 --
+ .../r5f0_0/config_95/tresos/output/src/Pwm_PBcfg.c |  148 --
+ .../r5f0_0/config_95/tresos/output/src/Wdg_Cfg.c   |    3 -
+ .../r5f0_0/config_95/tresos/output/src/Wdg_Lcfg.c  |    3 -
+ .../r5f0_0/config_95/tresos/output/src/Wdg_PBcfg.c |  157 --
+ .../config_95/tresos/output/swcd/Adc_Bswmd.arxml   | 1206 ----------
+ .../config_95/tresos/output/swcd/Mcu_Bswmd.arxml   |  502 -----
+ .../config_95/tresos/output/swcd/Pwm_Bswmd.arxml   | 1593 -------------
+ .../config_95/tresos/output/swcd/Wdg_Bswmd.arxml   |  320 ---
+ 93 files changed, 1444 insertions(+), 40563 deletions(-)
+
 commit 13a566016ce74fa821157351fc5edcc46baf10b4
 Author: Swathi G Bhat <s-bhat2@ti.com>
 Date:   Thu Aug 6 21:25:32 2026 +0530
