@@ -205,24 +205,6 @@ static void Mcu_controlModuleLockMMR(uint32 domainId, uint32 partition);
 static void Mcu_SetupClock_Config(uint8 idx);
 static void Mcu_Timeoutevent(volatile uint32 *addr, uint32 Value, uint32 timeout);
 
-static Std_ReturnType Mcu_ClockSetSourceMCAN(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId,
-                                             uint32 clkDivId, boolean enable);
-
-static Std_ReturnType Mcu_ClockSetSourceRTI(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId, uint32 clkDivId,
-                                            boolean enable);
-
-static Std_ReturnType Mcu_ClockSetSourceWDT(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId, uint32 clkDivId,
-                                            boolean enable);
-
-static Std_ReturnType Mcu_ClockSetSourceMCSPI(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId,
-                                              uint32 clkDivId, boolean enable);
-
-static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId, uint32 clkDivId,
-                                            boolean enable);
-
-static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId,
-                                              uint32 clkDivId, boolean enable);
-
 /* ========================================================================== */
 /*                          Function Definitions                              */
 /* ========================================================================== */
@@ -1338,8 +1320,8 @@ Std_ReturnType Mcu_ClockSetSourceCONTROLSS(Mcu_ClkSourceIdType clk_srcId, uint32
 /**
  * \brief  Helper function to enable clock source for MCAN modules
  */
-static Std_ReturnType Mcu_ClockSetSourceMCAN(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId,
-                                             uint32 clkDivId, boolean enable)
+Std_ReturnType Mcu_ClockSetSourceMCAN(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId, uint32 clkDivId,
+                                      boolean enable)
 {
     VAR(Std_ReturnType, MCU_VAR) RetVal = E_OK;
 
@@ -1356,8 +1338,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCAN(Mcu_ClkModuleIdType moduleId, Mcu_C
             {
                 mssrcmREG->RCM_MCAN0_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCAN1:
         {
             if (enable == (boolean)TRUE)
@@ -1369,8 +1352,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCAN(Mcu_ClkModuleIdType moduleId, Mcu_C
             {
                 mssrcmREG->RCM_MCAN1_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCAN2:
         {
             if (enable == (boolean)TRUE)
@@ -1382,8 +1366,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCAN(Mcu_ClkModuleIdType moduleId, Mcu_C
             {
                 mssrcmREG->RCM_MCAN2_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCAN3:
         {
             if (enable == (boolean)TRUE)
@@ -1395,8 +1380,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCAN(Mcu_ClkModuleIdType moduleId, Mcu_C
             {
                 mssrcmREG->RCM_MCAN3_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         default:
             RetVal = (Std_ReturnType)E_NOT_OK;
             break;
@@ -1408,8 +1394,8 @@ static Std_ReturnType Mcu_ClockSetSourceMCAN(Mcu_ClkModuleIdType moduleId, Mcu_C
 /**
  * \brief  Helper function to enable clock source for RTI modules
  */
-static Std_ReturnType Mcu_ClockSetSourceRTI(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId, uint32 clkDivId,
-                                            boolean enable)
+Std_ReturnType Mcu_ClockSetSourceRTI(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId, uint32 clkDivId,
+                                     boolean enable)
 {
     VAR(Std_ReturnType, MCU_VAR) RetVal = E_OK;
 
@@ -1426,8 +1412,9 @@ static Std_ReturnType Mcu_ClockSetSourceRTI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_RTI0_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_RTI1:
         {
             if (enable == (boolean)TRUE)
@@ -1439,8 +1426,9 @@ static Std_ReturnType Mcu_ClockSetSourceRTI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_RTI1_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_RTI2:
         {
             if (enable == (boolean)TRUE)
@@ -1452,8 +1440,9 @@ static Std_ReturnType Mcu_ClockSetSourceRTI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_RTI2_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_RTI3:
         {
             if (enable == (boolean)TRUE)
@@ -1465,8 +1454,9 @@ static Std_ReturnType Mcu_ClockSetSourceRTI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_RTI3_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         default:
             RetVal = (Std_ReturnType)E_NOT_OK;
             break;
@@ -1478,8 +1468,8 @@ static Std_ReturnType Mcu_ClockSetSourceRTI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
 /**
  * \brief  Helper function to enable clock source for WDT modules
  */
-static Std_ReturnType Mcu_ClockSetSourceWDT(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId, uint32 clkDivId,
-                                            boolean enable)
+Std_ReturnType Mcu_ClockSetSourceWDT(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId, uint32 clkDivId,
+                                     boolean enable)
 {
     VAR(Std_ReturnType, MCU_VAR) RetVal = E_OK;
 
@@ -1496,8 +1486,9 @@ static Std_ReturnType Mcu_ClockSetSourceWDT(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_WDT0_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_WDT1:
         {
             if (enable == (boolean)TRUE)
@@ -1509,8 +1500,9 @@ static Std_ReturnType Mcu_ClockSetSourceWDT(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_WDT1_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_WDT2:
         {
             if (enable == (boolean)TRUE)
@@ -1522,9 +1514,9 @@ static Std_ReturnType Mcu_ClockSetSourceWDT(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_WDT2_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_WDT3:
         {
             if (enable == (boolean)TRUE)
@@ -1536,8 +1528,9 @@ static Std_ReturnType Mcu_ClockSetSourceWDT(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_WDT3_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         default:
             RetVal = (Std_ReturnType)E_NOT_OK;
             break;
@@ -1549,8 +1542,8 @@ static Std_ReturnType Mcu_ClockSetSourceWDT(Mcu_ClkModuleIdType moduleId, Mcu_Cl
 /**
  * \brief  Helper function to enable clock source for MCSPI modules
  */
-static Std_ReturnType Mcu_ClockSetSourceMCSPI(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId,
-                                              uint32 clkDivId, boolean enable)
+Std_ReturnType Mcu_ClockSetSourceMCSPI(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId, uint32 clkDivId,
+                                       boolean enable)
 {
     VAR(Std_ReturnType, MCU_VAR) RetVal = E_OK;
 
@@ -1567,8 +1560,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCSPI(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_MCSPI0_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCSPI1:
         {
             if (enable == (boolean)TRUE)
@@ -1580,8 +1574,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCSPI(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_MCSPI1_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCSPI2:
         {
             if (enable == (boolean)TRUE)
@@ -1593,8 +1588,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCSPI(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_MCSPI2_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCSPI3:
         {
             if (enable == (boolean)TRUE)
@@ -1606,8 +1602,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCSPI(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_MCSPI3_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCSPI4:
         {
             if (enable == (boolean)TRUE)
@@ -1619,8 +1616,9 @@ static Std_ReturnType Mcu_ClockSetSourceMCSPI(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_MCSPI4_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         default:
             RetVal = (Std_ReturnType)E_NOT_OK;
             break;
@@ -1632,8 +1630,8 @@ static Std_ReturnType Mcu_ClockSetSourceMCSPI(Mcu_ClkModuleIdType moduleId, Mcu_
 /**
  * \brief  Helper function to enable clock source for SCI modules
  */
-static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId, uint32 clkDivId,
-                                            boolean enable)
+Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId, uint32 clkDivId,
+                                     boolean enable)
 {
     VAR(Std_ReturnType, MCU_VAR) RetVal = E_OK;
 
@@ -1652,8 +1650,9 @@ static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
                 mssrcmREG->RCM_UART0_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
                 mssrcmREG->RCM_LIN0_CLK_GATE  = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_SCI1:
         {
             if (enable == (boolean)TRUE)
@@ -1667,8 +1666,9 @@ static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
                 mssrcmREG->RCM_UART1_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
                 mssrcmREG->RCM_LIN1_CLK_GATE  = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_SCI2:
         {
             if (enable == (boolean)TRUE)
@@ -1682,8 +1682,9 @@ static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
                 mssrcmREG->RCM_UART2_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
                 mssrcmREG->RCM_LIN2_CLK_GATE  = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_SCI3:
         {
             if (enable == (boolean)TRUE)
@@ -1697,8 +1698,9 @@ static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
                 mssrcmREG->RCM_UART3_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
                 mssrcmREG->RCM_LIN3_CLK_GATE  = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_SCI4:
         {
             if (enable == (boolean)TRUE)
@@ -1712,8 +1714,9 @@ static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
                 mssrcmREG->RCM_UART4_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
                 mssrcmREG->RCM_LIN4_CLK_GATE  = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_SCI5:
         {
             if (enable == (boolean)TRUE)
@@ -1725,8 +1728,9 @@ static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
             {
                 mssrcmREG->RCM_UART5_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         default:
             RetVal = (Std_ReturnType)E_NOT_OK;
             break;
@@ -1738,8 +1742,8 @@ static Std_ReturnType Mcu_ClockSetSourceSCI(Mcu_ClkModuleIdType moduleId, Mcu_Cl
 /**
  * \brief  Helper function to enable clock source for Other modules
  */
-static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId,
-                                              uint32 clkDivId, boolean enable)
+Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId, uint32 clkDivId,
+                                       boolean enable)
 {
     VAR(Std_ReturnType, MCU_VAR) RetVal = E_OK;
 
@@ -1756,8 +1760,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_QSPI0_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_I2C:
         {
             if (enable == (boolean)TRUE)
@@ -1775,8 +1780,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
                 mssrcmREG->RCM_I2C2_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
                 mssrcmREG->RCM_I2C3_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_CPTS:
         {
             if (enable == (boolean)TRUE)
@@ -1788,8 +1794,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_CPTS_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCU_CLKOUT0:
         {
             if (enable == (boolean)TRUE)
@@ -1801,8 +1808,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 toprcmREG->CLKOUT0_CLK_GATE = TOP_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MCU_CLKOUT1:
         {
             if (enable == (boolean)TRUE)
@@ -1814,8 +1822,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 toprcmREG->CLKOUT1_CLK_GATE = TOP_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MII100_CLK:
         {
             if (enable == (boolean)TRUE)
@@ -1828,8 +1837,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_RGMII_50_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_MII10_CLK:
         {
             if (enable == (boolean)TRUE)
@@ -1842,8 +1852,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_RGMII_5_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_RGMI_CLK:
         {
             if (enable == (boolean)TRUE)
@@ -1856,8 +1867,9 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_RGMII_250_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
+
         case MCU_CLKSRC_MODULE_ID_CONTROLSS_CLK:
         {
             if (enable == (boolean)TRUE)
@@ -1870,8 +1882,8 @@ static Std_ReturnType Mcu_ClockSetSourceOther(Mcu_ClkModuleIdType moduleId, Mcu_
             {
                 mssrcmREG->RCM_CONTROLSS_PLL_CLK_GATE = MSS_RCM_CLK_GATE_GATED_MASK;
             }
-            break;
         }
+        break;
 
         default:
             RetVal = (Std_ReturnType)E_NOT_OK;
@@ -1917,10 +1929,15 @@ Mcu_ClockSetSource(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId, u
         RetVal    = Mcu_ClockSetSourceSCI(moduleId, clkSrcId, clkDivId, enable);
         defRetVal = E_OK;
     }
-    else
+    else if (moduleId < MCU_CLKSRC_MODULE_ID_MAX)
     {
         RetVal    = Mcu_ClockSetSourceOther(moduleId, clkSrcId, clkDivId, enable);
         defRetVal = E_OK;
+    }
+    else
+    {
+        RetVal    = E_NOT_OK;
+        defRetVal = E_NOT_OK;
     }
 
     if (defRetVal == E_OK)
