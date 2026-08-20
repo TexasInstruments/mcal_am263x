@@ -58,12 +58,10 @@
  *
  */
 
-#define MCU_PLATFORM_SOURCE (1)
-
 /* ===========================================================================*/
 /*                             Include Files                                  */
 /* ===========================================================================*/
-#include "Std_Types.h"
+
 #include "Os.h"
 #include "Dem.h"
 #include "Mcu.h"
@@ -222,15 +220,6 @@ static void Mcu_Timeoutevent(volatile uint32 *addr, uint32 Value);
 /*                          Function Definitions                              */
 /* ========================================================================== */
 
-/* TI_COVERAGE_GAP: Multiple clock and register configuration functions throughout this file (e.g.,
-   Mcu_ClockSetSourceR5, Mcu_ClockSetSourceMCAN*, Mcu_ClockSetSourceMCSPI,
-   Mcu_ClockSetSourceSCI, etc.) contain regWriteStatus checks that report hardware errors when register
-   write verification fails. These error paths cannot be triggered in normal test environment without
-   actual hardware malfunction (stuck bits, read-only registers, or bus errors). See lines 533, 559,
-   585, 611, 637, 662, 687, 713, 738, 764, 788, 812, 836, 859, 882, 905, 928, 951, 974, 998, 1022,
-   1046, 1070, 1094, 1118, 1142, 1166, 1190, 1214, 1238, 1262, 1286, 1310, 1334, 1358, 1382, 1406,
-   1433, 1460, 1483, 1505, 1525, 1545, 1569, and 2389 for all register write failure checks. */
-
 #if (STD_OFF == MCU_NO_PLL)
 Mcu_PllStatusType Mcu_GetPllLockStatus(void)
 {
@@ -329,9 +318,9 @@ FUNC(void, MCU_CODE) Mcu_SystemInit(void)
         /* TI_COVERAGE_GAP_START [Branch] is a hardware-level event that cannot be covered */
         if (Mcu_PLLInitAll(Mcu_DrvObj) == E_OK) /* Invoking PLL init API */
         {
-            /* TI_COVERAGE_GAP_STOP */
             Mcu_PllStatus = MCU_STATE_INIT; /* Updating PLL status object as initialized */
         }
+        /* TI_COVERAGE_GAP_STOP */
     }
 #endif
 
@@ -386,9 +375,14 @@ FUNC(void, MCU_CODE) Mcu_SetupClock(void)
 
 static void Mcu_Timeoutevent(volatile uint32 *addr, uint32 Value)
 {
-    uint32 tempCount = 100U / 9U;
+    uint32 tempCount = MCU_TIMEOUT_DURATION;
 
-    /* each unit of SW_delay equals to 10 clockcycle, so divided by 10U*/
+    if (MCU_TIMEOUT_DURATION > 10U)
+    {
+        /* each unit of SW_delay equals to 10 clockcycle, so divided by 10U */
+        tempCount = MCU_TIMEOUT_DURATION / 10U;
+    }
+
     while (M_REG_READ32(addr) != Value)
     {
         if (tempCount <= 0U)
@@ -2289,15 +2283,10 @@ Mcu_ClockSetSource(Mcu_ClkModuleIdType moduleId, Mcu_ClkSourceIdType clkSrcId, u
         RetVal    = Mcu_ClockSetSourceSCI(moduleId, clkSrcId, clkDivId, enable);
         defRetVal = E_OK;
     }
-    else if (moduleId < MCU_CLKSRC_MODULE_ID_MAX)
+    else
     {
         RetVal    = Mcu_ClockSetSourceOther(moduleId, clkSrcId, clkDivId, enable);
         defRetVal = E_OK;
-    }
-    else
-    {
-        RetVal    = E_NOT_OK;
-        defRetVal = E_NOT_OK;
     }
 
     if (defRetVal == E_OK)

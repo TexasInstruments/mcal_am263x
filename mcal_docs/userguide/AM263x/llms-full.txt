@@ -14360,7 +14360,10 @@ Below is default performance configuration having throughput > 900Mbps, packet s
 
 ### LIN
 
-Will be updated in next release
+|Performance Test|Theoretical value|Measured value|Remarks|
+|------|------|------|-------|
+|Lin Master Response Performance |845312 us|848088 us|Total time taken to send 8 Bytes of data 128 times ~ 1KB 400MHz|
+|Lin Slave Response Performance |6874 us|7035 us|Total time taken to receive 8 Bytes of data 400MHz|
 
 ### ADC
 
@@ -14542,7 +14545,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| mcu   | 7214    | 6    | 0    |
+| mcu   | 7206    | 6    | 0    |
  
 ### PORT
 

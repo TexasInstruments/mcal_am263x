@@ -2168,27 +2168,30 @@ int32_t SOC_rcmSetPeripheralClock(SOC_RcmPeripheralId periphId, SOC_RcmPeriphera
     volatile uint32_t *ptrClkSrcReg, *ptrClkDivReg;
     volatile uint16_t  clkSrcVal;
     uint32_t           clkDivisor;
-    int32_t            retVal;
+    int32_t            retVal = SystemP_FAILURE;
     uint32_t           Finp;
 
     Finp       = SOC_rcmGetPeripheralClockFrequency(clkSource);
     clkDivisor = SOC_rcmGetModuleClkDivVal(Finp, freqHz);
     SOC_rcmGetClkSrcAndDivReg(periphId, clkSource, &clkSrcVal, &ptrClkSrcReg, &ptrClkDivReg);
 
-    if ((ptrClkSrcReg != NULL_PTR) && (ptrClkDivReg != NULL_PTR) && (clkSrcVal != 0x888U))
+    if ((ptrClkSrcReg != NULL_PTR) && (ptrClkDivReg != NULL_PTR))
     {
-        uint16_t clkDivVal;
+        if (clkSrcVal != 0x888U)
+        {
+            uint16_t clkDivVal;
 
-        /* Create the Divider Value to be programmed */
-        clkDivVal = ((uint16_t)clkDivisor & 0xFU);
-        clkDivVal = (clkDivVal | (clkDivVal << 4U) | (clkDivVal << 8U));
+            /* Create the Divider Value to be programmed */
+            clkDivVal = ((uint16_t)clkDivisor & 0xFU);
+            clkDivVal = (clkDivVal | (clkDivVal << 4U) | (clkDivVal << 8U));
 
-        /* Write the Divider Value */
-        *ptrClkDivReg = SOC_rcmInsert16(*ptrClkDivReg, 11U, 0U, clkDivVal);
+            /* Write the Divider Value */
+            *ptrClkDivReg = SOC_rcmInsert16(*ptrClkDivReg, 11U, 0U, clkDivVal);
 
-        /* Write the Clock Source Selection Value */
-        *ptrClkSrcReg = SOC_rcmInsert16(*ptrClkSrcReg, 11U, 0U, clkSrcVal);
-        retVal        = SystemP_SUCCESS;
+            /* Write the Clock Source Selection Value */
+            *ptrClkSrcReg = SOC_rcmInsert16(*ptrClkSrcReg, 11U, 0U, clkSrcVal);
+            retVal        = SystemP_SUCCESS;
+        }
     }
     else
     {
@@ -3392,7 +3395,7 @@ void SOC_rcmR5SS0TriggerReset(void)
 
     /* execute wfi, and reset core0 and core 1 */
 #if defined(__ARM_ARCH_7R__)
-    while (1)
+    while (true) /* Intentional infinite loop - CPU reset occurs in hardware */
     {
         __wfi();
     }
