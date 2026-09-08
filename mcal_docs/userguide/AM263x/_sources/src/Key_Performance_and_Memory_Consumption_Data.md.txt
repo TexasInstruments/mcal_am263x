@@ -270,7 +270,7 @@ Below table is memory footprint with minimum buffer number (RX=2, TX=2).
 
 | Modules   | .text  |  .data  |  .bss  |
 | ------------ | ----------| -------- | ---------- |
-| spi   | 6698    | 1    | 2696    |
+| spi   | 6654    | 1    | 2696    |
  
 ### UART
 

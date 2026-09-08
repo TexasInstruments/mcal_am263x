@@ -89,9 +89,6 @@
 [!IF "node:refexists(as:modconf('Mcu')[1]/McuGeneralConfiguration/McuOsCounterRef/*)"!][!//
 #include "Os.h"
 [!ENDIF!][!//
-[!IF "not(node:empty(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/*))"!][!//
-#include "Dem.h"
-[!ENDIF!][!//
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -255,6 +252,9 @@ enum
 
 /** \brief MCU PLL timeout.*/
 #define MCU_PLL_TIMEOUT_DURATION            ([!"as:modconf('Mcu')[1]/McuGeneralConfiguration/McuPllTimeoutDuration"!]U)
+
+#define MCU_CFG_DEM_ENABLE  [!IF "not(node:empty(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_MODE_FAILURE)) or not(node:empty(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_CLOCK_FAILURE)) or not(node:empty(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_HARDWARE_ERROR))"!](STD_ON)[!ELSE!](STD_OFF)[!ENDIF!]
+
 /* @} */
 /*
 *Design: MCAL-14296, MCAL-14294, MCAL-14291
@@ -271,28 +271,21 @@ enum
 [!ENDIF!][!//
 [!ENDNOCODE!][!//
 
-[!IF "node:exists(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_MODE_FAILURE)"!][!//
 /* MCU DEM Event Configuration*/
-#ifndef MCU_E_MODE_FAILURE
+[!IF "not(node:empty(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_MODE_FAILURE))"!]
 /** \brief MCU Mode failed - Additional DEM event supported by the Texas Instruments*/
-#define MCU_E_MODE_FAILURE ([!IF "node:refexists(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_MODE_FAILURE)"!]DemConf_DemEventParameter_[!"node:name(node:ref(as:modconf('Mcu')[1]/McuModuleConfiguration/.[1]/McuDemEventParameterRefs/MCU_E_MODE_FAILURE))"!][!ELSE!][!ERROR "DEM error id is not configured"!][!ENDIF!])
-#endif
+#define MCU_E_MODE_FAILURE  (DemConf_DemEventParameter_[!"node:name(node:ref(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_MODE_FAILURE))"!])
 [!ENDIF!][!//
 
-[!IF "node:exists(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_CLOCK_FAILURE)"!][!//
 /* Design: MCAL-15239, MCAL-15240 */
-/* MCU DEM Event Configuration*/
-#ifndef MCU_E_CLOCK_FAILURE
+[!IF "not(node:empty(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_CLOCK_FAILURE))"!]
 /** \brief MCU Clock failed - AUTOSAR ECUC Driver SWS Item - ECUC_Mcu_00188*/
-#define MCU_E_CLOCK_FAILURE ([!IF "node:refexists(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_CLOCK_FAILURE)"!]DemConf_DemEventParameter_[!"node:name(node:ref(as:modconf('Mcu')[1]/McuModuleConfiguration/.[1]/McuDemEventParameterRefs/MCU_E_CLOCK_FAILURE))"!][!ELSE!][!ERROR "DEM error id is not configured"!][!ENDIF!])
-#endif
+#define MCU_E_CLOCK_FAILURE  (DemConf_DemEventParameter_[!"node:name(node:ref(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_CLOCK_FAILURE))"!])
 [!ENDIF!][!//
 
-[!IF "node:exists(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_HARDWARE_ERROR)"!][!//
-#ifndef MCU_E_HARDWARE_ERROR
+[!IF "not(node:empty(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_HARDWARE_ERROR))"!]
 /** \brief Hardware failed */
-#define MCU_E_HARDWARE_ERROR          ([!IF "node:refexists(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_HARDWARE_ERROR)"!]DemConf_DemEventParameter_[!"node:name(node:ref(as:modconf('Mcu')[1]/McuModuleConfiguration/.[1]/McuDemEventParameterRefs/MCU_E_HARDWARE_ERROR))"!][!ELSE!][!ERROR "DEM error id is not configured"!][!ENDIF!])
-#endif
+#define MCU_E_HARDWARE_ERROR  (DemConf_DemEventParameter_[!"node:name(node:ref(as:modconf('Mcu')[1]/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_HARDWARE_ERROR))"!])
 [!ENDIF!][!//
 /* @} */
 /* MCU Clock Config Size */
