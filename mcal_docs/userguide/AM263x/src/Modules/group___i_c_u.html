@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5.13. ICU &mdash; Documentation for AM263x</title>
+  <title>6.13. ICU &mdash; Documentation for AM263x</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script src="https://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5.14. LIN" href="group___l_i_n.html" />
-    <link rel="prev" title="5.12. GPT" href="group___g_p_t.html" /> 
+    <link rel="next" title="6.14. LIN" href="group___l_i_n.html" />
+    <link rel="prev" title="6.12. GPT" href="group___g_p_t.html" /> 
 </head>
 
 <body class="wy-body-for-nav"><!---- extra body elements for TI beyond RTD Sphinx Theme --->
@@ -65,80 +65,81 @@
 <li class="toctree-l1"><a class="reference internal" href="../MCAL_Configuration_and_EB_Tresos.html">2. MCAL Configurator And EB Tresos User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Getting_started.html">3. Getting Started With AM263x MCAL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ModuleUserGuide_list.html">4. Module User Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../api_guide.html">5. API guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="group___a_d_c.html">5.1. ADC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___c_a_n.html">5.2. CAN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___c_d_d___c_m_p_s_s.html">5.3. CDD_CMPSS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___c_d_d___f_s_i_r_x.html">5.4. CDD_FSIRX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___c_d_d___f_s_i_t_x.html">5.5. CDD_FSITX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___c_d_d___i2_c.html">5.6. CDD_I2C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___c_d_d___i_p_c.html">5.7. CDD_IPC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___c_d_d___p_w_m.html">5.8. CDD_PWM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___d_i_o.html">5.9. DIO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___d_m_a.html">5.10. DMA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___f_l_s.html">5.11. FLS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___g_p_t.html">5.12. GPT</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">5.13. ICU</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#modules">5.13.1. Modules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#types">5.13.2. Types</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#enum-icu-modetype">5.13.2.1. enum Icu_ModeType</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#enum-icu-inputstatetype">5.13.2.2. enum Icu_InputStateType</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#enum-icu-activationtype">5.13.2.3. enum Icu_ActivationType</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#enum-icu-xbarselect">5.13.2.4. enum Icu_XbarSelect</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#enum-icu-intrcapselect">5.13.2.5. enum Icu_IntrCapSelect</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#enum-icu-measurementmodetype">5.13.2.6. enum Icu_MeasurementModeType</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#enum-icu-signalmeasurementpropertytype">5.13.2.7. enum Icu_SignalMeasurementPropertyType</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#enum-icu-timestampbuffertype">5.13.2.8. enum Icu_TimestampBufferType</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#typedef-icu-valuetype">5.13.2.9. typedef Icu_ValueType</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#typedef-icu-indextype">5.13.2.10. typedef Icu_IndexType</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#typedef-icu-edgenumbertype">5.13.2.11. typedef Icu_EdgeNumberType</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#typedef-icu-notifyfunctype">5.13.2.12. typedef Icu_NotifyFuncType</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#typedef-icu-channeltype">5.13.2.13. typedef Icu_ChannelType</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#typedef-icu-channelprescalertype">5.13.2.14. typedef Icu_ChannelPrescalerType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module_Errata.html">5. Silicon Errata - MCAL Support and Workarounds</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_guide.html">6. API guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="group___a_d_c.html">6.1. ADC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___c_a_n.html">6.2. CAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___c_d_d___c_m_p_s_s.html">6.3. CDD_CMPSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___c_d_d___f_s_i_r_x.html">6.4. CDD_FSIRX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___c_d_d___f_s_i_t_x.html">6.5. CDD_FSITX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___c_d_d___i2_c.html">6.6. CDD_I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___c_d_d___i_p_c.html">6.7. CDD_IPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___c_d_d___p_w_m.html">6.8. CDD_PWM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___d_i_o.html">6.9. DIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___d_m_a.html">6.10. DMA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___f_l_s.html">6.11. FLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___g_p_t.html">6.12. GPT</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.13. ICU</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modules">6.13.1. Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#types">6.13.2. Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enum-icu-modetype">6.13.2.1. enum Icu_ModeType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enum-icu-inputstatetype">6.13.2.2. enum Icu_InputStateType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enum-icu-activationtype">6.13.2.3. enum Icu_ActivationType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enum-icu-xbarselect">6.13.2.4. enum Icu_XbarSelect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enum-icu-intrcapselect">6.13.2.5. enum Icu_IntrCapSelect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enum-icu-measurementmodetype">6.13.2.6. enum Icu_MeasurementModeType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enum-icu-signalmeasurementpropertytype">6.13.2.7. enum Icu_SignalMeasurementPropertyType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enum-icu-timestampbuffertype">6.13.2.8. enum Icu_TimestampBufferType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#typedef-icu-valuetype">6.13.2.9. typedef Icu_ValueType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#typedef-icu-indextype">6.13.2.10. typedef Icu_IndexType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#typedef-icu-edgenumbertype">6.13.2.11. typedef Icu_EdgeNumberType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#typedef-icu-notifyfunctype">6.13.2.12. typedef Icu_NotifyFuncType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#typedef-icu-channeltype">6.13.2.13. typedef Icu_ChannelType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#typedef-icu-channelprescalertype">6.13.2.14. typedef Icu_ChannelPrescalerType</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#structures">5.13.3. Structures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#defines">5.13.4. Defines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#functions">5.13.5. Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-init">5.13.5.1. function Icu_Init</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-deinit">5.13.5.2. function Icu_DeInit</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-setactivationcondition">5.13.5.3. function Icu_SetActivationCondition</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-disablenotification">5.13.5.4. function Icu_DisableNotification</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-enablenotification">5.13.5.5. function Icu_EnableNotification</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-getinputstate">5.13.5.6. function Icu_GetInputState</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-starttimestamp">5.13.5.7. function Icu_StartTimestamp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-stoptimestamp">5.13.5.8. function Icu_StopTimestamp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-gettimestampindex">5.13.5.9. function Icu_GetTimestampIndex</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-resetedgecount">5.13.5.10. function Icu_ResetEdgeCount</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-enableedgecount">5.13.5.11. function Icu_EnableEdgeCount</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-disableedgecount">5.13.5.12. function Icu_DisableEdgeCount</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-getedgenumbers">5.13.5.13. function Icu_GetEdgeNumbers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-enableedgedetection">5.13.5.14. function Icu_EnableEdgeDetection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-disableedgedetection">5.13.5.15. function Icu_DisableEdgeDetection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-startsignalmeasurement">5.13.5.16. function Icu_StartSignalMeasurement</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-stopsignalmeasurement">5.13.5.17. function Icu_StopSignalMeasurement</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-gettimeelapsed">5.13.5.18. function Icu_GetTimeElapsed</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-getdutycyclevalues">5.13.5.19. function Icu_GetDutyCycleValues</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-checkwakeup">5.13.5.20. function Icu_CheckWakeup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-disablewakeup">5.13.5.21. function Icu_DisableWakeup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-enablewakeup">5.13.5.22. function Icu_EnableWakeup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-setmode">5.13.5.23. function Icu_SetMode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#function-icu-registerreadback">5.13.5.24. function Icu_RegisterReadback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structures">6.13.3. Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#defines">6.13.4. Defines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">6.13.5. Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-init">6.13.5.1. function Icu_Init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-deinit">6.13.5.2. function Icu_DeInit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-setactivationcondition">6.13.5.3. function Icu_SetActivationCondition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-disablenotification">6.13.5.4. function Icu_DisableNotification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-enablenotification">6.13.5.5. function Icu_EnableNotification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-getinputstate">6.13.5.6. function Icu_GetInputState</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-starttimestamp">6.13.5.7. function Icu_StartTimestamp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-stoptimestamp">6.13.5.8. function Icu_StopTimestamp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-gettimestampindex">6.13.5.9. function Icu_GetTimestampIndex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-resetedgecount">6.13.5.10. function Icu_ResetEdgeCount</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-enableedgecount">6.13.5.11. function Icu_EnableEdgeCount</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-disableedgecount">6.13.5.12. function Icu_DisableEdgeCount</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-getedgenumbers">6.13.5.13. function Icu_GetEdgeNumbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-enableedgedetection">6.13.5.14. function Icu_EnableEdgeDetection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-disableedgedetection">6.13.5.15. function Icu_DisableEdgeDetection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-startsignalmeasurement">6.13.5.16. function Icu_StartSignalMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-stopsignalmeasurement">6.13.5.17. function Icu_StopSignalMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-gettimeelapsed">6.13.5.18. function Icu_GetTimeElapsed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-getdutycyclevalues">6.13.5.19. function Icu_GetDutyCycleValues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-checkwakeup">6.13.5.20. function Icu_CheckWakeup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-disablewakeup">6.13.5.21. function Icu_DisableWakeup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-enablewakeup">6.13.5.22. function Icu_EnableWakeup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-setmode">6.13.5.23. function Icu_SetMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-icu-registerreadback">6.13.5.24. function Icu_RegisterReadback</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="group___l_i_n.html">5.14. LIN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___m_c_u.html">5.15. MCU</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___p_o_r_t.html">5.16. PORT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___p_w_m.html">5.17. PWM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___s_p_i.html">5.18. SPI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___u_a_r_t.html">5.19. UART</a></li>
-<li class="toctree-l2"><a class="reference internal" href="group___w_d_g.html">5.20. WDG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___l_i_n.html">6.14. LIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___m_c_u.html">6.15. MCU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___p_o_r_t.html">6.16. PORT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___p_w_m.html">6.17. PWM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___s_p_i.html">6.18. SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___u_a_r_t.html">6.19. UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group___w_d_g.html">6.20. WDG</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../Key_Performance_and_Memory_Consumption_Data.html">6. Key Performance and Memory Consumption Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Integration.html">7. AUTOSAR Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Key_Performance_and_Memory_Consumption_Data.html">7. Key Performance and Memory Consumption Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Integration.html">8. AUTOSAR Integration Guide</a></li>
 </ul>
 
         </div>
@@ -155,8 +156,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api_guide.html"><span class="section-number">5. </span>API guide</a> &raquo;</li>
-      <li><span class="section-number">5.13. </span>ICU</li>
+          <li><a href="../api_guide.html"><span class="section-number">6. </span>API guide</a> &raquo;</li>
+      <li><span class="section-number">6.13. </span>ICU</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -166,9 +167,9 @@
            <div itemprop="articleBody">
              
   <section id="icu">
-<h1><span class="section-number">5.13. </span>ICU<a class="headerlink" href="#icu" title="Link to this heading"></a></h1>
+<h1><span class="section-number">6.13. </span>ICU<a class="headerlink" href="#icu" title="Link to this heading"></a></h1>
 <section id="modules">
-<h2><span class="section-number">5.13.1. </span>Modules<a class="headerlink" href="#modules" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.13.1. </span>Modules<a class="headerlink" href="#modules" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -183,7 +184,7 @@
 </table>
 </section>
 <section id="types">
-<h2><span class="section-number">5.13.2. </span>Types<a class="headerlink" href="#types" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.13.2. </span>Types<a class="headerlink" href="#types" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Base type</p></th>
@@ -251,7 +252,7 @@
 </tbody>
 </table>
 <section id="enum-icu-modetype">
-<h3><span class="section-number">5.13.2.1. </span>enum Icu_ModeType<a class="headerlink" href="#enum-icu-modetype" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.2.1. </span>enum Icu_ModeType<a class="headerlink" href="#enum-icu-modetype" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Enumerator</p></th>
@@ -274,7 +275,7 @@
 This type defines a range of mode type.</p>
 </section>
 <section id="enum-icu-inputstatetype">
-<h3><span class="section-number">5.13.2.2. </span>enum Icu_InputStateType<a class="headerlink" href="#enum-icu-inputstatetype" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.2.2. </span>enum Icu_InputStateType<a class="headerlink" href="#enum-icu-inputstatetype" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Enumerator</p></th>
@@ -297,7 +298,7 @@ This type defines a range of mode type.</p>
 This type defines a input state of ICU driver.</p>
 </section>
 <section id="enum-icu-activationtype">
-<h3><span class="section-number">5.13.2.3. </span>enum Icu_ActivationType<a class="headerlink" href="#enum-icu-activationtype" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.2.3. </span>enum Icu_ActivationType<a class="headerlink" href="#enum-icu-activationtype" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Enumerator</p></th>
@@ -324,7 +325,7 @@ This type defines a input state of ICU driver.</p>
 This type defines Activation range.</p>
 </section>
 <section id="enum-icu-xbarselect">
-<h3><span class="section-number">5.13.2.4. </span>enum Icu_XbarSelect<a class="headerlink" href="#enum-icu-xbarselect" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.2.4. </span>enum Icu_XbarSelect<a class="headerlink" href="#enum-icu-xbarselect" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Enumerator</p></th>
@@ -467,7 +468,7 @@ This type defines Activation range.</p>
 This type defines Input XBAR.</p>
 </section>
 <section id="enum-icu-intrcapselect">
-<h3><span class="section-number">5.13.2.5. </span>enum Icu_IntrCapSelect<a class="headerlink" href="#enum-icu-intrcapselect" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.2.5. </span>enum Icu_IntrCapSelect<a class="headerlink" href="#enum-icu-intrcapselect" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Enumerator</p></th>
@@ -537,7 +538,7 @@ This type defines Input XBAR.</p>
 This type defines ECAP selection.</p>
 </section>
 <section id="enum-icu-measurementmodetype">
-<h3><span class="section-number">5.13.2.6. </span>enum Icu_MeasurementModeType<a class="headerlink" href="#enum-icu-measurementmodetype" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.2.6. </span>enum Icu_MeasurementModeType<a class="headerlink" href="#enum-icu-measurementmodetype" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Enumerator</p></th>
@@ -568,7 +569,7 @@ This type defines ECAP selection.</p>
 This type defines available measurement modes.</p>
 </section>
 <section id="enum-icu-signalmeasurementpropertytype">
-<h3><span class="section-number">5.13.2.7. </span>enum Icu_SignalMeasurementPropertyType<a class="headerlink" href="#enum-icu-signalmeasurementpropertytype" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.2.7. </span>enum Icu_SignalMeasurementPropertyType<a class="headerlink" href="#enum-icu-signalmeasurementpropertytype" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Enumerator</p></th>
@@ -599,7 +600,7 @@ This type defines available measurement modes.</p>
 This type defines Signal Measurement Property range.</p>
 </section>
 <section id="enum-icu-timestampbuffertype">
-<h3><span class="section-number">5.13.2.8. </span>enum Icu_TimestampBufferType<a class="headerlink" href="#enum-icu-timestampbuffertype" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.2.8. </span>enum Icu_TimestampBufferType<a class="headerlink" href="#enum-icu-timestampbuffertype" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Enumerator</p></th>
@@ -622,7 +623,7 @@ This type defines Signal Measurement Property range.</p>
 This type defines TimeStamp Property range.</p>
 </section>
 <section id="typedef-icu-valuetype">
-<h3><span class="section-number">5.13.2.9. </span>typedef Icu_ValueType<a class="headerlink" href="#typedef-icu-valuetype" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.2.9. </span>typedef Icu_ValueType<a class="headerlink" href="#typedef-icu-valuetype" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">uint16</span><span class="w"> </span><span class="n">Icu_ValueType</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -630,7 +631,7 @@ This type defines TimeStamp Property range.</p>
 This type defines Value type.</p>
 </section>
 <section id="typedef-icu-indextype">
-<h3><span class="section-number">5.13.2.10. </span>typedef Icu_IndexType<a class="headerlink" href="#typedef-icu-indextype" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.2.10. </span>typedef Icu_IndexType<a class="headerlink" href="#typedef-icu-indextype" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">uint32</span><span class="w"> </span><span class="n">Icu_IndexType</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -638,7 +639,7 @@ This type defines Value type.</p>
 This type defines return value Icu_GetTimeStampIndex.</p>
 </section>
 <section id="typedef-icu-edgenumbertype">
-<h3><span class="section-number">5.13.2.11. </span>typedef Icu_EdgeNumberType<a class="headerlink" href="#typedef-icu-edgenumbertype" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.2.11. </span>typedef Icu_EdgeNumberType<a class="headerlink" href="#typedef-icu-edgenumbertype" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">uint32</span><span class="w"> </span><span class="n">Icu_EdgeNumberType</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -646,7 +647,7 @@ This type defines return value Icu_GetTimeStampIndex.</p>
 This type defines return value of Icu-Icu_GetEdgeNumbers.</p>
 </section>
 <section id="typedef-icu-notifyfunctype">
-<h3><span class="section-number">5.13.2.12. </span>typedef Icu_NotifyFuncType<a class="headerlink" href="#typedef-icu-notifyfunctype" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.2.12. </span>typedef Icu_NotifyFuncType<a class="headerlink" href="#typedef-icu-notifyfunctype" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="w"> </span><span class="n">Icu_NotifyFuncType</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -654,7 +655,7 @@ This type defines return value of Icu-Icu_GetEdgeNumbers.</p>
 Notification callback function pointer.</p>
 </section>
 <section id="typedef-icu-channeltype">
-<h3><span class="section-number">5.13.2.13. </span>typedef Icu_ChannelType<a class="headerlink" href="#typedef-icu-channeltype" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.2.13. </span>typedef Icu_ChannelType<a class="headerlink" href="#typedef-icu-channeltype" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">Icu_ChannelType</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -662,7 +663,7 @@ Notification callback function pointer.</p>
 This type defines Channel type.</p>
 </section>
 <section id="typedef-icu-channelprescalertype">
-<h3><span class="section-number">5.13.2.14. </span>typedef Icu_ChannelPrescalerType<a class="headerlink" href="#typedef-icu-channelprescalertype" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.2.14. </span>typedef Icu_ChannelPrescalerType<a class="headerlink" href="#typedef-icu-channelprescalertype" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">Icu_ChannelPrescalerType</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -671,7 +672,7 @@ This type defines Prescaler type.</p>
 </section>
 </section>
 <section id="structures">
-<h2><span class="section-number">5.13.3. </span>Structures<a class="headerlink" href="#structures" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.13.3. </span>Structures<a class="headerlink" href="#structures" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -701,7 +702,7 @@ This type defines Prescaler type.</p>
 </table>
 </section>
 <section id="defines">
-<h2><span class="section-number">5.13.4. </span>Defines<a class="headerlink" href="#defines" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.13.4. </span>Defines<a class="headerlink" href="#defines" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -863,7 +864,7 @@ This type defines Prescaler type.</p>
 </table>
 </section>
 <section id="functions">
-<h2><span class="section-number">5.13.5. </span>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.13.5. </span>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Return type</p></th>
@@ -971,7 +972,7 @@ This type defines Prescaler type.</p>
 </tbody>
 </table>
 <section id="function-icu-init">
-<h3><span class="section-number">5.13.5.1. </span>function Icu_Init<a class="headerlink" href="#function-icu-init" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.1. </span>function Icu_Init<a class="headerlink" href="#function-icu-init" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_Init</span><span class="p">(</span>
 <span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Icu_ConfigType</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ConfigPtr</span>
 <span class="p">)</span>
@@ -995,7 +996,7 @@ Service for ICU initialization.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-deinit">
-<h3><span class="section-number">5.13.5.2. </span>function Icu_DeInit<a class="headerlink" href="#function-icu-deinit" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.2. </span>function Icu_DeInit<a class="headerlink" href="#function-icu-deinit" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_DeInit</span><span class="p">(</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span>
 <span class="p">)</span>
@@ -1015,7 +1016,7 @@ Service for ICU de-initialization.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-setactivationcondition">
-<h3><span class="section-number">5.13.5.3. </span>function Icu_SetActivationCondition<a class="headerlink" href="#function-icu-setactivationcondition" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.3. </span>function Icu_SetActivationCondition<a class="headerlink" href="#function-icu-setactivationcondition" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_SetActivationCondition</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span><span class="p">,</span>
 <span class="w">    </span><span class="n">Icu_ActivationType</span><span class="w"> </span><span class="n">Activation</span>
@@ -1041,7 +1042,7 @@ Service for setting Activation Condition.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-disablenotification">
-<h3><span class="section-number">5.13.5.4. </span>function Icu_DisableNotification<a class="headerlink" href="#function-icu-disablenotification" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.4. </span>function Icu_DisableNotification<a class="headerlink" href="#function-icu-disablenotification" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_DisableNotification</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1065,7 +1066,7 @@ Service for disabling notification.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-enablenotification">
-<h3><span class="section-number">5.13.5.5. </span>function Icu_EnableNotification<a class="headerlink" href="#function-icu-enablenotification" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.5. </span>function Icu_EnableNotification<a class="headerlink" href="#function-icu-enablenotification" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_EnableNotification</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1089,7 +1090,7 @@ Service for enabling notification.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-getinputstate">
-<h3><span class="section-number">5.13.5.6. </span>function Icu_GetInputState<a class="headerlink" href="#function-icu-getinputstate" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.6. </span>function Icu_GetInputState<a class="headerlink" href="#function-icu-getinputstate" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Icu_InputStateType</span><span class="w"> </span><span class="n">Icu_GetInputState</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1115,7 +1116,7 @@ Service for getting the ICU input status.</p>
 <p><strong>Return</strong>: Icu_InputStateType</p>
 </section>
 <section id="function-icu-starttimestamp">
-<h3><span class="section-number">5.13.5.7. </span>function Icu_StartTimestamp<a class="headerlink" href="#function-icu-starttimestamp" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.7. </span>function Icu_StartTimestamp<a class="headerlink" href="#function-icu-starttimestamp" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_StartTimestamp</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span><span class="p">,</span>
 <span class="w">    </span><span class="n">Icu_ValueType</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">BufferPtr</span><span class="p">,</span>
@@ -1145,7 +1146,7 @@ Service for starts the captuing of timer values on the edges.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-stoptimestamp">
-<h3><span class="section-number">5.13.5.8. </span>function Icu_StopTimestamp<a class="headerlink" href="#function-icu-stoptimestamp" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.8. </span>function Icu_StopTimestamp<a class="headerlink" href="#function-icu-stoptimestamp" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_StopTimestamp</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1169,7 +1170,7 @@ Service for stopping the timestamp measurement.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-gettimestampindex">
-<h3><span class="section-number">5.13.5.9. </span>function Icu_GetTimestampIndex<a class="headerlink" href="#function-icu-gettimestampindex" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.9. </span>function Icu_GetTimestampIndex<a class="headerlink" href="#function-icu-gettimestampindex" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Icu_IndexType</span><span class="w"> </span><span class="n">Icu_GetTimestampIndex</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1193,7 +1194,7 @@ Service for reading the timestamp index of a givem channel.</p>
 <p><strong>Return</strong>: Icu_IndexType</p>
 </section>
 <section id="function-icu-resetedgecount">
-<h3><span class="section-number">5.13.5.10. </span>function Icu_ResetEdgeCount<a class="headerlink" href="#function-icu-resetedgecount" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.10. </span>function Icu_ResetEdgeCount<a class="headerlink" href="#function-icu-resetedgecount" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_ResetEdgeCount</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1217,7 +1218,7 @@ Service for resets the value of the counted edges to zero.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-enableedgecount">
-<h3><span class="section-number">5.13.5.11. </span>function Icu_EnableEdgeCount<a class="headerlink" href="#function-icu-enableedgecount" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.11. </span>function Icu_EnableEdgeCount<a class="headerlink" href="#function-icu-enableedgecount" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_EnableEdgeCount</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1241,7 +1242,7 @@ Service enabling the counting of edges of a given channel.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-disableedgecount">
-<h3><span class="section-number">5.13.5.12. </span>function Icu_DisableEdgeCount<a class="headerlink" href="#function-icu-disableedgecount" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.12. </span>function Icu_DisableEdgeCount<a class="headerlink" href="#function-icu-disableedgecount" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_DisableEdgeCount</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1265,7 +1266,7 @@ Service for disabling the couting of edges of the given channel.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-getedgenumbers">
-<h3><span class="section-number">5.13.5.13. </span>function Icu_GetEdgeNumbers<a class="headerlink" href="#function-icu-getedgenumbers" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.13. </span>function Icu_GetEdgeNumbers<a class="headerlink" href="#function-icu-getedgenumbers" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Icu_EdgeNumberType</span><span class="w"> </span><span class="n">Icu_GetEdgeNumbers</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1289,7 +1290,7 @@ Service for reading the number of counted edges.</p>
 <p><strong>Return</strong>: Icu_EdgeNumberType</p>
 </section>
 <section id="function-icu-enableedgedetection">
-<h3><span class="section-number">5.13.5.14. </span>function Icu_EnableEdgeDetection<a class="headerlink" href="#function-icu-enableedgedetection" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.14. </span>function Icu_EnableEdgeDetection<a class="headerlink" href="#function-icu-enableedgedetection" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_EnableEdgeDetection</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1313,7 +1314,7 @@ Service for enabling/re-enabling the detection of edges of the given channel.</p
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-disableedgedetection">
-<h3><span class="section-number">5.13.5.15. </span>function Icu_DisableEdgeDetection<a class="headerlink" href="#function-icu-disableedgedetection" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.15. </span>function Icu_DisableEdgeDetection<a class="headerlink" href="#function-icu-disableedgedetection" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_DisableEdgeDetection</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1337,7 +1338,7 @@ Service for disabling the detection of edges of the given channel.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-startsignalmeasurement">
-<h3><span class="section-number">5.13.5.16. </span>function Icu_StartSignalMeasurement<a class="headerlink" href="#function-icu-startsignalmeasurement" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.16. </span>function Icu_StartSignalMeasurement<a class="headerlink" href="#function-icu-startsignalmeasurement" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_StartSignalMeasurement</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1361,7 +1362,7 @@ Service for starting the measurement of signals.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-stopsignalmeasurement">
-<h3><span class="section-number">5.13.5.17. </span>function Icu_StopSignalMeasurement<a class="headerlink" href="#function-icu-stopsignalmeasurement" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.17. </span>function Icu_StopSignalMeasurement<a class="headerlink" href="#function-icu-stopsignalmeasurement" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_StopSignalMeasurement</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1385,7 +1386,7 @@ Service for stopping the measurement of signals.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-gettimeelapsed">
-<h3><span class="section-number">5.13.5.18. </span>function Icu_GetTimeElapsed<a class="headerlink" href="#function-icu-gettimeelapsed" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.18. </span>function Icu_GetTimeElapsed<a class="headerlink" href="#function-icu-gettimeelapsed" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Icu_ValueType</span><span class="w"> </span><span class="n">Icu_GetTimeElapsed</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1409,7 +1410,7 @@ Service for reading the elasped time for the given channel.</p>
 <p><strong>Return</strong>: Icu_ValueType</p>
 </section>
 <section id="function-icu-getdutycyclevalues">
-<h3><span class="section-number">5.13.5.19. </span>function Icu_GetDutyCycleValues<a class="headerlink" href="#function-icu-getdutycyclevalues" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.19. </span>function Icu_GetDutyCycleValues<a class="headerlink" href="#function-icu-getdutycyclevalues" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_GetDutyCycleValues</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span><span class="p">,</span>
 <span class="w">    </span><span class="n">Icu_DutyCycleType</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">DutyCycleValues</span>
@@ -1435,7 +1436,7 @@ Service for reading the coherent active time and period time of given channel.</
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-checkwakeup">
-<h3><span class="section-number">5.13.5.20. </span>function Icu_CheckWakeup<a class="headerlink" href="#function-icu-checkwakeup" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.20. </span>function Icu_CheckWakeup<a class="headerlink" href="#function-icu-checkwakeup" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_CheckWakeup</span><span class="p">(</span>
 <span class="w">    </span><span class="n">EcuM_WakeupSourceType</span><span class="w"> </span><span class="n">WakeupSource</span>
 <span class="p">)</span>
@@ -1458,7 +1459,7 @@ This function checks if a wakeup capable ICU channel is the source for a wakeup 
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-disablewakeup">
-<h3><span class="section-number">5.13.5.21. </span>function Icu_DisableWakeup<a class="headerlink" href="#function-icu-disablewakeup" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.21. </span>function Icu_DisableWakeup<a class="headerlink" href="#function-icu-disablewakeup" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_DisableWakeup</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1481,7 +1482,7 @@ This function disables the wakeup capability of a single ICU channel.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-enablewakeup">
-<h3><span class="section-number">5.13.5.22. </span>function Icu_EnableWakeup<a class="headerlink" href="#function-icu-enablewakeup" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.22. </span>function Icu_EnableWakeup<a class="headerlink" href="#function-icu-enablewakeup" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_EnableWakeup</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span>
 <span class="p">)</span>
@@ -1504,7 +1505,7 @@ This function (re-)enables the wakeup capability of the given ICU channel.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-setmode">
-<h3><span class="section-number">5.13.5.23. </span>function Icu_SetMode<a class="headerlink" href="#function-icu-setmode" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.23. </span>function Icu_SetMode<a class="headerlink" href="#function-icu-setmode" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Icu_SetMode</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ModeType</span><span class="w"> </span><span class="n">Mode</span>
 <span class="p">)</span>
@@ -1527,7 +1528,7 @@ This function sets the ICU mode.</p>
 <p><strong>Return</strong>: None</p>
 </section>
 <section id="function-icu-registerreadback">
-<h3><span class="section-number">5.13.5.24. </span>function Icu_RegisterReadback<a class="headerlink" href="#function-icu-registerreadback" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.13.5.24. </span>function Icu_RegisterReadback<a class="headerlink" href="#function-icu-registerreadback" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span><span class="w"> </span><span class="n">Icu_RegisterReadback</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Icu_ChannelType</span><span class="w"> </span><span class="n">Channel</span><span class="p">,</span>
 <span class="w">    </span><span class="n">Icu_RegisterReadbackType</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">RegRbPtr</span>
@@ -1561,8 +1562,8 @@ This function reads the important registers of the hardware unit and returns the
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="group___g_p_t.html" class="btn btn-neutral float-left" title="5.12. GPT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="group___l_i_n.html" class="btn btn-neutral float-right" title="5.14. LIN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="group___g_p_t.html" class="btn btn-neutral float-left" title="6.12. GPT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="group___l_i_n.html" class="btn btn-neutral float-right" title="6.14. LIN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
