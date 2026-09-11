@@ -101,6 +101,7 @@ DWWD Window size.
 | WDG_API_GET_VERSION_INFO   | Wdg_GetVersionInfo()  |
 | WDG_API_TRIGGER   | Wdg_Trigger()  |
 | WDG_API_REGISTER_READBACK   | Wdg_RegisterReadback()  |
+| WDG_CFG_DEM_ENABLE   | WDG DEM Enable - STD_ON if any DEM event is configured.  |
 
 ## Functions
 
