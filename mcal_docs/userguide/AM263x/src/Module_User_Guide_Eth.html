@@ -332,6 +332,7 @@ configurations for</p>
 <li><p>Half-duplex mode supported in 10/100 Mbps modes only</p></li>
 </ol>
 </li>
+<li><p>Eight priority level Quality Of Service (QOS) support (802.1p)</p></li>
 </ul>
 </section>
 <section id="autosar-supported-features">
@@ -382,7 +383,6 @@ configurations for</p>
 <section id="supported-in-hardware-but-not-supported-by-software">
 <h4><span class="section-number">4.12.4.3.2. </span>Supported in Hardware but not supported by Software<a class="headerlink" href="#supported-in-hardware-but-not-supported-by-software" title="Link to this heading"></a></h4>
 <ul class="simple">
-<li><p>Eight priority level Quality Of Service (QOS) support (802.1p)</p></li>
 <li><p>Support for Audio/Video Bridging (P802.1Qav/D6.0)</p></li>
 <li><p>DSCP Priority Mapping (IPv4 and IPv6)</p></li>
 <li><p>Energy Efficient Ethernet (EEE) support (802.3az)</p></li>
@@ -4174,8 +4174,8 @@ If Wireshark and Packet builder softwares using:</p>
 <section id="example-logs">
 <h4><span class="section-number">4.12.10.3.3. </span>Example Logs<a class="headerlink" href="#example-logs" title="Link to this heading"></a></h4>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span>
-<span class="w">    </span><span class="nl">ETH_APP</span><span class="p">:</span><span class="w"> </span><span class="n">Sample</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">STARTS</span><span class="w"> </span><span class="o">!!!</span><span class="w"> </span>
-<span class="w">                                        </span>
+<span class="w">    </span><span class="nl">ETH_APP</span><span class="p">:</span><span class="w"> </span><span class="n">Sample</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">STARTS</span><span class="w"> </span><span class="o">!!!</span>
+
 <span class="w">    </span><span class="n">ETH</span><span class="w"> </span><span class="n">MCAL</span><span class="w"> </span><span class="n">Version</span><span class="w"> </span><span class="n">Info</span>
 <span class="w">    </span><span class="o">---------------------</span>
 <span class="w">    </span><span class="n">Vendor</span><span class="w"> </span><span class="n">ID</span><span class="w">           </span><span class="o">:</span><span class="w"> </span><span class="mi">44</span>
@@ -4183,8 +4183,8 @@ If Wireshark and Packet builder softwares using:</p>
 <span class="w">    </span><span class="n">SW</span><span class="w"> </span><span class="n">Major</span><span class="w"> </span><span class="n">Version</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="mi">9</span>
 <span class="w">    </span><span class="n">SW</span><span class="w"> </span><span class="n">Minor</span><span class="w"> </span><span class="n">Version</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="n">SW</span><span class="w"> </span><span class="n">Patch</span><span class="w"> </span><span class="n">Version</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">                        </span>
-<span class="w">                        </span>
+
+
 <span class="w">    </span><span class="n">ETH</span><span class="w"> </span><span class="n">TRCV</span><span class="w"> </span><span class="n">MCAL</span><span class="w"> </span><span class="n">Version</span><span class="w"> </span><span class="n">Info</span>
 <span class="w">    </span><span class="o">---------------------</span>
 <span class="w">    </span><span class="n">Vendor</span><span class="w"> </span><span class="n">ID</span><span class="w">           </span><span class="o">:</span><span class="w"> </span><span class="mi">44</span>
@@ -4192,7 +4192,7 @@ If Wireshark and Packet builder softwares using:</p>
 <span class="w">    </span><span class="n">SW</span><span class="w"> </span><span class="n">Major</span><span class="w"> </span><span class="n">Version</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="mi">9</span>
 <span class="w">    </span><span class="n">SW</span><span class="w"> </span><span class="n">Minor</span><span class="w"> </span><span class="n">Version</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="n">SW</span><span class="w"> </span><span class="n">Patch</span><span class="w"> </span><span class="n">Version</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">                        </span>
+
 <span class="w">    </span><span class="nl">ETH_APP</span><span class="p">:</span><span class="w"> </span><span class="n">EthTrcv</span><span class="w"> </span><span class="n">Controller</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ETHTRCV_MODE_ACTIVE</span>
 <span class="w">    </span><span class="nl">ETH_APP</span><span class="p">:</span><span class="n">ETHTRCV</span><span class="w"> </span><span class="n">Link</span><span class="w"> </span><span class="n">up</span>
 <span class="w">    </span><span class="nl">ETH_APP</span><span class="p">:</span><span class="n">ETHTRCV</span><span class="w"> </span><span class="n">baud</span><span class="w"> </span><span class="n">rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="n">Mbps</span>
@@ -4224,7 +4224,7 @@ If Wireshark and Packet builder softwares using:</p>
 <span class="w">    </span><span class="n">Removing</span><span class="w"> </span><span class="n">MAC</span><span class="w"> </span><span class="n">Address</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">filter</span><span class="o">:</span>
 <span class="w">    </span><span class="mi">0</span><span class="n">a</span><span class="o">:</span><span class="mi">0</span><span class="n">b</span><span class="o">:</span><span class="mi">0</span><span class="n">c</span><span class="o">:</span><span class="mi">0</span><span class="n">d</span><span class="o">:</span><span class="mi">0</span><span class="n">e</span><span class="o">:</span><span class="mf">0f</span>
 
-<span class="w">    </span><span class="n">Multicast</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">test</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Multicast</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">test</span>
 
 <span class="w">    </span><span class="n">Adding</span><span class="w"> </span><span class="n">multicast</span><span class="w"> </span><span class="n">MAC</span><span class="w"> </span><span class="n">Address</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">filter</span><span class="o">:</span>
 <span class="w">    </span><span class="mo">01</span><span class="o">:</span><span class="mo">00</span><span class="o">:</span><span class="mi">5</span><span class="n">e</span><span class="o">:</span><span class="mi">0</span><span class="n">d</span><span class="o">:</span><span class="mi">0</span><span class="n">e</span><span class="o">:</span><span class="mf">0f</span>
@@ -4245,11 +4245,11 @@ If Wireshark and Packet builder softwares using:</p>
 
 <span class="w">    </span><span class="n">ALE</span><span class="w"> </span><span class="n">Bypass</span><span class="w"> </span><span class="n">Transmit</span><span class="w"> </span><span class="n">Test</span>
 
-<span class="w">    </span><span class="n">Transmitting</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Transmitting</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="n">packets</span>
 <span class="w">    </span><span class="n">Expect</span><span class="w"> </span><span class="n">PC</span><span class="w"> </span><span class="n">Wireshark</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">receive</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="n">packets</span><span class="p">..</span>
-<span class="w">    </span><span class="n">Max</span><span class="w"> </span><span class="n">Tx</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="n">Size</span><span class="w"> </span><span class="n">Test</span><span class="w"> </span><span class="n">passed</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Max</span><span class="w"> </span><span class="n">Tx</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="n">Size</span><span class="w"> </span><span class="n">Test</span><span class="w"> </span><span class="n">passed</span>
 
-<span class="w">    </span><span class="n">Disabling</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">bypass</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">adding</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">back</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Disabling</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">bypass</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">adding</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">back</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">filter</span>
 
 <span class="w">    </span><span class="n">Waiting</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">receive</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">PC</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="n">player</span><span class="p">..</span>
 
@@ -4273,7 +4273,7 @@ If Wireshark and Packet builder softwares using:</p>
 <span class="w">        </span><span class="nl">Curr_Time</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.</span><span class="w">  </span><span class="mf">16.</span><span class="w"> </span><span class="mi">220749824</span><span class="p">]</span><span class="w"> </span><span class="n">TimeSync_Diff</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.</span><span class="w">   </span><span class="mf">0.</span><span class="w"> </span><span class="mi">468190208</span><span class="p">](</span><span class="mi">32</span><span class="n">K</span><span class="w"> </span><span class="n">Cntr</span><span class="w"> </span><span class="n">Diff</span><span class="w"> </span><span class="mi">2872</span><span class="p">)</span>
 
 
-<span class="w">    </span><span class="n">Time</span><span class="w"> </span><span class="n">Sync</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="n">Egress</span><span class="w"> </span><span class="n">Test</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Time</span><span class="w"> </span><span class="n">Sync</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="n">Egress</span><span class="w"> </span><span class="n">Test</span>
 <span class="w">    </span><span class="o">--------------------------------</span>
 <span class="w">        </span><span class="n">Packet</span><span class="w"> </span><span class="n">Egress</span><span class="w"> </span><span class="n">TS</span><span class="o">:</span><span class="p">[</span><span class="w"> </span><span class="mf">0.</span><span class="w">  </span><span class="mf">16.</span><span class="w"> </span><span class="mi">288872448</span><span class="p">][</span><span class="w">  </span><span class="n">ETH_VALID</span><span class="p">]</span>
 <span class="w">        </span><span class="n">Packet</span><span class="w"> </span><span class="n">Egress</span><span class="w"> </span><span class="n">TS</span><span class="o">:</span><span class="p">[</span><span class="w"> </span><span class="mf">0.</span><span class="w">  </span><span class="mf">16.</span><span class="w"> </span><span class="mi">338898944</span><span class="p">][</span><span class="w">  </span><span class="n">ETH_VALID</span><span class="p">]</span>
@@ -4476,9 +4476,9 @@ If Wireshark and Packet builder softwares using:</p>
 <span class="w">        </span><span class="n">Packet</span><span class="w"> </span><span class="n">Egress</span><span class="w"> </span><span class="n">TS</span><span class="o">:</span><span class="p">[</span><span class="w"> </span><span class="mf">0.</span><span class="w">   </span><span class="mf">4.</span><span class="w"> </span><span class="mi">718106624</span><span class="p">][</span><span class="w">  </span><span class="n">ETH_VALID</span><span class="p">]</span>
 <span class="w">        </span><span class="n">Packet</span><span class="w"> </span><span class="n">Egress</span><span class="w"> </span><span class="n">TS</span><span class="o">:</span><span class="p">[</span><span class="w"> </span><span class="mf">0.</span><span class="w">   </span><span class="mf">4.</span><span class="w"> </span><span class="mi">768131072</span><span class="p">][</span><span class="w">  </span><span class="n">ETH_VALID</span><span class="p">]</span>
 
-<span class="w">    </span><span class="n">Time</span><span class="w"> </span><span class="n">Sync</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="n">Ingress</span><span class="w"> </span><span class="n">Test</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Time</span><span class="w"> </span><span class="n">Sync</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="n">Ingress</span><span class="w"> </span><span class="n">Test</span>
 <span class="w">    </span><span class="o">---------------------------------</span>
-<span class="w">    </span><span class="n">Send</span><span class="w"> </span><span class="n">timestamp</span><span class="w"> </span><span class="p">(</span><span class="mh">0x88F7</span><span class="p">)</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">PC</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Send</span><span class="w"> </span><span class="n">timestamp</span><span class="w"> </span><span class="p">(</span><span class="mh">0x88F7</span><span class="p">)</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">PC</span>
 
 <span class="w">        </span><span class="n">Packet</span><span class="w"> </span><span class="n">Ingress</span><span class="w"> </span><span class="n">MessagType</span><span class="o">-</span><span class="w">                  </span><span class="n">CPTS_MESSAGE_SYNC</span><span class="p">,</span><span class="w"> </span><span class="n">SeqID</span><span class="o">-</span><span class="w"> </span><span class="mi">7711</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.</span><span class="w">  </span><span class="mf">14.</span><span class="w"> </span><span class="mi">8004</span><span class="w"> </span><span class="p">[</span><span class="w">  </span><span class="n">ETH_VALID</span><span class="p">]</span>
 <span class="w">        </span><span class="n">Packet</span><span class="w"> </span><span class="n">Ingress</span><span class="w"> </span><span class="n">MessagType</span><span class="o">-</span><span class="w">                  </span><span class="n">CPTS_MESSAGE_SYNC</span><span class="p">,</span><span class="w"> </span><span class="n">SeqID</span><span class="o">-</span><span class="w"> </span><span class="mi">7711</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.</span><span class="w">  </span><span class="mf">14.</span><span class="w"> </span><span class="mi">8504</span><span class="w"> </span><span class="p">[</span><span class="w">  </span><span class="n">ETH_VALID</span><span class="p">]</span>
@@ -4582,7 +4582,7 @@ If Wireshark and Packet builder softwares using:</p>
 <span class="w">        </span><span class="n">Packet</span><span class="w"> </span><span class="n">Ingress</span><span class="w"> </span><span class="n">MessagType</span><span class="o">-</span><span class="w">                  </span><span class="n">CPTS_MESSAGE_SYNC</span><span class="p">,</span><span class="w"> </span><span class="n">SeqID</span><span class="o">-</span><span class="w"> </span><span class="mi">7711</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.</span><span class="w">  </span><span class="mf">19.</span><span class="w"> </span><span class="mi">7504</span><span class="w"> </span><span class="p">[</span><span class="w">  </span><span class="n">ETH_VALID</span><span class="p">]</span>
 <span class="w">    </span><span class="o">----------------------------</span>
 
-<span class="w">    </span><span class="n">Time</span><span class="w"> </span><span class="n">Stamping</span><span class="w"> </span><span class="n">Test</span><span class="w"> </span><span class="n">Completed</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Time</span><span class="w"> </span><span class="n">Stamping</span><span class="w"> </span><span class="n">Test</span><span class="w"> </span><span class="n">Completed</span>
 
 <span class="w">    </span><span class="o">----------------------------</span>
 
@@ -4593,7 +4593,7 @@ If Wireshark and Packet builder softwares using:</p>
 <span class="w">    </span><span class="n">Waiting</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">receive</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">CANoe</span><span class="o">/</span><span class="n">PC</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="n">player</span>
 
 <span class="w">    </span><span class="n">Receive</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="n">statistics</span><span class="o">:</span>
-<span class="w">    </span><span class="n">EXPECTEDETHERTYPE_IPV4</span><span class="w"> </span><span class="p">(</span><span class="mh">0x800</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">54000</span><span class="w"> </span>
+<span class="w">    </span><span class="n">EXPECTEDETHERTYPE_IPV4</span><span class="w"> </span><span class="p">(</span><span class="mh">0x800</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">54000</span>
 <span class="w">    </span><span class="n">EXPECTEDETHERTYPE_VLAN</span><span class="w"> </span><span class="p">(</span><span class="mh">0x8100</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="n">UNEXPECTEDETHERTYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 
@@ -4601,11 +4601,11 @@ If Wireshark and Packet builder softwares using:</p>
 <span class="w">    </span><span class="o">***********</span><span class="n">ETH</span><span class="w"> </span><span class="n">TRANSMIT</span><span class="w"> </span><span class="n">TEST</span><span class="o">*******************</span>
 <span class="w">    </span><span class="o">-----------------------------------------------</span>
 
-<span class="w">    </span><span class="n">Transmitting</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="n">packets</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Transmitting</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="n">packets</span><span class="p">,</span>
 <span class="w">    </span><span class="n">Expect</span><span class="w"> </span><span class="n">CANoe</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">PC</span><span class="w"> </span><span class="n">Wireshark</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">receive</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="n">packets</span><span class="p">..</span>
 <span class="w">    </span><span class="nl">Stats</span><span class="p">:</span><span class="w"> </span><span class="n">Sent</span><span class="o">=</span><span class="mi">50000</span><span class="p">,</span>
 
-<span class="w">    </span><span class="n">Transmitted</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Transmitted</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="n">packets</span>
 <span class="w">    </span><span class="o">----------------------------</span>
 <span class="w">    </span><span class="n">Controller</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">Counters</span>
 <span class="w">    </span><span class="o">----------------------------</span>
@@ -4637,13 +4637,13 @@ If Wireshark and Packet builder softwares using:</p>
 <span class="w">    </span><span class="n">Rx</span><span class="w"> </span><span class="n">Jabbers</span><span class="w">           </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="n">Rx</span><span class="w"> </span><span class="n">Unicast</span><span class="w"> </span><span class="n">Packets</span><span class="w">            </span><span class="o">:</span><span class="w"> </span><span class="mi">52100</span>
 <span class="w">    </span><span class="o">----------------------------</span>
-<span class="w">    </span><span class="n">Controller</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">Tx</span><span class="w"> </span><span class="n">Statistics</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Controller</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">Tx</span><span class="w"> </span><span class="n">Statistics</span>
 <span class="w">    </span><span class="o">----------------------------</span>
 <span class="w">    </span><span class="n">Tx</span><span class="w"> </span><span class="n">Num</span><span class="w"> </span><span class="n">octets</span><span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="mi">151817800</span>
 <span class="w">    </span><span class="n">Tx</span><span class="w"> </span><span class="n">No</span><span class="w"> </span><span class="n">Unicast</span><span class="w"> </span><span class="n">Packets</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="mi">100200</span>
 <span class="w">    </span><span class="n">Tx</span><span class="w"> </span><span class="n">Unicast</span><span class="w"> </span><span class="n">Packets</span><span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="o">--------------------------------</span>
-<span class="w">    </span><span class="n">Controller</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">Tx</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="n">Counters</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Controller</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">Tx</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="n">Counters</span>
 <span class="w">    </span><span class="o">--------------------------------</span>
 <span class="w">    </span><span class="n">Tx</span><span class="w"> </span><span class="n">Deferred</span><span class="w"> </span><span class="n">transm</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="n">Tx</span><span class="w"> </span><span class="n">Single</span><span class="w"> </span><span class="n">collisions</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
@@ -4651,7 +4651,7 @@ If Wireshark and Packet builder softwares using:</p>
 <span class="w">    </span><span class="n">Tx</span><span class="w"> </span><span class="n">Late</span><span class="w"> </span><span class="n">collisions</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="n">Tx</span><span class="w"> </span><span class="n">Excessive</span><span class="w"> </span><span class="n">collisions</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 
-<span class="w">    </span><span class="n">ETH</span><span class="w"> </span><span class="n">Test</span><span class="w"> </span><span class="n">Passed</span><span class="o">!!!</span><span class="w">   </span>
+<span class="w">    </span><span class="n">ETH</span><span class="w"> </span><span class="n">Test</span><span class="w"> </span><span class="n">Passed</span><span class="o">!!!</span>
 
 </pre></div>
 </div>
@@ -4738,7 +4738,7 @@ If Wireshark and Packet builder softwares using:</p>
 <span class="w">    </span><span class="n">MAC</span><span class="w"> </span><span class="n">Port</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">Address</span><span class="o">:</span>
 
 <span class="w">    </span><span class="nl">aa</span><span class="p">:</span><span class="n">bb</span><span class="o">:</span><span class="n">cc</span><span class="o">:</span><span class="n">dd</span><span class="o">:</span><span class="n">ee</span><span class="o">:</span><span class="n">ff</span>
-<span class="w">    </span>
+
 <span class="w">    </span><span class="n">ETH</span><span class="w"> </span><span class="n">MCAL</span><span class="w"> </span><span class="n">Version</span><span class="w"> </span><span class="n">Info</span>
 <span class="w">    </span><span class="o">---------------------</span>
 <span class="w">    </span><span class="n">Vendor</span><span class="w"> </span><span class="n">ID</span><span class="w">           </span><span class="o">:</span><span class="w"> </span><span class="mi">44</span>
@@ -4746,8 +4746,8 @@ If Wireshark and Packet builder softwares using:</p>
 <span class="w">    </span><span class="n">SW</span><span class="w"> </span><span class="n">Major</span><span class="w"> </span><span class="n">Version</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="mi">10</span>
 <span class="w">    </span><span class="n">SW</span><span class="w"> </span><span class="n">Minor</span><span class="w"> </span><span class="n">Version</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="n">SW</span><span class="w"> </span><span class="n">Patch</span><span class="w"> </span><span class="n">Version</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">                            </span>
-<span class="w">                            </span>
+
+
 <span class="w">    </span><span class="n">ETH</span><span class="w"> </span><span class="n">TRCV</span><span class="w"> </span><span class="n">MCAL</span><span class="w"> </span><span class="n">Version</span><span class="w"> </span><span class="n">Info</span>
 <span class="w">    </span><span class="o">---------------------</span>
 <span class="w">    </span><span class="n">Vendor</span><span class="w"> </span><span class="n">ID</span><span class="w">           </span><span class="o">:</span><span class="w"> </span><span class="mi">44</span>
@@ -4755,7 +4755,7 @@ If Wireshark and Packet builder softwares using:</p>
 <span class="w">    </span><span class="n">SW</span><span class="w"> </span><span class="n">Major</span><span class="w"> </span><span class="n">Version</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="mi">10</span>
 <span class="w">    </span><span class="n">SW</span><span class="w"> </span><span class="n">Minor</span><span class="w"> </span><span class="n">Version</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="n">SW</span><span class="w"> </span><span class="n">Patch</span><span class="w"> </span><span class="n">Version</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">                            </span>
+
 <span class="w">                            </span><span class="n">Waiting</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Host</span><span class="p">..</span>
 <span class="w">    </span><span class="n">No</span><span class="w"> </span><span class="n">Response</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">Host</span><span class="p">,</span><span class="w"> </span><span class="n">remaining</span><span class="w"> </span><span class="n">retry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
 <span class="w">    </span><span class="n">Host</span><span class="w"> </span><span class="n">App</span><span class="w"> </span><span class="n">detected</span><span class="o">!</span><span class="w"> </span><span class="n">Sending</span><span class="w"> </span><span class="n">Read</span><span class="w"> </span><span class="n">ACK</span><span class="w"> </span><span class="n">CMD</span><span class="p">...</span>
@@ -5084,13 +5084,13 @@ If Wireshark and Packet builder softwares using:</p>
 <span class="w">    </span><span class="n">Rx</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">1518</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">Packets</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">-1</span>
 <span class="w">    </span><span class="n">Rx</span><span class="w"> </span><span class="n">Unicast</span><span class="w"> </span><span class="n">Packets</span><span class="w">            </span><span class="o">:</span><span class="w"> </span><span class="mi">1051000</span>
 <span class="w">    </span><span class="o">----------------------------</span>
-<span class="w">    </span><span class="n">Controller</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">Tx</span><span class="w"> </span><span class="n">Statistics</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Controller</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">Tx</span><span class="w"> </span><span class="n">Statistics</span>
 <span class="w">    </span><span class="o">----------------------------</span>
 <span class="w">    </span><span class="n">Tx</span><span class="w"> </span><span class="n">Num</span><span class="w"> </span><span class="n">octets</span><span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="mi">387075068</span>
 <span class="w">    </span><span class="n">Tx</span><span class="w"> </span><span class="n">No</span><span class="w"> </span><span class="n">Unicast</span><span class="w"> </span><span class="n">Packets</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="mi">753102</span>
 <span class="w">    </span><span class="n">Tx</span><span class="w"> </span><span class="n">Unicast</span><span class="w"> </span><span class="n">Packets</span><span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="o">--------------------------------</span>
-<span class="w">    </span><span class="n">Controller</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">Tx</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="n">Counters</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Controller</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">Tx</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="n">Counters</span>
 <span class="w">    </span><span class="o">--------------------------------</span>
 <span class="w">    </span><span class="n">Tx</span><span class="w"> </span><span class="n">Deferred</span><span class="w"> </span><span class="n">transm</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="n">Tx</span><span class="w"> </span><span class="n">Single</span><span class="w"> </span><span class="n">collisions</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
